@@ -12,7 +12,7 @@ import { Button } from "@mui/material";
 import InputField from "app/components/customField/inputField";
 import SelectField from "app/components/customField/selectField";
 import DatePickerField from "app/components/customField/datePickerField";
-
+import { timeToUnix } from "core/utils/dateUtil";
 import { DEFALT_OPTIONS } from "app/components/customField/selectField/options";
 import { API_ENDPOINT, CODE_SUCCESS, SIGN_UP } from "app/const/Api";
 import { KEY_TOKEN } from "app/const/App";
@@ -39,7 +39,7 @@ function Register() {
   const handleRegister = async (data) => {
     setLoading(true);
 
-    delete data["rePassword"];
+    // delete data["rePassword"];
 
     await axios({
       method: "POST",
@@ -50,25 +50,35 @@ function Register() {
         if (response.status === CODE_SUCCESS) {
           setLoading(false);
           setStep((prevState) => prevState + 1);
+        } else {
+          setError("Email này đã được đăng ký");
+          setLoading(false);
         }
       })
       .catch((err) => {
         setLoading(false);
-        setError("Email này đã được đăng ký");
         console.log(err);
       });
   };
-
   const initialValues = {
     name: "",
     gender: "nam",
     email: "",
     phone: "",
-    birthDay: Number(new Date()),
+    birthDay: timeToUnix(new Date()),
     password: "",
     rePassword: "",
   };
 
+  // const initialValues = {
+  //   birthDay: 1696266000000,
+  //   email: "ttkien94@gmail.com",
+  //   gender: "nam",
+  //   name: "trinh trung kien",
+  //   password: "Kien@@12",
+  //   phone: "0383204367",
+  //   rePassword: "Kien@@12",
+  // };
   const validationSchema = Yup.object().shape(YupSchema);
 
   const RenderUI = (step) => {
@@ -125,8 +135,11 @@ function Register() {
                             placeholder="Nhập email"
                             className="w-100 mb-4"
                           />
-
-                          {error && <p className="text-danger mb-4">{error}</p>}
+                          {error && (
+                            <p className="text-danger mb-4 ml-2 MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-1wc848c-MuiFormHelperText-root mt-n3 ">
+                              {error}
+                            </p>
+                          )}
                         </div>
 
                         <div className="col-12 col-md-6">
@@ -159,6 +172,11 @@ function Register() {
                             placeholder="Nhập ngày sinh"
                             className="w-100 mb-2 mb-md-4"
                           />
+                          {errors.birthDay && (
+                            <p className="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-1wc848c-MuiFormHelperText-root mt-n3">
+                              {errors.birthDay}
+                            </p>
+                          )}
                         </div>
 
                         <div className="col-12">

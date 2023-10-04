@@ -12,7 +12,7 @@ function ConfirmRegister() {
   let { token } = useParams();
 
   const [isLoading, setIsLoading] = useState(false);
-
+  // http://localhost:3000/xac-nhan-dang-ky/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJiaXJ0aERheSI6MTY5NjI2NjAwMDAwMCwiZW1haWwiOiJ0dGtpZW45OTRAZ21haWwuY29tIiwiZ2VuZGVyIjoibmFtIiwibmFtZSI6InRyaW5oIHRydW5nIGtpZW4iLCJwYXNzd29yZCI6IiQyYSQxMCRwb1hVWTVqNElPb1gzTnFXa0FrYVVPSEtUZ1BuMS45N0F6MVQvM1djVFlhWEEzSjZUWndnZSIsInBob25lIjoiMDM4MzIwNDM2NyIsImlhdCI6MTY5NjQwMzI1MiwiZXhwIjoxNjk2NDAzNTUyfQ.OdyI_MfuOEW-_2oPK2GxrW4ODJR-gbYL5JGgNJOant4
   useEffect(() => {
     setIsLoading(true);
 

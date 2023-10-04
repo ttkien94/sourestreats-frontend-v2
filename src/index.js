@@ -18,15 +18,17 @@ import "react-loading-skeleton/dist/skeleton.css";
 
 // Store of Redux
 import store from "core/redux/store/configStore";
+import { StyledEngineProvider } from "@mui/material";
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <I18nextProvider i18n={i18n}>
-        {/* Content website */}
-        <App />
-
-        {/* Toast */}
+        <StyledEngineProvider injectFirst>
+          {/* Content website */}
+          <App />
+          {/* Toast */}
+        </StyledEngineProvider>
         <ToastContainer />
       </I18nextProvider>
     </Provider>

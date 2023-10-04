@@ -2,20 +2,22 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import TextField from "@mui/material/TextField";
-import AdapterDateFns from "@mui/lab/AdapterDateFns";
-import LocalizationProvider from "@mui/lab/LocalizationProvider";
-import DatePicker from "@mui/lab/DatePicker";
-
+// import AdapterDateFns from "@mui/lab/AdapterDateFns";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+// import DatePicker from "@mui/lab/DatePicker";
 import { timeToUnix } from "core/utils/dateUtil";
+// import dayjs from "dayjs";
 
 function DatePickerField(props) {
   const { field, label, placeholder, disabled, className, form } = props;
-
   const handleChangeDate = (value) => {
+    console.log("value:", value);
     const changeEvent = {
       target: {
         name: field.name,
-        value: +timeToUnix(value),
+        value: value && +timeToUnix(value.$d),
       },
     };
 
@@ -25,31 +27,38 @@ function DatePickerField(props) {
   const { name } = field;
   const { errors, touched } = form;
   const showError = errors[name] && touched[name];
-
   return (
-    <LocalizationProvider dateAdapter={AdapterDateFns}>
+    <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DatePicker
-        {...field}
+        // {...field}
+
         label={label}
         disabled={disabled}
         placeholder={placeholder}
         className={className}
         onChange={handleChangeDate}
         error={showError}
-        helperText={errors[name]}
-        format="dd-MMM-yyyy"
+        // helperText={errors[name]}
+        helperText="hello"
         views={["year", "month", "day"]}
         openTo="year"
-        renderInput={(params) => (
-          <TextField
-            {...params}
-            error={showError}
-            helperText={showError && errors[name]}
-            style={{
-              width: "100%",
-            }}
-          />
-        )}
+        inputFormat="dd-MM-yyyy"
+        renderInput={(params) => {
+          return (
+            <TextField
+              {...params}
+              inputProps={{
+                ...params.inputProps,
+              }}
+              placeholder="Nhập ngày sinh"
+              error={showError}
+              helperText={errors}
+              style={{
+                width: "100%",
+              }}
+            />
+          );
+        }}
       />
     </LocalizationProvider>
   );

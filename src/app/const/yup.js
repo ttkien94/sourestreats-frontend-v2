@@ -21,13 +21,12 @@ export const YupSchema = {
     .max(new Date(), "Ngày lớn nhất không được quá hôm nay"),
   gender: Yup.mixed().oneOf(["nam", "nu"], "Vui lòng nhập đúng trường này"),
   password: Yup.string()
-    .required("Vui lòng không để trống")
+    .required("Vui lòng nhập trường này")
     .matches(
       passRegExp,
       "Mật khẩu có ít nhất 8 ký tự, bao gồm chữ thường, số và ít nhất 1 ký tự in hoa, ký tự đặc biệt."
     ),
-  rePassword: Yup.string().oneOf(
-    [Yup.ref("password"), null],
-    "Mật khẩu không khớp"
-  ),
+  rePassword: Yup.string()
+    .required("Vui lòng nhập trường này")
+    .oneOf([Yup.ref("password"), null], "Mật khẩu không khớp"),
 };
