@@ -1,6 +1,7 @@
 const MAIN_PATH = "/chuong-trinh-huan-luyen/online";
 
 export const ONLINE_PATH_CLIENT = {
+  SELFMASTERY: `${MAIN_PATH}/self-mastery`,
   RUNFASTER: `${MAIN_PATH}/run-faster`,
   RFREGISTER: `${MAIN_PATH}/run-faster/register`,
   CCS: `${MAIN_PATH}/ccs`,

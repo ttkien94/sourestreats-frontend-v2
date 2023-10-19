@@ -5,7 +5,8 @@ import { ONLINE_PATH_CLIENT } from "./routes-coursesonline";
 
 // PATH FOR MODULES CLIENT
 export const URL_PATH_CLIENT = {
-  HOME: "/",
+  HOME: "/v1",
+  HOMECLIENTV2: "/",
   LOGIN: "/dang-nhap",
   REGISTER: "/dang-ky",
   ACCOUNT_DETAIL: "/thong-tin-tai-khoan/:screen",
@@ -58,6 +59,11 @@ export const publicRoutes = [
     component: Client.Home,
     exact: true,
     path: URL_PATH_CLIENT.HOME,
+  },
+  {
+    component: Client.HomeClientV2,
+    exact: true,
+    path: URL_PATH_CLIENT.HOMECLIENTV2,
   },
   {
     component: Client.Login,
@@ -173,6 +179,11 @@ export const publicRoutes = [
     component: Client.CourseOfflineITTC,
     exact: true,
     path: OFFLINE_PATH_CLIENT.ITTC,
+  },
+  {
+    component: Client.CourseOnlineSelfMastery,
+    exact: true,
+    path: ONLINE_PATH_CLIENT.SELFMASTERY,
   },
   {
     component: Client.CourseOnlineRUNFASTER,

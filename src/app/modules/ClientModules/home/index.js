@@ -122,7 +122,6 @@ export default function Home() {
   return (
     <div className="home-page">
       <BannerCarousel />
-
       <LazyLoad offset={100}>
         <div className="container services">
           <div className="service-caption py-5 text-center">

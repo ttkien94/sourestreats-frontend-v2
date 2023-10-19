@@ -1,4 +1,5 @@
 import Home from "./home";
+import HomeClientV2 from "./homeClientV2";
 // Auth
 import Login from "./login";
 import AccountDetail from "./accountDetail";
@@ -32,6 +33,7 @@ import CourseOfflinePAR from "./courses/courseOffline/par";
 import CourseOfflineICPC from "./courses/courseOffline/icpc";
 import CourseOfflineITTC from "./courses/courseOffline/ittc";
 // course online
+import CourseOnlineSelfMastery from "./courses/courseOnline/selfMastery";
 import CourseOnlineRUNFASTER from "./courses/courseOnline/runFaster";
 import CourseOnlineRFREGISTER from "./courses/courseOnline/runFaster/register";
 import CourseOnlineCCS from "./courses/courseOnline/ccs";
@@ -60,6 +62,7 @@ import { Education, Performance, Corporation, Coach } from "./cooperate";
 
 const Client = {
   Home,
+  HomeClientV2,
   Login,
   AccountDetail,
   MrVas,
@@ -84,6 +87,7 @@ const Client = {
   CourseOfflinePAR,
   CourseOfflineICPC,
   CourseOfflineITTC,
+  CourseOnlineSelfMastery,
   CourseOnlineRUNFASTER,
   CourseOnlineRFREGISTER,
   CourseOnlineBFW,

@@ -38,16 +38,13 @@ export const loginAction = (data) => {
         if (response.status === CODE_SUCCESS) {
           // Get data của user từ phía client
           const { userLogin, token } = response.data;
-
           // Dispatch action lên redux
           dispatch({
             type: LOGIN_SUCCESS,
             payload: userLogin,
           });
-
           // Lưu accessToken xuống LocalStorage
           localStorage.setItem(KEY_TOKEN, token);
-
           window.location.reload();
         }
       });

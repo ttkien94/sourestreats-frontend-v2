@@ -10,6 +10,7 @@ import LPELoading from "app/components/loading";
 
 import { KEY_TOKEN } from "app/const/App";
 import CallIcon from "assets/images/icon-call-nh.png";
+import "./styles/styles.scss";
 
 export const HomeTemplate = ({ Component, ...restProps }) => {
   const dispatch = useDispatch();
@@ -29,7 +30,7 @@ export const HomeTemplate = ({ Component, ...restProps }) => {
       {...restProps}
       render={(propsRoute) => {
         return (
-          <>
+          <div className="body-dark">
             <Header />
             {loading ? <LPELoading /> : <Component {...propsRoute} />}
             <Footer />
@@ -50,7 +51,7 @@ export const HomeTemplate = ({ Component, ...restProps }) => {
                 </a>
               </div>
             </div>
-          </>
+          </div>
         );
       }}
     />

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link, useHistory, useLocation } from "react-router-dom";
 import { AppBar, Button, Container, Toolbar } from "@mui/material";
 import { makeStyles } from "@mui/styles";
@@ -191,9 +191,9 @@ function LPEHeader() {
   };
 
   return (
-    <Container maxWidth="lg">
-      <AppBar>
-        <Toolbar className="headerContent">
+    <Container>
+      <AppBar className="body-white">
+        <Toolbar className="headerContent container ">
           {/* LOGO */}
           <div
             style={{
@@ -215,7 +215,8 @@ function LPEHeader() {
           </div>
 
           <ul className="header-dropdown">
-            {CONTENT_MENU?.map((ele, index) => {
+            {/*
+              CONTENT_MENU?.map((ele, index) => {
               return (
                 <li key={index}>
                   <Link to={ele.url}>{t(ele.title).toLocaleUpperCase()}</Link>
@@ -223,7 +224,8 @@ function LPEHeader() {
                   {ele.childMenu && renderDropdownChildren(ele.childMenu)}
                 </li>
               );
-            })}
+            })
+          */}
           </ul>
 
           <div className="appLeftLg">
@@ -240,7 +242,7 @@ function LPEHeader() {
 
             {token?.length ? (
               <>
-                {!isEmpty(userInfo) && (
+                {!isEmpty(userInfo) ? (
                   <LPEAvatar
                     name={userInfo?.name}
                     avatar={userInfo?.avatar}
@@ -248,6 +250,15 @@ function LPEHeader() {
                       refLogin.current.handleClick(e);
                     }}
                   />
+                ) : (
+                  <Button
+                    className={classes.btnPopOver}
+                    onClick={() => {
+                      logOut();
+                    }}
+                  >
+                    {t("logout")}
+                  </Button>
                 )}
 
                 <LPEPopover

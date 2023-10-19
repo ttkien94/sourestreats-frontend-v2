@@ -1,0 +1,18 @@
+
+.default-price{
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255/var(--tw-text-opacity));
+    font-weight: 700;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    letter-spacing: -.025em;
+}
+.promo-price{
+    text-decoration-line: line-through;
+    --tw-text-opacity: 1;
+    color: rgb(211 216 232/var(--tw-text-opacity));
+    font-weight: 400;
+    font-size: .875rem;
+    line-height: 1.25rem;
+    margin-left: 0.1rem;
+}

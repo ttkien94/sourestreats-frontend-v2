@@ -1,6 +1,6 @@
 import "./styles/styles.scss";
 
-function Title({ textAlign, title, description }) {
+function TitleHomeClient({ textAlign, title, description }) {
   return (
     <div
       style={{
@@ -14,4 +14,4 @@ function Title({ textAlign, title, description }) {
   );
 }
 
-export default Title;
+export default TitleHomeClient;

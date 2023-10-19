@@ -1,7 +1,80 @@
 // default
+.body-dark{
+  --tw-bg-opacity: 1;
+background-color: rgb(13 18 36/var(--tw-bg-opacity));
+--tw-text-opacity: 1;
+color: rgb(211 216 232/var(--tw-text-opacity));
+}
+.body-white{
+  background-color:  $white-0;
+}
 .flex-alignitem {
   display: flex;
   align-items: center;
+}
+.text-green {
+  --tw-text-opacity: 1;
+  color: rgb(22 248 182/var(--tw-text-opacity));
+}
+.text-sm{
+  font-size: .875rem;
+  line-height: 1.25rem;
+}
+.text-xs {
+  font-size: .75rem;
+  line-height: 1rem;
+}
+.text-center{
+  text-align: center;
+}
+@mixin  button-buy-course {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255);
+  text-decoration-color: #ff4bbe;
+  font-weight: 600;    
+  transition-timing-function: cubic-bezier(0,0,.2,1);    
+  transition-duration: .2s;
+  transition-property: all;    
+  text-decoration-line: none;    
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  border-radius: 9999px;
+}
+.action-buy-course{
+  @include button-buy-course ;
+  background-image: linear-gradient(to right,#f926ae,#8028ee);
+}
+.action-buy-course-blue{
+  @include button-buy-course ;
+  background-image: linear-gradient(to right,#8028ee,#8028ee);
+
+}
+.inline-block{
+  display: inline-block;
+}
+.w-6{
+  width: 1.5rem;
+}
+.item-center {
+  align-items: center;
+}
+.justify-center{
+  justify-content: center;
+}
+.justify-start {
+  justify-content: flex-start;
+}
+.justify-end {
+  justify-content: flex-end;
+}
+.flex{
+  display: flex;
+}
+hr{
+  height: 0;
+  color: inherit;
+  border-top-width: 1px;
+  border-top-color: white;
 }
 .register {
   font-size: 30px;
