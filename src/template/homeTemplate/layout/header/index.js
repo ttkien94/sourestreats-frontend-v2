@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { Link, useHistory, useLocation } from "react-router-dom";
 import { AppBar, Button, Container, Toolbar } from "@mui/material";
 import { makeStyles } from "@mui/styles";
@@ -23,7 +23,7 @@ import SidebarHeader from "./components/sidebar";
 import { logOutAction } from "core/redux/actions/authAction";
 
 // media file
-import logo from "assets/images/source/lifeuni-logo.png";
+import logo from "assets/images/source/lifeuni.png";
 
 import "./styles/styles.scss";
 
