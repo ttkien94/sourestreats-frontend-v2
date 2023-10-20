@@ -23,7 +23,7 @@ import SidebarHeader from "./components/sidebar";
 import { logOutAction } from "core/redux/actions/authAction";
 
 // media file
-import logo from "assets/images/source/lifeuni.png";
+import logo from "assets/images/lifeuni-logo.png";
 
 import "./styles/styles.scss";
 
@@ -209,7 +209,7 @@ function LPEHeader() {
               ></i>
             )}
 
-            <Link to="/">
+            <Link to="/" style={{ width: 100 }}>
               <img src={logo} alt={logo} className="imgLogo" />
             </Link>
           </div>

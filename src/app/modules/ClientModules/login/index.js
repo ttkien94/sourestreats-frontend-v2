@@ -19,6 +19,7 @@ import { loginAction } from "core/redux/actions/authAction";
 import { KEY_TOKEN } from "app/const/App";
 
 import "./styles/styles.scss";
+import { useTranslation } from "react-i18next";
 
 const ButtonSubmit = styled(Button)`
   color: #fff;
@@ -33,6 +34,7 @@ const ButtonSubmit = styled(Button)`
 
 function Login() {
   useSiteTitle("login");
+  const { t } = useTranslation("common");
   const dispatch = useDispatch();
   const { loading, error } = useSelector((state) => state.auth);
   const isLogined = Boolean(localStorage.getItem(KEY_TOKEN));
@@ -59,7 +61,7 @@ function Login() {
       {!isLogined ? (
         <div className="loginContainer">
           <div className="formContainer">
-            <h3 className="text-center pt-3 text-secondary">Đăng nhập</h3>
+            <h3 className="text-center pt-3 text-secondary">{t("login")}</h3>
 
             {error && <p className="text-left text-danger mb-4">{error}</p>}
 
@@ -95,7 +97,7 @@ function Login() {
                         name="password"
                         type="password"
                         component={InputField}
-                        label="Mật khẩu"
+                        label={t("password")}
                         placeholder="Nhập mật khẩu"
                         className="w-100 mb-4"
                         typePassword="icon"

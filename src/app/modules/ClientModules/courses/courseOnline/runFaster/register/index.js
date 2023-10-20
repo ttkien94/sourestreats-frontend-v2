@@ -108,7 +108,7 @@ function RegisterPage() {
               Bạn điền thông tin đăng ký khóa học Run Faster tại đây
             </p>
             <p className="desc-text">
-              LPE sẽ liên hệ với bạn trong thời gian sớm nhất
+              LIFE UNI sẽ liên hệ với bạn trong thời gian sớm nhất
             </p>
 
             <form

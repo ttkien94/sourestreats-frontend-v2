@@ -36,7 +36,7 @@ function Rules() {
       {/* Background Title */}
       <LPEBanner
         bannerImg={banner}
-        headText="Hãy cùng với chúng tôi tìm hiểu thêm về LPE"
+        headText="Hãy cùng với chúng tôi tìm hiểu thêm về LIFE UNI"
         subText="Nội quy và chính sách để phục vụ khách hàng tốt hơn"
       />
 

@@ -31,7 +31,7 @@ function SelfMastery() {
   const topUpSrc = [
     {
       // imgSrc: lpe,
-      // bigText: "Về LPE",
+      // bigText: "Về LIFE UNI",
       // desc: "intro_lpe",
       // linkVideo:
       //   "https://player.vimeo.com/video/876218561?badge=0&amp;autopause=0&amp;quality_selector=1&amp;progress_bar=1&amp;player_id=0&amp;app_id=58479",
@@ -105,7 +105,9 @@ function SelfMastery() {
 
         <div className="col-md-4 co-detail"></div>
       </section>
-      {userInfo.role === "client" && (
+      {(userInfo.role === "sm" ||
+        userInfo.role === "phoenix" ||
+        userInfo.role === "dragon") && (
         <section className="co-detail-video">
           {
             //   topUpSrc.map((v, index) => {

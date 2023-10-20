@@ -26,7 +26,7 @@ SwiperCore.use([Autoplay, Pagination, Navigation]);
 const topUpSrc = [
   {
     imgSrc: lpe,
-    bigText: "Về LPE",
+    bigText: "Về LIFE UNI",
     desc: "intro_lpe",
     linkVideo: "https://www.youtube.com/watch?v=ed3F3lkJCyg",
     linkInfo: "/",

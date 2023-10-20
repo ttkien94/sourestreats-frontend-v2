@@ -48,7 +48,7 @@ function Courses() {
       <LPEBanner
         bannerImg={banner}
         headText="Chương trình huấn luyện"
-        subText="LPE cung cấp rất nhiều chương trình huấn luyện phù hợp với tất cả mọi lứa tuổi, ngành nghề khác nhau."
+        subText="LIFE UNI cung cấp rất nhiều chương trình huấn luyện phù hợp với tất cả mọi lứa tuổi, ngành nghề khác nhau."
       />
 
       <div className="container">

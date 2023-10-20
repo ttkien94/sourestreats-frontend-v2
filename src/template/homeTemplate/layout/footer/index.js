@@ -16,20 +16,19 @@ function LPEFooter() {
         <div className="container">
           <div className="row">
             <div className="col-12 col-md-6 col-lg-4">
-              <h4 className="heading">{t("lpe_company")}</h4>
+              <h4 className="heading">{t("lifeuni_company")}</h4>
 
               <p>
                 <i className="fas fa-location-arrow mr-1"></i>
-                490 Phạm Thái Bường, Khu Mỹ Toàn I, P. Tân Phong, Quận 7, TP.
-                HCM.
+                {t("lifeuni_company_address")}
               </p>
               <p>
                 <i className="fas fa-clock mr-1"></i>
-                {t("lpe_company_timeworking")}
+                {t("lifeuni_company_timeworking")}
               </p>
               <p>
-                <i className="fas fa-phone-alt mr-1"></i>028 7303 9996 - 1900
-                636 034
+                <i className="fas fa-phone-alt mr-1"></i>0906 880 917 - 0901 883
+                917
               </p>
 
               <h2 className="heading2">{t("connect_us")}</h2>

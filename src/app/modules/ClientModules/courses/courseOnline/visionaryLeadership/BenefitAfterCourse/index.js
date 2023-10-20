@@ -8,7 +8,7 @@ function BenefitAfterCourse() {
       id: 1,
       icon: <i className="fal fa-gavel"></i>,
       countUp: 7,
-      text: "Năm thành lập LPE",
+      text: "Năm thành lập LIFE UNI",
     },
     {
       id: 2,

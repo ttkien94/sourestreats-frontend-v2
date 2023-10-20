@@ -146,7 +146,7 @@ function PP() {
         <div className="col-md-6 mt-3 ">
           <h3 className="text-center">Vasanth Gopalance</h3>
           <p className="text-center">
-            <i>Creator + Fournder of LPE & Life Uni </i>
+            <i>Creator + Fournder of Life Uni </i>
           </p>
           <p>
             Chairman của Leading Performance Group tại Singapore, Malaysia,

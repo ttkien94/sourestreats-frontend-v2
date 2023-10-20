@@ -180,7 +180,7 @@ function CourseOffline() {
       <LPEBanner
         bannerImg={banner}
         headText="Khóa học Offline"
-        subText="LPE có các khóa học trực tiếp nhằm cung cấp trải nghiệm học tốt nhất cho học viên."
+        subText="LIFE UNI có các khóa học trực tiếp nhằm cung cấp trải nghiệm học tốt nhất cho học viên."
       />
 
       <div className="container">
