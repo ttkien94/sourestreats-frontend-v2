@@ -221,7 +221,7 @@ function Register() {
             <div className="OTPContainer">
               <div className="formContainerOTP">
                 <div className="formHeading">
-                  <h5>LPE đã gửi một Email xác thực đến cho bạn</h5>
+                  <h5>Soul Retreats đã gửi một Email xác thực đến cho bạn</h5>
                 </div>
 
                 <p className="descText px-4">

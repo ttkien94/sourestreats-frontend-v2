@@ -23,7 +23,7 @@ import SidebarHeader from "./components/sidebar";
 import { logOutAction } from "core/redux/actions/authAction";
 
 // media file
-import logo from "assets/images/source/lpe-nlp-logo.png";
+import logo from "assets/images/source/lifeuni-logo.png";
 
 import "./styles/styles.scss";
 
