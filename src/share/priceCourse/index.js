@@ -6,7 +6,7 @@ function PriceCouse(props) {
   return (
     <div className={`default-price  ${defaultPriceStyle} `}>
       ${defaultPrice}{" "}
-      <span className={`promo-price ${promoPriceStyle}`}>${promoPrice}</span>
+      <span className={`${promoPriceStyle}`}>${promoPrice}</span>
     </div>
   );
 }

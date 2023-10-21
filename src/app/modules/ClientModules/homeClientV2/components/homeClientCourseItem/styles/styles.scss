@@ -1,5 +1,5 @@
+@import "assets/styles/common.scss";
 $color-icon: white;
-$color-text-hover:rgb(22 248 182);
 $bg-btn: #6bc63e;
 
 .home-page-client{
@@ -42,7 +42,7 @@ $bg-btn: #6bc63e;
       margin-bottom: 8px;
       text-align: left;
       &:hover{
-        color:$color-text-hover
+        color:$text-hover
       }
     }
     .total-hour{

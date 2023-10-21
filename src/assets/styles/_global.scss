@@ -66,11 +66,16 @@ color: rgb(211 216 232/var(--tw-text-opacity));
 .action-buy-course{
   @include button-buy-course ;
   background-image: linear-gradient(to right,#f926ae,#8028ee);
+  &:hover{
+    color:rgb(22 248 182)
+  }
 }
 .action-buy-course-blue{
   @include button-buy-course ;
   background-image: linear-gradient(to right,#8028ee,#8028ee);
-
+  &:hover{
+    color:rgb(22 248 182)
+  }
 }
 .inline-block{
   display: inline-block;
