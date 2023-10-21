@@ -34,15 +34,19 @@ function LPEFooter() {
               <h2 className="heading2">{t("connect_us")}</h2>
 
               <a
-                href="https://www.facebook.com/lpe.vn.lifeuni"
+                href="https://www.facebook.com/lifeunivietnam"
                 className="text-white"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <i className="fab fa-facebook-f mr-3"></i>
               </a>
 
               <a
-                href="https://www.youtube.com/channel/UCY5TknGSpHSak7FOjJ5Mrng"
+                href="https://www.youtube.com/@LifeUniVN-lt1ik"
                 className="text-white"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <i className="fab fa-youtube mr-3"></i>
               </a>

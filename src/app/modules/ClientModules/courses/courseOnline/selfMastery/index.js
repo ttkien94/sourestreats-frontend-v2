@@ -163,7 +163,7 @@ function SelfMastery() {
           }
           <div className="video-source row mb-5">
             <iframe
-              src="https://player.vimeo.com/video/876218561?badge=0&amp;autopause=0&amp;quality_selector=1&amp;progress_bar=1&amp;player_id=0&amp;app_id=58479"
+              src="https://player.vimeo.com/video/876600835?badge=0&amp;autopause=0&amp;quality_selector=1&amp;progress_bar=1&amp;player_id=0&amp;app_id=58479"
               frameborder="0"
               allow="autoplay; fullscreen; picture-in-picture"
               className="video-iframe"
