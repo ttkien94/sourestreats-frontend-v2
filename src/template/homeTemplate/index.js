@@ -30,7 +30,7 @@ export const HomeTemplate = ({ Component, ...restProps }) => {
       {...restProps}
       render={(propsRoute) => {
         return (
-          <div className="body-dark">
+          <div>
             <Header />
             {loading ? <LPELoading /> : <Component {...propsRoute} />}
             <Footer />

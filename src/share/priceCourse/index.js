@@ -1,14 +1,24 @@
 import React from "react";
 import "./styles.scss";
-function PriceCouse(props) {
-  const { defaultPrice, promoPrice, defaultPriceStyle, promoPriceStyle } =
-    props;
+function PriceCourse(props) {
+  const {
+    defaultPrice,
+    promoPrice,
+    defaultPriceStyle,
+    promoPriceStyle,
+    timeLimit,
+  } = props;
   return (
-    <div className={`default-price  ${defaultPriceStyle} `}>
-      ${defaultPrice}{" "}
-      <span className={`${promoPriceStyle}`}>${promoPrice}</span>
+    <div className={`promo-price `} style={promoPriceStyle}>
+      ${promoPrice}
+      {timeLimit && `/${timeLimit}`}
+      {defaultPrice && (
+        <span className={` default-price`} style={defaultPriceStyle}>
+          /${defaultPrice}
+        </span>
+      )}
     </div>
   );
 }
 
-export default PriceCouse;
+export default PriceCourse;

@@ -61,7 +61,7 @@ export const publicRoutes = [
     path: URL_PATH_CLIENT.HOME,
   },
   {
-    component: Client.HomeClientV2,
+    component: Client.CourseOnlineSelfMastery,
     exact: true,
     path: URL_PATH_CLIENT.HOMECLIENTV2,
   },

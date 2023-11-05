@@ -1,11 +1,13 @@
 
 @import "assets/styles/common.scss";
 .default-price{
-    --tw-text-opacity: 1;
-    font-weight: 700;
-    font-size: 1.125rem;
-    line-height: 1.75rem;
-    letter-spacing: -.025em;
+    color: #A2A9B6;
+    font-family: Inter;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-decoration-line:line-through;
     span{
         text-decoration-line: line-through;
         --tw-text-opacity: 1;
@@ -14,7 +16,15 @@
         line-height: 1.25rem;
         margin-left: 0.1rem;
     } 
-    &:hover{
-        color:$text-hover
-    }
+    // &:hover{
+    //     color:$text-hover
+    // }
+}
+.promo-price{
+    color: #5F2DED;
+    font-family: Inter;
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
 }

@@ -6,6 +6,7 @@ import {
   REMOVE_AVATAR,
   UPLOAD_AVATAR,
   USERS,
+  USER_SENDFORMCONTACT,
 } from "app/const/Api";
 
 import {
@@ -226,6 +227,37 @@ export const getUsersAction = () => {
         type: FETCH_ALL_USER_FAILED,
         payload: error,
       });
+    }
+  };
+};
+
+export const sendFormContact = (data, setIsLoading) => {
+  console.log("API_ENDPOINT", API_ENDPOINT);
+  return async (dispatch) => {
+    try {
+      await axios({
+        url: API_ENDPOINT + USER_SENDFORMCONTACT,
+        method: "POST",
+        data: data,
+      })
+        .then((res) => {
+          // dispatch({
+          //   type: DELETE_AVATAR,
+          //   avatar: res.data,
+          // });
+
+          showToast("success", "Gửi thông tin thành công !", {
+            timeout: 5000,
+          });
+          setIsLoading(false);
+        })
+        .catch((err) => console.log(err.response.data));
+    } catch (error) {
+      showToast("error", "Gửi thông tin thất bại!", {
+        timeout: 5000,
+      });
+      setIsLoading(false);
+      console.log("error", error);
     }
   };
 };

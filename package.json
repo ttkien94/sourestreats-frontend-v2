@@ -19,6 +19,7 @@
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
+    "@u-wave/react-vimeo": "^0.9.10",
     "axios": "^0.21.1",
     "date-fns": "^2.25.0",
     "dayjs": "^1.11.10",
@@ -37,6 +38,7 @@
     "react-redux": "^7.2.3",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "react-swipeable-views": "^0.14.0",
     "react-toastify": "^8.1.0",
     "redux": "^4.0.5",
     "redux-thunk": "^2.4.0",
@@ -71,6 +73,7 @@
   },
   "devDependencies": {
     "i18next": "^21.4.2",
+    "react-error-overlay": "^6.0.9",
     "react-i18next": "^11.14.0"
   }
 }

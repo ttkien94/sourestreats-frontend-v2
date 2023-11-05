@@ -1,0 +1,49 @@
+.title-course-online{
+    display: flex;
+    justify-content: space-between;
+}
+.title-course-online-tag{
+   display: -webkit-box;
+   -webkit-line-clamp: 1; /* number of lines to show */
+           line-clamp: 1; 
+   -webkit-box-orient: vertical;
+    overflow: hidden;   
+}
+.title-course-online-date{
+    padding-top: 4px;
+}
+
+.title-course-online-name{
+    h3{
+        color: #0A2C3D;
+        font-family: Hind;
+        font-size: 36px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+}
+
+.title-course-online-value{
+    display: flex;
+    .student{
+        color: #000;
+        font-family: Inter;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        display: flex;
+        align-items: flex-end;
+    }
+    .student-rate{
+        display: flex;
+        align-items: flex-end;
+        color: #6D6E75;
+        font-family: Inter;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+}
