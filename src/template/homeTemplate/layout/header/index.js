@@ -215,7 +215,7 @@ function LPEHeader() {
           </div>
 
           <ul className="header-dropdown">
-            {/*CONTENT_MENU?.map((ele, index) => {
+            {CONTENT_MENU?.map((ele, index) => {
               return (
                 <li key={index}>
                   <Link to={ele.url}>{t(ele.title).toLocaleUpperCase()}</Link>
@@ -223,7 +223,7 @@ function LPEHeader() {
                   {ele.childMenu && renderDropdownChildren(ele.childMenu)}
                 </li>
               );
-            }) */}
+            })}
           </ul>
 
           <div className="appLeftLg">

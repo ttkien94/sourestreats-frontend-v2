@@ -95,5 +95,9 @@
   "messenger":"Messenger",
   "send_now":"Send Now",
   "enter_field":"Please enter this field",
-  "email_incorrect":"Email incorrect"
+  "enter_info" : "Please enter Info",
+  "email_incorrect":"Email incorrect",
+  "import_data":"Import Data",
+  "fill_form":"Fill Form",
+  "all_data_student": "All Student"
 }

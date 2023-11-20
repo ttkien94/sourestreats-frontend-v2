@@ -1,0 +1,40 @@
+.teacher-course-media{
+    .image-avatar {
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+    }
+    .avatar-name{
+        display: flex;
+        justify-content: center;
+        color: #0A2C3D;
+        text-align: center;
+        font-family: Hind;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+   .avatar-job{
+        color: #5C727D;
+        text-align: center;
+        font-family: Inter;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+    .avatar-description{
+        color: #133344;
+        text-align: center;
+        font-family: Inter;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 26px; /* 185.714% */
+    }
+    .avatar-social{
+        display: flex;
+        justify-content: center ;
+    }
+}

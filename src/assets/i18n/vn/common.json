@@ -92,8 +92,13 @@
   "search":"Tìm Kiếm",
   "search-course":"Tìm sản phẩm",
   "name":"Họ & Tên",
+  "cccd":"Căn Cước Công Dân",
   "messenger": "Lời nhắn",
   "send_now":"Gửi ngay",
   "enter_field":"Vui lòng nhập trường này",
-  "email_incorrect":"Email chưa đúng"
+  "enter_info" : "Vui lòng nhập thông tin",
+  "email_incorrect":"Email chưa đúng",
+  "import_data":"Thêm tệp",
+  "fill_form":"Điền dữ liệu",
+  "all_data_student": "Thông Tin Học viên"
 }

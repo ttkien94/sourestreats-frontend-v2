@@ -33,7 +33,7 @@ import CourseOfflinePAR from "./courses/courseOffline/par";
 import CourseOfflineICPC from "./courses/courseOffline/icpc";
 import CourseOfflineITTC from "./courses/courseOffline/ittc";
 // course online
-import CourseOnlineSelfMastery from "./courses/courseOnline/selfMastery";
+import CourseMediaSelfMastery from "./courses/courseMedia/selfMastery";
 import CourseOnlineRUNFASTER from "./courses/courseOnline/runFaster";
 import CourseOnlineRFREGISTER from "./courses/courseOnline/runFaster/register";
 import CourseOnlineCCS from "./courses/courseOnline/ccs";
@@ -57,6 +57,9 @@ import LifeMap from "./lifeMap";
 import Demo from "./demo";
 
 // Corperate
+
+//Soul retreats
+import ImportDataCheckin from "./importDataCheckin";
 
 import { Education, Performance, Corporation, Coach } from "./cooperate";
 
@@ -87,7 +90,7 @@ const Client = {
   CourseOfflinePAR,
   CourseOfflineICPC,
   CourseOfflineITTC,
-  CourseOnlineSelfMastery,
+  CourseMediaSelfMastery,
   CourseOnlineRUNFASTER,
   CourseOnlineRFREGISTER,
   CourseOnlineBFW,
@@ -107,6 +110,7 @@ const Client = {
   Education,
   Corporation,
   Coach,
+  ImportDataCheckin,
 };
 
 export default Client;

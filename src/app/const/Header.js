@@ -1,7 +1,7 @@
 export const CONTENT_MENU = [
   {
-    title: "home_page",
-    url: "/",
+    title: "import_data",
+    url: "/import-data-checkin",
     // childMenu: [
     //   {
     //     title: "about_vas",
@@ -25,18 +25,18 @@ export const CONTENT_MENU = [
     //   },
     // ],
   },
-  {
-    title: "life_uni_online",
-    url: "/chuong-trinh-huan-luyen",
-  },
-  {
-    title: "coach_vas",
-    url: "/lpe/mr-vas",
-  },
-  {
-    title: "contact",
-    url: "/lien-he",
-  },
+  // {
+  //   title: "life_uni_online",
+  //   url: "/chuong-trinh-huan-luyen",
+  // },
+  // {
+  //   title: "coach_vas",
+  //   url: "/lpe/mr-vas",
+  // },
+  // {
+  //   title: "contact",
+  //   url: "/lien-he",
+  // },
   // {
   //   title: "training_program",
   //   url: "/chuong-trinh-huan-luyen",

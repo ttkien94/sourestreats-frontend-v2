@@ -41,10 +41,15 @@ function ContactForm() {
     dispatch(sendFormContact(data));
   };
 
+  // const initialValues = {
+  //   name: "trung kien",
+  //   email: "ttkien94@gmail.com",
+  //   messenger: "hello 123",
+  // };
   const initialValues = {
-    name: "trung kien",
-    email: "ttkien94@gmail.com",
-    messenger: "hello 123",
+    name: "",
+    email: "",
+    messenger: "",
   };
 
   const validationSchema = Yup.object().shape({

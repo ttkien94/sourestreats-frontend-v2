@@ -1,6 +1,11 @@
 import React from "react";
 import SliderVideo from "share/sliderVideo";
-import TitleCourseOnline from "../components/titleCourseOnline";
+import TitleCourseOnline from "../components/titleCourseMedia";
+import DetailCourseOnline from "../components/detailCourseMedia";
+import TabViewCourseOnline from "../components/tabViewCourseMedia";
+import SearchCourseOnline from "../components/searchCourseMedia";
+import TeacherCourseOnline from "../components/teacherCourseMedia";
+import ContactForm from "share/contactForm";
 // import media file
 import lpe from "assets/images/lpe.jpg";
 import vas from "assets/images/vas.jpg";
@@ -8,15 +13,9 @@ import lhgt from "assets/images/lhgt.jpg";
 import Video from "assets/video-demo.mp4";
 import vasThumbnail from "assets/images/source/thumbnail-vas.jpg";
 import gtThumbnail from "assets/images/source/thumbnail-gt.jpg";
-import DetailCourseOnline from "../components/detailCourseOnline";
-import TabViewCourseOnline from "../components/tabViewCourseOnline";
 import { useSelector } from "react-redux";
-import TeacherCourseOnline from "../components/teacherCourseOnline";
-
 import "./styles/styles.scss";
-import SearchCourseOnline from "../components/searchCourseOnline";
-import ContactForm from "share/contactForm";
-function SeftMastery() {
+function CourseMediaSelfMastery() {
   const { userInfo } = useSelector((state) => state.auth);
   const topUpSrc = [
     {
@@ -102,4 +101,4 @@ function SeftMastery() {
   );
 }
 
-export default SeftMastery;
+export default CourseMediaSelfMastery;

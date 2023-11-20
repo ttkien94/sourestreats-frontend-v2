@@ -1,5 +1,6 @@
 import Client from "app/modules/ClientModules";
 import Admin from "app/modules/AdminModules";
+import { MEDIA_PATH_CLIENT } from "./routes-coursemedia";
 import { OFFLINE_PATH_CLIENT } from "./routes-coursesoffline";
 import { ONLINE_PATH_CLIENT } from "./routes-coursesonline";
 
@@ -30,6 +31,7 @@ export const URL_PATH_CLIENT = {
   EDUCATION: "/hop-tac/dao-tao-the-he-tre",
   COACH: "/hop-tac/tu-van-tri-lieu-ca-nhan",
   DEMO: "/demo",
+  IMPORT_DATA_CHECKIN: "/import-data-checkin",
 };
 
 // PATH FOR MODULES ADMIN
@@ -61,7 +63,7 @@ export const publicRoutes = [
     path: URL_PATH_CLIENT.HOME,
   },
   {
-    component: Client.CourseOnlineSelfMastery,
+    component: Client.CourseMediaSelfMastery,
     exact: true,
     path: URL_PATH_CLIENT.HOMECLIENTV2,
   },
@@ -181,9 +183,9 @@ export const publicRoutes = [
     path: OFFLINE_PATH_CLIENT.ITTC,
   },
   {
-    component: Client.CourseOnlineSelfMastery,
+    component: Client.CourseMediaSelfMastery,
     exact: true,
-    path: ONLINE_PATH_CLIENT.SELFMASTERY,
+    path: MEDIA_PATH_CLIENT.SELFMASTERY,
   },
   {
     component: Client.CourseOnlineRUNFASTER,
@@ -275,6 +277,11 @@ export const publicRoutes = [
     component: Client.Corporation,
     exact: true,
     path: URL_PATH_CLIENT.CORPORATION,
+  },
+  {
+    component: Client.ImportDataCheckin,
+    exact: true,
+    path: URL_PATH_CLIENT.IMPORT_DATA_CHECKIN,
   },
 ];
 

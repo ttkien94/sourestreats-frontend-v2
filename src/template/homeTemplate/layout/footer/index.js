@@ -93,8 +93,8 @@ function LPEFooter() {
             <div className="col-12 col-md-6 col-lg-3 mt-3 mt-lg-0">
               <h4 className="heading">{t("media")}</h4>
               <p>
-                Vui lòng liên hệ với LPE team theo số điện thoại trên, gửi email
-                theo địa chỉ Email: studentcare@lpe.vn.
+                Vui lòng liên hệ với Soul Retreats team theo số điện thoại trên
+                hoặc gửi email theo địa chỉ Email: studentcare@soulretreats.vn
               </p>
               <h4
                 className="heading"
@@ -105,10 +105,8 @@ function LPEFooter() {
                 {t("customer_support")}
               </h4>
               <p>
-                Đối với các thắc mắc về Dịch vụ Khách hàng, bạn có thể TRÒ
-                CHUYỆN TRỰC TIẾP bằng cách hoàn thành biểu mẫu bên dưới. Chúng
-                tôi cố gắng trả lời tất cả các câu hỏi trong vòng 2 ngày làm
-                việc.
+                Đối với các thắc mắc về Dịch vụ Khách hàng. Chúng tôi cố gắng
+                trả lời tất cả các câu hỏi trong vòng 2 ngày làm việc.
               </p>
             </div>
           </div>
@@ -131,7 +129,7 @@ function LPEFooter() {
                   }}
                 ></i>
 
-                <span>2021 LPE Company, No copyright</span>
+                <span>2023 Soul Retreats Company, No copyright</span>
               </div>
             </div>
           </div>
