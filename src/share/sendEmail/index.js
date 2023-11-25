@@ -1,4 +1,4 @@
-import emailjs from "@emailjs/browser";
+// import emailjs from "@emailjs/browser";
 function SendEmail(props) {
   console.log("SendEmail", props);
   props.e.preventDefault();

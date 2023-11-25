@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
+// import useState from "react";
 // import { useTranslation } from "react-i18next";
+// import ModalVideo from "react-modal-video";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Autoplay, Pagination, Navigation } from "swiper";
-import ModalVideo from "react-modal-video";
 import Vimeo from "@u-wave/react-vimeo";
 // import { getIdVideo } from "core/utils/videoLinkUtil";
 
@@ -15,9 +16,9 @@ SwiperCore.use([Autoplay, Pagination, Navigation]);
 
 function SliderVideo(props) {
   const { topUpSrc } = props;
-  const [video, setVideo] = useState("");
+  // const [video, setVideo] = useState("");
 
-  const [isVisible, setIsVisible] = useState(false);
+  // const [isVisible, setIsVisible] = useState(false);
 
   // const handleOpenVideo = (link) => {
   //   setVideo(getIdVideo(link));

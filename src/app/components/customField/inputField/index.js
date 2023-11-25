@@ -18,6 +18,8 @@ function InputField(props) {
     className,
     typePassword,
     form,
+    multiline,
+    row,
   } = props;
 
   const { name } = field;
@@ -39,12 +41,15 @@ function InputField(props) {
       {type === "text" && (
         <TextField
           placeholder={placeholder}
+          id="filled-multiline-static"
           variant="outlined"
           label={label}
           type="text"
           disabled={disabled}
           className={className}
           error={showError}
+          multiline={multiline}
+          row={row}
           helperText={showError && errors[name]}
           autoComplete="off"
           aria-autocomplete="none"

@@ -24,6 +24,12 @@ export const ADMIN_UPDATE = "/users/admin/";
 export const UPLOAD_AVATAR = "/users/upload-avatar";
 export const REMOVE_AVATAR = "/users/delete-avatar";
 
+// STUDENT
+export const API_GET_STUDENT = "/student/";
+export const API_STUDENT_CREATE = "/student/create/";
+export const API_STUDENT_SEARCH = "/student/search/";
+export const API_STUDENT_UPDATE = "/student/update/";
+
 // BLOG
 export const UPLOAD_IMAGE_BLOG = "/blog/upload-image-blog";
 

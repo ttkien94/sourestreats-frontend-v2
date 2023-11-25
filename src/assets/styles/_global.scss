@@ -12,11 +12,15 @@
   display: flex;
   align-items: center;
 }
+.flex-justcenter{
+  display: flex;
+  justify-content: center;
+}
 .box-center{
   border: 1px solid #EDEDED;
   justify-content: center;
   align-items: center;
-  display: flex;
+  display: inline-block;
   background-color: #FFFFFF;
 }
 .space-around{

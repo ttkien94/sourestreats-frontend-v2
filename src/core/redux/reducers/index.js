@@ -4,11 +4,12 @@ import { authReducer } from "./auth";
 import { userReducer } from "./user";
 import { topicReducer } from "./topic";
 import { blogReducer } from "./blog";
-
+import { studentReducer } from "./student";
 export default combineReducers({
   app: appReducer,
   auth: authReducer,
   user: userReducer,
   topic: topicReducer,
   blog: blogReducer,
+  student: studentReducer,
 });

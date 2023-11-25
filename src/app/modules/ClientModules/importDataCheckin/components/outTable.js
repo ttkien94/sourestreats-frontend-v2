@@ -6,7 +6,8 @@ export function OutTable(props) {
   return (
     <div className={props.className}>
       <table className={props.tableClassName}>
-        <tbody>
+        {/**
+    <tbody>
           <tr className={props.tableHeader || ""}>
             {props.withZeroColumn && !props.withoutRowNum && (
               <th className={props.tableHeaderRowClass || ""}></th>
@@ -35,6 +36,40 @@ export function OutTable(props) {
               </td>
             </tr>
           ))}
+        </tbody>
+    */}
+
+        <tbody>
+          {props.data.map((r, i) => {
+            console.log("r:", r[1].cccd, i);
+            return (
+              <tr key={i}>
+                {r.map((item, idx) => {
+                  return (
+                    <td className="tableHeaderRowClass" key={idx}>
+                      {item.STT && item.STT}
+                      {item.cccd && item.cccd}
+                      {item.name && item.name}
+                      {item.email && item.email}
+                      {item.sdt && item.sdt}
+                      {item.gender && item.gender}
+                      {item.birthday && item.birthday}
+                      {item.job && item.job}
+                      {item.course && item.course}
+                      {item.old_student && item.old_student}
+                    </td>
+                  );
+                })}
+                {i === 0 ? (
+                  <td className={props.tableHeaderRowClass}>QR Code</td>
+                ) : (
+                  <td className={props.tableHeaderRowClass}>
+                    <QRCodeCanvas value={r[1].cccd} />
+                  </td>
+                )}
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>

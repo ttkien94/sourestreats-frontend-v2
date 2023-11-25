@@ -9,7 +9,7 @@ import LPETable from "template/adminTemplate/components/lpeTable";
 import LPEPopover from "app/components/popover/index.js";
 import LPEDrawer from "app/components/drawer/index.js";
 import LPEPagination from "app/components/pagination";
-import LPELoadingSkeleton from "app/components/loadingSkeleton";
+import IsLoadingSkeleton from "app/components/loadingSkeleton";
 
 import "./styles/styles.scss";
 import { showToast } from "core/utils/toastUtil.js";
@@ -129,7 +129,7 @@ function UserManager() {
         </Button>
 
         {isLoading ? (
-          <LPELoadingSkeleton count={LIMIT + 1} />
+          <IsLoadingSkeleton count={LIMIT + 1} />
         ) : (
           <LPETable
             tableName={"Quản lý user"}

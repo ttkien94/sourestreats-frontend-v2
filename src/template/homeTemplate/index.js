@@ -6,7 +6,7 @@ import { appAction } from "core/redux/actions/appAction";
 
 import Header from "./layout/header";
 import Footer from "./layout/footer";
-import LPELoading from "app/components/loading";
+import IsLoading from "app/components/loading";
 
 import { KEY_TOKEN } from "app/const/App";
 import CallIcon from "assets/images/icon-call-nh.png";
@@ -32,7 +32,7 @@ export const HomeTemplate = ({ Component, ...restProps }) => {
         return (
           <div>
             <Header />
-            {loading ? <LPELoading /> : <Component {...propsRoute} />}
+            {loading ? <IsLoading /> : <Component {...propsRoute} />}
             <Footer />
 
             <div className="hotline-phone-ring-wrap">

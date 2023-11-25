@@ -4,10 +4,8 @@
   border-collapse: collapse;
   width: 100%;
   padding-top: 20px;
-
-
   td, th {
-    text-align: left;
+    text-align: center;
     padding: 8px;
     border: 1px solid #9eb6ce;
     }   
@@ -35,5 +33,42 @@
         // border-width: 0 1px 1px 0;
         height: 17px;
         line-height: 17px;
+    }
+}
+.list-student-table{
+    display: table;
+    .list-student-row{
+        display: table-row;
+    }
+    .list-student-theader{
+        display: table-header-group;
+        background-image: url(data:image/gif;base64,R0lGODlhAQATAPcAAAAAAAAASAAAdCdBPgBISABIdCZBYyZBZCZBZUgAAHQAAEgASEgAdHQASHQAdEhIAFBBPlFBPlNBPlFlPnRIAHBBPnFBPnJBPnNBPnRBPnVBPnR0AHRlPkhISFFBY1FBZFFBZXRBZXZBZHR0SHR0dABInAB0vyZBhCZBhSZBhiZBhyZlhyZjoCZkoiZkoyZlpCZlpiZmpUhInFFBh1JBhUh0v1FlpnRInHRlpnR0v3aFZCaAuyaFwCaFwkicnEicv3ScnGiMr3S/v0ic31GFwlCc1lCe1lGe11Gf2FGhwlKg2VKh21Gh3VOj3HS73XS/33C07XG373K48HO58XW683S793W89He/9nS//5xIAJx0AI5jPo9jPpBkPpFkPpNkPpNlPpVlPpZlPpdmPphmPr90AJxISJxIdL90SKmAPq+FPrGEPraGPpycdL+cSK+FZb+/dN+cSMObY8ScY8ieY8qfZN+cdMuhZc6hZM+jZN+/dP+/dJy/nJ62zpzfv7/fnL//v5zf347L7Y/N7pHQ8JPT8ZPU95fW9Zzf/6nE6bHG4bDL77rM5rvN573P6LDP977Q6b/R6q/s3b//36rk7qzm767o8K/q8a/s97Hr87Pt9Lbx9r///921hN+3hOG4hOO5heS7h+i8heq9ht/fnM7VpN3Nodviu9/mvN//v//fnOHQouPTo+bTpOTUpuzZpeHovePqvubrv///v8HT68LU7MTV7cXX7sbY78LZ98jZ8NDX5dfa4tPb6dXd6tff69ve5dvi1N3k1t/m1t//38Pi7cjo8Mrq8cvs987t9Nnh7Nvi7d/i6N3k7t/m79Xk8tfm99Lx9t///+TswujtwOrvwOHo1+Pq2Obr2eTs3ejt2+rv3Ozx3P//3+Ll6ubp7eHo8OPq8ebr8+Ts9+rs8Ojt9Orv9e7v8+zx9u7z9/Lz9vD0+PL2+fb3+PT4+vb6+/n6+/n8/f///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACwAAAAAAQATAAAIGADjvXPHbl06dObKiQsHzlmzZcp++eoVEAA7) ;
+        background-size: contain;
+        background-repeat: repeat-x;
+        font-weight: 700;
+        font-size: 16px;
+        border: 1px solid #9eb6ce;
+        height: 17px;
+        line-height: 17px;
+    }
+    .list-student-cell{
+        text-align: center;
+        padding: 8px;
+        border: 1px solid black;
+        display: table-cell;
+        padding: 10px;
+    }
+    .___list-separator{
+        border-top-color:black ;
+    }
+    .student-action{
+        min-width: 120px;
+    }
+    .student-min-width{
+        min-width: 120px;
+        max-width: 200px;
+        overflow: hidden;
+        text-overflow: ellipsis; 
+        white-space: nowrap;
     }
 }

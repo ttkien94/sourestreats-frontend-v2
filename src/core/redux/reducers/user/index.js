@@ -38,9 +38,9 @@ export const userReducer = (state = initialState, action) => {
     }
 
     case ADD_USER: {
+      console.log("ADD_USER");
       const list = [...state.userList];
       list.push(action.user);
-
       state.userList = list;
       return { ...state };
     }

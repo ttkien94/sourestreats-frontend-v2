@@ -1,7 +1,7 @@
 import React, { memo, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import axiosClient from "app/const/Instance";
-import LPELoading from "app/components/loading";
+import IsLoading from "app/components/loading";
 // import { API_ENDPOINT } from "app/const/Api";
 import { BLOG } from "app/const/Api";
 import { convertBlocksToHtml } from "core/utils/editorUtil";
@@ -55,7 +55,7 @@ function BlogDetail() {
   return (
     <>
       {isLoading ? (
-        <LPELoading />
+        <IsLoading />
       ) : (
         <>
           {blogInfo ? (

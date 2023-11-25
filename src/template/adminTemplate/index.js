@@ -7,7 +7,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import useSiteTitle from "core/hooks/useSiteTitle";
 
 // Component
-import LPELoading from "app/components/loading";
+import IsLoading from "app/components/loading";
 import Appbar from "./components/appBar";
 import AdminDrawer from "./components/drawer";
 
@@ -85,7 +85,7 @@ export const AdminTemplate = ({ Component, ...restProps }) => {
             ) : (
               <>
                 {loading ? (
-                  <LPELoading />
+                  <IsLoading />
                 ) : (
                   <>
                     <Box sx={{ display: "flex" }}>

@@ -1,72 +1,44 @@
 import React, { useState } from "react";
-import { ExcelRenderer, OutTable } from "./outTable";
-import SendEmail from "share/sendEmail";
-import "./styles.scss";
-import emailjs from "@emailjs/browser";
+import { ExcelRenderer, OutTable } from "./components/outTable";
 import TabView from "share/tabView/tabView";
-import StarBorderOutlinedIcon from "@mui/icons-material/StarBorderOutlined";
-import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
+// import emailjs from "@emailjs/browser";
+// import SendEmail from "share/sendEmail";
+// import CheckboxIconSvg from "share/iconSvg/checkboxIcon";
+// import { useDispatch, useSelector } from "react-redux";
+// import StarBorderOutlinedIcon from "@mui/icons-material/StarBorderOutlined";
 // import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
+import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
 import AssignmentIndOutlinedIcon from "@mui/icons-material/AssignmentIndOutlined";
-import CheckboxIconSvg from "share/iconSvg/checkboxIcon";
 import DataStudentForm from "./components/dataStudentForm";
 import BarcodeScannerComponent from "react-qr-barcode-scanner";
+import useSiteTitle from "core/hooks/useSiteTitle";
+import ListStudent from "./components/listStudent";
+
+import "./styles.scss";
+
 function ImportData(props) {
-  const [table, setTable] = useState({
-    cols: [
-      { name: "A", key: 0 },
-      { name: "B", key: 1 },
-      { name: "C", key: 2 },
-      { name: "D", key: 3 },
-      { name: "E", key: 4 },
-      { name: "F", key: 5 },
-      { name: "G", key: 6 },
-      { name: "H", key: 7 },
-      { name: "I", key: 8 },
-      { name: "J", key: 9 },
-      { name: "K", key: 10 },
-    ],
-    rows: [
-      [
-        "STT",
-        "cccd",
-        "name",
-        "email",
-        "sdt",
-        "giới tính",
-        "năm sinh",
-        "nghề",
-        "Khóa học",
-        "Học viên cũ",
-        "hinh ảnh",
-      ],
-      [
-        1,
-        "094038001905",
-        "trịnh trung kiên 1",
-        "ttkien94@gmail.com",
-        "0383204367",
-        "nam",
-        1994,
-        "IT",
-        "dragon",
-        "cb06",
-      ],
-    ],
-  });
+  const [table, setTable] = useState([]);
   const fileHandler = (event) => {
     let fileObj = event.target.files[0];
     //just pass the fileObj as parameter
-    console.log("fileObj;", fileObj);
     ExcelRenderer(fileObj, (err, resp) => {
       if (err) {
         console.log(err);
       } else {
-        console.log("resp", resp.cols, resp.rows);
-        setTable({
-          cols: resp.cols,
-          rows: resp.rows,
+        let res = [];
+
+        Object.keys(resp.rows).map((propKey) => {
+          let array = [];
+          Object.keys(resp.rows[propKey]).map((childPropKey) => {
+            let obj = {};
+            let key = resp.rows[0][childPropKey];
+            let value = resp.rows[propKey][childPropKey];
+            obj[key] = value;
+            array.push(obj);
+          });
+          res[propKey] = array;
         });
+        setTable(res);
       }
     });
   };
@@ -74,9 +46,10 @@ function ImportData(props) {
     <div className="row">
       <div className="mt-3">
         <h3>Nhập dữ liệu học viên</h3>
+        <input type="file" onChange={(e) => fileHandler(e)} className="my-3" />
+        <p>Kiểm tra trùng học viên, xóa dòng học viên</p>
         <OutTable
-          data={table.rows}
-          columns={table.cols}
+          data={table}
           tableClassName="ExcelTable2007"
           tableHeaderRowClass="tableHeaderRowClass"
           // withZeroColumn={true}
@@ -84,7 +57,6 @@ function ImportData(props) {
           // withZeroColumn={true}
           tableHeader="tableHeader"
         />
-        <input type="file" onChange={(e) => fileHandler(e)} className="mt-3" />
       </div>
     </div>
   );
@@ -92,6 +64,7 @@ function ImportData(props) {
 
 function FillForm(props) {
   const [table, setTable] = useState({ cols: [], rows: [] });
+
   return (
     <div className="row">
       <div className="mt-3">
@@ -108,7 +81,7 @@ function FillForm(props) {
   );
 }
 
-function AllData(props) {
+function QRScanCode(props) {
   const [data, setData] = useState("");
   const [torchOn, setTorchOn] = useState(false);
   return (
@@ -130,8 +103,10 @@ function AllData(props) {
   );
 }
 function ImportDataCheckin() {
+  useSiteTitle("account_detail");
   const tabPanel = [
-    { component: <AllData /> },
+    { component: <ListStudent /> },
+    { component: <QRScanCode /> },
     { component: <ImportData /> },
     { component: <FillForm /> },
   ];
@@ -139,6 +114,10 @@ function ImportDataCheckin() {
     {
       icon: <DescriptionOutlinedIcon />,
       label: "all_data_student",
+    },
+    {
+      icon: <DescriptionOutlinedIcon />,
+      label: "qr_scan_code",
     },
 
     {
@@ -150,17 +129,6 @@ function ImportDataCheckin() {
       label: "fill_form",
     },
   ];
-  // const ExcelDateToJSDate = (date) => {
-  //   let converted_date = new Date(Math.round((date - 25569) * 864e5));
-  //   converted_date = String(converted_date).slice(4, 15);
-  //   date = converted_date.split(" ");
-  //   let day = date[1];
-  //   let month = date[0];
-  //   month = "JanFebMarAprMayJunJulAugSepOctNovDec".indexOf(month) / 3 + 1;
-  //   if (month.toString().length <= 1) month = "0" + month;
-  //   let year = date[2];
-  //   return String(day + "-" + month + "-" + year.slice(2, 4));
-  // };
 
   return (
     <div className="container">

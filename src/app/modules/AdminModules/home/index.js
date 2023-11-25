@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import LPELoading from "app/components/loading";
+import IsLoading from "app/components/loading";
 
 function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -15,7 +15,7 @@ function Home() {
     };
   }, []);
 
-  return <>{isLoading ? <LPELoading /> : <p>Home </p>}</>;
+  return <>{isLoading ? <IsLoading /> : <p>Home </p>}</>;
 }
 
 export default Home;
