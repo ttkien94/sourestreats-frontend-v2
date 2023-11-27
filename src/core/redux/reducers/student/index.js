@@ -3,6 +3,7 @@ import {
   STUDENT_UPDATE_IN_LIST,
   STUDENT_LOADED,
   STUDENT_LOADING,
+  STUDENT_DELETE,
   FETCH_STUDENT_REQUESTING,
   FETCH_STUDENT_SUCCESS,
   FETCH_MORE_STUDENT_SUCCESS,
@@ -32,6 +33,18 @@ export const studentReducer = (state = initialState, action) => {
     case STUDENT_LOADED: {
       return { ...state, loading: false };
     }
+
+    case STUDENT_CREATE: {
+      const list =
+        state.studentList.total > 0 ? cloneDeep(state.studentList) : [];
+      console.log("student_create action:", state, action.payload, list);
+
+      list.data.push(action.payload);
+      state.loading = false;
+      state.studentList = list;
+      return { ...state };
+    }
+
     case STUDENT_UPDATE_IN_LIST: {
       console.log("student_update_in_list action", state);
       const list =
@@ -47,17 +60,22 @@ export const studentReducer = (state = initialState, action) => {
       state.studentList = list;
       return { ...state };
     }
-    case STUDENT_CREATE: {
+
+    case STUDENT_DELETE: {
       const list =
         state.studentList.total > 0 ? cloneDeep(state.studentList) : [];
-      console.log("student_create action:", state, action.payload, list);
-
-      list.data.push(action.payload);
+      console.log("STUDENT_DELETE list:", list);
+      console.log("student delete action", action.payload);
+      const itemIndex = list.data.findIndex(
+        (y) => y._id === action.payload._id
+      );
+      if (itemIndex !== -1) {
+        list.data.splice(itemIndex, 1);
+      }
       state.loading = false;
       state.studentList = list;
       return { ...state };
     }
-
     // DEMO NEW REDUX
     case FETCH_STUDENT_REQUESTING: {
       return { ...state, loading: true };

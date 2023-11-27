@@ -5,6 +5,7 @@ import {
   API_ENDPOINT,
   API_GET_STUDENT,
   API_STUDENT_UPDATE,
+  API_STUDENT_DELETE,
 } from "app/const/Api";
 
 import {
@@ -12,6 +13,7 @@ import {
   STUDENT_UPDATE_IN_LIST,
   STUDENT_LOADED,
   STUDENT_LOADING,
+  STUDENT_DELETE,
   FETCH_STUDENT_FAILED,
   FETCH_STUDENT_REQUESTING,
   FETCH_STUDENT_SUCCESS,
@@ -121,7 +123,7 @@ export const createStudentAction = (studentInfo) => {
   };
 };
 
-export const updateStudentAction = (studentInfo, setOpenModal) => {
+export const updateStudentAction = (studentInfo) => {
   console.log("updateStudentAction:");
   const token = localStorage.getItem(KEY_TOKEN);
   return async (dispatch) => {
@@ -156,5 +158,47 @@ export const updateStudentAction = (studentInfo, setOpenModal) => {
           });
         });
     } catch (error) {}
+  };
+};
+
+export const deleteStudentAction = (studentInfo) => {
+  const token = localStorage.getItem(KEY_TOKEN);
+
+  console.log("studentInfo", studentInfo);
+  return async (dispatch) => {
+    dispatch({
+      type: STUDENT_LOADING,
+    });
+    try {
+      await axios({
+        url: API_ENDPOINT + API_STUDENT_DELETE + studentInfo._id,
+        method: "delete",
+        data: studentInfo,
+        headers: {
+          token: `${token}`,
+        },
+      })
+        .then((res) => {
+          console.log("res.config.data:", res);
+          dispatch({
+            type: STUDENT_DELETE,
+            payload: res.data,
+          });
+          showToast("success", "Cập nhật thành công", {
+            timeout: 5000,
+          });
+        })
+        .catch((error) => {
+          console.error("error:", error);
+          dispatch({
+            type: STUDENT_LOADED,
+          });
+          showToast("error", "Xoá thất bại", {
+            timeout: 5000,
+          });
+        });
+    } catch (error) {
+      console.log("error", error);
+    }
   };
 };

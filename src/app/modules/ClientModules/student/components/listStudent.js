@@ -3,9 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   getStudentsAction,
   getMoreStudentsAction,
+  deleteStudentAction,
 } from "core/redux/actions/studentAction";
 import SearchBar from "share/searchBar";
-import { Box, Button, IconButton, Modal } from "@mui/material";
+import { Box, Button, DialogTitle, IconButton, Modal } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { useTranslation } from "react-i18next";
 import EditIcon from "@mui/icons-material/Edit";
@@ -13,15 +14,23 @@ import ClearIcon from "@mui/icons-material/Clear";
 import DataStudentForm from "./dataStudentForm";
 import FlatList from "flatlist-react";
 import IsLoading from "app/components/loading";
+import {
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+} from "@material-ui/core";
+
 let page = 1;
 let limit = 10;
 function ListStudent() {
   const dispatch = useDispatch();
   const { studentList, hasMoreItems } = useSelector((state) => state.student);
-  const [dataModal, sedivataModal] = useState("");
+  const [dataModal, setDataModal] = useState("");
   const [openModal, setOpenModal] = useState(false);
   const [txtSearch, setTxtSearch] = useState("");
   const [hasNextPage, setHasNextPage] = useState(false);
+  const [openAlertDialog, setOpenAlertDialog] = useState(false);
   const [sortBy, setSortBy] = useState("");
   const { t } = useTranslation("common");
   const ButtonSubmit = styled(Button)`
@@ -48,12 +57,7 @@ function ListStudent() {
     old_student: "HV cũ",
     action: "Hành Động",
   };
-  const handleOpen = (data) => {
-    sedivataModal(data);
-    setOpenModal(true);
-  };
-  const handleDeletedStudent = (data) => {};
-  const handleClose = () => setOpenModal(false);
+
   useEffect(() => {
     loadData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -63,6 +67,24 @@ function ListStudent() {
     console.log("studentList:", studentList, hasMoreItems);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [studentList]);
+
+  const handleOpen = (data) => {
+    setDataModal(data);
+    setOpenModal(true);
+  };
+  const handleOpenAlertDialog = (data) => {
+    setDataModal(data);
+    setOpenAlertDialog(true);
+  };
+
+  const handleClose = () => setOpenModal(false);
+  const handleCloseAlertDialog = () => setOpenAlertDialog(false);
+
+  const handleDeletedStudent = () => {
+    dispatch(deleteStudentAction(dataModal));
+    handleCloseAlertDialog();
+  };
+
   const _evtChangeText = (txt) => {
     setTxtSearch(txt);
   };
@@ -113,6 +135,35 @@ function ListStudent() {
           />
         </Box>
       </Modal>
+    );
+  };
+
+  // const Transition = React.forwardRef(function Transition(props, ref) {
+  //   return <Slide direction="up" ref={ref} {...props} />;
+  // });
+
+  const renderAlertDialog = () => {
+    return (
+      <Dialog
+        open={openAlertDialog}
+        // TransitionComponent={Transition}
+        keepMounted
+        onClose={handleCloseAlertDialog}
+        aria-describedby="alert-dialog-slide-description"
+      >
+        <DialogTitle style={{ paddingBottom: 0 }}>Cảnh Báo</DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-slide-description">
+            Bạn có chắc chắn xóa học viên {dataModal.name}
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseAlertDialog}>Hủy Bỏ</Button>
+          <Button onClick={handleDeletedStudent} color="error">
+            Xác Nhận
+          </Button>
+        </DialogActions>
+      </Dialog>
     );
   };
   const renderNodata = () => {
@@ -173,7 +224,7 @@ function ListStudent() {
               <IconButton
                 color="error"
                 className="flex-alignitem inline-block"
-                onClick={() => handleDeletedStudent(item)}
+                onClick={() => handleOpenAlertDialog(item)}
               >
                 <ClearIcon />
               </IconButton>
@@ -186,6 +237,7 @@ function ListStudent() {
   return (
     <div className="list-student mt-3">
       {renderModal()}
+      {renderAlertDialog()}
       <div className="mb-3 flex-alignitem ">
         <SearchBar
           handleDebouceSearch={(txt) => {

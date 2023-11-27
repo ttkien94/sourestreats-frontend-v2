@@ -59,7 +59,7 @@ import Demo from "./demo";
 // Corperate
 
 //Soul retreats
-import ImportDataCheckin from "./importDataCheckin";
+import Student from "./student";
 
 import { Education, Performance, Corporation, Coach } from "./cooperate";
 
@@ -110,7 +110,7 @@ const Client = {
   Education,
   Corporation,
   Coach,
-  ImportDataCheckin,
+  Student,
 };
 
 export default Client;

@@ -29,6 +29,7 @@ export const API_GET_STUDENT = "/student/";
 export const API_STUDENT_CREATE = "/student/create/";
 export const API_STUDENT_SEARCH = "/student/search/";
 export const API_STUDENT_UPDATE = "/student/update/";
+export const API_STUDENT_DELETE = "/student/delete/";
 
 // BLOG
 export const UPLOAD_IMAGE_BLOG = "/blog/upload-image-blog";

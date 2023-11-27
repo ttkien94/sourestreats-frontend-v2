@@ -279,7 +279,7 @@ export const publicRoutes = [
     path: URL_PATH_CLIENT.CORPORATION,
   },
   {
-    component: Client.ImportDataCheckin,
+    component: Client.Student,
     exact: true,
     path: URL_PATH_CLIENT.IMPORT_DATA_CHECKIN,
   },
