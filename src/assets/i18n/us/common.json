@@ -118,10 +118,20 @@
   "email_incorrect":"Email incorrect",
   "import_data":"Import Data",
   "fill_form":"Fill Form",
-  "all_data_student": "All Student",
+  "student_info": "Student Info",
+  "course_info":"Course Info",
   "qr_scan_code":"QR scan code",
    "edit":"Edit",
   "delete":"Del",
   "detail":"Detail",
-  "view":"View"
+  "view":"View",
+  "course_manager":"Course Manager",
+  "course_checkin":"Checkin in Course",
+  "course_code":"Course Code",
+  "course_during":"Course During",
+  "course_location":"Course Location",
+  "total_register":"Total Register",
+  "total_checkin":"Total CheckIn",
+  "course_start_time":"Course Start Time",
+  "course_end_time":"Course End Time"
 }

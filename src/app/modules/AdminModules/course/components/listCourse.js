@@ -1,97 +1,53 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  getStudentsAction,
-  getMoreStudentsAction,
-  deleteStudentAction,
-} from "core/redux/actions/studentAction";
-import SearchBar from "share/searchBar";
-import { Box, Button, DialogTitle, IconButton, Modal } from "@mui/material";
-import { styled } from "@mui/material/styles";
-import { useTranslation } from "react-i18next";
+  getCourseAction,
+  getMoreCourseAction,
+  deleteCourseAction,
+} from "core/redux/actions/courseAction";
+import { Box, IconButton, Modal } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import ClearIcon from "@mui/icons-material/Clear";
-import DataStudentForm from "./dataStudentForm";
-import FlatList from "flatlist-react";
+import DataCourseForm from "./dataCourseForm";
+import AlertDialog from "share/alertDialog";
+import SearchBar from "share/searchBar";
 import IsLoading from "app/components/loading";
-import {
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-} from "@material-ui/core";
+import FlatList from "flatlist-react/lib";
+import FormatDate from "share/formatDate";
 
 let page = 1;
 let limit = 10;
-function ListStudent() {
+function ListCourse(props) {
   const dispatch = useDispatch();
-  const { studentList, hasMoreItems } = useSelector((state) => state.student);
+  const { courseList, hasMoreItems } = useSelector((state) => state.course);
   const [dataModal, setDataModal] = useState("");
   const [openModal, setOpenModal] = useState(false);
   const [txtSearch, setTxtSearch] = useState("");
-  const [hasNextPage, setHasNextPage] = useState(false);
   const [openAlertDialog, setOpenAlertDialog] = useState(false);
-  const [sortBy, setSortBy] = useState("");
-  const { t } = useTranslation("common");
-  const ButtonSubmit = styled(Button)`
-    color: #fff;
-    background: #3777bc;
-    padding: 10px 20px;
 
-    :hover {
-      color: #fff;
-      background: #6499e7;
-    }
-  `;
   const headerTable = {
     stt: "STT",
-    cccd: "CCCD",
-    name: "Họ Tên",
-    from: "FROM",
-    email: "Email",
-    phone: "SDT",
-    gender: "Giới Tính",
-    birthday: "Năm Sinh",
-    job: "Nghề Nghiệp",
-    course: "Khóa Học",
-    old_student: "HV cũ",
+    course_code: "Mã Khóa Học",
+    course_start_time: "Thời Gian Bắt Đầu",
+    course_end_time: "Thời Gian Kết Thúc",
+    course_location: "Địa Điểm Tổ Chức",
+    total_register: "Tổng Đăng Ký",
+    total_checkin: "Tổng Check In",
+    note: "Lưu Ý",
     action: "Hành Động",
   };
-
   useEffect(() => {
     loadData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [txtSearch]);
-
-  useEffect(() => {
-    console.log("studentList:", studentList, hasMoreItems);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [studentList]);
-
-  const handleOpen = (data) => {
-    setDataModal(data);
-    setOpenModal(true);
-  };
-  const handleOpenAlertDialog = (data) => {
-    setDataModal(data);
-    setOpenAlertDialog(true);
-  };
-
-  const handleClose = () => setOpenModal(false);
-  const handleCloseAlertDialog = () => setOpenAlertDialog(false);
-
-  const handleDeletedStudent = () => {
-    dispatch(deleteStudentAction(dataModal));
-    handleCloseAlertDialog();
-  };
-
+  console.log("courseList", courseList);
   const _evtChangeText = (txt) => {
     setTxtSearch(txt);
   };
   const loadData = () => {
     let query = txtSearch ? `&query=${txtSearch}` : "";
     page = 1;
-    dispatch(getStudentsAction(query));
+    dispatch(getCourseAction(query));
   };
 
   const loadMoreData = () => {
@@ -100,11 +56,29 @@ function ListStudent() {
       try {
         page = page + 1;
         let query = txtSearch ? `&query=${txtSearch}` : "";
-        dispatch(getMoreStudentsAction(query, page, limit));
+        dispatch(getMoreCourseAction(query, page, limit));
       } catch (error) {}
     }
   };
+  const handleOpen = (data) => {
+    setDataModal(data);
+    setOpenModal(true);
+  };
+  const handleOpenAlertDialog = (data) => {
+    setDataModal(data);
+    setOpenAlertDialog(true);
+  };
+  const handleClose = () => setOpenModal(false);
+  const handleCloseAlertDialog = () => setOpenAlertDialog(false);
 
+  const handleDeletedItem = () => {
+    try {
+      dispatch(deleteCourseAction(dataModal));
+      setOpenAlertDialog(false);
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
   const renderModal = () => {
     const style = {
       position: "absolute",
@@ -128,7 +102,7 @@ function ListStudent() {
         style={{ marginTop: 20, marginBottom: 20 }}
       >
         <Box sx={style}>
-          <DataStudentForm
+          <DataCourseForm
             data={dataModal}
             setOpenModal={setOpenModal}
             isUpdate={true}
@@ -137,44 +111,19 @@ function ListStudent() {
       </Modal>
     );
   };
-
-  // const Transition = React.forwardRef(function Transition(props, ref) {
-  //   return <Slide direction="up" ref={ref} {...props} />;
-  // });
-
-  const renderAlertDialog = () => {
-    return (
-      <Dialog
-        open={openAlertDialog}
-        // TransitionComponent={Transition}
-        keepMounted
-        onClose={handleCloseAlertDialog}
-        aria-describedby="alert-dialog-slide-description"
-      >
-        <DialogTitle style={{ paddingBottom: 0 }}>Cảnh Báo</DialogTitle>
-        <DialogContent>
-          <DialogContentText id="alert-dialog-slide-description">
-            Bạn có chắc chắn xóa học viên {dataModal.name}
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleCloseAlertDialog}>Hủy Bỏ</Button>
-          <Button onClick={handleDeletedStudent} color="error">
-            Xác Nhận
-          </Button>
-        </DialogActions>
-      </Dialog>
-    );
-  };
   const renderNodata = () => {
     return (
       <div>
-        <div colSpan="9" style={{ textAlign: "center" }}>
-          <h4 className="my-3">Nodata</h4>
+        <div
+          colSpan="9"
+          style={{ textAlign: "center", backgroundColor: "gray" }}
+        >
+          <h4 className="py-3">Không có dữ liệu</h4>
         </div>
       </div>
     );
   };
+
   const renderItem = (item, idx, isHeader) => {
     let num = parseInt(idx) + 1;
     return (
@@ -190,25 +139,29 @@ function ListStudent() {
         className={isHeader ? "list-student-theader" : "list-student-row"}
       >
         <div className="list-student-cell">{idx ? num : "STT"}</div>
-        <div className="list-student-cell">{item.cccd && item.cccd}</div>
-        <div className="list-student-cell student-min-width">
-          {item.name && item.name}
-        </div>
-        <div className="list-student-cell student-min-width">
-          {item.email && item.email}
-        </div>
-        <div className="list-student-cell student-min-width">
-          {item.phone && item.phone}
-        </div>
-        <div className="list-student-cell">{item.gender && item.gender}</div>
         <div className="list-student-cell">
-          {item.birthday && item.birthday}
+          {item.course_code && item.course_code}
         </div>
-        <div className="list-student-cell">{item.job && item.job}</div>
-        <div className="list-student-cell">{item.course && item.course}</div>
+        <div className="list-student-cell student-min-width">
+          {item.course_start_time && isHeader ? (
+            item.course_start_time
+          ) : (
+            <FormatDate date={item.course_start_time} />
+          )}
+        </div>
+        <div className="list-student-cell student-min-width">
+          {item.course_end_time && item.course_end_time}
+        </div>
+        <div className="list-student-cell student-min-width">
+          {item.course_location && item.course_location}
+        </div>
         <div className="list-student-cell">
-          {item.old_student && item.old_student}
+          {item.total_checkin && item.total_checkin}
         </div>
+        <div className="list-student-cell">
+          {item.total_register && item.total_register}
+        </div>
+
         <div className="list-student-cell student-action">
           {isHeader ? (
             item.action
@@ -234,10 +187,16 @@ function ListStudent() {
       </div>
     );
   };
+
   return (
     <div className="list-student mt-3">
       {renderModal()}
-      {renderAlertDialog()}
+      <AlertDialog
+        openAlertDialog={openAlertDialog}
+        setOpenAlertDialog={setOpenAlertDialog}
+        handleDeletedItem={handleDeletedItem}
+        dataModal={dataModal}
+      />
       <div className="mb-3 flex-alignitem ">
         <SearchBar
           handleDebouceSearch={(txt) => {
@@ -248,9 +207,9 @@ function ListStudent() {
       <div className="list-student-table">
         <div>
           {renderItem(headerTable, "", true)}
-          {studentList && studentList.data && studentList.data.length > 0 && (
+          {courseList && courseList.data && (
             <FlatList
-              list={studentList.data}
+              list={courseList.data}
               renderItem={renderItem}
               renderWhenEmpty={() => renderNodata()}
               // sortBy={["gender", { key: "", descending: true }]}
@@ -272,4 +231,4 @@ function ListStudent() {
   );
 }
 
-export default ListStudent;
+export default ListCourse;

@@ -31,7 +31,6 @@ export const URL_PATH_CLIENT = {
   EDUCATION: "/hop-tac/dao-tao-the-he-tre",
   COACH: "/hop-tac/tu-van-tri-lieu-ca-nhan",
   DEMO: "/demo",
-  IMPORT_DATA_CHECKIN: "/import-data-checkin",
 };
 
 // PATH FOR MODULES ADMIN
@@ -43,6 +42,8 @@ export const URL_PATH_ADMIN = {
   BLOG_EDIT: "/sua-bai/:id",
   ADD_POST: "/them-bai-viet",
   BLOG_MANAGER: "/quan-ly-bai-viet",
+  STUDENT_MANAGER: "/quan-ly-hoc-vien",
+  COURSE_MANAGER: "/quan-ly-khoa-hoc",
 };
 
 // Public Pages for HOME Template
@@ -278,11 +279,6 @@ export const publicRoutes = [
     exact: true,
     path: URL_PATH_CLIENT.CORPORATION,
   },
-  {
-    component: Client.Student,
-    exact: true,
-    path: URL_PATH_CLIENT.IMPORT_DATA_CHECKIN,
-  },
 ];
 
 // Only for Admin Pages
@@ -321,5 +317,15 @@ export const adminRoutes = [
     component: Admin.EditPost,
     exact: true,
     path: "/admin" + URL_PATH_ADMIN.BLOG_EDIT,
+  },
+  {
+    component: Admin.Student,
+    exact: true,
+    path: "/admin" + URL_PATH_ADMIN.STUDENT_MANAGER,
+  },
+  {
+    component: Admin.Course,
+    exact: true,
+    path: "/admin" + URL_PATH_ADMIN.COURSE_MANAGER,
   },
 ];

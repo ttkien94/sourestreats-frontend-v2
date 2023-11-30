@@ -24,7 +24,8 @@ import {
 
 import { useTranslation } from "react-i18next";
 import TitleCourse from "share/titleCourse";
-import { isEmpty } from "./../../../../../core/utils/isEmpty";
+import { isEmpty } from "../../../../../core/utils/isEmpty";
+import { useEffect } from "react";
 
 const ButtonSubmit = styled(Button)`
   color: #fff;
@@ -40,7 +41,7 @@ const ButtonSubmit = styled(Button)`
 function DataStudentForm(props) {
   const [errorForm, setErrorForm] = useState("");
   const { t } = useTranslation("common");
-  const { loading } = useSelector((state) => state.student);
+  const { studentList, loading } = useSelector((state) => state.student);
 
   const dispatch = useDispatch();
 
@@ -78,13 +79,26 @@ function DataStudentForm(props) {
         ? (values.fee_done = true)
         : (values.fee_done = false);
 
-      dispatch(
-        props.isUpdate
-          ? updateStudentAction(values)
-          : createStudentAction(values)
-      );
-      props.isUpdate && props.setOpenModal(false);
-      !props.isUpdate && resetForm();
+      if (props.isImportData) {
+        const findIndex = studentList.data.findIndex(
+          (x) => x.cccd === values.cccd
+        );
+        if (findIndex !== -1) {
+          setErrorForm("Cccd đã có sẵn, vui lòng điền thông tin khác");
+        } else {
+          setErrorForm("");
+          props.setOpenModal(false);
+          props.handleUpdateImportData(values);
+        }
+      } else {
+        dispatch(
+          props.isUpdate
+            ? updateStudentAction(values)
+            : createStudentAction(values)
+        );
+        props.isUpdate ? props.setOpenModal(false) : resetForm();
+      }
+
       //   emailjs
       //     .sendForm(
       //       "studentcare_4406d89",
@@ -107,39 +121,44 @@ function DataStudentForm(props) {
     }
   };
 
-  const initialValues = props.isUpdate
+  const initialValues = props.data
     ? props.data
     : {
-        cccd: "038094001888",
-        name: "trung kien",
-        from: "PO01 VIP",
-        email: "ttkien94@gmail.com",
-        phone: "0383204367",
-        gender: "Nam",
-        birthday: "1994",
-        job: "IT",
-        course: "phoenix",
-        fee_payable: 60888000,
-        fee_have_been_paid: 1000000,
+        cccd: "",
+        name: "",
+        email: "",
+        phone: "",
+        gender: "",
+        birthday: "Nam",
+        job: "",
+        course: "",
+        old_student: "",
+        fee_payable: 0,
+        fee_have_been_paid: 0,
         fee_unpaid: 0,
         fee_next_period: 0,
         fee_done: false,
-        old_student: "Combo6",
-        note: "hello 123",
+        note: "",
       };
-  // const initialValues = {
-  //   cccd: "",
-  //   name: "",
-  //   email: "",
-  //   phone: "",
-  //   gender: "",
-  //   birthday: "Nam",
-  //   job: "",
-  //   course: "",
-  //   old_student: "",
-  //   note: "",
-  // };
 
+  // {
+  //   cccd: "038094001888",
+  //   name: "trung kien",
+  //   from: "PO01 VIP",
+  //   email: "ttkien94@gmail.com",
+  //   phone: "0383204367",
+  //   gender: "Nam",
+  //   birthday: "1994",
+  //   job: "IT",
+  //   course: "phoenix",
+  //   fee_payable: 60888000,
+  //   fee_have_been_paid: 1000000,
+  //   fee_unpaid: 0,
+  //   fee_next_period: 0,
+  //   fee_done: false,
+  //   old_student: "Combo6",
+  //   note: "hello 123",
+  // };
   const validationSchema = Yup.object().shape({
     cccd: Yup.string().required(t("enter_field")),
     name: Yup.string().required(t("enter_field")),
@@ -157,15 +176,17 @@ function DataStudentForm(props) {
   return (
     <div className="col-md-12">
       <div className="box-center px-3 py-3 ">
-        <TitleCourse title={t("all_data_student")} />
-        {errorForm && <p className="text-left text-danger ">{errorForm}</p>}
+        <TitleCourse title={t("student_info")} />
+        {errorForm && (
+          <p className="text-left text-danger text-lg">{errorForm}</p>
+        )}
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
         >
           {(formikProps) => {
             const { values, errors, setFieldValue } = formikProps;
-            console.log("errors", errors);
+            // console.log("errors", errors);
             // console.log({ values, errors, touched });
 
             return (

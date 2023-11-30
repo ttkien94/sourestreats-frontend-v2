@@ -24,13 +24,21 @@ export const ADMIN_UPDATE = "/users/admin/";
 export const UPLOAD_AVATAR = "/users/upload-avatar";
 export const REMOVE_AVATAR = "/users/delete-avatar";
 
-// STUDENT
+//  admin STUDENT
 export const API_GET_STUDENT = "/student/";
 export const API_STUDENT_CREATE = "/student/create/";
+export const API_STUDENT_CREATE_ARRAY = "/student/create-array/";
 export const API_STUDENT_SEARCH = "/student/search/";
 export const API_STUDENT_UPDATE = "/student/update/";
 export const API_STUDENT_DELETE = "/student/delete/";
 
+// admin course
+export const API_GET_COURSE = "/course/";
+export const API_COURSE_CREATE = "/course/create/";
+export const API_COURSE_CREATE_ARRAY = "/course/create-array/";
+export const API_COURSE_SEARCH = "/course/search/";
+export const API_COURSE_UPDATE = "/course/update/";
+export const API_COURSE_DELETE = "/course/delete/";
 // BLOG
 export const UPLOAD_IMAGE_BLOG = "/blog/upload-image-blog";
 

@@ -12,7 +12,7 @@ function Course() {
   const tab = [
     {
       icon: <DescriptionOutlinedIcon />,
-      label: "all_data_student",
+      label: "student_info",
     },
     {
       icon: <DescriptionOutlinedIcon />,

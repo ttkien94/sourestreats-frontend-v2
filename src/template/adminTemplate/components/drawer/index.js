@@ -23,12 +23,12 @@ const drawerWidth = 240;
 
 const menuMagager = [
   {
-    text: "Quản lý người dùng",
+    text: "Quản lý Người Dùng",
     icon: <GroupIcon />,
     link: "/admin/quan-ly-nguoi-dung",
   },
   {
-    text: "Quản lý Sản phẩm",
+    text: "Quản lý Sản Phẩm",
     icon: <ShoppingCartIcon />,
     link: "/admin/quan-ly-san-pham",
   },
@@ -36,6 +36,17 @@ const menuMagager = [
     text: "Quản lý Blog",
     icon: <AutoStoriesIcon />,
     link: "/admin/quan-ly-bai-viet",
+  },
+  {
+    text: "Quản lý Học Viên",
+    icon: <AutoStoriesIcon />,
+    link: "/admin/quan-ly-hoc-vien",
+  },
+
+  {
+    text: "Quản lý Khóa Học",
+    icon: <AutoStoriesIcon />,
+    link: "/admin/quan-ly-khoa-hoc",
   },
 ];
 

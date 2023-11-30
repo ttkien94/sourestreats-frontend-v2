@@ -15,9 +15,11 @@ import ListStudent from "./components/listStudent";
 
 import "./styles.scss";
 import ImportData from "./components/importData";
+import { useTranslation } from "react-i18next";
 
 function Student() {
-  useSiteTitle("account_detail");
+  const { t } = useTranslation("common");
+  useSiteTitle(t("student_info"));
   const tabPanel = [
     { component: <ListStudent /> },
     { component: <ImportData /> },
@@ -26,7 +28,7 @@ function Student() {
   const tab = [
     {
       icon: <DescriptionOutlinedIcon />,
-      label: "all_data_student",
+      label: "student_info",
     },
 
     {

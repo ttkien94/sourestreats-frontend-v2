@@ -1,7 +1,7 @@
 export const CONTENT_MENU = [
   {
-    title: "import_data",
-    url: "/import-data-checkin",
+    title: "student_info",
+    url: "/admin/quan-ly-hoc-vien",
     // childMenu: [
     //   {
     //     title: "about_vas",
@@ -25,6 +25,7 @@ export const CONTENT_MENU = [
     //   },
     // ],
   },
+  { title: "course", url: "/admin/quan-ly-khoa-hoc" },
   // {
   //   title: "life_uni_online",
   //   url: "/chuong-trinh-huan-luyen",

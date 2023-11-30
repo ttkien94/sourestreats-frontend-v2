@@ -1,0 +1,15 @@
+.course {
+    .course-date-picker{
+        display: inline-block;
+        width: 25%;
+    }
+    .course-date-picker-custom-input{
+        border: 1px solid black;
+        padding:15px;
+        font-size: 1rem;
+        &:hover{
+            cursor: pointer;
+            background-color: aliceblue;
+        }
+    }
+}

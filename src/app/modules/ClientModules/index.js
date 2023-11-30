@@ -58,9 +58,6 @@ import Demo from "./demo";
 
 // Corperate
 
-//Soul retreats
-import Student from "./student";
-
 import { Education, Performance, Corporation, Coach } from "./cooperate";
 
 const Client = {
@@ -110,7 +107,6 @@ const Client = {
   Education,
   Corporation,
   Coach,
-  Student,
 };
 
 export default Client;

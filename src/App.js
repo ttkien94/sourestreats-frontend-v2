@@ -30,18 +30,16 @@ function App() {
           );
         })}
 
-        {
-          //   adminRoutes.map((route, index) => {
-          //   return (
-          //     <AdminTemplate
-          //       exact
-          //       path={route.path}
-          //       Component={route.component}
-          //       key={index}
-          //     />
-          //   );
-          // })
-        }
+        {adminRoutes.map((route, index) => {
+          return (
+            <AdminTemplate
+              exact
+              path={route.path}
+              Component={route.component}
+              key={index}
+            />
+          );
+        })}
 
         <HomeTemplate exact path="*" Component={ErrorPage} />
       </Switch>

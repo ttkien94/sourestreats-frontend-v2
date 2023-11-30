@@ -119,10 +119,20 @@
   "email_incorrect":"Email chưa đúng",
   "import_data":"Thêm tệp",
   "fill_form":"Điền dữ liệu",
-  "all_data_student": "Thông Tin Học viên",
+  "student_info": "Thông Tin Học viên",
+  "course_info":"Thông tin Khóa Học",
   "qr_scan_code":"Quét mã QR",
   "edit":"Sửa",
   "delete":"Xóa",
   "detail":"Chi tiết",
-  "view":"Xem"
+  "view":"Xem",
+  "course_manager":"Quản lý khóa học",
+  "course_checkin":"Checkin trong khóa học",
+  "course_code":"Mã khóa học",
+  "course_during":"Thời gian khóa học",
+  "course_location":"Địa điểm khóa học",
+  "total_register":"Tổng đăng ký",
+  "total_checkin":"Tổng checkin",
+  "course_start_time":"Thời gian bắt đầu",
+  "course_end_time":"Thời gian kết thúc"
 }

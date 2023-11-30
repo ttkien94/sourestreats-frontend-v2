@@ -6,6 +6,9 @@ import AddPost from "./addPost";
 import EditPost from "./editPost";
 import BlogsManager from "./blogManager";
 
+//Soul retreats
+import Student from "./student";
+import Course from "./course";
 const Admin = {
   Home,
   UserManager,
@@ -14,6 +17,8 @@ const Admin = {
   AddPost,
   EditPost,
   BlogsManager,
+  Student,
+  Course,
 };
 
 export default Admin;
