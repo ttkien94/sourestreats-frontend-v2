@@ -3,7 +3,6 @@ import Admin from "app/modules/AdminModules";
 import { MEDIA_PATH_CLIENT } from "./routes-coursemedia";
 import { OFFLINE_PATH_CLIENT } from "./routes-coursesoffline";
 import { ONLINE_PATH_CLIENT } from "./routes-coursesonline";
-
 // PATH FOR MODULES CLIENT
 export const URL_PATH_CLIENT = {
   HOME: "/v1",
@@ -188,6 +187,12 @@ export const publicRoutes = [
     exact: true,
     path: MEDIA_PATH_CLIENT.SELFMASTERY,
   },
+  {
+    component: Client.CourseMediaTower,
+    exact: true,
+    path: MEDIA_PATH_CLIENT.TOWER,
+  },
+
   {
     component: Client.CourseOnlineRUNFASTER,
     exact: true,

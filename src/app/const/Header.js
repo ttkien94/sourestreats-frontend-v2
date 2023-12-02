@@ -1,42 +1,31 @@
 export const CONTENT_MENU = [
-  {
-    title: "student_info",
-    url: "/admin/quan-ly-hoc-vien",
-    // childMenu: [
-    //   {
-    //     title: "about_vas",
-    //     url: "/lpe/mr-vas",
-    //   },
-    //   {
-    //     title: "about_gt",
-    //     url: "/lpe/ms-la-ha-giang-thanh",
-    //   },
-    //   {
-    //     title: "vision_lpe",
-    //     url: "/lpe/tam-nhin-su-menh-lpe",
-    //   },
-    //   {
-    //     title: "recruitment",
-    //     url: "/lpe/tuyen-dung",
-    //   },
-    //   {
-    //     title: "rules",
-    //     url: "/lpe/noi-quy-quy-dinh",
-    //   },
-    // ],
-  },
-  { title: "course", url: "/admin/quan-ly-khoa-hoc" },
+  { title: "media_course", url: "/chuong-trinh-huan-luyen/media/tower" },
+  // { title: "course", url: "/admin/quan-ly-khoa-hoc" },
   // {
-  //   title: "life_uni_online",
-  //   url: "/chuong-trinh-huan-luyen",
-  // },
-  // {
-  //   title: "coach_vas",
-  //   url: "/lpe/mr-vas",
-  // },
-  // {
-  //   title: "contact",
-  //   url: "/lien-he",
+  // title: "student_info",
+  // url: "/admin/quan-ly-hoc-vien",
+  // childMenu: [
+  //   {
+  //     title: "about_vas",
+  //     url: "/lpe/mr-vas",
+  //   },
+  //   {
+  //     title: "about_gt",
+  //     url: "/lpe/ms-la-ha-giang-thanh",
+  //   },
+  //   {
+  //     title: "vision_lpe",
+  //     url: "/lpe/tam-nhin-su-menh-lpe",
+  //   },
+  //   {
+  //     title: "recruitment",
+  //     url: "/lpe/tuyen-dung",
+  //   },
+  //   {
+  //     title: "rules",
+  //     url: "/lpe/noi-quy-quy-dinh",
+  //   },
+  // ],
   // },
   // {
   //   title: "training_program",
@@ -78,7 +67,6 @@ export const CONTENT_MENU = [
   //     },
   //   ],
   // },
-
   // {
   //   title: "posts",
   //   url: "/tram-doc-cam",

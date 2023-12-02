@@ -26,7 +26,7 @@ function SliderVideo(props) {
   // };
 
   return (
-    <div className="container-fluid px-0 ">
+    <div className="container-fluid px-0 slider-video">
       <Swiper
         slidesPerView={1}
         className="swiper-container"
@@ -43,8 +43,8 @@ function SliderVideo(props) {
         {topUpSrc.map((v, index) => {
           return (
             <SwiperSlide key={index}>
-              <div className="row slider-video py-4">
-                <div className="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+              <div className="row  py-4 ">
+                <div className="col-md-10 offset-md-1 col-lg-8 offset-lg-2 opasiti-background">
                   <Vimeo
                     video={v.linkVideo}
                     allow="autoplay; fullscreen; picture-in-picture"
@@ -66,65 +66,65 @@ function SliderVideo(props) {
                   />
                 </div>
                 {/** <div className="col-12 col-lg-5 pr-0">
-              <div className="banner-item_innerText h-100">
-                {v.video && (
-                  <video
-                    width="100%"
-                    height="100%"
-                    muted
-                    loop
-                    autoPlay
-                    playsInline
-                  >
-                    <source src={Video} type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
-                )}
+          <div className="banner-item_innerText h-100">
+            {v.video && (
+              <video
+                width="100%"
+                height="100%"
+                muted
+                loop
+                autoPlay
+                playsInline
+              >
+                <source src={Video} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            )}
 
-                {v.imgVideo && (
-                  <img
-                    src={v.imgVideo}
-                    alt={v.imgVideo}
-                    className="img-fluid"
-                  />
-                )}
-                {!!v.linkInfo.length && (
-                  <div
-                    className="btnPlay-video"
-                    onClick={() => {
-                      handleOpenVideo(v.linkVideo);
-                    }}
-                  >
-                    <i className="fas fa-play"></i>
-                  </div>
-                )}
-
-                {!!v.linkInfo.length && (
-                  <Link to={v.linkInfo} className="btnDetail">
-                    <span>{t("read_more")}</span>
-
-                    <svg width="13px" height="10px" viewBox="0 0 12 10">
-                      <path d="M1,5 L11,5"></path>
-                      <polyline points="8 1 12 5 8 9"></polyline>
-                    </svg>
-                  </Link>
-                )}
+            {v.imgVideo && (
+              <img
+                src={v.imgVideo}
+                alt={v.imgVideo}
+                className="img-fluid"
+              />
+            )}
+            {!!v.linkInfo.length && (
+              <div
+                className="btnPlay-video"
+                onClick={() => {
+                  handleOpenVideo(v.linkVideo);
+                }}
+              >
+                <i className="fas fa-play"></i>
               </div>
+            )}
+
+            {!!v.linkInfo.length && (
+              <Link to={v.linkInfo} className="btnDetail">
+                <span>{t("read_more")}</span>
+
+                <svg width="13px" height="10px" viewBox="0 0 12 10">
+                  <path d="M1,5 L11,5"></path>
+                  <polyline points="8 1 12 5 8 9"></polyline>
+                </svg>
+              </Link>
+            )}
+          </div>
+        </div>
+
+        <div className="col-12 col-lg-7 pl-sm-3 pl-lg-0">
+          <div className="banner-item_picture">
+            <img src={v.imgSrc} alt={v.imgSrc} className="img-fluid" />
+
+            <div className="wrapper-innerText">
+              <p>{t(v.desc)}</p>
             </div>
 
-            <div className="col-12 col-lg-7 pl-sm-3 pl-lg-0">
-              <div className="banner-item_picture">
-                <img src={v.imgSrc} alt={v.imgSrc} className="img-fluid" />
-
-                <div className="wrapper-innerText">
-                  <p>{t(v.desc)}</p>
-                </div>
-
-                <Link to={v.linkInfo} className="btnDetailSmall">
-                  Xem thêm
-                </Link>
-              </div>
-            </div> */}
+            <Link to={v.linkInfo} className="btnDetailSmall">
+              Xem thêm
+            </Link>
+          </div>
+        </div> */}
               </div>
             </SwiperSlide>
           );

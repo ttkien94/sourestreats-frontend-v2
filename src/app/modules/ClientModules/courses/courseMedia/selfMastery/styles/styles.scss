@@ -1,4 +1,39 @@
-
+.self-mastery{
+    .box-banner{
+        background-color: #e2e2e2;
+        height: 277px;
+        left: 0;
+        position: relative;
+        top: 0;
+        width: 100%;
+    }
+    .box-banner-title{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 277px;
+    }
+    .box-image{
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        .group-image-book{
+            position: absolute;
+            left: 177px;
+            top: 120px;
+        }
+        .group-image-flash-light{
+            position: absolute;
+            right:25px;
+            top: 42px;
+        }
+        .group-image-earth{
+            position: absolute;
+            left: 52px;
+            top: 42px;
+        }
+    }
+}
 .co-right-content{
     position: sticky;
     top: 80px;

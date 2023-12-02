@@ -1,4 +1,4 @@
-import LPEBanner from "app/components/banner";
+import SoulRetreatsBanner from "app/components/banner";
 import useSiteTitle from "core/hooks/useSiteTitle";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -91,7 +91,7 @@ function Recruitment() {
   return (
     <div className="recruitment-page">
       {/* Background Title */}
-      <LPEBanner
+      <SoulRetreatsBanner
         bannerImg={banner}
         headText="Hãy cùng với chúng tôi tạo nên bước đột phá"
         subText="Đó là một hành trình và tất cả chúng ta chỉ mới ở điểm khởi đầu"

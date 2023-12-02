@@ -1,5 +1,5 @@
 import React from "react";
-import LPEBanner from "app/components/banner";
+import SoulRetreatsBanner from "app/components/banner";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Scrollbar, Navigation } from "swiper";
 import CourseItemOffline from "./components/courseItem";
@@ -177,7 +177,7 @@ function CourseOffline() {
 
   return (
     <div className="courseOffline-page">
-      <LPEBanner
+      <SoulRetreatsBanner
         bannerImg={banner}
         headText="Khóa học Offline"
         subText="LIFE UNI có các khóa học trực tiếp nhằm cung cấp trải nghiệm học tốt nhất cho học viên."

@@ -86,7 +86,7 @@ function AccountDetail() {
                   {/* chức vụ */}
                   <p>
                     {userInfo.role === "client" ? "Người dùng" : "Admin"} tại
-                    LPE
+                    Soul Retreats
                   </p>
                 </div>
               </Link>
@@ -128,7 +128,7 @@ function AccountDetail() {
 
                   <p>
                     Cập nhật chính xác thông tin của bạn để hoạt động tốt hơn
-                    trên LPE
+                    trên Soul Retreats
                   </p>
                 </div>
 
@@ -192,9 +192,9 @@ function AccountDetail() {
                   <h3>Nhận hỗ trợ</h3>
 
                   <p>
-                    LPE chúng tôi nhận hỗ trợ các vấn đề cho bạn trong giờ hành
-                    chính. nhưng chúng tôi vẫn hỗ trợ các vấn đề quan trọng
-                    ngoài giờ làm việc
+                    Soul Retreats chúng tôi nhận hỗ trợ các vấn đề cho bạn trong
+                    giờ hành chính. nhưng chúng tôi vẫn hỗ trợ các vấn đề quan
+                    trọng ngoài giờ làm việc
                   </p>
                 </div>
               </>

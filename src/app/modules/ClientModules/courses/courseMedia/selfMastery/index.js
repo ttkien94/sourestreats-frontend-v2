@@ -15,8 +15,17 @@ import vasThumbnail from "assets/images/source/thumbnail-vas.jpg";
 import gtThumbnail from "assets/images/source/thumbnail-gt.jpg";
 import { useSelector } from "react-redux";
 import "./styles/styles.scss";
+import book from "assets/images/source/course-media/book.png";
+import earth from "assets/images/source/course-media/earth.png";
+import flashLight from "assets/images/source/course-media/flashLight.png";
+import vasAvatar from "assets/images/source/avatar-vas.png";
+import useSiteTitle from "core/hooks/useSiteTitle";
+import { useTranslation } from "react-i18next";
+
 function CourseMediaSelfMastery() {
   const { userInfo } = useSelector((state) => state.auth);
+  const { t } = useTranslation("common");
+  useSiteTitle(t("sefl_mastery"));
   const topUpSrc = [
     {
       imgSrc: lpe,
@@ -67,15 +76,32 @@ function CourseMediaSelfMastery() {
     },
   ];
   return (
-    <div>
-      {(userInfo.role === "sm" ||
-        userInfo.role === "phoenix" ||
-        userInfo.role === "dragon") && <SliderVideo topUpSrc={topUpSrc} />}
+    <div className="self-mastery">
+      <div className="box-banner">
+        <div className="box-image">
+          <img className="group-image-book" alt="Group" src={book} />
+        </div>
+        <div className="box-image">
+          <img className="group-image-earth" alt="Group" src={earth} />
+        </div>
+        <div className="box-image">
+          <img
+            className="group-image-flash-light"
+            alt="Group"
+            src={flashLight}
+          />
+        </div>
+        <h1 className="box-banner-title">KHÓA HỌC ONLINE</h1>
+      </div>
+      {(userInfo.course === "sm" ||
+        userInfo.course === "phoenix" ||
+        userInfo.course === "dragon") && <SliderVideo topUpSrc={topUpSrc} />}
       <div className=" mt-5 container ">
         <div className="row ">
           <div className="col-md-9">
             <div className="row">
-              <TitleCourseOnline
+              {/**
+               * <TitleCourseOnline
                 tag={tag}
                 date={"2023-10-29"}
                 name={"perfect_relationship"}
@@ -84,15 +110,20 @@ function CourseMediaSelfMastery() {
                 promoPrice={"50.00"}
                 numberSudentRate={"44"}
               />
-              <DetailCourseOnline />
+                   <DetailCourseOnline />
+         
+               */}
               <TabViewCourseOnline />
             </div>
           </div>
           <div className="col-md-3 mb-3">
             <div className="row co-right-content">
-              <TeacherCourseOnline name="Coach Vas" />
+              <TeacherCourseOnline name="Coach Vas" avatar={vasAvatar} />
+
+              {/**
               <SearchCourseOnline />
-              <ContactForm />
+              <ContactForm />            
+            */}
             </div>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import LPEBanner from "app/components/banner";
+import SoulRetreatsBanner from "app/components/banner";
 import useSiteTitle from "core/hooks/useSiteTitle";
 
 import InterlacedContent from "./components/blockContentInterlaced";
@@ -16,7 +16,7 @@ function VisionPage() {
   return (
     <div className="vision-page">
       <div>
-        <LPEBanner
+        <SoulRetreatsBanner
           bannerImg={banner}
           headText="Leading Performance Education"
           subText="Making Champions - Creating Legacies"

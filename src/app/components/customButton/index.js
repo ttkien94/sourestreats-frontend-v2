@@ -1,7 +1,7 @@
 import { Button } from "@mui/material";
 import PropTypes from "prop-types";
 
-function LPEButton({
+function CustomButton({
   handleOnClick,
   disabled,
   name,
@@ -26,7 +26,7 @@ function LPEButton({
   );
 }
 
-LPEButton.propTypes = {
+CustomButton.propTypes = {
   name: PropTypes.string,
   action: PropTypes.func,
   type: PropTypes.string,
@@ -34,4 +34,4 @@ LPEButton.propTypes = {
   classStyled: PropTypes.string,
 };
 
-export default LPEButton;
+export default CustomButton;

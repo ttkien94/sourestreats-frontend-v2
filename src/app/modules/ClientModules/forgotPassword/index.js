@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import useSiteTitle from "core/hooks/useSiteTitle";
 
 import TextInput from "app/components/textInput";
-import LPEButton from "app/components/button";
+import CustomButton from "app/components/customButton";
 
 import { ValidationEmail } from "core/utils/emailUtil";
 import { API_ENDPOINT, CODE_SUCCESS, FORGOT_PASSWORD } from "app/const/Api";
@@ -137,14 +137,14 @@ function ForgetPassword() {
             </p>
 
             <div className="wrapperButton">
-              <LPEButton
+              <CustomButton
                 handleOnClick={handleCancel}
                 classStyled="forgot__btn--cancel mr-3"
                 name="Hủy"
               />
 
               <div style={{ display: "flex", justifyContent: "center" }}>
-                <LPEButton
+                <CustomButton
                   handleOnClick={handleSubmit}
                   classStyled="forgot__btn--save"
                   disabled={loading}

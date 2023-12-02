@@ -13,14 +13,14 @@ function TeacherCourseMedia(props) {
           <Avatar
             alt={name && name}
             src={avatar && avatar}
-            sx={{ width: 95, height: 95 }}
+            sx={{ width: 95, height: 95, background: "gray" }}
           />
         </div>
         <div className="mt-3 avatar-name">{name}</div>
         <div className="mt-1 avatar-job">Master Trainer</div>
         <div className="mt-3 avatar-description">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit.Veritatis
-          distinctio suscipit reprehenderit atque
+          Một ngày nào đó, toàn thể nhân loại đã được tốt nghiệp Đại Học Cuộc
+          Đời. Họ đang sống mỗi khoảnh khắc trong mừng vui và phước lành"
         </div>
         <div className="mt-3 avatar-social">
           <a

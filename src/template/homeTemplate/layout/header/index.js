@@ -91,7 +91,6 @@ function LPEHeader() {
     left: false,
     right: false,
   });
-
   const logOut = () => {
     dispatch(logOutAction(history));
   };

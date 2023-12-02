@@ -1,19 +1,26 @@
-FROM node:14.17 as builder
+FROM nginx:stable-alpine
 
-WORKDIR '/app'
-
-COPY package.json package-lock.json ./
-
-RUN npm install --frozen-lockfile 
-
-COPY . .
-
-RUN npm run build
+COPY build/ /usr/share/nginx/html
 
 
-FROM nginx:latest
+# FROM node:14.17 as builder
 
-COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
+# WORKDIR '/app'
 
-COPY --from=builder /app/build /usr/share/nginx/html
+# COPY package.json package-lock.json ./
 
+# RUN npm install --frozen-lockfile 
+
+# COPY . .
+
+# RUN npm run build
+
+
+# FROM nginx:latest
+
+# COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
+
+# COPY --from=builder /app/build /usr/share/nginx/html
+
+
+#   --openssl-legacy-provider

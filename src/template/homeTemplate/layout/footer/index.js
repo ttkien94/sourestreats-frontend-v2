@@ -93,8 +93,8 @@ function LPEFooter() {
             <div className="col-12 col-md-6 col-lg-3 mt-3 mt-lg-0">
               <h4 className="heading">{t("media")}</h4>
               <p>
-                Vui lòng liên hệ với Soul Retreats team theo số điện thoại trên
-                hoặc gửi email theo địa chỉ Email: studentcare@soulretreats.vn
+                Vui lòng liên hệ với Soul Retreats theo địa chỉ Email:
+                studentcare@soulretreats.vn
               </p>
               <h4
                 className="heading"
@@ -128,7 +128,6 @@ function LPEFooter() {
                     marginRight: "10px",
                   }}
                 ></i>
-
                 <span>2023 Soul Retreats Company, No copyright</span>
               </div>
             </div>

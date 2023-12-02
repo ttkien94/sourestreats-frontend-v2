@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 
-import LPEButton from "app/components/button";
+import CustomButton from "app/components/customButton";
 import TextInput from "app/components/textInput";
 
 import { makeStyles } from "@mui/styles";
@@ -38,7 +38,6 @@ function ChangePassword({ id }) {
     setIsLoading(true);
 
     const { new_password, re_new_password, old_password } = refForm.current;
-
     for (let index = 0; index < refForm.current.length; index++) {
       const { value, name, type } = refForm.current[index];
       if (type === "password" && value.trim().length < 6) {
@@ -111,8 +110,8 @@ function ChangePassword({ id }) {
 
       <div className="row p-0">
         <div className="col-12 col-md-6">
-          <LPEButton
-            action={handleChangePassword}
+          <CustomButton
+            handleOnClick={handleChangePassword}
             name="Cập nhật mật khẩu"
             loading={isLoading}
             classStyled={classes.registerBtn}

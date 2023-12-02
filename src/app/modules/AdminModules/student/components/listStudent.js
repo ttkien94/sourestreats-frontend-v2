@@ -28,7 +28,6 @@ function ListStudent() {
   const [openModal, setOpenModal] = useState(false);
   const [txtSearch, setTxtSearch] = useState("");
   const [openAlertDialog, setOpenAlertDialog] = useState(false);
-
   const headerTable = {
     stt: "STT",
     cccd: "CCCD",

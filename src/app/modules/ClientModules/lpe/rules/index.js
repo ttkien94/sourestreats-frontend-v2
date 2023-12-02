@@ -1,7 +1,7 @@
 import useSiteTitle from "core/hooks/useSiteTitle";
 import { useTranslation } from "react-i18next";
 
-import LPEBanner from "app/components/banner";
+import SoulRetreatsBanner from "app/components/banner";
 import banner from "assets/images/source/banner/noi-quy-quy-dinh.jpg";
 
 import "./styles/styles.scss";
@@ -34,7 +34,7 @@ function Rules() {
   return (
     <>
       {/* Background Title */}
-      <LPEBanner
+      <SoulRetreatsBanner
         bannerImg={banner}
         headText="Hãy cùng với chúng tôi tìm hiểu thêm về LIFE UNI"
         subText="Nội quy và chính sách để phục vụ khách hàng tốt hơn"

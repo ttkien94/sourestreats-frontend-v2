@@ -2,7 +2,7 @@ import React from "react";
 
 import "./styles/styles.scss";
 
-function LPEBanner({ bannerImg, headText, subText, subText2 }) {
+function SoulRetreatsBanner({ bannerImg, headText, subText, subText2 }) {
   return (
     <section
       className="bgHeading banner"
@@ -22,4 +22,4 @@ function LPEBanner({ bannerImg, headText, subText, subText2 }) {
   );
 }
 
-export default LPEBanner;
+export default SoulRetreatsBanner;

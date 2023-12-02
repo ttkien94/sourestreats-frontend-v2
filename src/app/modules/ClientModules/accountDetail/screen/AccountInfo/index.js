@@ -2,15 +2,17 @@ import { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import TextInput from "app/components/textInput";
-import LPEButton from "app/components/button";
+import CustomButton from "app/components/customButton";
 
-import LocalizationProvider from "@mui/lab/LocalizationProvider";
-import AdapterDateFns from "@mui/lab/AdapterDateFns";
-import DatePicker from "@mui/lab/DatePicker";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+// import AdapterDateFns from "@mui/lab/AdapterDateFns";
+// import DatePicker from "@mui/lab/DatePicker";
 import { TextField } from "@mui/material";
 
 import { phoneValidate } from "core/utils/phoneUtil";
-import { convertFullDate, timeToUnix } from "core/utils/dateUtil";
+import { timeToUnix } from "core/utils/dateUtil";
 import {
   deleteAvatarAction,
   updateAvatarAction,
@@ -30,8 +32,8 @@ function AccountInfo({ id }) {
   const [errors, setErrors] = useState("");
 
   useEffect(() => {
-    userInfo && setBirthDay(convertFullDate(userInfo?.birthDay));
-
+    userInfo && setBirthDay(new Date(userInfo?.birthDay));
+    // new Date(unix_timestamp * 1000)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -281,7 +283,7 @@ function AccountInfo({ id }) {
                 </div>
 
                 <div className="col-12 col-lg-6 mt-4">
-                  <LPEButton
+                  <CustomButton
                     handleOnClick={handleDataSubmit}
                     name="Lưu lại"
                     fullWidth

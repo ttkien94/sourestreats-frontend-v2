@@ -14,6 +14,9 @@ import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
 
 function App() {
+  // call backend
+  const job = require("./cron.js").job;
+  job.start();
   return (
     <Router>
       <AutoScroll />

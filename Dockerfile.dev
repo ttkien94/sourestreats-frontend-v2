@@ -1,11 +1,11 @@
-FROM node:16
+# FROM node:16
 
-WORKDIR '/app'
+# WORKDIR '/app'
 
-COPY package.json yarn.lock ./
+# COPY package.json yarn.lock ./
 
-RUN yarn install --frozen-lockfile 
+# RUN yarn install --frozen-lockfile 
 
-COPY . .
+# COPY . .
 
-CMD ["yarn", "start"]
+# CMD ["yarn", "start"]

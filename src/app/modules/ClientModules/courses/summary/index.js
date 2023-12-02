@@ -1,7 +1,7 @@
 import React from "react";
 import useSiteTitle from "core/hooks/useSiteTitle";
 import { Link } from "react-router-dom";
-import LPEBanner from "app/components/banner";
+import SoulRetreatsBanner from "app/components/banner";
 
 import OnlineCourse from "assets/images/onl-course.webp";
 import OfflineCourse from "assets/images/off-course.webp";
@@ -45,7 +45,7 @@ function Courses() {
 
   return (
     <div className="summaryCate pb-5">
-      <LPEBanner
+      <SoulRetreatsBanner
         bannerImg={banner}
         headText="Chương trình huấn luyện"
         subText="LIFE UNI cung cấp rất nhiều chương trình huấn luyện phù hợp với tất cả mọi lứa tuổi, ngành nghề khác nhau."

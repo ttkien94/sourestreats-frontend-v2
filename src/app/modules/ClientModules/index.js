@@ -10,7 +10,9 @@ import VerifyForgotPassword from "./confirmForgotPassword";
 import Course from "./courses/summary";
 import CourseOnline from "./courses/courseOnline";
 import CourseOffline from "./courses/courseOffline";
+// course Media
 import CourseMedia from "./courses/courseMedia";
+import CourseMediaTower from "./courses/courseMedia/tower";
 import Register from "./register";
 // course offline combo 10
 import CourseOfflinePP from "./courses/courseOffline/pp";
@@ -94,6 +96,7 @@ const Client = {
   CourseOnlineCCS,
   CourseOnlineVL,
   CourseMedia,
+  CourseMediaTower,
   Register,
   Recruitment,
   ConfirmRegister,
