@@ -5,8 +5,8 @@ import "./styles/styles.scss";
 
 import identity01 from "../../assets/images/chuong-trinh-huan-luyen/offline/identity//tim-lai-nhan-dang-dich-thuc-lpe-banner.jpg";
 import identity02 from "../../assets/images/chuong-trinh-huan-luyen/offline/identity/tim-lai-nhan-dang-dich-thuc-lpe-gia-tri.png";
-import identity03 from "../../assets/images/chuong-trinh-huan-luyen/offline/identity/tim-lai-nhan-dang-dich-thuc-lpe-hinh-1.jpg";
-import identity04 from "../../assets/images/chuong-trinh-huan-luyen/offline/identity/tim-lai-nhan-dang-dich-thuc-lpe-hinh-2.jpg";
+import identity03 from "../../assets/images/chuong-trinh-huan-luyen/offline/identity/tim-lai-nhan-dang-dich-thuc-lpe-hinh-3.jpg";
+import identity04 from "../../assets/images/chuong-trinh-huan-luyen/offline/identity/tim-lai-nhan-dang-dich-thuc-lpe-hinh-3.jpg";
 import identity05 from "../../assets/images/chuong-trinh-huan-luyen/offline/identity/tim-lai-nhan-dang-dich-thuc-lpe-trai-nghiem.png";
 import identity06 from "../../assets/images/chuong-trinh-huan-luyen/offline/identity/tim-lai-nhan-dang-dich-thuc-lpe-day-1.png";
 import identity07 from "../../assets/images/chuong-trinh-huan-luyen/offline/identity/tim-lai-nhan-dang-dich-thuc-lpe-hinh-3.jpg";

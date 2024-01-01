@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import useSiteTitle from "core/hooks/useSiteTitle";
 
 import TextInput from "app/components/textInput";
-import CustomButton from "app/components/customButton";
+import LoadingButtom from "app/components/loadingButtom";
 
 import { ValidationEmail } from "core/utils/emailUtil";
 import { API_ENDPOINT, CODE_SUCCESS, FORGOT_PASSWORD } from "app/const/Api";
@@ -18,9 +18,10 @@ function ForgetPassword() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState({});
   const [counter, setCounter] = useState(60);
-  const issubmitForget = Boolean(localStorage.getItem("isSubmitForget"));
-  const refForm = useRef();
+  const isSubmitForget = Boolean(localStorage.getItem("isSubmitForget"));
 
+  const refForm = useRef();
+  console.log("isSubmitForget", isSubmitForget);
   // Life cycle for timer function to render new state of time
   useEffect(() => {
     const timer =
@@ -43,47 +44,47 @@ function ForgetPassword() {
 
   // Check to remove counter in localstorage
   useEffect(() => {
-    if (counter === 0 && issubmitForget) {
+    if (counter === 0 && isSubmitForget) {
       localStorage.removeItem("isSubmitForget");
     }
-  }, [counter, issubmitForget]);
+  }, [counter, isSubmitForget]);
 
   // Check the first load page able to apply counter
   useEffect(() => {
-    issubmitForget ? setCounter(60) : setCounter(0);
-    issubmitForget ? setLoading(true) : setLoading(false);
-  }, [issubmitForget]);
+    isSubmitForget ? setCounter(60) : setCounter(0);
+    isSubmitForget ? setLoading(true) : setLoading(false);
+  }, [isSubmitForget]);
 
   const handleCancel = () => {
     history.goBack();
   };
 
-  const handleSubmit = () => {
-    const email = refForm.current["email"].value;
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("HandleSubmit Forgot Password");
+    // const email = refForm.current["email"].value;
 
-    if (!email) {
-      setError({
-        email: "Email không được bỏ trống",
-      });
-
-      refForm.current["email"].focus();
-      return;
-    } else {
-      if (!ValidationEmail(email)) {
-        setError({
-          email: "Email không hợp lệ",
-        });
-        refForm.current["email"].focus();
-        return;
-      }
-    }
+    // if (!email) {
+    //   setError({
+    //     email: "Email không được bỏ trống",
+    //   });
+    //   refForm.current["email"].focus();
+    //   return;
+    // } else {
+    //   if (!ValidationEmail(email)) {
+    //     setError({
+    //       email: "Email không hợp lệ",
+    //     });
+    //     refForm.current["email"].focus();
+    //     return;
+    //   }
+    // }
 
     // Save localstorage and countdown 60s
-    localStorage.setItem("isSubmitForget", true);
-    setLoading(true);
-    setCounter(60);
-
-    forgetAction(email);
+    // localStorage.setItem("isSubmitForget", true);
+    // setLoading(true);
+    // setCounter(60);
+    // forgetAction(email);
   };
 
   const forgetAction = async (email) => {
@@ -111,7 +112,7 @@ function ForgetPassword() {
   };
 
   return (
-    <>
+    <div>
       <main className="forgetContainer">
         <div className="formContainer">
           <div className="formHeading">
@@ -137,26 +138,27 @@ function ForgetPassword() {
             </p>
 
             <div className="wrapperButton">
-              <CustomButton
-                handleOnClick={handleCancel}
-                classStyled="forgot__btn--cancel mr-3"
-                name="Hủy"
+              <LoadingButtom
+                onClick={handleCancel}
+                className="forgot__btn--cancel mr-3"
+                value="Hủy"
               />
 
               <div style={{ display: "flex", justifyContent: "center" }}>
-                <CustomButton
-                  handleOnClick={handleSubmit}
-                  classStyled="forgot__btn--save"
+                <LoadingButtom
+                  onClick={handleSubmit}
+                  className="forgot__btn--save"
                   disabled={loading}
-                  name={loading ? `Gửi lại sau ${counter}s` : "Tìm kiếm"}
+                  value={loading ? `Gửi lại sau ${counter}s` : "Tìm kiếm"}
                   loading={loading}
+                  type="submit"
                 />
               </div>
             </div>
           </form>
         </div>
       </main>
-    </>
+    </div>
   );
 }
 

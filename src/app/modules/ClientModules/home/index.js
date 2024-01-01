@@ -64,7 +64,7 @@ export default function Home() {
       cat_icon: <i className="fal fa-newspaper"></i>,
       title: t("lpe_adventure_club"),
       description: "Sắp ra mắt",
-      link: "#",
+      link: "",
     },
   ];
 
@@ -266,9 +266,8 @@ export default function Home() {
 
       <section className="mt-5">
         <Title title={t("map")} textAlign="center" />
-
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d245.00575849913207!2d106.70509906142014!3d10.727376785423132!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752fba31b609e5%3A0xe4c31d580116b575!2sLPE%20-%20Leading%20Performance%20Education!5e0!3m2!1sen!2s!4v1637131284142!5m2!1sen!2s"
+          src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d3920.250410579772!2d106.73281380487556!3d10.71515894075498!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x3175255b170b3269%3A0x8c4a1e757c2e7640!2zNDUgxJDGsOG7nW5nIHPhu5EgMiwgUGjDuiBN4bu5LCBRdeG6rW4gNywgVGjDoG5oIHBo4buRIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!3m2!1d10.7145914!2d106.73358499999999!5e0!3m2!1svi!2s!4v1703063799072!5m2!1svi!2s"
           width="100%"
           height="450px"
           title="googlemap"

@@ -94,7 +94,8 @@ function LPEHeader() {
   const logOut = () => {
     dispatch(logOutAction(history));
   };
-
+  console.log("userInfo;", userInfo, isEmpty(userInfo));
+  console.log("token?.length:", token?.length);
   const PopOverContent = () => {
     return (
       <div className="popOver">
@@ -237,9 +238,10 @@ function LPEHeader() {
               <i className="fas fa-search"></i>
             </div> */}
 
-            {token?.length ? (
+            {token?.length  ? (
               <>
-                {!isEmpty(userInfo) ? (
+              
+                {!isEmpty(userInfo?.name) ? (
                   <LPEAvatar
                     name={userInfo?.name}
                     avatar={userInfo?.avatar}
@@ -248,9 +250,9 @@ function LPEHeader() {
                     }}
                   />
                 ) : (
-                  isEmpty(userInfo.name) && logOut()
+                  logOut()
                 )}
-
+              
                 <LPEPopover
                   ref={refLogin}
                   anchor={anchor}

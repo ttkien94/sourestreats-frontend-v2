@@ -6,7 +6,7 @@ import * as Yup from "yup";
 import { FastField, Form, Formik } from "formik";
 
 // component
-import CustomButton from "app/components/customButton";
+import LoadingButtom from "app/components/loadingButtom";
 import InputField from "app/components/customField/inputField";
 import { styled } from "@mui/material/styles";
 import { Button } from "@mui/material";
@@ -171,9 +171,9 @@ function VerifyForgotPassword() {
               </p>
 
               <div className="formInput mt-3">
-                <CustomButton
-                  name="Đăng nhập"
-                  handleOnClick={() => {
+                <LoadingButtom
+                  value="Đăng nhập"
+                  onClick={() => {
                     history.push("/dang-nhap");
                   }}
                 />

@@ -2,8 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import "./styles/styles.scss";
+import { useTranslation } from "react-i18next";
 
 function CourseItemOffline({ ...props }) {
+  const { t } = useTranslation("common");
   return (
     <Link className="wrapper-courseItem-offline" to={props.link || ""}>
       <div
@@ -22,7 +24,7 @@ function CourseItemOffline({ ...props }) {
               textShadow: "3px 4px 7px rgba(0,0,0,0.2)",
             }}
           >
-            {props.title}
+            {t(props.title)}
           </p>
         </div>
       </div>

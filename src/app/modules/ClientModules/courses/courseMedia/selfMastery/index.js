@@ -7,7 +7,7 @@ import SearchCourseOnline from "../components/searchCourseMedia";
 import TeacherCourseOnline from "../components/teacherCourseMedia";
 import ContactForm from "share/contactForm";
 // import media file
-import lpe from "assets/images/lpe.jpg";
+import lifeUni from "assets/images/source/lifeUni.jpg";
 import vas from "assets/images/vas.jpg";
 import lhgt from "assets/images/lhgt.jpg";
 import Video from "assets/video-demo.mp4";
@@ -28,11 +28,11 @@ function CourseMediaSelfMastery() {
   useSiteTitle(t("sefl_mastery"));
   const topUpSrc = [
     {
-      imgSrc: lpe,
+      imgSrc: lifeUni,
       bigText: "Về LIFE UNI",
-      desc: "intro_lpe",
+      desc: "intro_lifeuni",
       linkVideo:
-        "https://player.vimeo.com/video/876600835?badge=0&amp;autopause=0&amp;quality_selector=1&amp;progress_bar=1&amp;player_id=0&amp;app_id=58479",
+        "https://player.vimeo.com/video/890973918?badge=0&amp;autopause=0&amp;quality_selector=1&amp;progress_bar=1&amp;player_id=0&amp;app_id=58479",
       linkInfo: "/",
       video: Video,
     },
@@ -42,7 +42,7 @@ function CourseMediaSelfMastery() {
       bigText: "Về Mr. Vas",
       desc: "intro_vas",
       linkVideo:
-        "https://player.vimeo.com/video/876236010?badge=0&amp;autopause=0&amp;quality_selector=1&amp;player_id=0&amp;app_id=58479",
+        "https://player.vimeo.com/video/890973041?badge=0&amp;autopause=0&amp;quality_selector=1&amp;player_id=0&amp;app_id=58479",
       linkInfo: "/lpe/mr-vas",
       imgVideo: vasThumbnail,
     },
@@ -51,7 +51,7 @@ function CourseMediaSelfMastery() {
       bigText: "Về Ms. La Hạ Giang Thanh",
       desc: "intro_gt",
       linkVideo:
-        "https://player.vimeo.com/video/876300467?badge=0&amp;autopause=0&amp;quality_selector=1&amp;player_id=0&amp;app_id=58479",
+        "https://player.vimeo.com/video/890972259?badge=0&amp;autopause=0&amp;quality_selector=1&amp;player_id=0&amp;app_id=58479",
       linkInfo: "/lpe/ms-la-ha-giang-thanh",
       imgVideo: gtThumbnail,
     },

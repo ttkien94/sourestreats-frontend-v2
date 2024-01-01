@@ -1,7 +1,8 @@
 import React, { memo } from "react";
 import { TableRow, TableBody, TableCell } from "@mui/material";
 
-import TableList from "./tableList";
+import TableUserList from "./tableUserList";
+import TableCourseOnlineList from "./tableCourseOnlineList";
 
 function LPETableBody({
   view,
@@ -14,18 +15,31 @@ function LPETableBody({
   return (
     <TableBody>
       {dataTable?.map((item, index) => {
-        return (
-          <TableRow key={index}>
-            <TableList
-              view={view}
-              onHandleClick={onHandleClick}
-              onHandleEdit={onHandleEdit}
-              onOpenDrawer={onOpenDrawer}
-              onHandleDelete={onHandleDelete}
-              dataItem={item}
-            />
-          </TableRow>
-        );
+        switch (view) {
+          case "user":
+            return (
+              <TableUserList
+                view={view}
+                onHandleClick={onHandleClick}
+                onHandleEdit={onHandleEdit}
+                onOpenDrawer={onOpenDrawer}
+                onHandleDelete={onHandleDelete}
+                dataItem={item}
+              />
+            );
+          case "course_online":
+            return (
+              <TableCourseOnlineList
+                view={view}
+                onHandleClick={onHandleClick}
+                onHandleEdit={onHandleEdit}
+                onOpenDrawer={onOpenDrawer}
+                onHandleDelete={onHandleDelete}
+                dataItem={item}
+              />
+            );
+          default:
+        }
       })}
 
       {dataTable.length === 0 && (

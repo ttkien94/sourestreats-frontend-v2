@@ -44,9 +44,14 @@ const menuMagager = [
   },
 
   {
-    text: "Quản lý Khóa Học",
+    text: "Quản lý Khóa học",
     icon: <AutoStoriesIcon />,
     link: "/admin/quan-ly-khoa-hoc",
+  },
+  {
+    text: "Quản lý KH TT",
+    icon: <AutoStoriesIcon />,
+    link: "/admin/quan-ly-khoa-hoc-truc-tuyen",
   },
 ];
 

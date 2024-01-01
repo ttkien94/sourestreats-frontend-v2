@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import TextInput from "app/components/textInput";
-import CustomButton from "app/components/customButton";
+import LoadingButtom from "app/components/loadingButtom";
 
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
@@ -283,9 +283,9 @@ function AccountInfo({ id }) {
                 </div>
 
                 <div className="col-12 col-lg-6 mt-4">
-                  <CustomButton
-                    handleOnClick={handleDataSubmit}
-                    name="Lưu lại"
+                  <LoadingButtom
+                    onClick={handleDataSubmit}
+                    value="Lưu lại"
                     fullWidth
                     sizeButton="large"
                     loading={loading}

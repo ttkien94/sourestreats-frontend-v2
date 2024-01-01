@@ -5,8 +5,8 @@ import { OFFLINE_PATH_CLIENT } from "./routes-coursesoffline";
 import { ONLINE_PATH_CLIENT } from "./routes-coursesonline";
 // PATH FOR MODULES CLIENT
 export const URL_PATH_CLIENT = {
-  HOME: "/v1",
-  HOMECLIENTV2: "/",
+  HOME: "/",
+  HOMECLIENTV2: "/v2",
   LOGIN: "/dang-nhap",
   REGISTER: "/dang-ky",
   ACCOUNT_DETAIL: "/thong-tin-tai-khoan/:screen",
@@ -43,6 +43,9 @@ export const URL_PATH_ADMIN = {
   BLOG_MANAGER: "/quan-ly-bai-viet",
   STUDENT_MANAGER: "/quan-ly-hoc-vien",
   COURSE_MANAGER: "/quan-ly-khoa-hoc",
+  COURSE_ONLINE_MANAGER: "/quan-ly-khoa-hoc-truc-tuyen",
+  COURSE_ONLINE_MANAGER_DETAIL:
+    "/quan-ly-khoa-hoc-truc-tuyen/chi-tiet-khoa-hoc",
 };
 
 // Public Pages for HOME Template
@@ -61,11 +64,6 @@ export const publicRoutes = [
     component: Client.Home,
     exact: true,
     path: URL_PATH_CLIENT.HOME,
-  },
-  {
-    component: Client.CourseMediaSelfMastery,
-    exact: true,
-    path: URL_PATH_CLIENT.HOMECLIENTV2,
   },
   {
     component: Client.Login,
@@ -113,6 +111,11 @@ export const publicRoutes = [
     path: OFFLINE_PATH_CLIENT.khoa1,
   },
   {
+    component: Client.CourseOfflineSM,
+    exact: true,
+    path: OFFLINE_PATH_CLIENT.sm,
+  },
+  {
     component: Client.CourseOfflinePR,
     exact: true,
     path: OFFLINE_PATH_CLIENT.khoa2,
@@ -133,29 +136,15 @@ export const publicRoutes = [
     path: OFFLINE_PATH_CLIENT.khoa5,
   },
   {
-    component: Client.CourseOfflineCOA,
+    component: Client.CourseOfflineICPC,
     exact: true,
-    path: OFFLINE_PATH_CLIENT.khoa6,
+    path: OFFLINE_PATH_CLIENT.ICPC,
   },
-  {
-    component: Client.CourseOfflineBAV,
-    exact: true,
-    path: OFFLINE_PATH_CLIENT.khoa7,
-  },
-  {
-    component: Client.CourseOfflineLEADERSHIP,
-    exact: true,
-    path: OFFLINE_PATH_CLIENT.khoa8,
-  },
-  {
-    component: Client.CourseOfflineIDENTITY,
-    exact: true,
-    path: OFFLINE_PATH_CLIENT.khoa9,
-  },
+
   {
     component: Client.CourseOfflineGRADUATE,
     exact: true,
-    path: OFFLINE_PATH_CLIENT.khoa10,
+    path: OFFLINE_PATH_CLIENT.gol,
   },
   {
     component: Client.CourseOfflineOAC,
@@ -168,14 +157,9 @@ export const publicRoutes = [
     path: OFFLINE_PATH_CLIENT.LTC,
   },
   {
-    component: Client.CourseOfflinePAR,
+    component: Client.CourseOfflineIMCPC,
     exact: true,
-    path: OFFLINE_PATH_CLIENT.PAR,
-  },
-  {
-    component: Client.CourseOfflineICPC,
-    exact: true,
-    path: OFFLINE_PATH_CLIENT.ICPC,
+    path: OFFLINE_PATH_CLIENT.IMCPC,
   },
   {
     component: Client.CourseOfflineITTC,
@@ -183,41 +167,16 @@ export const publicRoutes = [
     path: OFFLINE_PATH_CLIENT.ITTC,
   },
   {
-    component: Client.CourseMediaSelfMastery,
+    component: Client.CourseOnlineSelfMastery,
     exact: true,
-    path: MEDIA_PATH_CLIENT.SELFMASTERY,
+    path: ONLINE_PATH_CLIENT.SELFMASTERY,
   },
   {
-    component: Client.CourseMediaTower,
+    component: Client.CourseOnlineTower,
     exact: true,
-    path: MEDIA_PATH_CLIENT.TOWER,
+    path: ONLINE_PATH_CLIENT.TOWER,
   },
 
-  {
-    component: Client.CourseOnlineRUNFASTER,
-    exact: true,
-    path: ONLINE_PATH_CLIENT.RUNFASTER,
-  },
-  {
-    component: Client.CourseOnlineCCS,
-    exact: true,
-    path: ONLINE_PATH_CLIENT.CCS,
-  },
-  {
-    component: Client.CourseOnlineRFREGISTER,
-    exact: true,
-    path: ONLINE_PATH_CLIENT.RFREGISTER,
-  },
-  {
-    component: Client.CourseOnlineBFW,
-    exact: true,
-    path: ONLINE_PATH_CLIENT.BFW,
-  },
-  {
-    component: Client.CourseOnlineVL,
-    exact: true,
-    path: ONLINE_PATH_CLIENT.VL,
-  },
   {
     component: Client.CourseMedia,
     exact: true,
@@ -332,5 +291,16 @@ export const adminRoutes = [
     component: Admin.Course,
     exact: true,
     path: "/admin" + URL_PATH_ADMIN.COURSE_MANAGER,
+  },
+
+  {
+    component: Admin.CourseOnlineManager,
+    exact: true,
+    path: "/admin" + URL_PATH_ADMIN.COURSE_ONLINE_MANAGER,
+  },
+  {
+    component: Admin.CourseOnlineManagerDetail,
+    exact: true,
+    path: "/admin" + URL_PATH_ADMIN.COURSE_ONLINE_MANAGER_DETAIL,
   },
 ];

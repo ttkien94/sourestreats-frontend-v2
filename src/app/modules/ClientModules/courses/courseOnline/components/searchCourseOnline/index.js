@@ -1,5 +1,5 @@
 import React from "react";
-import { InputAdornment, makeStyles, TextField } from "@mui/material";
+import { InputAdornment, TextField } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import TitleCourse from "share/titleCourse";
 import SearchIcon from "@mui/icons-material/Search";
@@ -9,9 +9,8 @@ function SearchCourseOnline(props) {
   return (
     <div className="col-md-12">
       <div className="box-center  mt-3 px-3 py-3 ">
-        <div>
-          <TitleCourse title="search" />
-          {/**
+        <TitleCourse title="search" />
+        {/**
           <TextField
             type="text"
             className="my-3"
@@ -22,24 +21,23 @@ function SearchCourseOnline(props) {
             spellCheck={false}
             // field of Formik have 4 important props
           /> */}
-          <TextField
-            variant="outlined"
-            label={t("search-course")}
-            className="my-3"
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="start">
-                  <SearchIcon
-                    className="iconSearch ml-2"
-                    onClick={() => {
-                      console.log("onClick");
-                    }}
-                  />
-                </InputAdornment>
-              ),
-            }}
-          />
-        </div>
+        <TextField
+          variant="outlined"
+          label={t("search-course")}
+          className="my-3"
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="start">
+                <SearchIcon
+                  className="iconSearch ml-2"
+                  onClick={() => {
+                    console.log("onClick");
+                  }}
+                />
+              </InputAdornment>
+            ),
+          }}
+        />
       </div>
     </div>
   );

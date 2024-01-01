@@ -11,6 +11,7 @@ function LPETable({
   onOpenDrawer,
   onHandleDelete,
 }) {
+  console.log("tableHead:",tableHead)
   return (
     <Box sx={{ width: "100%" }}>
       <Paper sx={{ width: "100%", mb: 2 }}>

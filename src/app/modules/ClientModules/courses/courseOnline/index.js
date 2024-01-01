@@ -8,9 +8,41 @@ import ccs from "assets/images/source/online/ccs.jpg";
 import bfw from "assets/images/source/online/bfw.jpg";
 import vl from "assets/images/source/online/vl.jpg";
 import banner from "assets/images/source/banner/khoa-hoc-online-banner.jpg";
-
 import "./styles/styles.scss";
 
+// <div className="courseOnline-page">
+// <SoulRetreatsBanner
+//   bannerImg={banner}
+//   headText="Khóa học Online"
+//   subText="LIFE UNI có các khóa học trực tuyến nhằm cung cấp kiến thức cho những học viên có nhu cầu học từ xa."
+// />
+
+// <div className="container pb-5">
+//   <div className="heading">
+//     <h1 className="heading-text">
+//       Các khóa Online hiện tại của LIFE UNI
+//     </h1>
+//     <p className="heading-desc">
+//       Dành cho tất cả học viên có nhu cầu học Online
+//     </p>
+//   </div>
+
+//   <div className="row py-3">
+//     {right_course.map((y, index) => {
+//       return (
+//         <div className="col-12 col-md-6" key={index}>
+//           <CardItemOnline
+//             img={y.img}
+//             name={y.name}
+//             link={y.link}
+//             desc={y.desc}
+//           />
+//         </div>
+//       );
+//     })}
+//   </div>
+// </div>
+// </div>
 function CourseOnline() {
   useSiteTitle("online_courses");
 
@@ -36,38 +68,12 @@ function CourseOnline() {
   ];
 
   return (
-    <div className="courseOnline-page">
+    <div>
       <SoulRetreatsBanner
-        bannerImg={banner}
-        headText="Khóa học Online"
-        subText="LIFE UNI có các khóa học trực tuyến nhằm cung cấp kiến thức cho những học viên có nhu cầu học từ xa."
+        bannerImg="https://www.pim.com.pk/wp-content/uploads/2021/06/Learning-and-development-manager.png"
+        headText="Khóa học"
+        subText="Đang được phát triển."
       />
-
-      <div className="container pb-5">
-        <div className="heading">
-          <h1 className="heading-text">
-            Các khóa Online hiện tại của LIFE UNI
-          </h1>
-          <p className="heading-desc">
-            Dành cho tất cả học viên có nhu cầu học Online
-          </p>
-        </div>
-
-        <div className="row py-3">
-          {right_course.map((y, index) => {
-            return (
-              <div className="col-12 col-md-6" key={index}>
-                <CardItemOnline
-                  img={y.img}
-                  name={y.name}
-                  link={y.link}
-                  desc={y.desc}
-                />
-              </div>
-            );
-          })}
-        </div>
-      </div>
     </div>
   );
 }

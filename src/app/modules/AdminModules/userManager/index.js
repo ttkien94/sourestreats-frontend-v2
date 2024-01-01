@@ -5,7 +5,7 @@ import { Button } from "@mui/material";
 import EditUser from "./components/editUser/index.js";
 import FilterUser from "./components/filterUser/index.js";
 
-import LPETable from "template/adminTemplate/components/lpeTable";
+import AdminTable from "share/adminTable/index.js";
 import LPEPopover from "app/components/popover/index.js";
 import LPEDrawer from "app/components/drawer/index.js";
 import LPEPagination from "app/components/pagination";
@@ -26,7 +26,7 @@ const headCells = [
 const anchor = { vertical: "bottom", horizontal: "right" };
 const transfrom = { vertical: "top", horizontal: "right" };
 
-function UserManager() {
+function UserManager(props) {
   const LIMIT = 10;
 
   const refFilter = useRef(null);
@@ -116,7 +116,7 @@ function UserManager() {
   };
 
   return (
-    <>
+    <div>
       <div className="container-fluid">
         <Button
           onClick={(e) => {
@@ -131,13 +131,12 @@ function UserManager() {
         {isLoading ? (
           <IsLoadingSkeleton count={LIMIT + 1} />
         ) : (
-          <LPETable
-            tableName={"Quản lý user"}
+          <AdminTable
             tableHead={headCells}
             tableData={list}
             view="user"
-            onOpenDrawer={handleOpenDrawer}
             onHandleDelete={handleDelete}
+            {...props}
           />
         )}
 
@@ -178,10 +177,10 @@ function UserManager() {
       >
         <EditUser
           onToggleDrawer={toggleDrawer}
-          // userEdit={userEdit}
+          //  userEdit={userEdit}
         />
       </LPEDrawer>
-    </>
+    </div>
   );
 }
 

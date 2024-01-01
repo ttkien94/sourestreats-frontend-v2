@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, Redirect } from "react-router-dom";
 import useSiteTitle from "core/hooks/useSiteTitle";
-
+import emailjs from "@emailjs/browser";
 // MUI
 import { styled } from "@mui/material/styles";
 import { Button } from "@mui/material";
@@ -37,53 +37,64 @@ function ContactForm() {
   const dispatch = useDispatch();
   const { loading, error } = useSelector((state) => state.auth);
 
-  const handleSubmit = (data) => {
-    dispatch(sendFormContact(data));
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // console.log("handleSubmit");
+    // dispatch(sendFormContact(data));
+    // console.log("e", e.target);
+    // emailjs
+    //   .sendForm(
+    //     "studentcare_4406d89",
+    //     "template_mh03ego",
+    //     e.target,
+    //     "02u7DxdZhPaf0dxmB"
+    //   )
+    //   .then(
+    //     (result) => {
+    //       console.log("result:", result);
+    //       // window.location.reload(); //This is if you still want the page to reload (since e.preventDefault() cancelled that behavior)
+    //     },
+    //     (error) => {
+    //       console.log(error.text);
+    //     }
+    //   );
   };
 
-  // const initialValues = {
-  //   name: "trung kien",
-  //   email: "ttkien94@gmail.com",
-  //   messenger: "hello 123",
-  // };
   const initialValues = {
     name: "",
     email: "",
-    messenger: "",
   };
 
   const validationSchema = Yup.object().shape({
     name: Yup.string().required(t("enter_field")),
     email: Yup.string().required(t("enter_field")).email(t("email_incorrect")),
-    messenger: Yup.string().required(t("enter_field")),
   });
 
   return (
     <div className="col-md-12">
-      <div className="box-center mt-3 px-3 py-3 ">
+      <div className="box-center px-3 py-2 ">
         <div className="">
           <TitleCourse title={t("contact")} />
-          {error && <p className="text-left text-danger mb-4">{error}</p>}
+          {error && <p className="text-left text-danger mb-2">{error}</p>}
 
           <Formik
             initialValues={initialValues}
             validationSchema={validationSchema}
-            onSubmit={handleSubmit}
           >
             {(formikProps) => {
-              // const { values, errors, touched } = formikProps;
+              const { values, errors, touched } = formikProps;
 
-              // console.log({ values, errors, touched });
+              console.log({ values, errors, touched });
 
               return (
-                <Form className="py-3 row">
+                <Form className="row" onSubmit={handleSubmit}>
                   <div className="col-12">
                     <FastField
                       name="name"
                       component={InputField}
                       label={t("name")}
-                      placeholder="Nhập mật khẩu"
-                      className="w-100 mb-4"
+                      placeholder="Nhập Họ & Tên"
+                      className="w-100 mb-3 mt-3  input-field"
                       typePassword="icon"
                     />
                   </div>
@@ -93,10 +104,11 @@ function ContactForm() {
                       component={InputField}
                       label="Email"
                       placeholder="Email"
-                      className="w-100 mb-4"
+                      className="w-100 mb-2"
                     />
                   </div>
-                  <div className="col-12">
+                  {/**
+                 <div className="col-12">
                     <FastField
                       name="messenger"
                       component={InputField}
@@ -105,6 +117,7 @@ function ContactForm() {
                       className="w-100 mb-4"
                     />
                   </div>
+                */}
                   <div className="col-12">
                     <ButtonSubmit type="submit">
                       {t("send_now")}

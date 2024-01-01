@@ -5,8 +5,9 @@ import ModeEditOutlinedIcon from "@mui/icons-material/ModeEditOutlined";
 import DeleteIcon from "@mui/icons-material/Delete";
 
 import { Button } from "@mui/material";
+import { TableRow } from "@material-ui/core";
 
-function TableList({ view, dataItem, labelId, onOpenDrawer, onHandleDelete }) {
+function TableUserList({  dataItem, labelId, onOpenDrawer, onHandleDelete, key }) {
   const handleOpenDrawer = (item) => {
     onOpenDrawer && onOpenDrawer(item);
   };
@@ -16,29 +17,23 @@ function TableList({ view, dataItem, labelId, onOpenDrawer, onHandleDelete }) {
   };
 
   return (
-    <>
-      {view === "user" && (
-        <>
-          <TableCell component="th" id={labelId} scope="row" padding="none">
-            &nbsp; {dataItem._id}
-          </TableCell>
-          <TableCell component="th" id={labelId} scope="row" padding="none">
+    <TableRow key={key}>
+        <TableCell component="th" id={labelId} scope="row" padding="none">
+          &nbsp; {dataItem._id}
+        </TableCell>
+        <TableCell component="th" id={labelId} scope="row" padding="none">
             <LPEAvatar avatar={dataItem.avatar} name={dataItem.name} />
-          </TableCell>
-          <TableCell align="left">{dataItem.email}</TableCell>
-          <TableCell align="left">{dataItem.phone}</TableCell>
-
-          <TableCell align="left">
+        </TableCell>
+        <TableCell align="left">{dataItem.email}</TableCell>
+        <TableCell align="left">{dataItem.phone}</TableCell>
+        <TableCell align="left">
             <div
-              className={`${
-                dataItem.role === "admin" ? "admin-style" : "client-style"
-              } role-item`}
+              className={`${dataItem.role === "admin" ? "admin-style" : "client-style"} role-item`}
             >
-              <p> {dataItem.role}</p>
+              <p>{dataItem.role}</p>
             </div>
-          </TableCell>
-
-          <TableCell align="left">
+        </TableCell>
+        <TableCell align="left">
             <Button
               variant="outlined"
               startIcon={<ModeEditOutlinedIcon />}
@@ -61,10 +56,8 @@ function TableList({ view, dataItem, labelId, onOpenDrawer, onHandleDelete }) {
               Xóa
             </Button>
           </TableCell>
-        </>
-      )}
-    </>
+    </TableRow>
   );
 }
 
-export default TableList;
+export default TableUserList;

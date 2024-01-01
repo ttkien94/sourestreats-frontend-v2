@@ -1,0 +1,43 @@
+.apply {
+    p {
+      padding: 0 10px;
+      font-size: 16px;
+      text-align: left;
+      min-height: 100px;
+      color: black;
+    }
+    .apply-card {
+      padding:20px 15px 0px 20px;
+      background: #ebf5ff;
+      transition: all 0.4s ease-in-out;
+   
+      position: relative;
+      &:hover {
+        background: #ffcd28;
+        .number-icon-area {
+          h1 {
+            opacity: 1;
+          }
+        }
+      }
+      .apply-content {
+       p{ text-align: justify;}
+      }
+      .number-icon-area {
+        right:10px;
+        bottom:10px;
+        position:absolute;
+        h1 {
+          font-weight: 600;
+          font-size: 96px;
+          line-height: 65px;
+          letter-spacing: -1px;
+          color: #000;
+          opacity: 0.05;
+          margin-bottom: 10px;
+          margin-right: -4px;
+          transition: all 0.4s ease-in-out;
+        }
+      }
+    }
+  }

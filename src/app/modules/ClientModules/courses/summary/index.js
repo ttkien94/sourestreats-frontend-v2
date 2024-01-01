@@ -29,15 +29,15 @@ const categoryList = [
     colorBtn: "#6bc63e",
     link: "/chuong-trinh-huan-luyen/offline",
   },
-  {
-    id: 3,
-    name: "Sắp ra mắt",
-    title: "Khóa học media",
-    img: MediaCourse,
-    colorBg: "#7ed5f0",
-    colorBtn: "#2fa5ca",
-    link: "/chuong-trinh-huan-luyen/media",
-  },
+  // {
+  //   id: 3,
+  //   name: "Sắp ra mắt",
+  //   title: "Khóa học media",
+  //   img: MediaCourse,
+  //   colorBg: "#7ed5f0",
+  //   colorBtn: "#2fa5ca",
+  //   link: "/chuong-trinh-huan-luyen/media",
+  // },
 ];
 
 function Courses() {
@@ -55,10 +55,11 @@ function Courses() {
         <h1 className="heading">Hôm nay bạn muốn học những gì?</h1>
 
         <div className="row">
+          <div className="col-lg-2"></div>
           {categoryList.map((y, index) => {
             return (
               <div
-                className="mb-3 mb-lg-0 col-12 col-md-6 col-lg-4 cardCategory"
+                className="mb-3 mb-lg-0 col-12 col-md-6 col-lg-4  cardCategory"
                 key={index}
               >
                 <div

@@ -10,17 +10,15 @@ import VerifyForgotPassword from "./confirmForgotPassword";
 import Course from "./courses/summary";
 import CourseOnline from "./courses/courseOnline";
 import CourseOffline from "./courses/courseOffline";
-// course Media
-import CourseMedia from "./courses/courseMedia";
-import CourseMediaTower from "./courses/courseMedia/tower";
-import Register from "./register";
+
 // course offline combo 10
 import CourseOfflinePP from "./courses/courseOffline/pp";
+import CourseOfflineSM from "./courses/courseOffline/sm";
 import CourseOfflinePR from "./courses/courseOffline/pr";
 import CourseOfflineIYL from "./courses/courseOffline/iyl";
 import CourseOfflinePH from "./courses/courseOffline/ph";
 import CourseOfflineMOE from "./courses/courseOffline/moe";
-import CourseOfflineCOA from "./courses/courseOffline/coa";
+import CourseOfflineICPC from "./courses/courseOffline/icpc";
 import CourseOfflineBAV from "./courses/courseOffline/bav";
 import CourseOfflineLEADERSHIP from "./courses/courseOffline/leadership";
 import CourseOfflineIDENTITY from "./courses/courseOffline/identity";
@@ -32,10 +30,11 @@ import CourseOfflineLTC from "./courses/courseOffline/ltc";
 import CourseOfflinePAR from "./courses/courseOffline/par";
 
 // ICTA
-import CourseOfflineICPC from "./courses/courseOffline/icpc";
+import CourseOfflineIMCPC from "./courses/courseOffline/imcpc";
 import CourseOfflineITTC from "./courses/courseOffline/ittc";
 // course online
-import CourseMediaSelfMastery from "./courses/courseMedia/selfMastery";
+import CourseOnlineTower from "./courses/courseOnline/tower";
+import CourseOnlineSelfMastery from "./courses/courseOnline/selfMastery";
 import CourseOnlineRUNFASTER from "./courses/courseOnline/runFaster";
 import CourseOnlineRFREGISTER from "./courses/courseOnline/runFaster/register";
 import CourseOnlineCCS from "./courses/courseOnline/ccs";
@@ -54,6 +53,8 @@ import BlogDetail from "./blogDetail";
 
 // Map
 import LifeMap from "./lifeMap";
+
+import Register from "./register";
 
 // Demo
 import Demo from "./demo";
@@ -75,11 +76,12 @@ const Client = {
   CourseOnline,
   CourseOffline,
   CourseOfflinePP,
+  CourseOfflineSM,
   CourseOfflinePR,
   CourseOfflineIYL,
   CourseOfflinePH,
   CourseOfflineMOE,
-  CourseOfflineCOA,
+  CourseOfflineICPC,
   CourseOfflineBAV,
   CourseOfflineLEADERSHIP,
   CourseOfflineIDENTITY,
@@ -87,16 +89,15 @@ const Client = {
   CourseOfflineOAC,
   CourseOfflineLTC,
   CourseOfflinePAR,
-  CourseOfflineICPC,
+  CourseOfflineIMCPC,
   CourseOfflineITTC,
-  CourseMediaSelfMastery,
+  CourseOnlineSelfMastery,
   CourseOnlineRUNFASTER,
   CourseOnlineRFREGISTER,
   CourseOnlineBFW,
   CourseOnlineCCS,
   CourseOnlineVL,
-  CourseMedia,
-  CourseMediaTower,
+  CourseOnlineTower,
   Register,
   Recruitment,
   ConfirmRegister,

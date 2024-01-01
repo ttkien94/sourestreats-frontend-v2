@@ -232,6 +232,11 @@ export const getUsersAction = () => {
 };
 
 export const sendFormContact = (data, setIsLoading) => {
+  console.log(
+    "API_ENDPOINT + USER_SENDFORMCONTACT",
+    data,
+    API_ENDPOINT + USER_SENDFORMCONTACT
+  );
   return async (dispatch) => {
     try {
       await axios({

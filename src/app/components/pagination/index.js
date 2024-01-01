@@ -68,9 +68,8 @@ function LPEPagination({
     !!totalItem && (
       <>
         <p className="text-secondary text-right my-2">
-          có tổng cộng
+          Tổng cộng
           <span className="text-primary">{` ${totalItem} `}</span>
-          người dùng
         </p>
         <div>
           <ul className="breadcrumb p-0 m-0">

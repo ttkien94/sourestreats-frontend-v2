@@ -34,9 +34,15 @@ $bg-btn: #6bc63e;
       -ms-transition: all 0.2s ease-out 0s;
       -o-transition: all 0.2s ease-out 0s;
       transition: all 0.2s ease-out 0s;
-      font-size: 16px;
       margin-bottom: 20px;
       color: $color-icon;
+      color: #0270ad;
+      font-size: 18px;
+      transition: all 0.3s;
+      display: inline-block;
+      position: relative;
+      padding: 5px 20px;
+      border-radius: 5px;
     }
 
     a {
@@ -56,15 +62,18 @@ $bg-btn: #6bc63e;
       }
     }
   }
+ 
 }
 
 .service-item {
   &:hover {
     border: 1px solid transparent;
-    box-shadow: 0 15px 25px rgba(168, 96, 0, 0.1);
+    box-shadow: 1px 15px 25px rgba(34, 34, 34, 0.1);
 
-    cursor: pointer;
-
+   
+    .service-link{
+      cursor: pointer;
+    }
     a {
       color: #fff;
 

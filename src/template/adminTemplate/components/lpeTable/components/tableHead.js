@@ -6,9 +6,9 @@ export default function LPETableHead({ tableHead }) {
   return (
     <TableHead>
       <TableRow>
-        {tableHead.map((headCell) => (
-          <TableCell key={headCell.id}>{headCell.label}</TableCell>
-        ))}
+        {tableHead.map((headCell) =>  {
+            return <TableCell key={headCell.id}>{headCell.label}</TableCell>
+        })}
       </TableRow>
     </TableHead>
   );

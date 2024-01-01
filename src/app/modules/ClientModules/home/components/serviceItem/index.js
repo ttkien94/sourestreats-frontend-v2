@@ -12,9 +12,13 @@ function ServiceItem({ service }) {
         <div className="service-item-caption">
           <h2>{service.title}</h2>
 
-          <p className="mb-0">{service.description}</p>
-
-          {!service.description && <Link to={service.link}>Đi tới</Link>}
+          {service.description ? (
+            <p className="mb-0 service-description">{service.description}</p>
+          ) : (
+            <Link to={service.link} className="service-link">
+              Đi tới
+            </Link>
+          )}
         </div>
       </div>
     </div>

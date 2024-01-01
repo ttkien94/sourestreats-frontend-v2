@@ -9,6 +9,8 @@ import BlogsManager from "./blogManager";
 //Soul retreats
 import Student from "./student";
 import Course from "./course";
+import CourseOnlineManager from "./courseOnlineManager";
+import CourseOnlineManagerDetail from "./courseOnlineManager/components/courseOnlineDetail";
 const Admin = {
   Home,
   UserManager,
@@ -19,6 +21,8 @@ const Admin = {
   BlogsManager,
   Student,
   Course,
+  CourseOnlineManager,
+  CourseOnlineManagerDetail,
 };
 
 export default Admin;

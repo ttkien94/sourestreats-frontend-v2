@@ -1,306 +1,206 @@
-import React, { useState } from "react";
-import Modal from "./components/modal";
+import React from "react";
+import useSiteTitle from "core/hooks/useSiteTitle";
+import { Link } from "react-router-dom";
 
-import banner from "./assets/banner-icpc.jpg";
-import certification from "./assets/bang-chung-nhan-nlp.png";
-import privilege01 from "./assets/privilege01.png";
-import privilege03 from "./assets/privilege03.png";
-import quote2 from "./assets/quote2-icpc.jpg";
+import coa01 from "../../assets/images/chuong-trinh-huan-luyen/offline/coa/tu-van-tri-lieu-coa-lpe-banner.jpg";
+import coa02 from "../../assets/images/chuong-trinh-huan-luyen/offline/coa/tu-van-tri-lieu-coa-lpe-can-phai-tham-gia.png";
+import coa03 from "../../assets/images/chuong-trinh-huan-luyen/offline/coa/tu-van-tri-lieu-coa-lpe-doan-1.jpg";
+import coa04 from "../../assets/images/chuong-trinh-huan-luyen/offline/coa/tu-van-tri-lieu-coa-lpe-ngay-1.png";
+import coa05 from "../../assets/images/chuong-trinh-huan-luyen/offline/coa/tu-van-tri-lieu-coa-lpe-ngay-11.png";
+import coa06 from "../../assets/images/chuong-trinh-huan-luyen/offline/coa/tu-van-tri-lieu-coa-lpe-ngay-12.png";
+import coa07 from "../../assets/images/chuong-trinh-huan-luyen/offline/coa/tu-van-tri-lieu-coa-lpe-ngay-13.png";
+import coa08 from "../../assets/images/chuong-trinh-huan-luyen/offline/coa/tu-van-tri-lieu-coa-lpe-ngay-2.png";
+import coa09 from "../../assets/images/chuong-trinh-huan-luyen/offline/coa/tu-van-tri-lieu-coa-lpe-ngay-21.png";
+import coa10 from "../../assets/images/chuong-trinh-huan-luyen/offline/coa/tu-van-tri-lieu-coa-lpe-ngay-22.png";
+import coa11 from "../../assets/images/chuong-trinh-huan-luyen/offline/coa/tu-van-tri-lieu-coa-lpe-ngay-23.png";
+import coa12 from "../../assets/images/chuong-trinh-huan-luyen/offline/coa/tu-van-tri-lieu-coa-lpe-ngay-3.png";
+import coa13 from "../../assets/images/chuong-trinh-huan-luyen/offline/coa/tu-van-tri-lieu-coa-lpe-ngay-31.png";
+import coa14 from "../../assets/images/chuong-trinh-huan-luyen/offline/coa/tu-van-tri-lieu-coa-lpe-ngay-32.png";
+import coa15 from "../../assets/images/chuong-trinh-huan-luyen/offline/coa/tu-van-tri-lieu-coa-lpe-ngay-4.png";
+import coa16 from "../../assets/images/chuong-trinh-huan-luyen/offline/coa/tu-van-tri-lieu-coa-lpe-ngay-41.png";
+import coa17 from "../../assets/images/chuong-trinh-huan-luyen/offline/coa/tu-van-tri-lieu-coa-lpe-ngay-5.png";
+import coa18 from "../../assets/images/chuong-trinh-huan-luyen/offline/coa/tu-van-tri-lieu-coa-lpe-ngay-51.png";
+import coa19 from "../../assets/images/chuong-trinh-huan-luyen/offline/coa/tu-van-tri-lieu-coa-lpe-doan-2.jpg";
+import coa20 from "../../assets/images/chuong-trinh-huan-luyen/offline/coa/tu-van-tri-lieu-coa-lpe-doan-3.jpg";
 
 import "./styles/styles.scss";
 
-const data_apply = [
-  "Hiểu ra căn nguyên mọi vấn đề, lý giải cho cách hành xử của con người ở mọi khía cạnh.",
-  "Nhận thức và xử lý những lỗ hỏng cảm xúc đã cản trở con người bạn ",
-  'Chữa lành những căn bệnh đến từ "thân" và "tâm", từ đơn giản đến phức tạp.',
-  "Biết được cách làm chủ mọi cuộc giao tiếp, làm chủ trạng thái cơ thể & duy trì năng lượng tích cực. ",
-  'Tìm lại đáp án cho câu hỏi "Tôi là ai" và "Tôi sống để làm gì".',
-  "Làm chủ Cơ thể & Tâm trí từ những quy trình NLP các cấp bậc. ",
-  "Trở thành Nhà Tư Vấn Trị Liệu chuyên sâu, có khả năng giúp đỡ cho người xung quanh.",
-  "Khám phá Nhân dạng và Lẽ Sống với cấp độ cao hơn.",
-];
-
-const Environment =
-  "Môi trường (Làm việc/Gia đình/Mối quan hệ): Chính là nơi bạn gặp phải vấn đề và không thể hiện bản thân hay hạnh phúc ở đó.";
-const Behavior =
-  "Hành vi: Bạn cần phải linh hoạt để có thể làm chủ trong mọi vấn đề, mọi trường hợp xảy đến.";
-const Capabilities =
-  "Năng lực: Trạng thái bên trong, những cảm xúc tích cực/ tiêu cực, sự tự tin đưa ra những quyết định của bạn.";
-const BeliefAndValues =
-  "Niềm tin & Giá trị: Thứ bạn không thể nhìn thấy. Nhưng lại tạo nên những quyết định, ảnh hưởng 99% đến hành động và kết quả.";
-const IdentityAndLifePurpose =
-  "Nhân dạng & Lẽ sống: Khi chúng ta biết mình là ai, hiểu rõ về bản chất con người và vai trò của bạn trong thế giới này. ";
-const SpiritualAndVision =
-  "Tâm linh & Tầm nhìn: Vận hành những nguồn lực nhiệm màu bạn chưa từng biết đến trong vũ trụ này. Nhìn thấy được tiềm năng cuộc sống vĩ đại của chính mình và của con người.";
-
 function ICPC() {
-  const [show, setShow] = useState(false);
-  const [content, setContent] = useState(false);
-  const [ICPC, setICPC] = useState({
-    Opacity: 1,
-    zIndex: 1,
-    changeOpacity: "changeOpacity",
-  });
-  const [IMCPC, setIMCPC] = useState({
-    Opacity: 0.2,
-    zIndex: 0,
-    changeOpacity: "",
-  });
-
-  const showModal = (value) => {
-    setShow(true);
-    setContent(value);
-  };
-
-  const hideModal = () => {
-    setShow(false);
-  };
-  const changeStyleICPC = () => {
-    setICPC({ Opacity: 1, zIndex: 1, changeOpacity: "changeOpacity" });
-    setIMCPC({ Opacity: 0.2, zIndex: 0, changeOpacity: "" });
-  };
-  const changeStyleIMCPC = () => {
-    setICPC({ Opacity: 0.2, zIndex: 0, changeOpacity: "" });
-    setIMCPC({ Opacity: 1, zIndex: 1, changeOpacity: "changeOpacity" });
-  };
+  useSiteTitle("icpc");
 
   return (
-    <div className="ICPC">
-      <img src={banner} className="img-fluid " alt={banner} />
-      <div className="container">
-        <div className="row mt-5">
+    <div className="icpc container-fluid">
+      <div className="row">
+        <img src={coa01} alt={coa01} className="img-fluid w-100" />
+      </div>
+
+      <div className="row mt-4">
+        <div className="col-md-8 offset-md-2">
           <h2 className="quote">
-            Áp dụng NLP vào việc chữa lành tận sâu những vấn đề tưởng chừng như
-            không thể giải quyết được và xây dựng sự nghiệp cống hiến vĩ đại cho
-            cuộc đời.
+            ĐIỀU GÌ Ở CHƯƠNG TRÌNH NÀY KHIẾN CHÚNG TA CẦN PHẢI THAM GIA
           </h2>
-        </div>
-        <div className="row tab-menu">
-          <div className="col-6">
-            <button onClick={changeStyleICPC}>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <h2>ICPC</h2>
-            </button>
-          </div>
-          <div className="col-6">
-            <button onClick={changeStyleIMCPC}>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <h2>IMCPC</h2>
-            </button>
-          </div>
-        </div>
-        <div className="triangle-level">
-          <div
-            className={`triangle1 ${ICPC.changeOpacity}`}
-            style={{ opacity: ICPC.Opacity, zIndex: ICPC.zIndex }}
-          >
-            <div className="triangle-background-1 ">
+
+          <div className="row flex-alignitem mt-3 text-justify">
+            <div className="col-md-6 ">
               <p>
-                Environment
-                <button
-                  onClick={() => {
-                    showModal(Environment);
-                  }}
-                >
-                  <i className="fas fa-info-circle"></i>
-                </button>
+                Trải nghiệm 5 ngày chuyên sâu và Tốt Nghiệp với tư cách là một
+                NHÀ THỰC HÀNH NLP CĂN BẢN, thành thục về Thôi Miên Trị Liệu và
+                Dòng Thời Gian Trị Liệu với chứng chỉ đẳng cấp quốc tế (chứng
+                nhận bởi Đại Học NLP Hoa Kỳ - Ủy Ban Thôi Miên Trị Liệu Hoa Kỳ -
+                Hội Đồng Các Chuyên Gia Thôi Miên Thực Nghiệm Hoa Kỳ) bởi bậc
+                thầy đào tạo NLP hàng đầu Châu Á - Chuyên gia Mr. Vasanth
+                Gopalan.
               </p>
             </div>
-            <div className="triangle-background-2">
-              <p>
-                Behavior
-                <button
-                  onClick={() => {
-                    showModal(Behavior);
-                  }}
-                >
-                  <i className="fas fa-info-circle"></i>
-                </button>
-              </p>
-            </div>
-            <div className="triangle-background-3">
-              <p>
-                Capabilities
-                <button
-                  onClick={() => {
-                    showModal(Capabilities);
-                  }}
-                >
-                  <i className="fas fa-info-circle"></i>
-                </button>
-              </p>
-            </div>
-            <div className="triangle-background-4">
-              <p>
-                Belief & Values
-                <button
-                  onClick={() => {
-                    showModal(BeliefAndValues);
-                  }}
-                >
-                  <i className="fas fa-info-circle"></i>
-                </button>
-              </p>
-            </div>
-            <div className="triangle-background-5">
-              <p>
-                Identity & Life Purpose
-                <button
-                  onClick={() => {
-                    showModal(IdentityAndLifePurpose);
-                  }}
-                >
-                  <i className="fas fa-info-circle"></i>
-                </button>
-              </p>
-            </div>
-            <div className="triangle-background-6">
-              <p>
-                Spiritual <br /> & Vision
-                <button
-                  onClick={() => {
-                    showModal(SpiritualAndVision);
-                  }}
-                >
-                  <i className="fas fa-info-circle"></i>
-                </button>
-              </p>
+
+            <div className="col-md-6">
+              <img src={coa03} alt={coa03} />
             </div>
           </div>
-          <div
-            className={`triangle2 ${IMCPC.changeOpacity}`}
-            style={{ opacity: IMCPC.Opacity, zIndex: IMCPC.zIndex }}
-          >
-            <div className="triangle-background-1">
-              <p>
-                Spiritual & Vision
-                <button
-                  onClick={() => {
-                    showModal(SpiritualAndVision);
-                  }}
-                >
-                  <i className="fas fa-info-circle"></i>
-                </button>
-              </p>
+
+          <div className="row flex-alignitem mt-4 text-justify">
+            <div className="col-md-6 order-last">
+              <ul>
+                <li>
+                  Vận dụng và giải quyết tận gốc , chuyển hóa chữa lành các vấn
+                  đề về 8 khía cạnh của cuộc sống ngay trong khóa học với những
+                  quy trình NLP nền tảng & chuyên sâu, thôi miên và Liệu Pháp
+                  Dòng Thời Gian.
+                </li>
+
+                <li>
+                  Củng cố và hệ thống lại 6 QUY TRÌNH CHỮA LÀNH từ khoá 1 “TÌM
+                  LẠI LẼ SỐNG & KHÁT VỌNG THÀNH CÔNG” đến khóa 5(*)
+                </li>
+
+                <li>
+                  LÀM CHỦ KỸ THUẬT THÔI MIÊN CHỮA LÀNHLÀM CHỦ KỸ THUẬT THÔI MIÊN
+                  CHỮA LÀNH
+                </li>
+              </ul>
             </div>
-            <div className="triangle-background-2">
-              <p>
-                Identity & Life Purpose
-                <button
-                  onClick={() => {
-                    showModal(IdentityAndLifePurpose);
-                  }}
-                >
-                  <i className="fas fa-info-circle"></i>
-                </button>
-              </p>
+
+            <div className="col-md-6">
+              <img src={coa19} alt={coa19} />
             </div>
-            <div className="triangle-background-3">
-              <p>
-                Belief & Values
-                <button
-                  onClick={() => {
-                    showModal(BeliefAndValues);
-                  }}
-                >
-                  <i className="fas fa-info-circle"></i>
-                </button>
-              </p>
+          </div>
+
+          <div className="row flex-alignitem mt-3 text-justify">
+            <div className="col-md-6 ">
+              <ul>
+                <li>KHÁM PHÁ LIỆU PHÁP DÒNG THỜI GIAN</li>
+
+                <li>Kiến tạo và thiết lập hành vi mới</li>
+
+                <li>Thực tập Kỹ Thuật Tư Vấn Trị Liệu</li>
+
+                <li>
+                  Loại trừ tận gốc 5 LOẠI CẢM XÚC TIÊU CỰC NGHIÊM TRỌNG NHẤT mà
+                  con người gặp phải
+                </li>
+
+                <li>Gieo hạt TƯƠNG LAI</li>
+              </ul>
             </div>
-            <div className="triangle-background-4">
-              <p>
-                Capabilities
-                <button
-                  onClick={() => {
-                    showModal(Capabilities);
-                  }}
-                >
-                  <i className="fas fa-info-circle"></i>
-                </button>
-              </p>
-            </div>
-            <div className="triangle-background-5">
-              <p>
-                Behavior
-                <button
-                  onClick={() => {
-                    showModal(Behavior);
-                  }}
-                >
-                  <i className="fas fa-info-circle"></i>
-                </button>
-              </p>
-            </div>
-            <div className="triangle-background-6">
-              <p>
-                Environment
-                <button
-                  onClick={() => {
-                    showModal(Environment);
-                  }}
-                >
-                  <i className="fas fa-info-circle"></i>
-                </button>
-              </p>
+
+            <div className="col-md-6">
+              <img src={coa20} alt={coa20} />
             </div>
           </div>
         </div>
-        <div className={show ? "modal display-block" : "modal display-none"}>
-          <Modal
-            handleClose={hideModal}
-            content={content}
-            onClickOutside={() => {
-              setShow(false);
-            }}
-          ></Modal>
-        </div>
-        <div className="row quote2 mt-5">
-          <img src={quote2} className="img-fluid" alt={quote2} />
-        </div>
-        <div className="row apply mt-5 justify-content-center align-items-center ">
-          <h2 className="quote">ỨNG DỤNG THỰC TIỄN SAU CHƯƠNG TRÌNH </h2>
-          {data_apply.map((value, index) => {
-            return (
-              <div className="col-lg-4 col-md-6 mt-3" key={index}>
-                <div className="apply-card">
-                  <div className="apply-content">
-                    <p>{value}</p>
-                  </div>
-                  <div className="number-icon-area d-flex justify-content-between flex-warp">
-                    <div className="icon"></div>
-                    <h1>0{index + 1}</h1>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-        <div className="row privilege mt-5 pt-3">
-          <h2 className="quote">ĐẶC QUYỀN TỪ CHƯƠNG TRÌNH</h2>
-          <div className="col-lg-4 col-md-4 col-sm-12 ">
-            <img src={privilege01} className="img-fluid" alt={privilege01} />
-            <p>Bộ quy trình NLP dành riêng cho việc Coaching Online</p>
+      </div>
+
+      <div className="row mt-5 text-center">
+        <div className="col-md-8 offset-md-2 mt-3">
+          <div className="row">
+            <h2 className="quote">NGÀY 1: NỀN TẢNG</h2>
+            <div className="col-4">
+              <img src={coa05} alt={coa05} className="image-icon" />
+
+              <p>
+                Tổng hợp kho kiến thức NLP đã được học từ 5 cấp độ đầu (khóa 1
+                đến 5)*
+              </p>
+            </div>
+            <div className="col-4">
+              <img src={coa06} alt={coa06} className="image-icon" />
+              <p>Cấu Trúc Quy Trình</p>
+            </div>
+
+            <div className="col-4">
+              <img src={coa07} alt={coa07} className="image-icon" />
+              <p>Vấn Đề và "Chủ Đích Tích Cực" của Vấn Đề</p>
+            </div>
           </div>
-          <div className="col-lg-4 col-md-4 col-sm-12">
-            <img
-              src={certification}
-              className="img-fluid"
-              alt={certification}
-            />
-            <p>Bằng chứng nhận NLP đẳng cấp quốc tế</p>
+
+          <div className="row mt-5">
+            <h2 className="quote">NGÀY 2: QUY TRÌNH CĂN BẢN NLP</h2>
+            <div className="col-4">
+              <img src={coa09} alt={coa09} className="image-icon" />
+              <p>Mô Hình Chuẩn Đoán và Kỹ Thuật Đặt Câu Hỏi</p>
+            </div>
+
+            <div className="col-4">
+              <img src={coa10} alt={coa10} className="image-icon" />
+              <p className="text-center">Quy trình tạo "NEO"</p>
+            </div>
+
+            <div className="col-4">
+              <img src={coa11} alt={coa11} className="image-icon" />
+              <p>Quy trình đánh đổ "NEO"</p>
+            </div>
           </div>
-          <div className="col-lg-4 col-md-4 col-sm-12">
-            <img src={privilege03} className="img-fluid" alt={privilege03} />
-            <p>
-              Trở thành Nhà Tư Vấn Trị Liệu giải quyết vấn đề cho khách hàng,
-              cho mọi người.
-            </p>
+
+          <div className="row mt-5">
+            <h2 className="quote">NGÀY 3: QUY TRÌNH PP</h2>
+            <div className="col-4 offset-2">
+              <img src={coa13} alt={coa13} className="image-icon" />
+
+              <p>Quy Trình PP</p>
+            </div>
+            <div className="col-4">
+              <img src={coa14} alt={coa14} className="image-icon" />
+
+              <p className="text-center">Quy trình NBG</p>
+            </div>
+          </div>
+
+          <div className="row mt-5 flex-alignitem">
+            <h2 className="quote">
+              NGÀY 4: CHỮA LÀNH CÙNG KỸ THUẬT TRỊ LIỆU DÒNG THỜI GIAN CĂN BẢN
+            </h2>
+            <div className="col-3 offset-2">
+              <img src={coa16} alt={coa16} className="image-icon" />
+            </div>
+
+            <div className="col-4">
+              <p className="text-center">
+                Thực hiện Chữa lành bằng quy tắc Dòng Thời Gian Căn Bản
+              </p>
+            </div>
+          </div>
+
+          <div className="row my-5 flex-alignitem">
+            <h2 className="quote">
+              NGÀY 5: TỐT NGHIỆP - TRỊ LIỆU CHO KHÁCH HÀNG THỰC TẾ "LẠ MẶT"
+            </h2>
+            <div className="col-lg-3 offset-lg-2 col-md-4 offset-md-0 col-sm-4 offset-sm-4  col-xs-4 offset-xs-4 mt-3">
+              <img src={coa18} alt={coa18} className="image-icon" />
+            </div>
+            <div className="col-md-8 col-lg-6">
+              <p>
+                TỐT NGHIỆP CHỨNG CHỈ - NLP PRACTITIONER
+                <br /> (Chứng nhận ABNLP & NLP University)
+              </p>
+              <p>
+                TỐT NGHIỆP CHỨNG CHỈ - HYPNOTHERAPIST
+                <br /> (Chứng nhận ABH)
+              </p>
+              <p>
+                TỐT NGHIỆP CHỨNG CHỈ - TIMELINE THERAPIST <br /> (Chứng nhận bởi
+                Timeline Therapy Association)
+              </p>
+            </div>
           </div>
         </div>
       </div>

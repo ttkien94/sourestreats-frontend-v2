@@ -7,7 +7,7 @@ function Coach() {
   useSiteTitle("coach");
 
   return (
-    <div className="container corporate">
+    <div className="container corporate mt-3">
       <div className="row mb-5">
         <iframe
           width="100%"
@@ -62,7 +62,7 @@ function Coach() {
 
         <a
           className="corporate__btn corporate__btn--coach"
-          href="https://www.facebook.com/lpe.vn.lifeuni"
+          href="https://www.facebook.com/lifeunivietnam"
           target="_blank"
           rel="noreferrer"
         >

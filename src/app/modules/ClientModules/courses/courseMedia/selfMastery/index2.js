@@ -8,7 +8,6 @@ import { getIdVideo } from "core/utils/videoLinkUtil";
 import Vimeo from "@u-wave/react-vimeo";
 import ModalVideo from "react-modal-video";
 // import media file
-// import lpe from "assets/images/lpe.jpg";
 // import vas from "assets/images/vas.jpg";
 // import lhgt from "assets/images/lhgt.jpg";
 // import rossi from "assets/images/rossi.jpg";

@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 
-import CustomButton from "app/components/customButton";
+import LoadingButtom from "app/components/loadingButtom";
 import TextInput from "app/components/textInput";
 
 import { makeStyles } from "@mui/styles";
@@ -110,11 +110,11 @@ function ChangePassword({ id }) {
 
       <div className="row p-0">
         <div className="col-12 col-md-6">
-          <CustomButton
-            handleOnClick={handleChangePassword}
-            name="Cập nhật mật khẩu"
+          <LoadingButtom
+            onClick={handleChangePassword}
+            value="Cập nhật mật khẩu"
             loading={isLoading}
-            classStyled={classes.registerBtn}
+            className={classes.registerBtn}
           />
         </div>
       </div>

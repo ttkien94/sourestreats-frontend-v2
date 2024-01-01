@@ -1,6 +1,9 @@
 export const CONTENT_MENU = [
-  { title: "media_course", url: "/chuong-trinh-huan-luyen/media/tower" },
+  { title: "LIFE UNI", url: "/" },
+  { title: "course_OfflineTitle", url: "/chuong-trinh-huan-luyen/offline" },
+  { title: "course_OnlineTitle", url: "/chuong-trinh-huan-luyen/online" },
   // { title: "course", url: "/admin/quan-ly-khoa-hoc" },
+  // { title: "student_info", url: "/admin/quan-ly-hoc-vien" },
   // {
   // title: "student_info",
   // url: "/admin/quan-ly-hoc-vien",
