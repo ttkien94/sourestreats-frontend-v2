@@ -29,8 +29,9 @@ function GRADUATE() {
       </div>
 
       <div className="container">
-        <div className="row">
-          <div className="col-md-6 offset-md-3 mt-5">
+        <h2 className="quote">GIÁ TRỊ NHẬN ĐƯỢC TỪ CHƯƠNG TRÌNH</h2>
+        <div className="row flex-alignitem  mt-5">
+          <div className="col-lg-6 col-md-6">
             <iframe
               height="315"
               src="https://www.youtube.com/embed/iZNITdzCapQ"
@@ -39,23 +40,24 @@ function GRADUATE() {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             ></iframe>
-            <h2 className="quote">GIÁ TRỊ NHẬN ĐƯỢC TỪ CHƯƠNG TRÌNH</h2>
+          </div>
 
+          <div className="col-lg-6 col-md-6">
             <ul>
-              <li>
+              <li className="text-white">
                 Tốt Nghiệp Trường Đời và sẵn sàng cho một cơ thể toàn diện để có
                 thể vượt qua mọi thử thách cả về Tâm Trí lẫn Thể Chất vô cùng
                 khó khăn một cách dễ dàng
               </li>
-              <li>
-                XeM lại và Vận Hành phong cách sống của người đã tốt nghiệp
+              <li className="text-white">
+                Xem lại và Vận Hành phong cách sống của người đã tốt nghiệp
                 Trường Đời - Cho Bản Thân, Gia Đình, Đất Nước và Nhân Loại
               </li>
-              <li>
+              <li className="text-white">
                 Chắt lọc Tầm Nhìn Cá Nhân, Mục Đích Sống, Khát Vọng & Mục Tiêu
                 tạo những Cống Hiến Trọng Đại & Ý Nghĩa cuộc đời
               </li>
-              <li>
+              <li className="text-white">
                 Trở thành Bậc Thầy Tư Vấn Trị Liệu - Truyền Động Lực với khóa
                 học NLP
               </li>
@@ -64,7 +66,7 @@ function GRADUATE() {
         </div>
         <div className="row mt-3">
           <UiApplyCourse data={array_value} title="GIÁ TRỊ CỐT LÕI" />
-          <div className="">
+          <div className="my-5">
             <img src={graduate04} alt={graduate04} />
           </div>
         </div>

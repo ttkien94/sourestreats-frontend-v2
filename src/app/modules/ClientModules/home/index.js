@@ -209,7 +209,7 @@ export default function Home() {
               className="btn-playVideo"
               onClick={() => {
                 handleOpenVideo(
-                  "https://www.youtube.com/watch?v=ed3F3lkJCyg&t=33s"
+                  "https://www.youtube.com/watch?v=LlMtFVAU-9Q&ab_channel=LifeUniVN"
                 );
               }}
             >

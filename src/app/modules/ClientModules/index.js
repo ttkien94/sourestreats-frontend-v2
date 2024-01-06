@@ -14,6 +14,8 @@ import CourseOffline from "./courses/courseOffline";
 // course offline combo 10
 import CourseOfflinePP from "./courses/courseOffline/pp";
 import CourseOfflineSM from "./courses/courseOffline/sm";
+import CourseOfflineUM from "./courses/courseOffline/um";
+
 import CourseOfflinePR from "./courses/courseOffline/pr";
 import CourseOfflineIYL from "./courses/courseOffline/iyl";
 import CourseOfflinePH from "./courses/courseOffline/ph";
@@ -77,6 +79,7 @@ const Client = {
   CourseOffline,
   CourseOfflinePP,
   CourseOfflineSM,
+  CourseOfflineUM,
   CourseOfflinePR,
   CourseOfflineIYL,
   CourseOfflinePH,

@@ -27,7 +27,7 @@ const topUpSrc = {
   imgSrc: lifeUni,
   bigText: "Về LIFE UNI",
   desc: "intro_lifeuni",
-  linkVideo: "https://www.youtube.com/watch?v=ed3F3lkJCyg",
+  linkVideo: "https://www.youtube.com/watch?v=LlMtFVAU-9Q&ab_channel=LifeUniVN",
   linkInfo: "/",
   video: Video,
 };

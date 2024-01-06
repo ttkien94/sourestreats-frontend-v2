@@ -53,7 +53,7 @@ import oac01 from "./oac/trai-thieu-nien-xuat-chung-oac-lpe-hinhhocvien-01.jpg";
 import oac02 from "./oac/trai-thieu-nien-xuat-chung-oac-lpe-hinhhocvien-02.jpg";
 import oac03 from "./oac/trai-thieu-nien-xuat-chung-oac-lpe-hinhhocvien-03.jpg";
 import oac04 from "./oac/trai-thieu-nien-xuat-chung-oac-lpe-hinhhocvien-04.jpg";
-import oac05 from "./oac/trai-thieu-nien-xuat-chung-oac-lpe-banner.jpg";
+import oac05 from "./oac/trai-thieu-nien-xuat-chung-oac-banner.jpg";
 import oac06 from "./oac/trai-thieu-nien-xuat-chung-oac-lpe-hinh-01.png";
 
 import par01 from "./par/nghe-thuat-nuoi-con-xuat-chung-lpe-hinh-03.jpg";
@@ -121,7 +121,7 @@ import backgroundpp01 from "./pp/tim-lai-le-song-va-khat-vong-thanh-cong-backgro
 import backgroundpp02 from "./pp/tim-lai-le-song-va-khat-vong-thanh-cong-background-02.png";
 import backgroundpp03 from "./pp/tim-lai-le-song-va-khat-vong-thanh-cong-background-02.png";
 
-import pr01 from "./pr/nghe-thuat-song-hanh-phuc-va-hoa-hop-pr-banner.jpg";
+import pr01 from "./pr/self-mastery-banner.jpg";
 import pr02 from "./pr/nghe-thuat-song-hanh-phuc-va-hoa-hop-pr-lpe-chua-lanh-cac-moi-quan-he.png";
 import pr03 from "./pr/nghe-thuat-song-hanh-phuc-va-hoa-hop-pr-lpe-form-left.png";
 import pr04 from "./pr/nghe-thuat-song-hanh-phuc-va-hoa-hop-pr-lpe-chung-ta-ko-the-ton-tai.png";
@@ -138,6 +138,30 @@ import pr14 from "./pr/nghe-thuat-song-hanh-phuc-va-hoa-hop-pr-lpe-gia-tri-nhan-
 import pr15 from "./pr/nghe-thuat-song-hanh-phuc-va-hoa-hop-pr-lpe-chia-se-hoc-vien.png";
 import pr16 from "./pr/nghe-thuat-song-hanh-phuc-va-hoa-hop-pr-lpe-s8-03.png";
 
+import universalMasteryBanner from "./um/universal-mastery-banner.jpg";
+import universalMastery02 from "./um/universal-mastery-lifeuni-ban-co-biet.png";
+import universalMastery03 from "./um/universal-mastery-lifeUni-think-diffirent.png";
+import universalMastery04 from "./um/universal-mastery-lifeUni-think-diffirent-2.png";
+import universalMastery05 from "./um/universal-mastery-lifeUni-hinh-hoc-vien.jpg";
+import universalMastery06 from "./um/universal-mastery-lifeUni-mui-ten.png";
+import universalMastery07 from "./um/universal-mastery-lifeUni-vuot-so-hai.jpg";
+import universalMastery08 from "./um/universal-mastery-lifeUni-doi-tuong-1.png";
+import universalMastery09 from "./um/universal-mastery-lifeUni-doi-tuong-2.png";
+import universalMastery10 from "./um/universal-mastery-lifeUni-doi-tuong-3.png";
+import universalMastery11 from "./um/universal-mastery-lifeUni-doi-tuong-4.png";
+export const um = {
+  universalMasteryBanner,
+  universalMastery02,
+  universalMastery03,
+  universalMastery04,
+  universalMastery05,
+  universalMastery06,
+  universalMastery07,
+  universalMastery08,
+  universalMastery09,
+  universalMastery10,
+  universalMastery11,
+};
 export const iyl = {
   iyl01,
   iyl02,

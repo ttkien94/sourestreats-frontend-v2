@@ -40,7 +40,7 @@ export const combo_phoenix = [
     title: "finding_porpose",
     bgCourse: khoa01,
     textColor: "#fff",
-    link: "/chuong-trinh-huan-luyen/offline/tim-lai-le-song-va-khat-vong-thanh-cong",
+    link: "/chuong-trinh-huan-luyen/offline/tim-lai-le-song-va-khat-vong-thanh-cong/",
   },
   {
     id: 2,
@@ -88,7 +88,7 @@ export const combo_dragon = [
 
   {
     id: 8,
-    name: "khóa 10",
+    name: "khóa GOL",
     title: "gol",
     bgCourse: khoa10,
     textColor: "#fff",

@@ -5,8 +5,11 @@ function UiApplyCourse(props) {
   const { t } = useTranslation("common");
   const data = props.data;
   const title = props.title;
+  const classname = props.className ? props.className : "";
   return (
-    <div className="row apply  justify-content-center align-items-center ">
+    <div
+      className={`row apply  justify-content-center align-items-center ${classname}`}
+    >
       <h2 className="quote">{t(title)}</h2>
       {data.map((value, index) => {
         return (

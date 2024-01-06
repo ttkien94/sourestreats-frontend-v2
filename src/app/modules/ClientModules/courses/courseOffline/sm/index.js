@@ -14,7 +14,7 @@ const data_value = [
   "Được chuyên gia hướng dẫn các quy trình chữa lành sức khỏe, tinh thần từ cơ bản đến nâng cao",
   "Làm chủ hoàn toàn tâm trí, vô hiệu hóa mọi cảm xúc tiêu cực không để chúng chi phối bạn",
 ];
-function SM() {
+function SelfMastery() {
   useSiteTitle("sefl_mastery");
 
   return (
@@ -26,7 +26,7 @@ function SM() {
             <div className="col-md-6 offset-md-3 mt-3">
               <iframe
                 height="315"
-                src="https://www.youtube.com/embed/rY8T633Me80"
+                src="https://www.youtube.com/embed/vGlxwkAx-E4?si=fA7TYQEGWIHiA8ig"
                 title="YouTube video player"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -161,4 +161,4 @@ function SM() {
   );
 }
 
-export default SM;
+export default SelfMastery;

@@ -113,7 +113,12 @@ export const publicRoutes = [
   {
     component: Client.CourseOfflineSM,
     exact: true,
-    path: OFFLINE_PATH_CLIENT.sm,
+    path: OFFLINE_PATH_CLIENT.SM,
+  },
+  {
+    component: Client.CourseOfflineUM,
+    exact: true,
+    path: OFFLINE_PATH_CLIENT.UM,
   },
   {
     component: Client.CourseOfflinePR,
