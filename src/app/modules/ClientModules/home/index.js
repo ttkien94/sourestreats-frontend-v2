@@ -17,9 +17,10 @@ import hinh01 from "assets/images/source/hinh01.jpg";
 import hinh02 from "assets/images/source/hinh02.jpg";
 import hinh03 from "assets/images/source/hinh03.jpg";
 import hinh04 from "assets/images/source/hinh04.jpg";
-import thuthanh from "assets/images/source/thu-thanh.jpg";
-import bonDat from "assets/images/source/bon-dat.jpg";
-import ngocThanh from "assets/images/source/ngoc-thanh.jpg";
+
+import khanhvy from "assets/images/source/khanh-my.png";
+import nguyentuanvu from "assets/images/source/nguyen-tuan-vu.png";
+import hoanhai from "assets/images/source/hoan-hai.png";
 
 import vasVideo from "assets/images/source/banner-video.jpg";
 import personalTest from "assets/images/source/personal-test.jpg";
@@ -88,25 +89,25 @@ export default function Home() {
       id: 1,
       rating: 5,
       hero: t("chair_man_talk"),
-      name: `${t("ms")} Hà Thị Thu Thanh`,
-      job: `(${t("chair_man")}  Deloitte Việt Nam)`,
-      ava: thuthanh,
+      name: `${t("ms")} Nguyễn Khánh Vy`,
+      // job: `(${t("chair_man")}  Deloitte Việt Nam)`,
+      ava: khanhvy,
     },
     {
       id: 2,
       rating: 4,
       hero: t("ceo_talk"),
-      name: `${t("mr")} Trương Bổn Đạt`,
-      job: `(${t("ceo")} Vietphulabel)`,
-      ava: bonDat,
+      name: `${t("mr")} Nguyễn Tuấn Vũ`,
+      // job: `(${t("ceo")} Vietphulabel)`,
+      ava: nguyentuanvu,
     },
     {
       id: 3,
       rating: 5,
       hero: t("project_consultant_talk"),
-      name: `${t("ms")} Nguyễn Thuỵ Ngọc Thanh`,
-      job: t("project_consultant"),
-      ava: ngocThanh,
+      name: `${t("ms")} Phạm Thị Hoàn Hải`,
+      // job: t("project_consultant"),
+      ava: hoanhai,
     },
   ];
 

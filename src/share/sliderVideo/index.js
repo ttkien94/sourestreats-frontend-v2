@@ -24,7 +24,9 @@ function SliderVideo(props) {
   //   setVideo(getIdVideo(link));
   //   setIsVisible(!isVisible);
   // };
-
+  const handleTest = () => {
+    console.log("handleTest:");
+  };
   return (
     <div className="container-fluid px-0 slider-video">
       <Swiper
@@ -59,8 +61,8 @@ function SliderVideo(props) {
                       console.log("onSeeked");
                     }}
                     onTimeUpdate={(e) => {
-                      // console.log("onTimeUpdate", e);
-                      // e.seconds >= 60 && setPaused(true);
+                      console.log("onTimeUpdate", e.seconds, v.testAt);
+                      e.seconds >= v.testAt && handleTest();
                     }}
                     responsive
                   />

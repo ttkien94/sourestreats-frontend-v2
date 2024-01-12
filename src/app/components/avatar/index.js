@@ -1,7 +1,7 @@
 import { Avatar } from "@mui/material";
 import React from "react";
 
-function LPEAvatar({ name, avatar, action, hiddenName }) {
+function LPEAvatar({ name, avatar, action, hiddenName, courseOnline }) {
   const openPopOver = (e) => {
     action && action(e);
   };
@@ -11,6 +11,7 @@ function LPEAvatar({ name, avatar, action, hiddenName }) {
     alignItems: "center",
     cursor: "pointer",
     marginRight: "10px",
+    color: courseOnline ? "white" : "black",
   };
 
   // Make random color for avatar letter
@@ -56,7 +57,7 @@ function LPEAvatar({ name, avatar, action, hiddenName }) {
       <div style={styles}>
         <Avatar alt={name} src={avatar} />
 
-        {!hiddenName && <span className="ml-1">{name}</span>}
+        {!hiddenName && <span className="ml-1 ">{name}</span>}
       </div>
     );
   };
@@ -65,7 +66,7 @@ function LPEAvatar({ name, avatar, action, hiddenName }) {
     return (
       <div style={styles}>
         <Avatar />
-        {!hiddenName && <span className="ml-1">{name}</span>}
+        {!hiddenName && <span className="ml-1 ">{name}</span>}
       </div>
     );
   };

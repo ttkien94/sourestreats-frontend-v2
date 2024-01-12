@@ -67,15 +67,7 @@ function CourseOnline() {
     },
   ];
 
-  return (
-    <div>
-      <SoulRetreatsBanner
-        bannerImg="https://www.pim.com.pk/wp-content/uploads/2021/06/Learning-and-development-manager.png"
-        headText="Khóa học"
-        subText="Đang được phát triển."
-      />
-    </div>
-  );
+  return <div className="course-online"></div>;
 }
 
 export default CourseOnline;

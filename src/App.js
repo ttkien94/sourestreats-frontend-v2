@@ -1,8 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, Switch } from "react-router-dom";
-import { adminRoutes, publicRoutes } from "./app/config/routes";
+import {
+  adminRoutes,
+  courseOnlineRoutes,
+  publicRoutes,
+} from "./app/config/routes";
 
-import { AdminTemplate, HomeTemplate } from "template";
+import { AdminTemplate, HomeTemplate, CourseOnlineTemplate } from "template";
 import ErrorPage from "app/modules/Error";
 
 import AutoScroll from "./app/components/autoScroll";
@@ -40,6 +44,18 @@ function App() {
               path={route.path}
               Component={route.component}
               key={index}
+            />
+          );
+        })}
+
+        {courseOnlineRoutes.map((route, index) => {
+          return (
+            <CourseOnlineTemplate
+              exact
+              path={route.path}
+              Component={route.component}
+              key={index}
+              title={route.title}
             />
           );
         })}

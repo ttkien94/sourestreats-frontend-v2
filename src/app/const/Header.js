@@ -1,5 +1,5 @@
 export const CONTENT_MENU = [
-  { title: "LIFE UNI", url: "/" },
+  { title: "LIFE UNIVERSITY", url: "/" },
   { title: "course_OfflineTitle", url: "/chuong-trinh-huan-luyen/offline" },
   { title: "course_OnlineTitle", url: "/chuong-trinh-huan-luyen/online" },
   // { title: "course", url: "/admin/quan-ly-khoa-hoc" },

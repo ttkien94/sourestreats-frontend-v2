@@ -1,8 +1,10 @@
 import Client from "app/modules/ClientModules";
 import Admin from "app/modules/AdminModules";
+import CourseOnline from "app/modules/CourseOnlineModules";
 import { MEDIA_PATH_CLIENT } from "./routes-coursemedia";
 import { OFFLINE_PATH_CLIENT } from "./routes-coursesoffline";
 import { ONLINE_PATH_CLIENT } from "./routes-coursesonline";
+
 // PATH FOR MODULES CLIENT
 export const URL_PATH_CLIENT = {
   HOME: "/",
@@ -17,8 +19,6 @@ export const URL_PATH_CLIENT = {
   COURSE: "/chuong-trinh-huan-luyen",
   COURSEMEDIA: "/chuong-trinh-huan-luyen/media",
   RECRUITMENT: "/lpe/tuyen-dung",
-  COURSEONLINE: "/chuong-trinh-huan-luyen/online",
-  COURSEOFFLINE: "/chuong-trinh-huan-luyen/offline",
   CONFIRMREGISTER: "/xac-nhan-dang-ky/:token",
   CONFIRMFORGOTPASSWORD: "/xac-nhan-quen-mat-khau/:token",
   FORGOTPASSWORD: "/quen-mat-khau",
@@ -66,6 +66,11 @@ export const publicRoutes = [
     path: URL_PATH_CLIENT.HOME,
   },
   {
+    component: Client.HomeClientV2,
+    exact: true,
+    path: URL_PATH_CLIENT.HOMECLIENTV2,
+  },
+  {
     component: Client.Login,
     exact: true,
     path: URL_PATH_CLIENT.LOGIN,
@@ -96,14 +101,9 @@ export const publicRoutes = [
     path: URL_PATH_CLIENT.COURSE,
   },
   {
-    component: Client.CourseOnline,
-    exact: true,
-    path: URL_PATH_CLIENT.COURSEONLINE,
-  },
-  {
     component: Client.CourseOffline,
     exact: true,
-    path: URL_PATH_CLIENT.COURSEOFFLINE,
+    path: OFFLINE_PATH_CLIENT.COURSEOFFLINE,
   },
   {
     component: Client.CourseOfflinePP,
@@ -249,7 +249,22 @@ export const publicRoutes = [
     path: URL_PATH_CLIENT.CORPORATION,
   },
 ];
+// public pages for Course Online Template
 
+export const courseOnlineRoutes = [
+  {
+    component: CourseOnline.CourseOnlineHome,
+    exact: true,
+    path: ONLINE_PATH_CLIENT.COURSEONLINEHOME,
+    title: "HOME",
+  },
+  {
+    component: CourseOnline.CourseOnlineDetails.TowerOne,
+    exact: true,
+    path: ONLINE_PATH_CLIENT.TOWERONE,
+    title: "Tower One",
+  },
+];
 // Only for Admin Pages
 export const adminRoutes = [
   {

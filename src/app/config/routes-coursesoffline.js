@@ -1,6 +1,7 @@
 const MAIN_PATH = "/chuong-trinh-huan-luyen/offline";
 
 export const OFFLINE_PATH_CLIENT = {
+  COURSEOFFLINE: `${MAIN_PATH}`,
   khoa1: `${MAIN_PATH}/tim-lai-le-song-va-khat-vong-thanh-cong`,
   khoa2: `${MAIN_PATH}/lam-chu-chinh-minh`,
   SM: `${MAIN_PATH}/lam-chu-chinh-minh`,
