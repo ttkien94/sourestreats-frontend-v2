@@ -11,6 +11,9 @@ import Student from "./student";
 import Course from "./course";
 import CourseOnlineManager from "./courseOnlineManager";
 import CourseOnlineManagerDetail from "./courseOnlineManager/components/courseOnlineDetail";
+import SchedulaCourseManager from "./schedulaCourseManager";
+import QuestionManager from "./questionManager";
+import VideoManager from "./videoManager";
 const Admin = {
   Home,
   UserManager,
@@ -23,6 +26,9 @@ const Admin = {
   Course,
   CourseOnlineManager,
   CourseOnlineManagerDetail,
+  SchedulaCourseManager,
+  QuestionManager,
+  VideoManager,
 };
 
 export default Admin;

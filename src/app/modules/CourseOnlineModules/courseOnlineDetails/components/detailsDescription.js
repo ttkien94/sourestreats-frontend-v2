@@ -18,12 +18,12 @@ const styled = {
 };
 
 function DetailsDescription(props) {
-  const { title, level, released, student, star, rating, buttonFree } = props;
+  const { name, level, released, student, star, rating } = props.data;
 
   return (
     <div style={styled.detailsDescription}>
       <div className="row space-between">
-        <p>{title}</p>
+        <p className="font-size24">{name}</p>
         <div>
           <p style={styled.rightContent}>
             {[...Array(5)].map((e, i) => {
@@ -34,26 +34,28 @@ function DetailsDescription(props) {
               );
             })}
           </p>
-          <p style={styled.rightContent}>({rating} Ratings)</p>
+          <p style={styled.rightContent} className="font-size12">
+            ({rating} Ratings)
+          </p>
         </div>
       </div>
       <div className="row mt-3 space-between">
         <p>Cấp bậc</p>
         <p>{level}</p>
       </div>
-      <div className="row  space-between">
+      <div className="row mt-2  space-between">
         <p>Ngày xuất bản</p>
         <p>{released}</p>
       </div>
-      <div className="row  space-between">
+      <div className="row mt-2 space-between">
         <p>Học viên</p>
         <p>{student}</p>
       </div>
-      <div className="row " style={styled.rightContent}>
+      {/* <div className="row " style={styled.rightContent}>
         <Button className="mt-3 py-2" variant="contained" fullWidth>
-          {buttonFree}
+          {props.buttonFree}
         </Button>
-      </div>
+      </div> */}
     </div>
   );
 }

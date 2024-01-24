@@ -44,14 +44,29 @@ const menuMagager = [
   },
 
   {
-    text: "Quản lý Khóa học",
+    text: "Khóa học Offline",
     icon: <AutoStoriesIcon />,
     link: "/admin/quan-ly-khoa-hoc",
   },
   {
-    text: "Quản lý KH TT",
+    text: "Khóa học Online",
     icon: <AutoStoriesIcon />,
     link: "/admin/quan-ly-khoa-hoc-truc-tuyen",
+  },
+  {
+    text: "Lịch Học",
+    icon: <AutoStoriesIcon />,
+    link: "/admin/quan-ly-lich-hoc",
+  },
+  {
+    text: "Video",
+    icon: <AutoStoriesIcon />,
+    link: "/admin/quan-ly-video",
+  },
+  {
+    text: "Câu hỏi",
+    icon: <AutoStoriesIcon />,
+    link: "/admin/quan-ly-cau-hoi",
   },
 ];
 

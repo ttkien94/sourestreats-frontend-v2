@@ -39,6 +39,43 @@ export const API_COURSE_CREATE_ARRAY = "/course/create-array/";
 export const API_COURSE_SEARCH = "/course/search/";
 export const API_COURSE_UPDATE = "/course/update/";
 export const API_COURSE_DELETE = "/course/delete/";
+
+// admin courseOnline
+export const API_GET_COURSE_ONLINE = "/course-online/";
+export const API_COURSE_ONLINE_CREATE = "/course-online/create/";
+export const API_COURSE_ONLINE_CREATE_ARRAY = "/course-online/create-array/";
+export const API_COURSE_ONLINE_SEARCH = "/course-online/search/";
+export const API_COURSE_ONLINE_UPDATE = "/course-online/update/";
+export const API_COURSE_ONLINE_DELETE = "/course-online/delete/";
+
+// admin scheduleCourse
+
+export const API_GET_SCHEDULE_COURSE = "/schedule-course/";
+export const API_SCHEDULE_COURSE_CREATE = "/schedule-course/create/";
+export const API_SCHEDULE_COURSE_CREATE_ARRAY =
+  "/schedule-course/create-array/";
+export const API_SCHEDULE_COURSE_SEARCH = "/schedule-course/search/";
+export const API_SCHEDULE_COURSE_UPDATE = "/schedule-course/update/";
+export const API_SCHEDULE_COURSE_DELETE = "/schedule-course/delete/";
+
+// admin question
+
+export const API_GET_QUESTION = "/question/";
+export const API_QUESTION_CREATE = "/question/create/";
+export const API_QUESTION_CREATE_ARRAY = "/question/create-array/";
+export const API_QUESTION_SEARCH = "/question/search/";
+export const API_QUESTION_UPDATE = "/question/update/";
+export const API_QUESTION_DELETE = "/question/delete/";
+
+// admin Video
+export const API_GET_VIDEO_DETAILS = "/video/details/";
+export const API_GET_VIDEO = "/video/";
+export const API_VIDEO_CREATE = "/video/create/";
+export const API_VIDEO_CREATE_ARRAY = "/video/create-array/";
+export const API_VIDEO_SEARCH = "/video/search/";
+export const API_VIDEO_UPDATE = "/video/update/";
+export const API_VIDEO_DELETE = "/video/delete/";
+
 // BLOG
 export const UPLOAD_IMAGE_BLOG = "/blog/upload-image-blog";
 

@@ -6,6 +6,10 @@ import { topicReducer } from "./topic";
 import { blogReducer } from "./blog";
 import { studentReducer } from "./student";
 import { courseReducer } from "./course";
+import { courseOnlineReducer } from "./courseOnline";
+import { scheduleCourseReducer } from "./scheduleCourse";
+import { questionReducer } from "./question";
+import { videoReducer } from "./video";
 export default combineReducers({
   app: appReducer,
   auth: authReducer,
@@ -14,4 +18,8 @@ export default combineReducers({
   blog: blogReducer,
   student: studentReducer,
   course: courseReducer,
+  courseOnline: courseOnlineReducer,
+  scheduleCourse: scheduleCourseReducer,
+  question: questionReducer,
+  video: videoReducer,
 });

@@ -1,3 +1,4 @@
+import cloneDeep from "lodash/cloneDeep";
 import {
   COURSE_CREATE,
   COURSE_UPDATE_IN_LIST,
@@ -9,7 +10,6 @@ import {
   FETCH_MORE_COURSE_SUCCESS,
   FETCH_COURSE_FAILED,
 } from "core/redux/constant/courseConstant";
-import cloneDeep from "lodash/cloneDeep";
 
 const initialState = {
   courseList: [],

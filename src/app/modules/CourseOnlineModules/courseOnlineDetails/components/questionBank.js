@@ -70,24 +70,3 @@ export const qBank5 = [
     answer: "Agra",
   },
 ];
-export const arrayVideo = [
-  {
-    title: "Đáy 1",
-    listVideo: [
-      {
-        name: "Video 1",
-        url: "https://player.vimeo.com/video/897490048?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
-        isVisible: true,
-      },
-      {
-        name: "Video 2",
-        url: "https://player.vimeo.com/video/901714138?h=0931e2235d&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
-        isVisible: false,
-      },
-    ],
-  },
-  {
-    title: "Đáy 2",
-    listVideo: [{ name: "Video 1", url: "", isVisible: false }],
-  },
-];

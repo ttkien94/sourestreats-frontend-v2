@@ -4,10 +4,11 @@ import { TableCell, TableRow, TableHead, TableBody } from "@mui/material";
 
 import TableUserList from "./components/tableUserList";
 import TableCourseOnlineList from "./components/tableCourseOnlineList";
+import TableQuestionList from "./components/tableQuestionList";
+import TableVideoList from "./components/tableVideoList";
 function AdminTable({ tableHead, tableData, view, ...rest }) {
   const onHandleClick = () => {};
   const onHandleEdit = () => {};
-
   const renderHeader = () => {
     return (
       <TableHead>
@@ -41,6 +42,30 @@ function AdminTable({ tableHead, tableData, view, ...rest }) {
                   view={view}
                   dataItem={item}
                   key={index}
+                  {...rest}
+                />
+              );
+            })
+          : null}
+        {view === "question"
+          ? tableData.map((item, index) => {
+              return (
+                <TableQuestionList
+                  view={view}
+                  dataItem={item}
+                  index={index}
+                  {...rest}
+                />
+              );
+            })
+          : null}
+        {view === "video"
+          ? tableData.map((item, index) => {
+              return (
+                <TableVideoList
+                  view={view}
+                  dataItem={item}
+                  index={index}
                   {...rest}
                 />
               );

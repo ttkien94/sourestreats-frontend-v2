@@ -14,6 +14,9 @@ import IsLoadingSkeleton from "app/components/loadingSkeleton";
 import "./styles/styles.scss";
 import { showToast } from "core/utils/toastUtil.js";
 import AdminTable from "share/adminTable/index.js";
+import { getCourseOnlineAction } from "core/redux/actions/courseOnlineAction";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 const headCourseOnlineCells = [
   { id: "code", label: "Mã Khóa" },
@@ -34,13 +37,17 @@ function CourseOnlineManager() {
 
   const refFilter = useRef(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [list, setList] = useState([]);
   const [total, setTotal] = useState(0);
   const [isFiltered, setIsFiltered] = useState(false);
   const [dataFilter, setDataFilter] = useState({});
   const [openDrawer, setOpenDrawer] = useState(false);
   const [courseOnline, setCourseOnline] = useState({});
+  const [list, setList] = useState([]);
+  const { courseOnlineList, loading, records } = useSelector(
+    (state) => state.courseOnline
+  );
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const toggleDrawer = () => {
     setOpenDrawer(!openDrawer);
@@ -57,13 +64,14 @@ function CourseOnlineManager() {
   const handleCloseDrawer = () => {
     setOpenDrawer(false);
   };
+  console.log("courseOnlineList", courseOnlineList, records);
 
   useEffect(() => {
-    getList(1);
+    loadData(1);
   }, []);
 
   // Fetch Table Data
-  const getList = (page, opts, isFiltered) => {
+  const loadData = (page, opts, isFiltered) => {
     setIsLoading(true);
 
     const skip = page === 0 ? 0 : (page - 1) * LIMIT;
@@ -74,32 +82,29 @@ function CourseOnlineManager() {
       total: true,
       ...opts,
     };
-
-    axiosClient
-      .get(`course_online?${stringify(data)}`)
-      .then((response) => {
-        setIsLoading(false);
-        console.log("?response", response);
-        isFiltered
-          ? setTotal(response.total || 0)
-          : setTotal(response.total || 0);
-
-        setList(response.data);
-
-        setTotal(response.total);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    dispatch(getCourseOnlineAction());
+    // axiosClient
+    //   .get(`course_online?${stringify(data)}`)
+    //   .then((response) => {
+    //     setIsLoading(false);
+    //     isFiltered
+    //       ? setTotal(response.total || 0)
+    //       : setTotal(response.total || 0);
+    //     setList(response.data);
+    //     setTotal(response.total);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
   };
 
   const onChangePage = (page) => {
-    getList(page, dataFilter);
+    loadData(page, dataFilter);
   };
 
   const handleFilter = (data) => {
     setIsFiltered(true);
-    getList(1, data, true);
+    loadData(1, data, true);
     setDataFilter(data);
   };
 
@@ -136,12 +141,12 @@ function CourseOnlineManager() {
           Lọc
         </Button>
 
-        {isLoading ? (
+        {loading ? (
           <IsLoadingSkeleton count={LIMIT + 1} />
         ) : (
           <AdminTable
             tableHead={headCourseOnlineCells}
-            tableData={list}
+            tableData={courseOnlineList}
             view="course_online"
             handleOpenDrawer={handleOpenDrawer}
             onHandleDelete={handleDelete}

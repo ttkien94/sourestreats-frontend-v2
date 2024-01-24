@@ -1,8 +1,7 @@
 import React from "react";
 
 import DetailsTopic from "../components/detailsTopic";
-import "./styles.scss";
-import { qBank, arrayVideo } from "../components/questionBank";
+import "../styles/styles.scss";
 import Vimeo from "@u-wave/react-vimeo";
 // import media file
 
@@ -11,70 +10,55 @@ import Question from "../components/questions";
 import { Button } from "@material-ui/core";
 import { useEffect } from "react";
 import DetailsDescription from "../components/detailsDescription";
-import { data } from "./const";
-import { array } from "prop-types";
+import { courseOnline } from "./const";
 function TowerOne() {
   const [showModal, setShowModal] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [isLearned, setIsLearned] = useState(false);
   const [selectedOption, setSelectedOption] = useState("");
-  const [user, setUser] = useState([
-    { title: "Tầng 1", floor: 1, totalPass: 5 },
-    { title: "Tầng 2", floor: 2, totalPass: 0 },
-  ]);
-  const [arrayVideo, setArrayVideo] = useState(data.inforCourse[0].arrayVideo);
-  const [video, setVideo] = useState(arrayVideo[0]?.listVideo[0] || []);
+  const [listFloor, setListFloor] = useState(
+    courseOnline.listUser[0].inforCourse.listFloor
+  );
+  const [data, setData] = useState(listFloor[0]?.listVideo[0] || []);
 
   useEffect(() => {
     handleCheckScore();
-  }, []);
 
-  // useEffect(() => {
-  //   const { question } = video;
-  //   if (video.score === question.length) {
-  //     if (arrayVideo[video.floor - 1].havePermission === true) {
-  //       console.log("have +1");
-  //       let newData = arrayVideo;
-  //       newData[video.floor - 1].totalScore += 1;
-  //       newData[video.floor - 1].listVideo[video.id + 1].isVisible = true;
-  //       console.log("newData", newData);
-  //       setArrayVideo(newData);
-  //     }
-  //   }
-  // }, [showModal]);
+    console.log("courseOnline", data);
+  }, []);
 
   const handleOptionChange = (e) => {
     setSelectedOption(e.target.value);
   };
 
   const handleCheckScore = () => {
-    const { question } = video;
-    if (video.score === question.length) {
+    const { question } = data;
+    if (data.score === question.length) {
       setIsLearned(true);
     }
   };
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    const { question } = video;
+    const { question } = data;
 
     if (currentQuestion + 1 < question.length) {
       setCurrentQuestion((preState) => preState + 1);
       setSelectedOption("");
       if (selectedOption === question[currentQuestion].answer) {
-        setVideo((preState) => ({
-          ...video,
+        setData((preState) => ({
+          ...data,
           score: preState.score + 1,
         }));
       }
     } else {
       setShowModal(false);
       if (selectedOption === question[currentQuestion].answer) {
-        if (video.score === question.length - 1) {
-          if (arrayVideo[video.floor - 1].havePermission === true) {
-            let newData = arrayVideo;
-            newData[video.floor - 1].totalScore += 1;
-            newData[video.floor - 1].listVideo[video.id + 1].isVisible = true;
-            setArrayVideo(newData);
+        if (data.score === question.length - 1) {
+          if (listFloor[data.floor - 1].havePermission === true) {
+            let newData = listFloor;
+            newData[data.floor - 1].totalScore += 1;
+            newData[data.floor - 1].listFloor[data.id + 1].isVisible = true;
+            setListFloor(newData);
           }
         }
       }
@@ -83,22 +67,22 @@ function TowerOne() {
 
   const handleCloseModal = () => {
     setShowModal(false);
-    setVideo({ ...video, score: 0 });
+    setData({ ...data, score: 0 });
     setCurrentQuestion(0);
     setSelectedOption("");
   };
   const handleOnClick = (e) => {
-    setVideo(e);
+    setData(e);
     setCurrentQuestion(0);
     setSelectedOption("");
   };
   return (
     <div className="tower-one container">
       <div className="row space-between">
-        <div className="col-lg-8  col-md-7 box-video">
-          <div className="video-player">
+        <div className="col-lg-8  col-md-7 ">
+          <div className="box-radius">
             <Vimeo
-              video={video.url}
+              video={data.url}
               allow="autoplay; fullscreen; picture-in-picture"
               title="Mối quan hệ hoàn hảo"
               frameborder="0"
@@ -115,49 +99,53 @@ function TowerOne() {
               onSeeked={() => {
                 console.log("onSeeked");
               }}
+              className="video-player"
               onTimeUpdate={(e) => {
                 // console.log("onTimeUpdate", e.seconds, video.testAt);
                 // e.seconds >= video.testAt && setShowModal(true);
               }}
               responsive
             />
+            <div className="py-4 px-4">
+              <p>{data.name}</p>
+              <Question
+                question={data.question[currentQuestion]}
+                showModal={showModal}
+                handleCloseModal={handleCloseModal}
+                selectedOption={selectedOption}
+                onOptionChange={handleOptionChange}
+                onSubmit={handleFormSubmit}
+              />
+              {/* <Button
+                onClick={() => {
+                  !isLearned && setShowModal(true);
+                }}
+                variant="outlined"
+              >
+                Click
+              </Button> */}
+              {/* <h2 className="quote">Xem Hết Video để trả lời câu hỏi!</h2> */}
+            </div>
           </div>
-          <div className="mt-3">
-            <Question
-              question={video.question[currentQuestion]}
-              showModal={showModal}
-              handleCloseModal={handleCloseModal}
-              selectedOption={selectedOption}
-              onOptionChange={handleOptionChange}
-              onSubmit={handleFormSubmit}
-            />
-            <Button
-              onClick={() => {
-                !isLearned && setShowModal(true);
-              }}
-              variant="outlined"
-            >
-              Click
-            </Button>
-            <h2 className="quote">Xem Hết Video để trả lời câu hỏi!</h2>
+          <div className="box-radius mt-4 py-4 px-4">
+            <p>Mô tả tầng 1</p>
+            <p className="description font-size14">
+              This course is for Rails newbies and anyone looking to get a solid
+              foundation. It’s designed to teach you everything you need to
+              start building web applications in Rails right away.
+            </p>
+            <button className="see-detail mt-3 px-2 py-2">See Detail</button>
           </div>
         </div>
-        <div className="col-lg-4 col-md-5">
-          <DetailsDescription
-            title="Tháp 1"
-            level="1"
-            released="01 Jan 2024"
-            star="4"
-            rating="392"
-            buttonFree="Miễn Phí"
-          />
 
+        <div className="col-lg-4 col-md-5">
+          <DetailsDescription data={courseOnline} buttonFree="Miễn Phí" />
           <DetailsTopic
             title="Topics"
             number="13"
-            arrayVideo={arrayVideo}
+            listFloor={listFloor}
             handleOnClick={handleOnClick}
-            className="mt-3"
+            className="mt-4 px-4 pb-4"
           />
         </div>
       </div>

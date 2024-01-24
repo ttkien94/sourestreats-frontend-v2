@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 
 import Select from "@mui/material/Select";
@@ -6,16 +6,27 @@ import MenuItem from "@mui/material/MenuItem";
 import { FormControl, FormHelperText, InputLabel } from "@mui/material";
 
 function SelectField(props) {
-  const { field, label, placeholder, disabled, className, options, form } =
-    props;
+  const {
+    field,
+    label,
+    placeholder,
+    disabled,
+    className,
+    options,
+    form,
+    type,
+  } = props;
+  useEffect(() => {
+    console.log("options", options);
+  }, [options]);
 
+  // console.log("props.options", props.options);
   const { name } = field;
   const { errors, touched } = form;
   const showError = errors[name] && touched[name];
-
   return (
     <>
-      <FormControl className={className} error={showError}>
+      <FormControl className={className} error={showError} key={props.options}>
         {label && <InputLabel id={field.name}>{label}</InputLabel>}
 
         <Select
@@ -29,8 +40,12 @@ function SelectField(props) {
         >
           {options.map((option, index) => {
             return (
-              <MenuItem value={option.value} key={index}>
-                {option.name}
+              <MenuItem
+                value={option.value}
+                key={index}
+                selected={options.selected}
+              >
+                {option.value}
               </MenuItem>
             );
           })}

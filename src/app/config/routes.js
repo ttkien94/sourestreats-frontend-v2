@@ -46,6 +46,9 @@ export const URL_PATH_ADMIN = {
   COURSE_ONLINE_MANAGER: "/quan-ly-khoa-hoc-truc-tuyen",
   COURSE_ONLINE_MANAGER_DETAIL:
     "/quan-ly-khoa-hoc-truc-tuyen/chi-tiet-khoa-hoc",
+  SCHEDULE_COURSE_MANAGER: "/quan-ly-lich-hoc",
+  QUESTION_MANAGER: "/quan-ly-cau-hoi",
+  VIDEO_MANAGER: "/quan-ly-video",
 };
 
 // Public Pages for HOME Template
@@ -322,5 +325,20 @@ export const adminRoutes = [
     component: Admin.CourseOnlineManagerDetail,
     exact: true,
     path: "/admin" + URL_PATH_ADMIN.COURSE_ONLINE_MANAGER_DETAIL,
+  },
+  {
+    component: Admin.SchedulaCourseManager,
+    exact: true,
+    path: "/admin" + URL_PATH_ADMIN.SCHEDULE_COURSE_MANAGER,
+  },
+  {
+    component: Admin.VideoManager,
+    exact: true,
+    path: "/admin" + URL_PATH_ADMIN.VIDEO_MANAGER,
+  },
+  {
+    component: Admin.QuestionManager,
+    exact: true,
+    path: "/admin" + URL_PATH_ADMIN.QUESTION_MANAGER,
   },
 ];
