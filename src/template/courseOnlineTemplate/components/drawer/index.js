@@ -20,7 +20,7 @@ const menuMagager = [
   {
     text: "OverView",
     icon: <WebIcon />,
-    link: "/admin/quan-ly-nguoi-dung",
+    link: "/chuong-trinh-huan-luyen/online",
   },
   {
     text: "Course",
@@ -30,7 +30,7 @@ const menuMagager = [
   {
     text: "Setting",
     icon: <SettingsIcon />,
-    link: "/admin/quan-ly-hoc-vien",
+    link: "/chuong-trinh-huan-luyen/online",
   },
 ];
 

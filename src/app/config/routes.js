@@ -259,7 +259,7 @@ export const courseOnlineRoutes = [
     component: CourseOnline.CourseOnlineHome,
     exact: true,
     path: ONLINE_PATH_CLIENT.COURSEONLINEHOME,
-    title: "HOME",
+    title: "home_page",
   },
   {
     component: CourseOnline.CourseOnlineDetails.TowerOne,

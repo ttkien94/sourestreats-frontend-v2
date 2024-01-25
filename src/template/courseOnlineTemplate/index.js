@@ -50,7 +50,7 @@ const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
 );
 
 export const CourseOnlineTemplate = ({ Component, title, ...restProps }) => {
-  useSiteTitle("admin");
+  useSiteTitle("course_online");
 
   const dispatch = useDispatch();
   const { userInfo } = useSelector((state) => state.auth);
@@ -63,7 +63,6 @@ export const CourseOnlineTemplate = ({ Component, title, ...restProps }) => {
     if (accessToken !== null || isEmpty(userInfo)) {
       dispatch(appAction());
     }
-    console.log("restProps:", restProps);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

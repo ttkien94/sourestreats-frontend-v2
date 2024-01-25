@@ -1,7 +1,6 @@
 import React from "react";
 
 import DetailsTopic from "../components/detailsTopic";
-import "../styles/styles.scss";
 import Vimeo from "@u-wave/react-vimeo";
 // import media file
 
@@ -28,7 +27,8 @@ function TowerOne() {
   }, []);
 
   const handleOptionChange = (e) => {
-    setSelectedOption(e.target.value);
+    console.log("handleOptionChange");
+    setSelectedOption(e);
   };
 
   const handleCheckScore = () => {
@@ -37,32 +37,33 @@ function TowerOne() {
       setIsLearned(true);
     }
   };
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = (e, action) => {
     e.preventDefault();
-    const { question } = data;
+    console.log("action", action);
+    // const { question } = data;
 
-    if (currentQuestion + 1 < question.length) {
-      setCurrentQuestion((preState) => preState + 1);
-      setSelectedOption("");
-      if (selectedOption === question[currentQuestion].answer) {
-        setData((preState) => ({
-          ...data,
-          score: preState.score + 1,
-        }));
-      }
-    } else {
-      setShowModal(false);
-      if (selectedOption === question[currentQuestion].answer) {
-        if (data.score === question.length - 1) {
-          if (listFloor[data.floor - 1].havePermission === true) {
-            let newData = listFloor;
-            newData[data.floor - 1].totalScore += 1;
-            newData[data.floor - 1].listFloor[data.id + 1].isVisible = true;
-            setListFloor(newData);
-          }
-        }
-      }
-    }
+    // if (currentQuestion + 1 < question.length) {
+    //   setCurrentQuestion((preState) => preState + 1);
+    //   setSelectedOption("");
+    //   if (selectedOption === question[currentQuestion].answer) {
+    //     setData((preState) => ({
+    //       ...data,
+    //       score: preState.score + 1,
+    //     }));
+    //   }
+    // } else {
+    //   setShowModal(false);
+    //   if (selectedOption === question[currentQuestion].answer) {
+    //     if (data.score === question.length - 1) {
+    //       if (listFloor[data.floor - 1].havePermission === true) {
+    //         let newData = listFloor;
+    //         newData[data.floor - 1].totalScore += 1;
+    //         newData[data.floor - 1].listFloor[data.id + 1].isVisible = true;
+    //         setListFloor(newData);
+    //       }
+    //     }
+    //   }
+    // }
   };
 
   const handleCloseModal = () => {
@@ -76,78 +77,111 @@ function TowerOne() {
     setCurrentQuestion(0);
     setSelectedOption("");
   };
+  const renderLeftContent = () => {
+    return (
+      <div className="col-lg-8  col-md-7 ">
+        <div className="box-radius">
+          <Vimeo
+            video={data.url}
+            allow="autoplay; fullscreen; picture-in-picture"
+            title="Mối quan hệ hoàn hảo"
+            frameborder="0"
+            //   paused={paused}
+            onEnd={(e) => {
+              if (document.webkitCancelFullScreen) {
+                document.webkitCancelFullScreen();
+              }
+              !isLearned && setShowModal(true);
+            }}
+            onPlay={() => console.log("onPlay")}
+            onPlaying={() => console.log("onPlaying")}
+            onPause={() => console.log("onPause")}
+            onSeeked={() => {
+              console.log("onSeeked");
+            }}
+            className="video-player"
+            onTimeUpdate={(e) => {
+              // console.log("onTimeUpdate", e.seconds, video.testAt);
+              // e.seconds >= video.testAt && setShowModal(true);
+            }}
+            responsive
+          />
+          <div className="py-4 px-4">
+            <p>{data.name}</p>
+            <Question
+              question={data.question[currentQuestion]}
+              video={data}
+              showModal={showModal}
+              handleCloseModal={handleCloseModal}
+              selectedOption={selectedOption}
+              onOptionChange={handleOptionChange}
+              onSubmit={(e, action) => handleFormSubmit(e, action)}
+              className="question d-flex align-item-center justify-content-center"
+            />
+            {/* <Button
+              onClick={() => {
+                !isLearned && setShowModal(true);
+              }}
+              variant="outlined"
+            >
+              Click
+            </Button> */}
+            {/* <h2 className="quote">Xem Hết Video để trả lời câu hỏi!</h2> */}
+          </div>
+        </div>
+        <div className="box-radius mt-4 py-4 px-4">
+          <p>Mô tả tầng 1</p>
+          <p className="description font-size14">
+            This course is for Rails newbies and anyone looking to get a solid
+            foundation. It’s designed to teach you everything you need to start
+            building web applications in Rails right away.
+          </p>
+          <button className="see-detail mt-3 px-2 py-2">See Detail</button>
+        </div>
+      </div>
+    );
+  };
+  const renderRightContent = () => {
+    return (
+      <div className="col-lg-4 col-md-5">
+        <DetailsDescription data={courseOnline} buttonFree="Miễn Phí" />
+        <DetailsTopic
+          title="Topics"
+          number="13"
+          listFloor={listFloor}
+          handleOnClick={handleOnClick}
+          className="mt-4 px-4 pb-4"
+        />
+      </div>
+    );
+  };
+  const renderLeftContent1 = () => {
+    return (
+      <div className=" col-lg-8  col-md-7  ">
+        <div className="triaple">
+          <div className="box-floor4"></div>
+          <div className="box-floor3"></div>
+          <div className="box-floor2">
+            <div className="box-floor21"></div>
+            <div className="box-floor22"></div>
+            <div className="box-floor23"></div>
+          </div>
+          <div className="box-floor1">
+            <div className="box-floor11"></div>
+            <div className="box-floor12"></div>
+            <div className="box-floor13"></div>
+            <div className="box-floor14"></div>
+            <div className="box-floor15"></div>
+          </div>
+        </div>
+      </div>
+    );
+  };
   return (
     <div className="tower-one container">
       <div className="row space-between">
-        <div className="col-lg-8  col-md-7 ">
-          <div className="box-radius">
-            <Vimeo
-              video={data.url}
-              allow="autoplay; fullscreen; picture-in-picture"
-              title="Mối quan hệ hoàn hảo"
-              frameborder="0"
-              //   paused={paused}
-              onEnd={(e) => {
-                if (document.webkitCancelFullScreen) {
-                  document.webkitCancelFullScreen();
-                }
-                !isLearned && setShowModal(true);
-              }}
-              onPlay={() => console.log("onPlay")}
-              onPlaying={() => console.log("onPlaying")}
-              onPause={() => console.log("onPause")}
-              onSeeked={() => {
-                console.log("onSeeked");
-              }}
-              className="video-player"
-              onTimeUpdate={(e) => {
-                // console.log("onTimeUpdate", e.seconds, video.testAt);
-                // e.seconds >= video.testAt && setShowModal(true);
-              }}
-              responsive
-            />
-            <div className="py-4 px-4">
-              <p>{data.name}</p>
-              <Question
-                question={data.question[currentQuestion]}
-                showModal={showModal}
-                handleCloseModal={handleCloseModal}
-                selectedOption={selectedOption}
-                onOptionChange={handleOptionChange}
-                onSubmit={handleFormSubmit}
-              />
-              {/* <Button
-                onClick={() => {
-                  !isLearned && setShowModal(true);
-                }}
-                variant="outlined"
-              >
-                Click
-              </Button> */}
-              {/* <h2 className="quote">Xem Hết Video để trả lời câu hỏi!</h2> */}
-            </div>
-          </div>
-          <div className="box-radius mt-4 py-4 px-4">
-            <p>Mô tả tầng 1</p>
-            <p className="description font-size14">
-              This course is for Rails newbies and anyone looking to get a solid
-              foundation. It’s designed to teach you everything you need to
-              start building web applications in Rails right away.
-            </p>
-            <button className="see-detail mt-3 px-2 py-2">See Detail</button>
-          </div>
-        </div>
-
-        <div className="col-lg-4 col-md-5">
-          <DetailsDescription data={courseOnline} buttonFree="Miễn Phí" />
-          <DetailsTopic
-            title="Topics"
-            number="13"
-            listFloor={listFloor}
-            handleOnClick={handleOnClick}
-            className="mt-4 px-4 pb-4"
-          />
-        </div>
+        {renderLeftContent()}
+        {renderRightContent()}
       </div>
     </div>
   );

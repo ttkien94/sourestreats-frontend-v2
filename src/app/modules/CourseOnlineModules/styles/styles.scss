@@ -1,0 +1,208 @@
+.tower-one{
+    min-height: 100vh;
+    background-color: #1D212C;
+    p{
+        font-size: 18px
+    }
+    .buttonPlay{
+        padding: 20px;
+        background-color: rgba(255,255,255,0.14);
+        border-radius: 26px;
+    }
+    .details-topic{
+        width: 100%;
+        background-color: #282C38;
+        border-radius: 26px;
+        color: white;
+        .list-video{
+            .icon-play{
+                border-radius: 8px;
+                margin-left: 21px;
+            }
+            .video-name{
+                color:gray;
+                padding:7px 15px !important;
+                &:hover{
+                    background-color: unset;
+                }
+                .icon-play{
+                    border-color: 1px solid gray;
+                   color: gray;
+                }
+            }
+            .is-visible{
+                color:white; 
+                padding:7px 15px !important;
+                cursor: pointer;
+                &:hover{
+                    background-color: gray;
+                }
+                .icon-play{
+                    border: 1px solid white;
+                    color:white
+                }
+            }
+           
+        }
+    }
+   
+}
+.question{
+    color:white;
+    
+    .question-title{
+        font-size: 35px;
+        font-weight: 400;
+        line-height: 60px;
+    }
+    .question-length{
+        font-size: 21px;
+        font-weight: 400;
+        line-height: normal;
+        .text-secondary{
+            color: #6D7599;
+        }
+    }
+    .button{
+        padding: 24px 28px;
+        border-radius: 26px ;
+        color:white;
+        font-weight: bold;
+        background-color: #214466;
+        border: 1px solid #214466;
+    }
+    .next-button{
+        background-color: #107EEB;
+    }
+    .options{
+        .form-check{
+            border: 2px solid #214466;
+            border-radius: 26px;
+            padding:10px 20px;
+            margin-top:15px;
+            width: 80%;
+        }
+        .form-check-label{
+            font-size: 18x;
+        }
+        .form-check-input {
+            position: relative;
+        }
+    }
+}
+.course-online-home{
+    min-height: 100vh;
+  
+}
+.triaple{
+    flex-direction: column;
+    width: 600px;
+    display: flex;
+    // width: 0;  
+    // height: 0;  
+    // border-left: 50px solid transparent; 
+    // border-right: 50px solid transparent; 
+      
+    // border-bottom: 50px solid green; 
+
+    // margin: 2rem; 
+   
+    .box-floor4{
+        background-color: yellow;
+        height: 120px;
+        width: 100%;
+    }
+    .box-floor3{
+        background-color: blue;
+        height: 120px;
+        width: 100%;
+    }
+    .box-floor2{
+        background-color: transparent;
+        display: flex;
+        height: 120px;
+        width: 100%;
+        .box-floor21{
+            height: 100%;
+            width: 200px;
+            background-color: transparent;
+            border-left: 120px solid transparent; 
+            // border-right: 50px solid transparent; 
+            border-bottom: 120px solid green; 
+            position: relative;
+        }
+        .box-floor22{
+            height: 100%;
+            width: 200px; 
+            background-color: #6D7599;
+        }
+        .box-floor23{
+            height: 100%;
+            width: 200px;
+        }
+    }
+    .box-floor1{
+        background-color: transparent;
+        height: 120px;
+        display: flex;
+        .box-floor11{
+            height: 100%;
+            width: 120px;
+            background-color: transparent;
+            border-left: 60px solid transparent; 
+            // border-right: 50px solid transparent; 
+            border-bottom: 120px solid green; 
+            position: relative;
+            &:after {
+                position: absolute;
+                // top: 50%;
+                // left: 50%;
+                transform: translate(-40%,200%);
+                content: '15p';
+            }
+            &:hover{
+                border-bottom: 120px solid #8BB8FFD5; 
+            }
+        }    
+        .box-floor15{
+            height: 100%;
+            width: 120px;
+            background-color: transparent;
+            border-right: 60px solid transparent; 
+            // border-right: 50px solid transparent; 
+            border-bottom: 120px solid green; 
+            position: relative;
+            &:after {
+                position: absolute;
+                // top: 50%;
+                // left: 50%;
+                transform: translate(-40%,200%);
+                content: '15p';
+            }
+            &:hover{
+                border-bottom: 120px solid #8BB8FFD5; 
+            }
+        }  
+        .box-floor12{
+            height: 100%;
+            width: 120px;
+            background-color:#8BB8FFD5 ;
+            // border-right: 50px solid transparent; 
+        }    
+        .box-floor13{
+            height: 100%;
+            width: 120px;
+            background-color:#8BB8FFD5 ;
+            // border-right: 50px solid transparent; 
+        }  
+        .box-floor14{
+            height: 100%;
+            width: 120px;
+            background-color:#8BB8FFD5 ;
+            // border-right: 50px solid transparent; 
+        }  
+    }
+
+}
+  
+

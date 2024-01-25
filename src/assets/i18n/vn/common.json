@@ -140,5 +140,7 @@
   "universal_mastery":"Làm Chủ Cuộc Đời Bạn",
   "icpc":"Chứng nhận Quốc Tế Tư Vấn Trị Liệu Chuyên Nghiệp",
   "imcpc":"Chứng Nhận Quốc Tế Master Coach Chuyên Nghiệp",
-  "gol":"Tốt nghiệp Đại Học Cuộc Đời"
+  "gol":"Tốt nghiệp Đại Học Cuộc Đời",
+  "pre_question": "Câu hỏi trước",
+  "next_question":"Câu hỏi kế tiếp"
 }

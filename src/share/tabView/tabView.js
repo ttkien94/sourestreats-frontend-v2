@@ -25,7 +25,12 @@ function TabPanel(props) {
       {...other}
     >
       {value === index && (
-        <Box sx={{ p: 3 }}>
+        <Box
+          sx={{
+            p: 3,
+            background: props.background ? props.background : "white",
+          }}
+        >
           <Typography component={"span"}>{children}</Typography>
         </Box>
       )}
@@ -60,7 +65,10 @@ export default function TabView(props) {
   };
 
   return (
-    <Box sx={{ bgcolor: "background.paper" }} className="mt-5 col-12">
+    <Box
+      sx={{ bgcolor: "background.paper" }}
+      className={props.className ? props.className : ""}
+    >
       <AppBar position="static">
         <Tabs
           value={value}
@@ -69,7 +77,9 @@ export default function TabView(props) {
           textColor="inherit"
           variant="fullWidth"
           aria-label="full width tabs example"
-          TabIndicatorProps={{ style: { background: "white" } }}
+          TabIndicatorProps={{
+            style: { background: props.underLine ? props.underLine : "white" },
+          }}
         >
           {tab.map((tabItem, index) => {
             return (
@@ -95,6 +105,7 @@ export default function TabView(props) {
               index={index}
               dir={theme.direction}
               key={index}
+              background={props.background}
             >
               {tabPanelItem.component}
             </TabPanel>

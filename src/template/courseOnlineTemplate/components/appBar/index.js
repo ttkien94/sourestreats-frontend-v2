@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
@@ -61,6 +62,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 function Appbar({ title, onHandleDrawerOpen, isOpen }) {
+  const { t } = useTranslation("common");
   const history = useHistory();
   const classes = useStyles();
   const dispatch = useDispatch();
@@ -127,7 +129,7 @@ function Appbar({ title, onHandleDrawerOpen, isOpen }) {
           <MenuIcon />
         </IconButton>
 
-        <h3 className="text-white">{title}</h3>
+        <h3 className="text-white">{t(title)}</h3>
         <SearchBar
           className="course-online-search-bar"
           sx={{ input: { color: "white" }, "& fieldset": { border: "none" } }}

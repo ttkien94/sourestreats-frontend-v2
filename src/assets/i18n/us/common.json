@@ -139,5 +139,7 @@
   "universal_mastery":"Universal Mastery",
   "icpc":"International Coach Professional Certification",
   "imcpc":"International Master Coach Professional Certification",
-  "gol":"Graduate of Life"
+  "gol":"Graduate of Life",
+  "pre_question": "Prevous Question",
+  "next_question":"Next Question"
 }
