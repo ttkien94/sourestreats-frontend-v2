@@ -1,7 +1,8 @@
 const MAIN_PATH = "/chuong-trinh-huan-luyen/online";
 
 export const ONLINE_PATH_CLIENT = {
-  COURSEONLINEHOME: `${MAIN_PATH}`,
+  // COURSEONLINEHOME: `/`,
+  // COURSEONLINEHOME: `${MAIN_PATH}`,
   TOWERONE: `${MAIN_PATH}/tower-one`,
   RUNFASTER: `${MAIN_PATH}/run-faster`,
   RFREGISTER: `${MAIN_PATH}/run-faster/register`,

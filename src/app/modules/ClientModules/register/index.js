@@ -4,7 +4,7 @@ import { Redirect } from "react-router-dom";
 import useSiteTitle from "core/hooks/useSiteTitle";
 
 import * as Yup from "yup";
-import { YupSchema } from "app/const/yup";
+import { TheFirstStepSchema } from "app/const/yup";
 import { FastField, Form, Formik } from "formik";
 
 import { styled } from "@mui/material/styles";
@@ -29,57 +29,55 @@ const ButtonSubmit = styled(Button)`
   }
 `;
 
-function Register() {
+function Register(props) {
   useSiteTitle("register");
   const isLogined = Boolean(localStorage.getItem(KEY_TOKEN));
   const [step, setStep] = useState(0);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-
+  const title = props?.title ? props.title : "Đăng ký tài khoản";
   const handleRegister = async (data) => {
     setLoading(true);
-
+    console.log("registere");
     // delete data["rePassword"];
-
+    data["loaive"] = "General";
+    data["tags"] = ["Vas-TheFirstStep"];
+    data["import_by_tag_name"] = true;
+    console.log("Data", data);
     await axios({
       method: "POST",
-      url: API_ENDPOINT + SIGN_UP,
+      url: "https://api.service.ladiflow.com/1.0/customer/create-or-update",
+      headers: {
+        "Api-Key": "a21928473afdf60440c8adddec916036aac285ce560b0133",
+      },
       data,
     })
       .then((response) => {
-        if (response.status === CODE_SUCCESS) {
-          setLoading(false);
-          setStep((prevState) => prevState + 1);
-        } else {
-          setError("Email này đã được đăng ký");
-          setLoading(false);
-        }
+        console.log("response", response);
       })
       .catch((err) => {
         setLoading(false);
         console.log(err);
       });
   };
-  const initialValues = {
-    name: "",
-    gender: "nam",
-    email: "",
-    phone: "",
-    birthDay: timeToUnix(new Date()),
-    password: "",
-    rePassword: "",
-  };
-
   // const initialValues = {
-  //   birthDay: 1696266000000,
-  //   email: "ttkien94@gmail.com",
+  //   first_name: "",
   //   gender: "nam",
-  //   name: "trinh trung kien",
-  //   password: "Kien@@12",
-  //   phone: "0383204367",
-  //   rePassword: "Kien@@12",
+  //   email: "",
+  //   phone: "",
+  //   dob: timeToUnix(new Date()),
+  //   password: "",
+  //   rePassword: "",
   // };
-  const validationSchema = Yup.object().shape(YupSchema);
+
+  const initialValues = {
+    dob: 763405200000,
+    email: "ttkien94@gmail.com",
+    gender: "Nam",
+    first_name: "trinh trung kien",
+    phone: "0383204367",
+  };
+  const validationSchema = Yup.object().shape(TheFirstStepSchema);
 
   const RenderUI = (step) => {
     switch (step) {
@@ -96,9 +94,7 @@ function Register() {
                   flexDirection: "column",
                 }}
               >
-                <h3 className="text-center pt-3 text-secondary">
-                  Đăng ký tài khoản
-                </h3>
+                <h3 className="text-center pt-3 text-secondary">{title}</h3>
 
                 <Formik
                   initialValues={initialValues}
@@ -119,7 +115,7 @@ function Register() {
                       >
                         <div className="col-12">
                           <FastField
-                            name="name"
+                            name="first_name"
                             component={InputField}
                             label="Tên đầy đủ"
                             placeholder="Nhập tên"
@@ -166,40 +162,44 @@ function Register() {
 
                         <div className="col-12 col-md-6 mb-2">
                           <FastField
-                            name="birthDay"
+                            name="dob"
                             component={DatePickerField}
                             label="Ngày sinh"
                             placeholder="Nhập ngày sinh"
                             className="w-100 mb-2 mb-md-4"
                           />
-                          {errors.birthDay && (
-                            <p className="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-1wc848c-MuiFormHelperText-root mt-n3">
-                              {errors.birthDay}
+                          {errors.dob && (
+                            <p className=" text-danger MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-1wc848c-MuiFormHelperText-root mt-n3">
+                              {errors.dob}
                             </p>
                           )}
                         </div>
+                        {props?.type == "TheFirstStep" ? <></> : null}
+                        {/* {props?.type == "Register" ? (
+                          <>
+                            <div className="col-12">
+                              <FastField
+                                name="password"
+                                type="password"
+                                component={InputField}
+                                label="Mật khẩu"
+                                placeholder="Nhập mật khẩu"
+                                className="w-100 mb-2 mb-md-4"
+                              />
+                            </div>
 
-                        <div className="col-12">
-                          <FastField
-                            name="password"
-                            type="password"
-                            component={InputField}
-                            label="Mật khẩu"
-                            placeholder="Nhập mật khẩu"
-                            className="w-100 mb-2 mb-md-4"
-                          />
-                        </div>
-
-                        <div className="col-12">
-                          <FastField
-                            name="rePassword"
-                            type="password"
-                            component={InputField}
-                            label="Nhập lại mật khẩu"
-                            placeholder="Nhập lại mật khẩu"
-                            className="w-100 mb-4"
-                          />
-                        </div>
+                            <div className="col-12">
+                              <FastField
+                                name="rePassword"
+                                type="password"
+                                component={InputField}
+                                label="Nhập lại mật khẩu"
+                                placeholder="Nhập lại mật khẩu"
+                                className="w-100 mb-4"
+                              />
+                            </div>
+                          </>
+                        ) : null} */}
 
                         <div className="col-12 justify-content-end d-flex">
                           <ButtonSubmit type="submit">

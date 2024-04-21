@@ -16,16 +16,18 @@ function TableCourseOnlineList({
   const handleDelete = (id) => {
     onHandleDelete && onHandleDelete(id);
   };
-
   return (
     <TableRow>
-      <TableCell align="left">{dataItem.code}</TableCell>
+      <TableCell align="left">{dataItem._id}</TableCell>
       <TableCell align="left">{dataItem.name}</TableCell>
-      <TableCell align="left">{dataItem.time_start}</TableCell>
-      <TableCell align="left">{dataItem.top_rank}</TableCell>
-      <TableCell align="left">{dataItem.register}</TableCell>
-      <TableCell align="left">{dataItem.completed}</TableCell>
-      <TableCell align="left">{dataItem.no_complete}</TableCell>
+      <TableCell align="left">{dataItem.title}</TableCell>
+      <TableCell align="left">{dataItem.description}</TableCell>
+      <TableCell align="left">{dataItem.content}</TableCell>
+      <TableCell align="left">
+        {dataItem.videoList.map((item, index) => {
+          return <div key={index}>{item.name + " - " + item.floor}</div>;
+        })}
+      </TableCell>
       <TableCell align="left">
         <Button
           variant="outlined"

@@ -30,3 +30,22 @@ export const YupSchema = {
     .required("Vui lòng nhập trường này")
     .oneOf([Yup.ref("password"), null], "Mật khẩu không khớp"),
 };
+
+export const TheFirstStepSchema = {
+  first_name: Yup.string()
+    .required("Vui lòng nhập trường này.")
+    .min(3, "Có ít nhất là 3 ký tự.")
+    .max(40, "Có nhiều nhất là 40 ký tự."),
+  email: Yup.string()
+    .required("Vui lòng nhập trường này")
+    .email("Email chưa đúng"),
+  phone: Yup.string()
+    .required("Vui lòng nhập trường này")
+    .matches(phoneRegExp, "Số điện thoại chưa đúng."),
+  dob: Yup.number()
+    .typeError("Vui lòng nhập đúng định dạng Tháng/Ngày/Năm")
+    .required("Vui lòng nhập trường này")
+    .min(new Date(1900, 0, 1), "Ngày thấp nhất không dưới năm 1900")
+    .max(new Date(), "Ngày lớn nhất không được quá hôm nay"),
+  loaive: Yup.string().required("Vui lòng nhập loại vé"),
+};

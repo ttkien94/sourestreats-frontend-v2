@@ -104,7 +104,6 @@ export const deleteQuestionAction = (question_id) => {
         },
       })
         .then((response) => {
-          console.log("response", response);
           dispatch({
             type: QUESTION_DELETE,
             payload: response,

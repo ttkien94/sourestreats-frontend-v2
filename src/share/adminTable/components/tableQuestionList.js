@@ -8,15 +8,8 @@ import { Button } from "@mui/material";
 import { TableRow } from "@material-ui/core";
 
 function TableQuestionList(props) {
-  const {
-    dataItem,
-    labelId,
-    handleOpenDrawer,
-    onHandleDelete,
-    addUserToCourse,
-    handleAddUserToCourse,
-    index,
-  } = props;
+  const { dataItem, labelId, handleOpenDrawer, onHandleDelete, index, type } =
+    props;
   const handleDelete = (question_id) => {
     onHandleDelete && onHandleDelete(question_id);
   };
@@ -24,27 +17,33 @@ function TableQuestionList(props) {
     <TableRow key={index}>
       <TableCell align="left">{index ? index + 1 : 1}</TableCell>
       <TableCell align="left">{dataItem.question}</TableCell>
-      <TableCell align="left">
-        {dataItem.options.map((option, i) => {
-          return <div key={i}>{option.value}</div>;
-        })}
-      </TableCell>
-      <TableCell align="left">
-        {dataItem.options.map((option, i) => {
-          return option.answer === true && option.value;
-        })}
-      </TableCell>
+      {type !== "videoManager" && (
+        <>
+          <TableCell align="left">
+            {dataItem.options.map((option, i) => {
+              return <div key={i}>{option.value}</div>;
+            })}
+          </TableCell>
+          <TableCell align="left">
+            {dataItem.options.map((option, i) => {
+              return option.answer === true && option.value;
+            })}
+          </TableCell>
+        </>
+      )}
 
       <TableCell align="left">
-        <Button
-          variant="outlined"
-          startIcon={<ModeEditOutlinedIcon />}
-          onClick={() => {
-            handleOpenDrawer && handleOpenDrawer(dataItem);
-          }}
-        >
-          Chỉnh sửa
-        </Button>
+        {type !== "videoManager" && (
+          <Button
+            variant="outlined"
+            startIcon={<ModeEditOutlinedIcon />}
+            onClick={() => {
+              handleOpenDrawer && handleOpenDrawer(dataItem);
+            }}
+          >
+            Chỉnh sửa
+          </Button>
+        )}
 
         <Button
           variant="outlined"

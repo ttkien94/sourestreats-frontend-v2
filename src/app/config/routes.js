@@ -46,7 +46,8 @@ export const URL_PATH_ADMIN = {
   COURSE_ONLINE_MANAGER: "/quan-ly-khoa-hoc-truc-tuyen",
   COURSE_ONLINE_MANAGER_DETAIL:
     "/quan-ly-khoa-hoc-truc-tuyen/chi-tiet-khoa-hoc",
-  SCHEDULE_COURSE_MANAGER: "/quan-ly-lich-hoc",
+  SCHEDULE_COURSE_ONLINE_MANAGER: "/quan-ly-lich-hoc",
+  EDIT_SCHEDULE_COURSE_ONLINE_MANAGER: "/quan-ly-lich-hoc/chinh-sua-lich-hoc",
   QUESTION_MANAGER: "/quan-ly-cau-hoi",
   VIDEO_MANAGER: "/quan-ly-video",
 };
@@ -174,16 +175,6 @@ export const publicRoutes = [
     exact: true,
     path: OFFLINE_PATH_CLIENT.ITTC,
   },
-  {
-    component: Client.CourseOnlineSelfMastery,
-    exact: true,
-    path: ONLINE_PATH_CLIENT.SELFMASTERY,
-  },
-  {
-    component: Client.CourseOnlineTower,
-    exact: true,
-    path: ONLINE_PATH_CLIENT.TOWER,
-  },
 
   {
     component: Client.CourseMedia,
@@ -256,16 +247,26 @@ export const publicRoutes = [
 
 export const courseOnlineRoutes = [
   {
-    component: CourseOnline.CourseOnlineHome,
+    component: Client.CourseOnlineSelfMastery,
     exact: true,
-    path: ONLINE_PATH_CLIENT.COURSEONLINEHOME,
-    title: "home_page",
+    path: ONLINE_PATH_CLIENT.SELFMASTERY,
   },
+  {
+    component: Client.CourseOnlineTower,
+    exact: true,
+    path: ONLINE_PATH_CLIENT.TOWER,
+  },
+  // {
+  //   component: CourseOnline.CourseOnlineHome,
+  //   exact: true,
+  //   path: ONLINE_PATH_CLIENT.COURSEONLINEHOME,
+  //   title: "home_page",
+  // },
   {
     component: CourseOnline.CourseOnlineDetails.TowerOne,
     exact: true,
     path: ONLINE_PATH_CLIENT.TOWERONE,
-    title: "Tower One",
+    title: "Tháp 1",
   },
 ];
 // Only for Admin Pages
@@ -322,15 +323,21 @@ export const adminRoutes = [
     path: "/admin" + URL_PATH_ADMIN.COURSE_ONLINE_MANAGER,
   },
   {
-    component: Admin.CourseOnlineManagerDetail,
+    component: Admin.CreateCourseOnline,
     exact: true,
     path: "/admin" + URL_PATH_ADMIN.COURSE_ONLINE_MANAGER_DETAIL,
   },
   {
-    component: Admin.SchedulaCourseManager,
+    component: Admin.ScheduleCourseOnlineManager,
     exact: true,
-    path: "/admin" + URL_PATH_ADMIN.SCHEDULE_COURSE_MANAGER,
+    path: "/admin" + URL_PATH_ADMIN.SCHEDULE_COURSE_ONLINE_MANAGER,
   },
+  {
+    component: Admin.EditScheduleCourseOnlineManager,
+    exact: true,
+    path: "/admin" + URL_PATH_ADMIN.EDIT_SCHEDULE_COURSE_ONLINE_MANAGER,
+  },
+
   {
     component: Admin.VideoManager,
     exact: true,

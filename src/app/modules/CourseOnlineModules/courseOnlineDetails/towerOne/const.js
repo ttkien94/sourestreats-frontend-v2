@@ -25,6 +25,8 @@ export const courseOnline = {
         courseId: "",
         totalPaid: 1000000,
         rank: 1,
+        updateTime: "",
+        percentComplete: "65%",
         listFloor: [
           {
             title: "Tầng 1",
@@ -41,6 +43,7 @@ export const courseOnline = {
                 testAt: "3111",
                 question: qBank,
                 time: 843,
+                timeViewed: 600,
                 score: 0,
                 isVisible: true,
                 floor: 1,

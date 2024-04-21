@@ -20,18 +20,20 @@ const menuMagager = [
   {
     text: "OverView",
     icon: <WebIcon />,
-    link: "/chuong-trinh-huan-luyen/online",
+    // link: "/chuong-trinh-huan-luyen/online",
+    link: "/",
   },
   {
     text: "Course",
     icon: <SchoolIcon />,
     link: "/chuong-trinh-huan-luyen/online/tower-one",
   },
-  {
-    text: "Setting",
-    icon: <SettingsIcon />,
-    link: "/chuong-trinh-huan-luyen/online",
-  },
+  // {
+  //   text: "Setting",
+  //   icon: <SettingsIcon />,
+  //   // link: "/chuong-trinh-huan-luyen/online",
+  //   link: "/",
+  // },
 ];
 
 const DrawerHeader = styled("div")(({ theme }) => ({

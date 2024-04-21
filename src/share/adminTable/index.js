@@ -3,9 +3,11 @@ import { Box, Table, TableContainer, Paper } from "@mui/material";
 import { TableCell, TableRow, TableHead, TableBody } from "@mui/material";
 
 import TableUserList from "./components/tableUserList";
-import TableCourseOnlineList from "./components/tableCourseOnlineList";
 import TableQuestionList from "./components/tableQuestionList";
 import TableVideoList from "./components/tableVideoList";
+import TableCourseOnlineList from "./components/tableCourseOnlineList";
+import TableScheduleCourseOnline from "./components/tableScheduleCourseOnline";
+
 function AdminTable({ tableHead, tableData, view, ...rest }) {
   const onHandleClick = () => {};
   const onHandleEdit = () => {};
@@ -35,18 +37,7 @@ function AdminTable({ tableHead, tableData, view, ...rest }) {
               />
             );
           })}
-        {view === "course_online"
-          ? tableData.map((item, index) => {
-              return (
-                <TableCourseOnlineList
-                  view={view}
-                  dataItem={item}
-                  key={index}
-                  {...rest}
-                />
-              );
-            })
-          : null}
+
         {view === "question"
           ? tableData.map((item, index) => {
               return (
@@ -71,6 +62,30 @@ function AdminTable({ tableHead, tableData, view, ...rest }) {
               );
             })
           : null}
+        {view === "course_online"
+          ? tableData.map((item, index) => {
+              return (
+                <TableCourseOnlineList
+                  view={view}
+                  dataItem={item}
+                  key={index}
+                  {...rest}
+                />
+              );
+            })
+          : null}
+        {view === "scheduleCourseOnline"
+          ? tableData.map((item, index) => {
+              return (
+                <TableScheduleCourseOnline
+                  view={view}
+                  dataItem={item}
+                  key={index}
+                  {...rest}
+                />
+              );
+            })
+          : null}
         {tableData.length === 0 && (
           <TableRow
             style={{
@@ -87,7 +102,7 @@ function AdminTable({ tableHead, tableData, view, ...rest }) {
   };
 
   return (
-    <Box sx={{ width: "100%" }}>
+    <Box sx={{ width: "100%", ...rest.style }} className={rest.className}>
       <Paper sx={{ width: "100%", mb: 2 }}>
         <TableContainer>
           <Table

@@ -42,11 +42,42 @@ export const videoReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        videoList: action.payload.data,
+        videoList: action.payload,
         records: action.payload.total,
         hasMoreItems,
       };
     }
+    case VIDEO_CREATE: {
+      const list = cloneDeep(state.videoList);
+      list.data.push(action.payload.data);
+      return { ...state, videoList: list, loading: false };
+    }
+    case VIDEO_DELETE: {
+      const list = cloneDeep(state.videoList);
+      const itemIndex = list.data.findIndex(
+        (y) => y._id === action.payload.data._id
+      );
+      if (itemIndex !== -1) {
+        list.data.splice(itemIndex, 1);
+      }
+
+      return { ...state, videoList: list, loading: false };
+    }
+    case VIDEO_UPDATE_IN_LIST: {
+      const list = cloneDeep(state.videoList);
+      const itemIndex = list.data.findIndex(
+        (y) => y._id === action.payload.data._id
+      );
+
+      if (itemIndex !== -1) {
+        list.data[itemIndex] = {
+          ...list.data[itemIndex],
+          ...action.payload.data,
+        };
+      }
+      return { ...state, videoList: list, loading: false };
+    }
+
     default: {
       return { ...state };
     }

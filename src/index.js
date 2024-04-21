@@ -15,7 +15,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "assets/fonts/fontawsome.min.css";
 import "assets/styles/common.scss";
 import "react-loading-skeleton/dist/skeleton.css";
-
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 // Store of Redux
 import store from "core/redux/store/configStore";
 import { StyledEngineProvider } from "@mui/material";

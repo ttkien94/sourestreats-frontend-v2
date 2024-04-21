@@ -194,7 +194,7 @@ function ListCourse(props) {
       <AlertDialog
         openAlertDialog={openAlertDialog}
         setOpenAlertDialog={setOpenAlertDialog}
-        handleDeletedItem={handleDeletedItem}
+        handleAction={handleDeletedItem}
         dataModal={dataModal}
       />
       <div className="mb-3 flex-alignitem ">

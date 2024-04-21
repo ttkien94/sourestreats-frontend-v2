@@ -242,7 +242,7 @@ function ImportData(props) {
           <AlertDialog
             openAlertDialog={openAlertDialog}
             setOpenAlertDialog={setOpenAlertDialog}
-            handleDeletedItem={handleDeletedItem}
+            handleAction={handleDeletedItem}
             dataModal={dataModal}
           />
           {table.map((item, idx) => {

@@ -94,8 +94,8 @@ function Appbar({ title, onHandleDrawerOpen, isOpen }) {
           </Button>
         </Link>
 
-        <Link to="/">
-          <Button className={classes.btnPopOver}>Trở về trang chủ</Button>
+        <Link to="/admin">
+          <Button className={classes.btnPopOver}>Quản Trị</Button>
         </Link>
 
         <Button

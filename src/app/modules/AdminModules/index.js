@@ -11,7 +11,10 @@ import Student from "./student";
 import Course from "./course";
 import CourseOnlineManager from "./courseOnlineManager";
 import CourseOnlineManagerDetail from "./courseOnlineManager/components/courseOnlineDetail";
-import SchedulaCourseManager from "./schedulaCourseManager";
+import CreateCourseOnline from "./courseOnlineManager/components/createCourseOnline";
+import ScheduleCourseOnlineManager from "./scheduleCourseOnlineManager";
+import CreateScheduleCourseOnlineManager from "./scheduleCourseOnlineManager/components/createScheduleCourseOnlineManager";
+import EditScheduleCourseOnlineManager from "./scheduleCourseOnlineManager/components/editScheduleCourseOnlineManager";
 import QuestionManager from "./questionManager";
 import VideoManager from "./videoManager";
 const Admin = {
@@ -26,7 +29,10 @@ const Admin = {
   Course,
   CourseOnlineManager,
   CourseOnlineManagerDetail,
-  SchedulaCourseManager,
+  CreateCourseOnline,
+  ScheduleCourseOnlineManager,
+  // CreateScheduleCourseOnlineManager,
+  EditScheduleCourseOnlineManager,
   QuestionManager,
   VideoManager,
 };

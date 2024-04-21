@@ -7,7 +7,8 @@ import { blogReducer } from "./blog";
 import { studentReducer } from "./student";
 import { courseReducer } from "./course";
 import { courseOnlineReducer } from "./courseOnline";
-import { scheduleCourseReducer } from "./scheduleCourse";
+import { scheduleCourseOnlineReducer } from "./scheduleCourseOnline";
+// import { scheduleCourseReducer } from "./scheduleCourseOnline";
 import { questionReducer } from "./question";
 import { videoReducer } from "./video";
 export default combineReducers({
@@ -19,7 +20,7 @@ export default combineReducers({
   student: studentReducer,
   course: courseReducer,
   courseOnline: courseOnlineReducer,
-  scheduleCourse: scheduleCourseReducer,
+  scheduleCourseOnline: scheduleCourseOnlineReducer,
   question: questionReducer,
   video: videoReducer,
 });

@@ -37,7 +37,6 @@ function CourseOnlineDetail({ onToggleDrawer, courseOnline }) {
   const [openDrawer, setOpenDrawer] = useState(false);
   const history = useHistory();
   const data = history.location.state?.data;
-  console.log("data:", data);
   const phoneRegExp = /^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/;
   const initialValues = {
     name: data?.name,

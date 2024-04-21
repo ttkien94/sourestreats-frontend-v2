@@ -41,6 +41,7 @@ export const API_COURSE_UPDATE = "/course/update/";
 export const API_COURSE_DELETE = "/course/delete/";
 
 // admin courseOnline
+export const API_GET_DETAIL_COURSE_ONLINE = "/course-online/detail/";
 export const API_GET_COURSE_ONLINE = "/course-online/";
 export const API_COURSE_ONLINE_CREATE = "/course-online/create/";
 export const API_COURSE_ONLINE_CREATE_ARRAY = "/course-online/create-array/";
@@ -50,13 +51,31 @@ export const API_COURSE_ONLINE_DELETE = "/course-online/delete/";
 
 // admin scheduleCourse
 
-export const API_GET_SCHEDULE_COURSE = "/schedule-course/";
-export const API_SCHEDULE_COURSE_CREATE = "/schedule-course/create/";
-export const API_SCHEDULE_COURSE_CREATE_ARRAY =
-  "/schedule-course/create-array/";
-export const API_SCHEDULE_COURSE_SEARCH = "/schedule-course/search/";
-export const API_SCHEDULE_COURSE_UPDATE = "/schedule-course/update/";
-export const API_SCHEDULE_COURSE_DELETE = "/schedule-course/delete/";
+// export const API_GET_SCHEDULE_COURSE = "/schedule-course/";
+// export const API_SCHEDULE_COURSE_CREATE = "/schedule-course/create/";
+// export const API_SCHEDULE_COURSE_CREATE_ARRAY =
+//   "/schedule-course/create-array/";
+// export const API_SCHEDULE_COURSE_SEARCH = "/schedule-course/search/";
+// export const API_SCHEDULE_COURSE_UPDATE = "/schedule-course/update/";
+// export const API_SCHEDULE_COURSE_DELETE = "/schedule-course/delete/";
+
+// admin scheduleCourse
+
+export const API_GET_DETAILS_SCHEDULE_COURSE_ONLINE =
+  "/schedule-course-online/detail/";
+export const API_GET_SCHEDULE_COURSE_ONLINE = "/schedule-course-online/";
+export const API_SCHEDULE_COURSE_ONLINE_CREATE =
+  "/schedule-course-online/create/";
+export const API_SCHEDULE_COURSE_ONLINE_CREATE_ARRAY =
+  "/schedule-course-online/create-array/";
+export const API_SCHEDULE_COURSE_ONLINE_SEARCH =
+  "/schedule-course-online/search/";
+export const API_SCHEDULE_COURSE_ONLINE_UPDATE =
+  "/schedule-course-online/update/";
+export const API_SCHEDULE_COURSE_ONLINE_HANDLE_USER =
+  "/schedule-course-online/handle-user/";
+export const API_SCHEDULE_COURSE_ONLINE_DELETE =
+  "/schedule-course-online/delete/";
 
 // admin question
 

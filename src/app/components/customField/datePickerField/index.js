@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 
 import TextField from "@mui/material/TextField";
@@ -7,20 +7,21 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 // import DatePicker from "@mui/lab/DatePicker";
-import { timeToUnix } from "core/utils/dateUtil";
+import { convertFullDate, timeToUnix, unixToTime } from "core/utils/dateUtil";
+import dayjs from "dayjs";
+
 // import dayjs from "dayjs";
 
 function DatePickerField(props) {
   const { field, label, placeholder, disabled, className, form } = props;
+
   const handleChangeDate = (value) => {
-    console.log("value:", value);
     const changeEvent = {
       target: {
         name: field.name,
         value: value && +timeToUnix(value.$d),
       },
     };
-
     field.onChange(changeEvent);
   };
 
@@ -30,8 +31,6 @@ function DatePickerField(props) {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DatePicker
-        // {...field}
-
         label={label}
         disabled={disabled}
         placeholder={placeholder}
@@ -43,6 +42,7 @@ function DatePickerField(props) {
         views={["year", "month", "day"]}
         openTo="year"
         inputFormat="dd-MM-yyyy"
+        defaultValue={dayjs(new Date(field.value))}
         renderInput={(params) => {
           return (
             <TextField

@@ -16,11 +16,8 @@ function SelectField(props) {
     form,
     type,
   } = props;
-  useEffect(() => {
-    console.log("options", options);
-  }, [options]);
 
-  // console.log("props.options", props.options);
+  console.log("props.options", props.options);
   const { name } = field;
   const { errors, touched } = form;
   const showError = errors[name] && touched[name];
@@ -37,6 +34,7 @@ function SelectField(props) {
           label={label}
           inputProps={{ "aria-label": "Without label" }}
           placeholder={placeholder}
+          displayEmpty
         >
           {options.map((option, index) => {
             return (

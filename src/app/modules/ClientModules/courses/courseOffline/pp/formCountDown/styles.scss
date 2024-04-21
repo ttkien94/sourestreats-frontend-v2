@@ -1,0 +1,100 @@
+.num-countdown {
+  font-family: Montserrat, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 1.6;
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+.transition {
+  transition: all 150ms linear 0s;
+}
+.countdown {
+  .element {
+    width: calc(25% - 7.5px);
+    height: 100%;
+    margin-right: 10px;
+    text-decoration: inherit;
+    background-size: inherit;
+    background-attachment: inherit;
+    background-origin: inherit;
+    position: relative;
+    display: inline-block;
+    &:last-child {
+      margin-right: 0px !important;
+    }
+    .countdown-background {
+      background-color: rgb(45, 142, 124);
+      background-size: inherit;
+      background-attachment: inherit;
+      background-origin: inherit;
+      display: table;
+      pointer-events: none;
+    }
+    .countdown-text {
+      width: 100%;
+      text-decoration: inherit;
+      display: table;
+      pointer-events: none;
+      font-size: 30px;
+      font-weight: bold;
+      color: rgb(255, 255, 255);
+      text-align: center;
+    }
+    .paragraph {
+      font-family: Montserrat, sans-serif;
+      font-size: 12px;
+      font-weight: bold;
+      line-height: 1.6;
+      color: rgb(0, 0, 0);
+      text-align: center;
+      color: rgb(45, 142, 124);
+    }
+  }
+}
+
+.time-promotion {
+  font-family: Montserrat, sans-serif;
+  font-weight: bold;
+  line-height: 1.6;
+  color: rgb(45, 142, 124);
+  text-align: center;
+}
+.headline {
+  width: 100%;
+  display: inline-block;
+  word-break: break-word;
+  background-size: cover;
+  background-position: center center;
+}
+.headline a {
+  text-decoration: underline;
+}
+.paragraph {
+  width: 100%;
+  display: inline-block;
+  word-break: break-word;
+}
+.paragraph a {
+  text-decoration: underline;
+}
+.list-paragraph {
+  width: 100%;
+  display: inline-block;
+}
+.list-paragraph a {
+  text-decoration: underline;
+}
+.list-paragraph ul li {
+  position: relative;
+  counter-increment: linum;
+}
+.list-paragraph ul li:before {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  left: 0;
+}
+.list-paragraph ul li:last-child {
+  padding-bottom: 0 !important;
+}

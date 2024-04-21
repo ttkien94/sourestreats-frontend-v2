@@ -16,11 +16,17 @@ import "react-modal-video/scss/modal-video.scss";
 
 import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
+import TagManager from "react-gtm-module";
+import { useEffect } from "react";
 
 function App() {
   // call backend
   const job = require("./cron.js").job;
   job.start();
+  useEffect(() => {
+    TagManager.initialize({ gtmId: "GTM-KTHH6NK" });
+  }, []);
+
   return (
     <Router>
       <AutoScroll />

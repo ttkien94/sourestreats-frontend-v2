@@ -13,10 +13,9 @@ import IsLoadingSkeleton from "app/components/loadingSkeleton";
 
 import "./styles/styles.scss";
 import { showToast } from "core/utils/toastUtil.js";
-
+import _ from "lodash";
 const headCells = [
   { id: "id", label: "ID" },
-  { id: "name", label: "Tên" },
   { id: "email", label: "Email" },
   { id: "phone", label: "Số điện thoại" },
   { id: "role", label: "Quyền" },
@@ -27,16 +26,49 @@ const anchor = { vertical: "bottom", horizontal: "right" };
 const transfrom = { vertical: "top", horizontal: "right" };
 
 function UserManager(props) {
-  const LIMIT = 10;
+  const LIMIT = props.addUserToCourse ? 999 : 10;
 
   const refFilter = useRef(null);
   const [isLoading, setIsLoading] = useState(false);
-
   const [list, setList] = useState([]);
   const [total, setTotal] = useState(0);
   const [isFiltered, setIsFiltered] = useState(false);
   const [dataFilter, setDataFilter] = useState({});
   const [openDrawer, setOpenDrawer] = useState(false);
+
+  useEffect(() => {
+    getList(1);
+  }, []);
+
+  useEffect(() => {
+    // Hoi lag nhe
+  }, [props.studentList]);
+
+  const handleRemoveStudentDuplicate = (data) => {
+    console.log("handleRemoveStudentDuplicate", props.studentList);
+    let studentList = props.studentList;
+    if (studentList && studentList.length > 0) {
+      console.log("studentList", studentList);
+      let newList = _.cloneDeep(data);
+      console.log("newList", newList);
+      let len = studentList.length;
+      for (var i = 0; i < len; i++) {
+        var ItemIndex = newList.findIndex((b) => b._id === studentList[i]._id);
+        if (ItemIndex !== -1) {
+          newList.splice(ItemIndex, 1);
+        }
+      }
+      setList(newList);
+    }
+  };
+
+  const handleRemoveStudentToList = (user) => {
+    let ItemIndex = list.findIndex((i) => i._id === user._id);
+    let newList = _.cloneDeep(list);
+    newList.splice(ItemIndex, 1);
+    setList(newList);
+    props.handleAddUserToList(user);
+  };
 
   const toggleDrawer = () => {
     setOpenDrawer(!openDrawer);
@@ -50,12 +82,8 @@ function UserManager(props) {
     setOpenDrawer(false);
   };
 
-  useEffect(() => {
-    getList(1);
-  }, []);
-
   // Fetch Table Data
-  const getList = (page, opts, isFiltered) => {
+  const getList = async (page, opts, isFiltered) => {
     setIsLoading(true);
 
     const skip = page === 0 ? 0 : (page - 1) * LIMIT;
@@ -67,7 +95,7 @@ function UserManager(props) {
       ...opts,
     };
 
-    axiosClient
+    await axiosClient
       .get(`users?${stringify(data)}`)
       .then((response) => {
         setIsLoading(false);
@@ -77,7 +105,7 @@ function UserManager(props) {
           : setTotal(response.total || 0);
 
         setList(response.data);
-
+        handleRemoveStudentDuplicate(response.data);
         setTotal(response.total);
       })
       .catch((error) => {
@@ -132,11 +160,13 @@ function UserManager(props) {
           <IsLoadingSkeleton count={LIMIT + 1} />
         ) : (
           <AdminTable
+            {...props}
             tableHead={headCells}
             tableData={list}
             view="user"
+            type="userManager"
             onHandleDelete={handleDelete}
-            {...props}
+            handleAddUserToList={(user) => handleRemoveStudentToList(user)}
           />
         )}
 

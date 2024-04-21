@@ -13,7 +13,8 @@ function TableUserList({
   handleOpenDrawer,
   onHandleDelete,
   addUserToCourse,
-  handleAddUserToCourse,
+  handleAddUserToList,
+  type,
 }) {
   const handleDelete = (id) => {
     onHandleDelete && onHandleDelete(id);
@@ -40,7 +41,7 @@ function TableUserList({
           <Button
             variant="outlined"
             onClick={() => {
-              handleAddUserToCourse(dataItem);
+              handleAddUserToList(dataItem);
             }}
             startIcon={<AddIcon />}
           >
@@ -48,15 +49,17 @@ function TableUserList({
           </Button>
         ) : (
           <div>
-            <Button
-              variant="outlined"
-              startIcon={<ModeEditOutlinedIcon />}
-              onClick={() => {
-                handleOpenDrawer && handleOpenDrawer(dataItem);
-              }}
-            >
-              Chỉnh sửa
-            </Button>
+            {type === "userManager" && (
+              <Button
+                variant="outlined"
+                startIcon={<ModeEditOutlinedIcon />}
+                onClick={() => {
+                  handleOpenDrawer && handleOpenDrawer(dataItem);
+                }}
+              >
+                Chỉnh sửa
+              </Button>
+            )}
 
             <Button
               variant="outlined"

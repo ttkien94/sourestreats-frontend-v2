@@ -8,8 +8,9 @@ import IsLoadingSkeleton from "app/components/loadingSkeleton";
 import AdminTable from "share/adminTable";
 import { Button } from "@mui/material";
 import LPEDrawer from "app/components/drawer";
-import CreateQuestionManager from "./createQuestionManager";
-function SchedulaCourse(props) {
+import CreateQuestionManager from "./components/createQuestionManager";
+
+function ScheduleCourse(props) {
   const LIMIT = 10;
   const headCells = [
     { id: "STT", label: "STT" },
@@ -36,7 +37,10 @@ function SchedulaCourse(props) {
   const handleCloseDrawer = () => {
     setOpenDrawer(false);
   };
-
+  const handleOpenDrawer = (data) => {
+    setQuestion(data);
+    setOpenDrawer(true);
+  };
   const toggleDrawer = () => {
     setOpenDrawer(!openDrawer);
   };
@@ -54,60 +58,56 @@ function SchedulaCourse(props) {
     dispatch(deleteQuestionAction(question_id));
   };
 
-  const handleOpenDrawer = (data) => {
-    setQuestion(data);
-    setOpenDrawer(true);
-  };
-
   const renderNoData = () => {
     return <div>Khong có dữ liệu</div>;
   };
   const renderData = () => {
     return (
-      <>
-        <div className="mb-3">
-          <Button
-            onClick={() => {
-              handleOpenDrawer();
-            }}
-            variant="contained"
-          >
-            Thêm câu hỏi
-          </Button>
-        </div>
-        <AdminTable
-          tableHead={headCells}
-          tableData={questionList.data}
-          view="question"
-          onHandleDelete={(question_id) => handleDelete(question_id)}
-          handleOpenDrawer={(data) => {
-            handleOpenDrawer(data);
-          }}
-          {...props}
-        />
-        {/* Drawer edit screen here */}
-
-        <LPEDrawer
-          anchor="left"
-          isOpen={openDrawer}
-          onToggle={handleCloseDrawer}
-          disableScrollLock
-        >
-          <CreateQuestionManager
-            onToggleDrawer={toggleDrawer}
-            onEdit={question}
-          />
-        </LPEDrawer>
-      </>
+      <AdminTable
+        tableHead={headCells}
+        tableData={questionList.data}
+        view="question"
+        onHandleDelete={(question_id) => handleDelete(question_id)}
+        handleOpenDrawer={(data) => {
+          handleOpenDrawer(data);
+        }}
+        {...props}
+      />
     );
   };
   return loading ? (
     <IsLoadingSkeleton count={LIMIT + 1} />
-  ) : questionList && questionList.data && questionList.data.length > 0 ? (
-    renderData()
   ) : (
-    renderNoData()
+    <>
+      <div className="mb-3">
+        <Button
+          onClick={() => {
+            handleOpenDrawer();
+          }}
+          variant="contained"
+        >
+          Thêm câu hỏi
+        </Button>
+      </div>
+
+      {questionList && questionList.data && questionList.data.length > 0
+        ? renderData()
+        : renderNoData()}
+      {/* Drawer edit screen here */}
+
+      <LPEDrawer
+        anchor="left"
+        isOpen={openDrawer}
+        onToggle={handleCloseDrawer}
+        disableScrollLock
+      >
+        <CreateQuestionManager
+          onToggleDrawer={toggleDrawer}
+          onEdit={question}
+        />
+      </LPEDrawer>
+    </>
   );
 }
 
-export default SchedulaCourse;
+export default ScheduleCourse;

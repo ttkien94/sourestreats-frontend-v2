@@ -1,12 +1,26 @@
 export const DEFALT_OPTIONS = {
   gender: [
     {
-      value: "nam",
+      value: "Nam",
       name: "Nam",
     },
     {
-      value: "nu",
+      value: "Nữ",
       name: "Nữ",
+    },
+  ],
+  loaive: [
+    {
+      value: "Vip",
+      name: "Vip",
+    },
+    {
+      value: "Platinum",
+      name: "Platinum",
+    },
+    {
+      value: "General",
+      name: "General",
     },
   ],
   role: [
