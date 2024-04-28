@@ -1,5 +1,3 @@
-@import "assets/styles/common.scss";
-
 .sideMenu {
   padding: 10px 0px;
   width: 100%;
@@ -48,16 +46,16 @@
   transform: rotate(90deg);
 }
 .titleUrl {
-  color: $black-0;
+  color: #000;
 
   &:hover {
-    color: $blue-1;
+    color: #3777bc;
 
     text-decoration: none;
   }
 }
 .titleUrl2 {
-  color: $black-0;
+  color: #000;
 
   &:hover {
     transition: all 0.3s;

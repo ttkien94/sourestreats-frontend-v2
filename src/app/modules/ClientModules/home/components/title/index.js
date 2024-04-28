@@ -1,6 +1,6 @@
 import "./styles/styles.scss";
 
-function TitleHomeClient({ textAlign, title, description }) {
+function TitleHomeClient({ textAlign, title, description, description2 }) {
   return (
     <div
       style={{
@@ -9,7 +9,8 @@ function TitleHomeClient({ textAlign, title, description }) {
       }}
     >
       <h1 className={`title px-3`}>{title}</h1>
-      <p className="description">{description}</p>
+      <p className="description mt-3">{description}</p>
+      {description2 && <p className="description">{description2}</p>}
     </div>
   );
 }

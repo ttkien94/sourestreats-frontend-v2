@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Route, Redirect } from "react-router-dom";
+import { Route, Navigate, Outlet } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { styled } from "@mui/material/styles";
 import { Box } from "@mui/material";
@@ -75,44 +75,39 @@ export const AdminTemplate = ({ Component, ...restProps }) => {
   };
 
   return (
-    <Route
-      {...restProps}
-      render={(propsRoute) => {
-        return (
-          <>
-            {accessToken === null || userInfo?.role === "client" ? (
-              <Redirect to="/" />
-            ) : (
-              <>
-                {loading ? (
-                  <IsLoading />
-                ) : (
-                  <>
-                    <Box sx={{ display: "flex" }}>
-                      <CssBaseline />
-                      <Appbar
-                        isOpen={isOpen}
-                        onHandleDrawerOpen={handleDrawerOpen}
-                      />
+    <>
+      {accessToken === null || userInfo?.role === "client" ? (
+        <Navigate to="/" />
+      ) : (
+        <>
+          {loading ? (
+            <IsLoading />
+          ) : (
+            <>
+              <Box sx={{ display: "flex" }}>
+                <CssBaseline />
+                <Appbar isOpen={isOpen} onHandleDrawerOpen={handleDrawerOpen} />
 
-                      <AdminDrawer
-                        isOpen={isOpen}
-                        onHandleDrawerClose={handleDrawerClose}
-                      />
+                <AdminDrawer
+                  isOpen={isOpen}
+                  onHandleDrawerClose={handleDrawerClose}
+                />
 
-                      <Main open={isOpen}>
-                        <DrawerHeader />
-
-                        <Component {...propsRoute} />
-                      </Main>
-                    </Box>
-                  </>
-                )}
-              </>
-            )}
-          </>
-        );
-      }}
-    />
+                <Main open={isOpen}>
+                  <DrawerHeader />
+                  <Outlet />
+                </Main>
+              </Box>
+            </>
+          )}
+        </>
+      )}
+    </>
+    // <Route
+    //   {...restProps}
+    //   render={(propsRoute) => {
+    //     return <></>;
+    //   }}
+    // />
   );
 };

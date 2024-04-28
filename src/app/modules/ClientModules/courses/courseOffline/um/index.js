@@ -1,10 +1,14 @@
 import useSiteTitle from "core/hooks/useSiteTitle";
 import React from "react";
+import { useEffect } from "react";
 import UiApplyCourse from "share/uiApplyCourse";
 import { um } from "../../assets/images/chuong-trinh-huan-luyen/offline";
 import "./styles/styles.scss";
 function UniversalMastery() {
   useSiteTitle("universal_mastery");
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const arrayValue = [
     "Hiểu được cách hình thành tư duy và chúng tác động đến ta như thế nào.",
     "Thảo luận và áp dụng các tư duy này trong từng khía cạnh của cuộc sống",

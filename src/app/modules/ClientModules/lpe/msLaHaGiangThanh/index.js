@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { LPELightBox } from "app/components/lightBox";
 import ModalVideo from "react-modal-video";
@@ -31,7 +31,9 @@ import "./styles/styles.scss";
 
 function MsLaHaGiangThanh() {
   useSiteTitle("lahagiangthanh");
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const [isActiveTab, setIsActiveTab] = useState("aboutMe");
   const certificationRef = useRef();
   const [video, setVideo] = useState("");

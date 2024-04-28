@@ -1,9 +1,8 @@
 import { useEffect } from "react";
-import { withRouter } from "react-router-dom";
-
-function AutoScroll({ history }) {
+import { useNavigate } from "react-router-dom";
+export default function AutoScroll({ history }) {
   useEffect(() => {
-    const unlisten = history.listen(() => {
+    const unlisten = history?.listen(() => {
       window.scrollTo(0, 0);
     });
     return () => {
@@ -15,4 +14,6 @@ function AutoScroll({ history }) {
   return null;
 }
 
-export default withRouter(AutoScroll);
+// export default withRouter = () => {
+//   return AutoScroll();
+// };

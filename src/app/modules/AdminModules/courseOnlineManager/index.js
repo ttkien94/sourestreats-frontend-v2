@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
 import FilterUser from "./components/filterUser/index.js";
 import LPEPopover from "app/components/popover/index.js";
@@ -39,7 +39,7 @@ function CourseOnlineManager() {
   const { courseOnlineList, loading, records } = useSelector(
     (state) => state.courseOnline
   );
-  const history = useHistory();
+  const history = useNavigate();
   const dispatch = useDispatch();
 
   useEffect(() => {

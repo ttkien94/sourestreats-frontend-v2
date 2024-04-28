@@ -4,7 +4,7 @@ import useSiteTitle from "core/hooks/useSiteTitle";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import LPEAvatar from "app/components/avatar";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import AccountInfo from "./screen/AccountInfo";
 
 import ChangePassword from "./screen/changePassword";
@@ -21,7 +21,7 @@ function AccountDetail() {
   let { screen } = useParams();
   const { userInfo } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
-  const history = useHistory();
+  const history = useNavigate();
 
   const menuTab = [
     {

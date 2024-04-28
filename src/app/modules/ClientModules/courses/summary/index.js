@@ -48,7 +48,7 @@ function Courses() {
       <SoulRetreatsBanner
         bannerImg={banner}
         headText="Chương trình huấn luyện"
-        subText="LIFE UNI cung cấp rất nhiều chương trình huấn luyện phù hợp với tất cả mọi lứa tuổi, ngành nghề khác nhau."
+        subText="THE ORIGINS cung cấp rất nhiều chương trình huấn luyện phù hợp với tất cả mọi lứa tuổi, ngành nghề khác nhau."
       />
 
       <div className="container">
@@ -85,7 +85,7 @@ function Courses() {
                       backgroundColor: `${y.colorBtn}`,
                     }}
                   >
-                    Đi tới
+                    Xem Thêm
                   </Link>
                 </div>
               </div>

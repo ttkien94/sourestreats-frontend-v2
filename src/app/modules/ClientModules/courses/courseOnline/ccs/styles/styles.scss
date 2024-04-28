@@ -235,43 +235,6 @@
   height: 20px;
 }
 
-.hotline-bar {
-  position: absolute;
-  background: #0270ad;
-  height: 40px;
-  width: 180px;
-  line-height: 40px;
-  border-radius: 3px;
-  padding: 0 10px;
-  background-size: 100%;
-  cursor: pointer;
-  transition: all 0.8s;
-  transition: all 0.8s;
-  z-index: 9;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 50px !important;
-  /* width: 175px !important; */
-  left: 33px;
-  bottom: 37px;
-}
-
-.hotline-bar > a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 15px;
-  font-weight: bold;
-  text-indent: 50px;
-  display: block;
-  letter-spacing: 1px;
-  line-height: 40px;
-  font-family: Arial;
-}
-
-.hotline-bar > a:hover,
-.hotline-bar > a:active {
-  color: #fff;
-}
-
 @keyframes phonering-alo-circle-anim {
   0% {
     transform: rotate(0) scale(0.5) skew(1deg);
@@ -321,12 +284,6 @@
   }
   100% {
     transform: rotate(0) scale(1) skew(1deg);
-  }
-}
-
-@media (max-width: 768px) {
-  .hotline-bar {
-    display: none;
   }
 }
 

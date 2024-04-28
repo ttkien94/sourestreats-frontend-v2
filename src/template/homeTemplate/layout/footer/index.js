@@ -56,6 +56,15 @@ function LPEFooter() {
                   <i className="fab fa-youtube mr-3"></i>
                 </a>
 
+                <a
+                  href="https://zalo.me/0906880917"
+                  className="text-white"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i className="fab fa-youtube mr-3"></i>
+                </a>
+
                 <h4 className="heading2 mt-3">{t("customer_support")}</h4>
                 <p>
                   Đối với các thắc mắc về Dịch vụ Khách hàng. Chúng tôi cố gắng

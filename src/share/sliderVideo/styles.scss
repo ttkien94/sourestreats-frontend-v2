@@ -1,21 +1,20 @@
-@import "assets/styles/common.scss";
 $color-primary: #374679;
-.slider-video{    
+.slider-video {
   display: flex;
   justify-content: center;
- .opasiti-background {
+  .opasiti-background {
     background-color: #b0b0b0;
     border: 1px solid;
     border-color: #f0f0f0;
     border-radius: 20px;
-    padding:20px
+    padding: 20px;
   }
 
   .swiper-container {
     width: 100%;
   }
-  .slider-video{
-  background-color: #D6D7DF;
+  .slider-video {
+    background-color: #d6d7df;
   }
   .swiper-slide {
     &-active {
@@ -27,7 +26,7 @@ $color-primary: #374679;
             transition: 0.4s ease-in 0.5s;
           }
         }
-  
+
         .btnDetailSmall {
           opacity: 1;
           transform: translate3d(0, 0, 0);
@@ -37,7 +36,6 @@ $color-primary: #374679;
     }
   }
 }
-
 
 // GIF background
 .banner-item_innerText {
@@ -184,7 +182,6 @@ $color-primary: #374679;
 // Responsive
 
 @media screen and (min-width: 1150.399px) {
-
 }
 
 @media screen and (max-width: 1150px) {
@@ -193,7 +190,6 @@ $color-primary: #374679;
       font-size: 14px;
     }
   }
- 
 }
 
 @media screen and (max-width: 992px) {
@@ -202,7 +198,6 @@ $color-primary: #374679;
       font-size: 16px;
     }
   }
- 
 }
 
 @media screen and (max-width: 768px) {
@@ -213,7 +208,6 @@ $color-primary: #374679;
       margin-top: 10px;
     }
   }
- 
 }
 
 @media screen and (max-width: 400px) {

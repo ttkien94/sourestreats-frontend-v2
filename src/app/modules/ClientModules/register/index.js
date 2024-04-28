@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { Redirect } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import useSiteTitle from "core/hooks/useSiteTitle";
 
 import * as Yup from "yup";
@@ -238,7 +238,7 @@ function Register(props) {
     }
   };
 
-  return <>{!isLogined ? RenderUI(step) : <Redirect to="/" />}</>;
+  return <>{!isLogined ? RenderUI(step) : <Navigate to="/" />}</>;
 }
 
 export default Register;

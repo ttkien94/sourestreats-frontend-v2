@@ -27,7 +27,9 @@ const PP = () => {
   const [data, setData] = useState({});
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const arrayTestimonials = [
     {
       id: 1,
@@ -64,13 +66,15 @@ const PP = () => {
     title: "DIAMOND - VIP",
     defaultPrice: "6.999.000đ",
     promoPrice: "3.499.000đ",
-    promoText: "3 NGƯỜI TRỞ LÊN CHỈ CÒN 1.166.000 VNĐ/ NGƯỜI",
+    promoText: "3 NGƯỜI TRỞ LÊN CHỈ CÒN",
+    promoText2: "1.166.000 VNĐ/ NGƯỜI",
   };
   const platinumTicket = {
     title: "PLATINUM",
     defaultPrice: "1.999.000Đ",
-    promoPrice: "99.000Đ",
-    promoText: "3 NGƯỜI TRỞ LÊN CHỈ CÒN 466.000 VNĐ/ NGƯỜI",
+    promoPrice: "666.000Đ",
+    promoText: "3 NGƯỜI TRỞ LÊN CHỈ CÒN",
+    promoText2: "466.000 VNĐ/ NGƯỜI",
   };
   const listBenefitGen = ["Tài liệu học tập", "Ghế ngồi general"];
   const listBenefitVip = [
@@ -114,7 +118,12 @@ const PP = () => {
       .max(new Date(), "Ngày lớn nhất không được quá hôm nay"),
   });
   const formData = useRef(null);
-  const executeScroll = () => formData.current.scrollIntoView();
+  const executeScroll = () =>
+    formData.current.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+      inline: "start",
+    });
 
   const bannerSection = (title) => {
     return (
@@ -154,7 +163,15 @@ const PP = () => {
           <div id="GROUP250" className="ladi-group ladi-element">
             <div id="HEADLINE255">
               <h3 className="ladi-headline ladi-transition">
-                THE FRIST STEP <br />
+                <span
+                  style={{
+                    textAlign: "center",
+                    display: "flex",
+                    justifyContent: "center",
+                  }}
+                >
+                  THE FIRST STEP
+                </span>
                 KHỞI ĐẦU THỊNH VƯỢNG
               </h3>
             </div>
@@ -166,7 +183,7 @@ const PP = () => {
             </div>
             <div id="LIST_PARAGRAPH270" className="pt-3">
               <div className="ladi-list-paragraph">
-                <ul>
+                <ul style={{ marginBottom: 0 }}>
                   <li>
                     <span style={{ fontWeight: "bold", fontSize: "20px" }}>
                       Thời gian: 26.05.2024
@@ -180,7 +197,9 @@ const PP = () => {
                 </ul>
               </div>
             </div>
-            {renderCallAction()}
+            <div className="d-flex  justify-content-center align-items-center text-center mt-3">
+              {renderCallAction()}
+            </div>
           </div>
           {/* <div id="GROUP250">
             <div className="ladi-group">
@@ -235,8 +254,11 @@ const PP = () => {
     );
   };
   const renderCallAction = () => {
+    const theme = {
+      spacing: 8,
+    };
     return (
-      <div data-action="true" id="GROUP301">
+      <div data-action="true">
         <Button
           variant="contained"
           sx={{
@@ -244,7 +266,8 @@ const PP = () => {
             fontWeight: "bold",
             fontSize: 16,
             alignItems: "center",
-            borderRadius: 20,
+            borderRadius: 10,
+            padding: 2,
           }}
           onClick={() => {
             executeScroll();
@@ -740,13 +763,12 @@ const PP = () => {
               </div>
               <div id="PARAGRAPH275" className="ladi-element">
                 <div className="ladi-paragraph">
-                  Xóa bỏ những suy nghĩ tiêu cực,
+                  Xóa bỏ những suy nghĩ tiêu cực,&nbsp;
                   <br />
                   <span style={{ color: "rgb(255, 145, 77)" }}>
                     xây dựng tư duy tích cực
                   </span>
-                  ,<br />
-                  vượt qua thử thách
+                  ,<br /> vượt qua thử thách &nbsp;
                   <span style={{ color: "rgb(255, 145, 77)" }}>
                     đối mặt với khó khăn.
                   </span>
@@ -768,7 +790,7 @@ const PP = () => {
               </div>
               <div id="PARAGRAPH277" className="ladi-element">
                 <div className="ladi-paragraph">
-                  Phát hiện ra những
+                  Phát hiện ra những &nbsp;
                   <span style={{ color: "rgb(255, 145, 78)" }}>
                     thói quen,
                     <br />
@@ -798,11 +820,11 @@ const PP = () => {
               <div id="PARAGRAPH279" className="ladi-element">
                 <div className="ladi-paragraph">
                   <span style={{ color: "rgb(255, 145, 77)" }}>
-                    Đánh giá lại cuộc sống của bạn
+                    Đánh giá lại cuộc sống của bạn&nbsp;
                   </span>
-                  và khám phá những
+                  và khám phá những&nbsp;
                   <span style={{ color: "rgb(255, 145, 77)" }}>
-                    khả năng tiềm tàng
+                    khả năng tiềm tàng&nbsp;
                   </span>
                   mà chính bạn cũng chưa phát hiện ra
                   <br />
@@ -824,7 +846,7 @@ const PP = () => {
               <div id="PARAGRAPH281" className="ladi-element">
                 <div className="ladi-paragraph">
                   <span style={{ color: "rgb(255, 145, 77)" }}>
-                    Trải nghiệm các quy trình chuyển hóa
+                    Trải nghiệm các quy trình chuyển hóa&nbsp;
                   </span>
                   đưa bạn quay lại trạng thái tích cực.
                   <br />
@@ -898,10 +920,11 @@ const PP = () => {
           </h3>
         </div>
         {data?.title == "GENERAL" && <FormCountDownt date={"05/16/2024"} />}
-        <div className="box-promotion py-2 mt-3 col-9">
+        <div className="box-promotion py-2 mt-3 col-12">
           <h4 className="default-price">{data?.defaultPrice}</h4>
           <h3 className="promo-price">{data?.promoPrice}</h3>
           <h5 className="promo-text">{data?.promoText}</h5>
+          <h5 className="promo-text">{data?.promoText2}</h5>
         </div>
         {list && (
           <>
@@ -950,10 +973,24 @@ const PP = () => {
                 - Gọi ngay Hotline/zalo: 0906880917; 0901883917 để được hỗ trợ
                 <br />- Ngoài ra, hãy tham gia ngay nhóm Zalo để cùng tham dự
                 Livestream hàng tuần miễn phí với Chuyên gia Quốc tế Coach Vas
-                tại đường link dưới đây: &nbsp;
-                <a href="https://zalo.me/g/keaxjv229" target="_blank">
-                  https://zalo.me/g/keaxjv229
-                </a>
+                tại đường link dưới đây:
+                <div className="mt-3 d-flex justify-content-center">
+                  <a
+                    href="https://zalo.me/g/keaxjv229"
+                    target="_blank"
+                    style={{
+                      backgroundColor: "red",
+                      paddingTop: 15,
+                      paddingBottom: 15,
+                      paddingLeft: 15,
+                      paddingRight: 15,
+                      borderRadius: 20,
+                      color: "white",
+                    }}
+                  >
+                    THAM GIA
+                  </a>
+                </div>
               </p>
             </div>
           </div>
@@ -1149,7 +1186,7 @@ const PP = () => {
   };
   const renderForm = () => {
     return (
-      <div className="mb-5 pt-5" ref={formData}>
+      <div className="mb-5 pt-5">
         <div className="ladi-section-background"></div>
         <div className="d-flex container">
           <div className="col-12">
@@ -1226,7 +1263,11 @@ const PP = () => {
                   </div>
                 </div>
               </div>
-              <div className="col-md-4  col-lg-4 d-flex align-items-center justify-content-center">
+
+              <div
+                className="col-md-4  col-lg-4 d-flex align-items-center justify-content-center"
+                ref={formData}
+              >
                 <RegisterForm
                   title={"Đừng bỏ lỡ cơ hội. Đăng ký ngay!"}
                   type={"TheFirstStep"}

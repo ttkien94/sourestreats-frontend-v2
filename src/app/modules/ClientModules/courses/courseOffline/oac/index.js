@@ -6,11 +6,14 @@ import SwiperCore, { Autoplay, Pagination, Navigation } from "swiper";
 import "./styles/styles.scss";
 import { oac } from "../../assets/images/chuong-trinh-huan-luyen/offline";
 import UiApplyCourse from "share/uiApplyCourse";
+import { useEffect } from "react";
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
 function OAC() {
   useSiteTitle("OAC_program");
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const imgStudent = [oac.oac01, oac.oac02, oac.oac03, oac.oac04];
   const array_value = [
     "Giúp các bé hiểu & nhận biết tài năng của mình là gì?",

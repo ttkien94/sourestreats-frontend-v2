@@ -10,15 +10,14 @@ function ServiceItem({ service }) {
         <div className="cat-icon">{service.cat_icon}</div>
 
         <div className="service-item-caption">
-          <h2>{service.title}</h2>
-
-          {service.description ? (
-            <p className="mb-0 service-description">{service.description}</p>
-          ) : (
+          <Link to={service.link}>
+            <h2>{service.title}</h2>
+          </Link>
+          {/* {service.description && (
             <Link to={service.link} className="service-link">
-              Đi tới
+              <p className="mb-0 service-description">{service.description}</p>
             </Link>
-          )}
+          )} */}
         </div>
       </div>
     </div>

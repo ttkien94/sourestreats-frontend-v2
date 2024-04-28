@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Switch,
+} from "react-router-dom";
 import {
   adminRoutes,
   courseOnlineRoutes,
@@ -18,8 +23,9 @@ import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
 import TagManager from "react-gtm-module";
 import { useEffect } from "react";
-
+import Client from "app/modules/ClientModules";
 function App() {
+  // auto scoll to tóps
   // call backend
   const job = require("./cron.js").job;
   job.start();
@@ -31,30 +37,46 @@ function App() {
     <Router>
       <AutoScroll />
 
-      <Switch>
-        {publicRoutes.map((route, index) => {
-          return (
-            <HomeTemplate
-              exact
-              path={route.path}
-              Component={route.component}
-              key={index}
-            />
-          );
-        })}
+      <Routes>
+        <Route element={<HomeTemplate />}>
+          {publicRoutes.map((route, index) => {
+            return (
+              <Route
+                exact
+                path={route.path}
+                element={<route.component />}
+                key={index}
+              />
+            );
+          })}
+        </Route>
+        <Route element={<AdminTemplate />}>
+          {adminRoutes.map((route, index) => {
+            return (
+              <Route
+                exact
+                path={route.path}
+                element={<route.component />}
+                key={index}
+              />
+            );
+          })}
+        </Route>
 
-        {adminRoutes.map((route, index) => {
-          return (
-            <AdminTemplate
-              exact
-              path={route.path}
-              Component={route.component}
-              key={index}
-            />
-          );
-        })}
-
-        {courseOnlineRoutes.map((route, index) => {
+        <Route element={<CourseOnlineTemplate />}>
+          {courseOnlineRoutes.map((route, index) => {
+            return (
+              <Route
+                exact
+                path={route.path}
+                element={<route.component />}
+                key={index}
+                title={route.title}
+              />
+            );
+          })}
+        </Route>
+        {/* {courseOnlineRoutes.map((route, index) => {
           return (
             <CourseOnlineTemplate
               exact
@@ -64,10 +86,9 @@ function App() {
               title={route.title}
             />
           );
-        })}
-
-        <HomeTemplate exact path="*" Component={ErrorPage} />
-      </Switch>
+        })} */}
+        {/* <HomeTemplate exact path="*" Component={ErrorPage} /> */}
+      </Routes>
     </Router>
   );
 }

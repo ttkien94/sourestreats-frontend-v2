@@ -1,6 +1,7 @@
 $color-primary: #374679;
 .swiper-container {
   width: 100%;
+  height: 100%;
 }
 
 .swiper-slide {
@@ -26,7 +27,13 @@ $color-primary: #374679;
 // GIF background
 .banner-item_innerText {
   position: relative;
-
+  .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.2;
+  }
   img {
     width: 100% !important;
   }
@@ -72,7 +79,7 @@ $color-primary: #374679;
       color: white;
     }
 
-    padding: 7px 22px;
+    padding: 7px 22px 7px 22px;
     transition: all 0.2s ease;
 
     &:before {
@@ -93,10 +100,11 @@ $color-primary: #374679;
       font-size: 14px;
       font-weight: 900;
       vertical-align: middle;
-      color: white;
+      color: black;
     }
 
     svg {
+      margin-top: 2px;
       position: relative;
       top: 0;
       margin-left: 10px;
@@ -108,7 +116,6 @@ $color-primary: #374679;
       transform: translateX(-5px);
       transition: all 0.3s ease;
     }
-
     &:hover {
       span {
         color: $color-primary;
@@ -183,6 +190,11 @@ $color-primary: #374679;
 }
 
 @media screen and (max-width: 768px) {
+  .swiper-container {
+    .left-content {
+      margin-bottom: 20px;
+    }
+  }
   .wrapper-innerText {
     position: unset !important;
     transform: unset !important;

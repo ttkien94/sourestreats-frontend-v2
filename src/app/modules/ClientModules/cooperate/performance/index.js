@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import useSiteTitle from "core/hooks/useSiteTitle";
 
 import "../styles.scss";
 
 function Performance() {
   useSiteTitle("performance");
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="container corporate mt-3">
       <div className="row mb-5">
@@ -25,14 +27,12 @@ function Performance() {
             Tối Ưu Thành Tích
           </h1>
         </div>
-
         <div className="col-12">
           <h4 className="corporate__description">
             Chúng tôi có những phương thức đào tạo đặc biệt để bạn nâng cao khả
             năng, tối ưu thành tích của mình trong bất kỳ ngành nghề nào!
           </h4>
         </div>
-
         <div className="col-12">
           <ul>
             <li>
@@ -69,7 +69,6 @@ function Performance() {
             </li>
           </ul>
         </div>
-
         <div className="col-12">
           <h4 className="corporate__description">
             Với hơn 30 năm kinh nghiệm hoạt động Quân đội tại Singapore cùng 17
@@ -77,15 +76,16 @@ function Performance() {
             tốt nhất giúp bạn "tối ưu thành tích" của bản thân và đội nhóm.
           </h4>
         </div>
-
-        <a
-          className="corporate__btn corporate__btn--performance"
-          href="https://www.facebook.com/lifeunivietnam"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Nhận tư vấn
-        </a>
+        <div className="d-flex justify-content-conter">
+          <a
+            className="corporate__btn corporate__btn--performance"
+            href="https://www.facebook.com/lifeunivietnam"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Nhận tư vấn
+          </a>
+        </div>
       </div>
     </div>
   );

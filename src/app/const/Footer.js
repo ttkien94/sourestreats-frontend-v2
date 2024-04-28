@@ -11,7 +11,7 @@ export const LEFT_MENU = [
   // },
   // {
   //   id: 3,
-  //   name: "vision_lpe",
+  //   name: "vision",
   //   path: "/lpe/tam-nhin-su-menh-lpe",
   // },
   // {

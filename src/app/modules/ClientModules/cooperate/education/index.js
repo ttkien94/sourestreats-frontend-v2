@@ -2,10 +2,13 @@ import React from "react";
 import useSiteTitle from "core/hooks/useSiteTitle";
 
 import "../styles.scss";
+import { useEffect } from "react";
 
 function Education() {
   useSiteTitle("education");
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="container corporate mt-3">
       <div className="row mb-5">
@@ -26,7 +29,6 @@ function Education() {
             Đào Tạo - Giáo Dục Thế Hệ Trẻ
           </h1>
         </div>
-
         <div className="col-12">
           <h4 className="corporate__description">
             Khi còn nhỏ, chúng ta tiếp thu kiến thức và phát triển tư duy dễ
@@ -34,7 +36,6 @@ function Education() {
             câu hỏi "Sau này lớn lên em muốn trở thành ai?
           </h4>
         </div>
-
         <div className="col-12">
           <ul>
             <li>
@@ -64,7 +65,6 @@ function Education() {
             </li>
           </ul>
         </div>
-
         <div className="col-12">
           <h4 className="corporate__description">
             Hãy tạo cơ hội để các em được phát triển toàn diện, để các em biết
@@ -72,15 +72,16 @@ function Education() {
             diện về cả thể chất lẫn tâm trí.
           </h4>
         </div>
-
-        <a
-          className="corporate__btn corporate__btn--education"
-          href="https://www.facebook.com/lifeunivietnam"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Nhận tư vấn
-        </a>
+        <div className="d-flex justify-content-conter">
+          <a
+            className="corporate__btn corporate__btn--education"
+            href="https://www.facebook.com/lifeunivietnam"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Nhận tư vấn
+          </a>
+        </div>
       </div>
     </div>
   );

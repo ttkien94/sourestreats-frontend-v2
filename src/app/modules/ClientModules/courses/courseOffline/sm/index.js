@@ -5,6 +5,7 @@ import { pr } from "../../assets/images/chuong-trinh-huan-luyen/offline";
 import { ph } from "../../assets/images/chuong-trinh-huan-luyen/offline";
 import "./styles/styles.scss";
 import UiApplyCourse from "share/uiApplyCourse";
+import { useEffect } from "react";
 
 const data_value = [
   "Hiểu được căn nguyên của những mối quan hệ xấu dẫn đến sự căng thẳng và bệnh tật như thế nào ",
@@ -16,7 +17,9 @@ const data_value = [
 ];
 function SelfMastery() {
   useSiteTitle("sefl_mastery");
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="pr">
       <div className="container-fluid p-0">

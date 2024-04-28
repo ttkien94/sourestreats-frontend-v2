@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, Redirect } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import useSiteTitle from "core/hooks/useSiteTitle";
 
 // MUI
@@ -133,7 +133,7 @@ function Login() {
           </div>
         </div>
       ) : (
-        <Redirect to="/" />
+        <Navigate to="/" />
       )}
     </>
   );

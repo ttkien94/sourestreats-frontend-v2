@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { styled } from "@mui/styles";
 import { useTranslation } from "react-i18next";
 
@@ -49,7 +49,7 @@ function SidebarHeader({ onToggle, menuContent }) {
   const { t } = useTranslation("common");
   const { userInfo } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
-  const history = useHistory();
+  const history = useNavigate();
 
   const handleMenu = (data) => {
     return (

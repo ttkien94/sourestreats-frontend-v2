@@ -1,7 +1,7 @@
 export const CONTENT_MENU = [
   // { title: "LIFE UNIVERSITY", url: "/" },
   {
-    title: "LIFE UNIVERSITY",
+    title: "THE ORIGINS",
     url: "/",
     childMenu: [
       {
@@ -13,7 +13,7 @@ export const CONTENT_MENU = [
         url: "/lpe/ms-la-ha-giang-thanh",
       },
       // {
-      //   title: "vision_lpe",
+      //   title: "vision",
       //   url: "/lpe/tam-nhin-su-menh-lpe",
       // },
       // {

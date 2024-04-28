@@ -47,7 +47,7 @@ export const big_island = [
     },
     detail: [
       {
-        text: "finding_porpose",
+        text: "the_first_step",
         type: "heading",
       },
 
@@ -373,7 +373,7 @@ export const big_island_mobile = [
     },
     detail: [
       {
-        text: "finding_porpose",
+        text: "the_first_step",
         type: "heading",
       },
 

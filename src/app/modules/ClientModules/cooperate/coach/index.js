@@ -2,10 +2,13 @@ import React from "react";
 import useSiteTitle from "core/hooks/useSiteTitle";
 
 import "../styles.scss";
+import { useEffect } from "react";
 
 function Coach() {
   useSiteTitle("coach");
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="container corporate mt-3">
       <div className="row mb-5">
@@ -59,15 +62,16 @@ function Coach() {
             điều còn đang cản trở bạn tiến bước đến tương lai.
           </h4>
         </div>
-
-        <a
-          className="corporate__btn corporate__btn--coach"
-          href="https://www.facebook.com/lifeunivietnam"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Nhận tư vấn
-        </a>
+        <div className="d-flex justify-content-conter">
+          <a
+            className="corporate__btn corporate__btn--coach"
+            href="https://www.facebook.com/lifeunivietnam"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Nhận tư vấn
+          </a>
+        </div>
       </div>
     </div>
   );

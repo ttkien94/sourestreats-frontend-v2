@@ -1,0 +1,132 @@
+.home-page {
+  .wrapperImg {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 30px;
+    grid-gap: 20px;
+    .wrapperTitle {
+      position: absolute;
+      bottom: 0px;
+      left: 15px;
+      padding: 15px;
+      margin-right: 15px;
+      margin-bottom: 15px;
+      background-color: rgba(65, 90, 199, 1);
+      border-radius: 20px;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: white;
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.8);
+        color: black;
+        transition: background-color 500ms linear;
+      }
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      border-radius: 20px;
+    }
+
+    .gridItem1 {
+      grid-column: 1;
+      grid-row: 1 / span 2;
+      // grid-column: 1;
+      // grid-row: 1;
+      cursor: pointer;
+      position: relative;
+
+      // &:hover {
+      //   @include hoverStyle;
+      // }
+    }
+
+    .gridItem2 {
+      grid-column: 2 / span 2;
+      grid-row: 1;
+      cursor: pointer;
+      position: relative;
+
+      // &:hover {
+      //   @include hoverStyle;
+      // }
+    }
+
+    .gridItem3 {
+      grid-column: 2;
+      grid-row: 2;
+      cursor: pointer;
+      position: relative;
+
+      // &:hover {
+      //   @include hoverStyle;
+      // }
+    }
+
+    .gridItem4 {
+      grid-column: 3;
+      grid-row: 2;
+      cursor: pointer;
+      position: relative;
+
+      // &:hover {
+      //   @include hoverStyle;
+      // }
+    }
+
+    .gridItem5 {
+      grid-column: 1;
+      grid-row: 3;
+      cursor: pointer;
+      position: relative;
+
+      // &:hover {
+      //   @include hoverStyle;
+      // }
+    }
+
+    .gridItem6 {
+      grid-column: 2 / span 2;
+      grid-row: 3;
+      cursor: pointer;
+      position: relative;
+
+      // &:hover {
+      //   @include hoverStyle;
+      // }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .wrapperImg {
+      grid-template-columns: repeat(1, 1fr) !important;
+
+      .gridItem1 {
+        // position: unset !important;
+        grid-column: 1;
+        grid-row: 1;
+      }
+      .gridItem2 {
+        grid-column: 1;
+        grid-row: 2;
+      }
+      .gridItem3 {
+        grid-column: 1;
+        grid-row: 3;
+      }
+      .gridItem4 {
+        grid-column: 1;
+        grid-row: 4;
+      }
+      .gridItem5 {
+        grid-column: 1;
+        grid-row: 5;
+      }
+      .gridItem6 {
+        grid-column: 1;
+        grid-row: 6;
+      }
+    }
+  }
+}

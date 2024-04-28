@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Route, Redirect } from "react-router-dom";
+import { Route, Redirect, Outlet } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { styled } from "@mui/material/styles";
 import { Box } from "@mui/material";
@@ -75,32 +75,30 @@ export const CourseOnlineTemplate = ({ Component, title, ...restProps }) => {
   };
 
   return (
-    <Route
-      {...restProps}
-      render={(propsRoute) => {
-        return (
-          <Box sx={{ display: "flex" }} className="course-online">
-            <CssBaseline />
+    <Box sx={{ display: "flex" }} className="course-online">
+      <CssBaseline />
 
-            <Appbar
-              isOpen={isOpen}
-              onHandleDrawerOpen={handleDrawerOpen}
-              title={title}
-            />
+      <Appbar
+        isOpen={isOpen}
+        onHandleDrawerOpen={handleDrawerOpen}
+        title={title}
+      />
 
-            <AdminDrawer
-              isOpen={isOpen}
-              onHandleDrawerClose={handleDrawerClose}
-            />
+      <AdminDrawer isOpen={isOpen} onHandleDrawerClose={handleDrawerClose} />
 
-            <Main open={isOpen}>
-              <DrawerHeader />
+      <Main open={isOpen}>
+        <DrawerHeader />
+        <Outlet />
+        {/* <Component {...propsRoute} /> */}
+      </Main>
+    </Box>
+    // <Route
+    //   {...restProps}
+    //   render={(propsRoute) => {
+    //     return (
 
-              <Component {...propsRoute} />
-            </Main>
-          </Box>
-        );
-      }}
-    />
+    //     );
+    //   }}
+    // />
   );
 };

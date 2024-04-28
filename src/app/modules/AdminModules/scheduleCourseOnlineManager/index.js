@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   getScheduleCourseOnlineAction,
   deleteScheduleCourseOnlineAction,
@@ -18,7 +18,7 @@ function ScheduleCourseOnlineManager(props) {
   const { loading, scheduleCourseOnlineList } = useSelector(
     (state) => state.scheduleCourseOnline
   );
-  const history = useHistory();
+  const history = useNavigate();
   const dispatch = useDispatch();
   const headCells = [
     {
@@ -42,8 +42,8 @@ function ScheduleCourseOnlineManager(props) {
 
   const handleOpenDrawer = (data) => {
     data
-      ? history.push("/admin/quan-ly-lich-hoc/chinh-sua-lich-hoc", {
-          onEdit: data,
+      ? history("/admin/quan-ly-lich-hoc/chinh-sua-lich-hoc", {
+          state: { onEdit: data },
         })
       : setOpenDrawer(true);
   };

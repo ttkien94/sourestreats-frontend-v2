@@ -1,9 +1,6 @@
-@import "assets/styles/common.scss";
-
-
 .Imcpc {
   // default css
-  background-color:$lifeuni-color2;
+  background-color: #3782c4;
   // background-image: radial-gradient(ellipse at left,#3782c4,#3782c4,#67c8ec);
   color: white;
   font-size: 15px;
@@ -32,7 +29,7 @@
       color: black;
       width: $border-bot;
       cursor: pointer;
-      .popup{
+      .popup {
         transform: scale(0);
         position: absolute;
         transition: all 0.3s;
@@ -46,15 +43,14 @@
         border: 3px solid #3777bc;
         cursor: pointer;
       }
-      &:hover{
-        .popup{
-        transform: scale(1);
-         }  
+      &:hover {
+        .popup {
+          transform: scale(1);
+        }
       }
     }
-    
   }
-  
+
   .tab-menu {
     margin-top: 50px;
     margin-bottom: 50px;
@@ -179,7 +175,7 @@
     width: 600px;
     height: 600px;
     margin: auto;
-    
+
     a {
       color: white;
     }
@@ -193,7 +189,7 @@
       padding: 0;
       background-color: transparent;
     }
-   
+
     @keyframes changeOpacity {
       0% {
         transform: translateX(0);
@@ -212,17 +208,17 @@
       animation-name: changeOpacity;
       animation-duration: 1.5s;
     }
-    
+
     .triangle1 {
       position: absolute;
       transition: opacity 1.5s ease-in;
       .triangle-background-1 {
         @include triangle(0, 600px, 300px, transparent, #4db6ac, 25px);
         text-align: center;
-        p{
-          .popup{
-            top:100%;
-            left:50%;
+        p {
+          .popup {
+            top: 100%;
+            left: 50%;
           }
         }
       }
@@ -231,10 +227,10 @@
         top: 0;
         left: 45px;
         @include triangle(0, 510px, 255px, transparent, #66bb6a, -490px);
-        p{
-          .popup{
-            top:100%;
-            left:50%;
+        p {
+          .popup {
+            top: 100%;
+            left: 50%;
           }
         }
       }
@@ -244,10 +240,10 @@
         top: 0;
         left: 90px;
         @include triangle(0, 420px, 210px, transparent, #d4e157, -400px);
-        p{
-          .popup{
-            top:100%;
-            left:50%;
+        p {
+          .popup {
+            top: 100%;
+            left: 50%;
           }
         }
       }
@@ -256,23 +252,22 @@
         top: 0;
         left: 135px;
         @include triangle(0, 330px, 165px, transparent, #fdd835, -315px);
-        p{
-          .popup{
-            top:100%;
-            left:50%;
+        p {
+          .popup {
+            top: 100%;
+            left: 50%;
           }
         }
-       
       }
       .triangle-background-5 {
         position: absolute;
         top: 0;
         left: 175px;
         @include triangle(0, 250px, 125px, transparent, #ffb300, -225px);
-        p{
-          .popup{
-            top:100%;
-            left:50%;
+        p {
+          .popup {
+            top: 100%;
+            left: 50%;
           }
         }
       }
@@ -280,10 +275,10 @@
         position: absolute;
         top: 0;
         left: 225px;
-        
+
         @include triangle(0, 150px, 75px, transparent, #ff8a65, -135px);
-        p{
-          padding:0 30px
+        p {
+          padding: 0 30px;
         }
       }
     }
@@ -294,10 +289,10 @@
         @include triangle(600px, 0px, 300px, #4db6ac, transparent, 530px);
         p {
           width: 300px;
-          .popup{
+          .popup {
             width: 400px;
-            top:-550%;
-            left:50%;
+            top: -550%;
+            left: 50%;
           }
         }
       }
@@ -308,10 +303,10 @@
         @include triangle(510px, 0, 255px, #66bb6a, transparent, 440px);
         p {
           width: 300px;
-          .popup{
+          .popup {
             width: 400px;
-            top:-500%;
-            left:50%;
+            top: -500%;
+            left: 50%;
           }
         }
       }
@@ -323,10 +318,10 @@
         @include triangle(420px, 0, 210px, #d4e157, transparent, 350px);
         p {
           width: 300px;
-          .popup{
+          .popup {
             width: 400px;
-            top:-450%;
-            left:50%;
+            top: -450%;
+            left: 50%;
           }
         }
       }
@@ -337,10 +332,10 @@
         @include triangle(330px, 0, 165px, #fdd835, transparent, 265px);
         p {
           width: 300px;
-          .popup{
+          .popup {
             width: 400px;
-            top:-450%;
-            left:50%;
+            top: -450%;
+            left: 50%;
           }
         }
       }
@@ -351,10 +346,10 @@
         @include triangle(250px, 0, 125px, #ffb300, transparent, 175px);
         p {
           width: 300px;
-          .popup{
+          .popup {
             width: 400px;
-            top:-350%;
-            left:50%;
+            top: -350%;
+            left: 50%;
           }
         }
       }
@@ -365,10 +360,10 @@
         @include triangle(150px, 0, 75px, #ff8a65, transparent, 95px);
         p {
           width: 300px;
-          .popup{
+          .popup {
             width: 400px;
-            top:-450%;
-            left:50%;
+            top: -450%;
+            left: 50%;
           }
         }
       }
@@ -476,8 +471,8 @@
           top: 0;
           left: 60px;
           @include triangle(0, 180px, 90px, transparent, #ffb300, -200px);
-          p{
-            padding: 0 20px
+          p {
+            padding: 0 20px;
           }
         }
         .triangle-background-6 {
@@ -485,11 +480,11 @@
           top: 0;
           left: 85px;
           @include triangle(0, 130px, 65px, transparent, #ff8a65, -135px);
-          p{
+          p {
             padding: 0 10px;
-            .popup{
-              top:100%;
-              left:50%;
+            .popup {
+              top: 100%;
+              left: 50%;
             }
           }
         }
@@ -499,9 +494,9 @@
           @include triangle(300px, 0px, 150px, #4db6ac, transparent, 260px);
           p {
             width: 300px;
-            .popup{
+            .popup {
               width: 300px;
-              top:-600%
+              top: -600%;
             }
           }
         }
@@ -512,9 +507,9 @@
           @include triangle(270px, 0, 135px, #66bb6a, transparent, 230px);
           p {
             width: 300px;
-            .popup{
+            .popup {
               width: 300px;
-              top:-550%
+              top: -550%;
             }
           }
         }

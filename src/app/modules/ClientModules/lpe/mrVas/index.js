@@ -33,6 +33,7 @@ import vasFooter from "assets/images/source/mrvas/banner-bottom-vas.jpg";
 import mrvasPorfolio from "assets/images/source/mrvas/mrvas-porfolio.jpg";
 
 import "./styles/styles.scss";
+import { useEffect } from "react";
 
 function MrVas() {
   useSiteTitle("mr_vas");
@@ -40,7 +41,9 @@ function MrVas() {
   const [isOpen, setIsOpen] = useState(false);
   const categoryRef = useRef();
   const certificationRef = useRef();
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   // const videoVas = [
   //   {
   //     id: 0,
