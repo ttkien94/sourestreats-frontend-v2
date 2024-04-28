@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SoulRetreatsBanner from "app/components/banner";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.min.css";
@@ -20,24 +20,24 @@ SwiperCore.use([Scrollbar, Navigation]);
 
 function CourseOffline() {
   useSiteTitle("offline_page");
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="courseOffline-page">
       <SoulRetreatsBanner
         bannerImg={banner}
         headText="Khóa học Offline"
-        subText="LIFE UNI có các khóa học trực tiếp nhằm cung cấp trải nghiệm học tốt nhất cho học viên."
+        subText="THE ORIGINS có các khóa học trực tiếp nhằm cung cấp trải nghiệm học tốt nhất cho học viên."
       />
 
       <div className="container">
         <div className="heading">
-          <h3 className="heading-text">
-            LIFE UNI - ĐẠI HỌC CUỘC ĐỜI - COMBO PHOENIX
-          </h3>
+          <h3 className="heading-text">THE ORIGINS - COMBO PHOENIX</h3>
           <p className="heading-desc">
-            Combo Phoenix thuộc chuỗi Đại Học Cuộc Đời sẽ giúp cho bạn hiểu cảm
-            xúc bên trong của chính mình, từ đó lý giải được các vấn đề xung
-            quanh đang tác động trực tiếp để rồi tìm ra hướng giải quyết chúng.
+            Combo Phoenix thuộc chuỗi THE ORIGINS sẽ giúp cho bạn hiểu cảm xúc
+            bên trong của chính mình, từ đó lý giải được các vấn đề xung quanh
+            đang tác động trực tiếp để rồi tìm ra hướng giải quyết chúng.
           </p>
         </div>
 
@@ -74,15 +74,13 @@ function CourseOffline() {
 
       <div className="container">
         <div className="heading">
-          <h3 className="heading-text">
-            LIFE UNI - ĐẠI HỌC CUỘC ĐỜI - COMBO DRAGON
-          </h3>
+          <h3 className="heading-text">THE ORIGINS - COMBO DRAGON</h3>
           <p className="heading-desc">
-            Combo Dragon thuộc chuỗi Đại Học Cuộc Đời, có chứa các khóa nằm
-            trong Combo Phoenix. Không dừng lại về các vấn đề bản thân, giờ đây
-            với chuỗi combo Dragon, bạn sẽ có cái nhìn toàn diện hơn về cách mà
-            vũ trụ vận hành. Bạn sẽ xây dựng được cho bản thân Dự án cuộc đời
-            nhằm cống hiến xã hội, mang trên mình tầm vóc lớn lao hơn.
+            Combo Dragon thuộc chuỗi THE ORIGINS, có chứa các khóa nằm trong
+            Combo Phoenix. Không dừng lại về các vấn đề bản thân, giờ đây với
+            chuỗi combo Dragon, bạn sẽ có cái nhìn toàn diện hơn về cách mà vũ
+            trụ vận hành. Bạn sẽ xây dựng được cho bản thân Dự án cuộc đời nhằm
+            cống hiến xã hội, mang trên mình tầm vóc lớn lao hơn.
           </p>
         </div>
 

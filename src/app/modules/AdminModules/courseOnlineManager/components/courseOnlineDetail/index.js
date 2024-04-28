@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Formik, Form, FastField } from "formik";
 import { useDispatch } from "react-redux";
 import * as Yup from "yup";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import emptyAvatar from "assets/images/btnLogin.png";
 import InputField from "app/components/customField/inputField";
 import SelectField from "app/components/customField/selectField";
@@ -35,7 +35,7 @@ function CourseOnlineDetail({ onToggleDrawer, courseOnline }) {
   const [isLoading, setIsLoading] = useState(false);
   const [txtSearch, setTxtSearch] = useState("");
   const [openDrawer, setOpenDrawer] = useState(false);
-  const history = useHistory();
+  const history = useNavigate();
   const data = history.location.state?.data;
   const phoneRegExp = /^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/;
   const initialValues = {

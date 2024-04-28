@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Formik, Form, FastField } from "formik";
 import { useDispatch } from "react-redux";
+import { useLocation } from "react-router-dom";
 import * as Yup from "yup";
 
 import InputField from "app/components/customField/inputField";
@@ -28,7 +29,7 @@ import UserManager from "../../userManager";
 import AdminTable from "share/adminTable";
 import _ from "lodash";
 import DatePickerField from "app/components/customField/datePickerField";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import AlertDialog from "share/alertDialog";
 const ButtonSubmit = styled(Button)`
   color: #fff;
@@ -62,8 +63,10 @@ function EditScheduleCourseOnlineManager(props) {
   );
   const { detailCourseOnline } = useSelector((state) => state.courseOnline);
   const dispatch = useDispatch();
-  const history = useHistory();
-  const initialValues = props.history.location.state?.onEdit;
+  // const history = useNavigate();
+  const location = useLocation();
+  const initialValues = location.state?.onEdit;
+  console.log("initialValues", initialValues);
   const validationSchema = Yup.object().shape({
     question: Yup.string().required("Vui lòng nhập trường này."),
     option: Yup.array().required("Vui lòng nhập trường này."),

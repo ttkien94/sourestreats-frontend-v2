@@ -8,6 +8,7 @@ import graduate04 from "../../assets/images/chuong-trinh-huan-luyen/offline/grad
 
 import "./styles/styles.scss";
 import UiApplyCourse from "share/uiApplyCourse";
+import { useEffect } from "react";
 const array_value = [
   "Tư vấn và đúc kết tất cả các trải nghiệm và bài học đã trải qua. Liên hệ đến các Nguồn Lực để đạt được Thành Công Cực Đại",
   "Đúc Kết về Thông Điệp Meta trong khóa PO, SM, UM, ICPC và Thuyết Trình Nhóm",
@@ -21,6 +22,9 @@ function GRADUATE() {
   // const array_value = [
   //   "Xem lại và Vận Hành phong cách sống của người đã tốt nghiệp Trường Đời",
   // ];
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   useSiteTitle("graduate_program");
   return (
     <div className="graduate text-center container-fluid">

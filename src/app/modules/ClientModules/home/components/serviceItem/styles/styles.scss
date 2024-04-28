@@ -22,9 +22,8 @@ $bg-btn: #6bc63e;
       color: $color-icon;
       font-style: normal;
       font-weight: 500;
-      font-size: 27px;
+      font-size: 22px;
       margin-bottom: 20px;
-      height: 70px;
       text-transform: capitalize;
     }
 
@@ -46,23 +45,22 @@ $bg-btn: #6bc63e;
     }
 
     a {
-      color: $color-icon;
-      font-size: 18px;
-      transition: all 0.3s;
-      display: inline-block;
-      position: relative;
+      // color: $color-icon;
+      // font-size: 18px;
+      // transition: all 0.3s;
+      // display: inline-block;
+      // position: relative;
 
-      background: $bg-btn;
-      color: #fff;
-      padding: 5px 20px;
-      border-radius: 5px;
+      // background: $bg-btn;
+      // color: #fff;
+      // padding: 5px 20px;
+      // border-radius: 5px;
 
       &:hover {
         color: #fff;
       }
     }
   }
- 
 }
 
 .service-item {
@@ -70,8 +68,7 @@ $bg-btn: #6bc63e;
     border: 1px solid transparent;
     box-shadow: 1px 15px 25px rgba(34, 34, 34, 0.1);
 
-   
-    .service-link{
+    .service-link {
       cursor: pointer;
     }
     a {

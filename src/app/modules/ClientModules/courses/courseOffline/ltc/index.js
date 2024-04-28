@@ -4,9 +4,13 @@ import { Link } from "react-router-dom";
 import { ltc } from "../../assets/images/chuong-trinh-huan-luyen/offline";
 
 import "./styles/styles.scss";
+import { useEffect } from "react";
 
 function LTC() {
   useSiteTitle("LTC_program");
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="container-fluid ltc text-center">
       <div>

@@ -1,5 +1,5 @@
 import { KEY_TOKEN } from "app/const/App";
-import { Redirect } from "react-router";
+import { Navigate } from "react-router-dom";
 
 function withAuth(WrappedComponent) {
   return (props) => {
@@ -10,7 +10,7 @@ function withAuth(WrappedComponent) {
       if (accessToken) {
         return <WrappedComponent {...props} />;
       } else if (!accessToken) {
-        return <Redirect to="/dang-nhap" />;
+        return <Navigate to="/dang-nhap" />;
       }
 
       // If we are on server, return null

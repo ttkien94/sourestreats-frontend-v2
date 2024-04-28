@@ -1,60 +1,59 @@
-@import "assets/styles/common.scss";
-.um{
-    background-color:$lifeuni-color2;
-    color:white;
-    .reason {
-        border-radius: 50px 50px;
-        border: 1px solid;
-        box-shadow: -5px 5px orange;
-        background: white;
-        padding: 20px 0;
-        color:orange;
-        p {
-          margin-bottom: 15px;
-        }
-      }
-     
-      .thinkDiffirent {
-        border-radius: 50px 50px;
-        border: 1px solid;
-        box-shadow: -5px 5px orange;
-        background: white;
-        padding: 20px 50px;
-      }
-      .mindset {
-        border-radius: 50px 50px;
-        border: 1px solid;
-        box-shadow: -5px 5px orange;
-        background: orange;
-        padding: 30px;
-        color: white;
-        p {
-          margin-bottom: 10px;
-        }
+.um {
+  background-color: #3782c4;
+  color: white;
+  .reason {
+    border-radius: 50px 50px;
+    border: 1px solid;
+    box-shadow: -5px 5px orange;
+    background: white;
+    padding: 20px 0;
+    color: orange;
+    p {
+      margin-bottom: 15px;
     }
-    .value {
-        border-radius: 50px 50px;
-        border: 1px solid transparent;
-        box-shadow: 5px 5px black;
-        background-image: linear-gradient(to right, #fbb237, #f15a29);
-        padding: 5px 20px;
-        color: white;
-        text-align: center;
-      }
-    
-      @media (max-width: 768px) {
-        .apple {
-          margin-bottom: 10px;
-        }
-        .mindset {
-          padding: 20px;
-        }
-      }
-      .changePositiveQuote {
-        font-weight: bold;
-        font-size: 20px;
-        color: orange;
-        line-height: 2rem;
-        padding: 10px;
-      }
+  }
+
+  .thinkDiffirent {
+    border-radius: 50px 50px;
+    border: 1px solid;
+    box-shadow: -5px 5px orange;
+    background: white;
+    padding: 20px 50px;
+  }
+  .mindset {
+    border-radius: 50px 50px;
+    border: 1px solid;
+    box-shadow: -5px 5px orange;
+    background: orange;
+    padding: 30px;
+    color: white;
+    p {
+      margin-bottom: 10px;
+    }
+  }
+  .value {
+    border-radius: 50px 50px;
+    border: 1px solid transparent;
+    box-shadow: 5px 5px black;
+    background-image: linear-gradient(to right, #fbb237, #f15a29);
+    padding: 5px 20px;
+    color: white;
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .apple {
+      margin-bottom: 10px;
+    }
+    .mindset {
+      padding: 20px;
+    }
+  }
+  .changePositiveQuote {
+    font-weight: bold;
+    font-size: 20px;
+    color: orange;
+    line-height: 2rem;
+    padding: 10px;
+  }
 }

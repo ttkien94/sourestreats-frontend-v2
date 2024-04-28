@@ -76,7 +76,7 @@ function HomeClientV2() {
       img: Course01,
       cat_icon: <i className="fal fa-newspaper"></i>,
       totalHour: "12h",
-      title: t("lpe_adventure_club"),
+      title: t("sr_adventure_club"),
       description:
         "Become the best coder you can be with unlimited access to all the existing and future courses",
       link: "#",

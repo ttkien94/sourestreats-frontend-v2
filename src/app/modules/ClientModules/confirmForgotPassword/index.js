@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import useSiteTitle from "core/hooks/useSiteTitle";
 import * as Yup from "yup";
 import { FastField, Form, Formik } from "formik";
@@ -39,7 +39,7 @@ function VerifyForgotPassword() {
   useSiteTitle("confirm_forgot_password");
 
   const { token } = useParams();
-  const history = useHistory();
+  const history = useNavigate();
   const [step, setStep] = useState(0);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState({});

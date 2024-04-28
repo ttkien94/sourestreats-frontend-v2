@@ -22,6 +22,7 @@ function ITTCPage() {
     const setLoadingTime = setTimeout(() => {
       setIsLoading(false);
     }, 2000);
+    window.scrollTo(0, 0);
 
     return () => {
       clearTimeout(setLoadingTime);

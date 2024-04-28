@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 // @mui
 import { Toolbar, IconButton, Button } from "@mui/material";
@@ -53,7 +53,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 function Appbar({ onHandleDrawerOpen, isOpen }) {
-  const history = useHistory();
+  const history = useNavigate();
   const classes = useStyles();
   const dispatch = useDispatch();
   const anchor = { vertical: "bottom", horizontal: "right" };

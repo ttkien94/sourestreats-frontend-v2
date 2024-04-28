@@ -8,94 +8,109 @@
 iframe {
   width: 100%;
 }
-.body-white{
-  background-color:  $white-0;
+p {
+  font-family: "Roboto Condensed", sans-serif;
+}
+.body-white {
+  background-color: #fff;
+}
+.title {
+  font-size: 40px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.description {
+  font-size: 16px;
+  font-weight: bold !important;
+  margin-top: 0 !important;
+  margin-bottom: 0;
 }
 .flex-alignitem {
   display: flex;
   align-items: center;
 }
 
-.flex-justcenter{
+.flex-justcenter {
   display: flex;
   justify-content: center;
 }
-.box-center{
-  border: 1px solid #EDEDED;
+.box-center {
+  border: 1px solid #ededed;
   justify-content: center;
   align-items: center;
   display: inline-block;
   background-color: white;
 }
-.input-field{
-  background-color:white ;
+.input-field {
+  background-color: white;
 }
-.radio-button{
+.radio-button {
   height: 20px;
   width: 20px;
   cursor: pointer;
 }
-.space-around{
+.space-around {
   display: flex;
   justify-content: space-around;
 }
-.space-between{
+.space-between {
   display: flex;
   justify-content: space-between;
 }
-.text-justify{
+.text-justify {
   text-align: justify;
 }
 .text-green {
   --tw-text-opacity: 1;
-  color: rgb(22 248 182/var(--tw-text-opacity));
+  color: rgb(22 248 182 / var(--tw-text-opacity));
 }
-.text-lg{
+.text-lg {
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
-.text-md{
+.text-md {
   font-size: 1rem;
   line-height: 1.5rem;
 }
-.text-sm{
-  font-size: .875rem;
+.text-sm {
+  font-size: 0.875rem;
   line-height: 1.25rem;
 }
 .text-xs {
-  font-size: .75rem;
+  font-size: 0.75rem;
   line-height: 1rem;
 }
-.text-center{
+.text-center {
   text-align: center;
 }
 
-.font-size12{
+.font-size12 {
   font-size: 12px !important;
 }
-.font-size14{
+.font-size14 {
   font-size: 14px !important;
 }
-.font-size16{
+.font-size16 {
   font-size: 16px !important;
 }
-.font-size18{
+.font-size18 {
   font-size: 18px !important;
 }
-.font-size20{
+.font-size20 {
   font-size: 20px !important;
 }
-.font-size22{
+.font-size22 {
   font-size: 22px !important;
 }
-.font-size24{
+.font-size24 {
   font-size: 24px !important;
 }
-.text-white{
-  color:white
+.text-white {
+  color: white;
 }
-.video-source{
-  position:relative;
+.video-source {
+  position: relative;
   height: 500px;
 }
 
@@ -112,72 +127,78 @@ iframe {
     -10px -10px 25px rgb(81, 67, 21), 10px -10px 25px rgb(81, 67, 21);
   font-size: 30px;
 }
-.input-select{
-  width:100%;
+.input-select {
+  width: 100%;
 }
-.progress-bar{
+.progress-bar {
   width: 100px;
   height: 100px;
   border-radius: 50%;
 }
 .box-radius {
-  background-color:#282C38;
+  background-color: #282c38;
   border-radius: 26px;
   color: white;
-};
-.video-player{
+}
+.video-player {
   iframe {
-      border-radius: 26px 26px 0 26px;
-  }
-};
-@media (max-width: 991.98px) { 
-  .video-source{
-      height: 500px !important;
-  }
- 
-}
-@media (max-width: 767.98px) { 
-  .video-source{
-      height: 350px !important;
+    border-radius: 26px 26px 0 26px;
   }
 }
-@mixin  button-buy-course {
+@media (max-width: 991.98px) {
+  .video-source {
+    height: 500px !important;
+  }
+}
+@media (max-width: 767.98px) {
+  .video-source {
+    height: 350px !important;
+  }
+  .title {
+    font-size: 30px;
+  }
+
+  .description {
+    font-size: 14px !important;
+  }
+}
+@mixin button-buy-course {
   --tw-text-opacity: 1;
   color: rgb(255 255 255);
   text-decoration-color: #ff4bbe;
-  font-weight: 600;    
-  transition-timing-function: cubic-bezier(0,0,.2,1);    
-  transition-duration: .2s;
-  transition-property: all;    
-  text-decoration-line: none;    
-  letter-spacing: .05em;
+  font-weight: 600;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  transition-duration: 0.2s;
+  transition-property: all;
+  text-decoration-line: none;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   border-radius: 9999px;
 }
-.action-buy-course{
-  @include button-buy-course ;
-  background-image: linear-gradient(to right,#f926ae,#8028ee);
-  &:hover{
-    color:rgb(22 248 182)
+.action-buy-course {
+  @include button-buy-course;
+  background-image: linear-gradient(to right, #f926ae, #8028ee);
+  &:hover {
+    color: rgb(22 248 182);
   }
 }
-.action-buy-course-blue{
-  @include button-buy-course ;
-  background-image: linear-gradient(to right,#8028ee,#8028ee);
-  &:hover{
-    color:rgb(22 248 182)
+.action-buy-course-blue {
+  @include button-buy-course;
+  background-image: linear-gradient(to right, #8028ee, #8028ee);
+  &:hover {
+    color: rgb(22 248 182);
   }
 }
-.inline-block{
+.inline-block {
   display: inline-block;
 }
-.w-6{
+.w-6 {
   width: 1.5rem;
 }
 .item-center {
   align-items: center;
 }
-.justify-center{
+.justify-center {
   justify-content: center;
 }
 .justify-start {
@@ -186,10 +207,10 @@ iframe {
 .justify-end {
   justify-content: flex-end;
 }
-.flex{
+.flex {
   display: flex;
 }
-hr{
+hr {
   height: 0;
   color: inherit;
   border-top-width: 1px;
@@ -240,24 +261,23 @@ header {
 
 // /* Track */
 // ::-webkit-scrollbar-track {
-//   background: $white-0;
+//   background: #fff;
 // }
 
 // /* Handle */
 // ::-webkit-scrollbar-thumb {
-//   background: $black-0;
+//   background: #000;
 // }
 
 // style arrow color
 polygon {
-  fill: $white-0;
+  fill: #fff;
 }
-
 
 // MenuBar
 ul li:hover > a {
-  background-color: $black-0 !important;
-  color: $white-0 !important;
+  background-color: #000 !important;
+  color: #fff !important;
   transition: all 0.6s;
 }
 
@@ -305,7 +325,7 @@ lesshat-selector {
 
 .loader {
   border: 3px solid $gray-0;
-  border-top: 3px solid $blue-1; /* Blue */
+  border-top: 3px solid #3777bc; /* Blue */
   border-radius: 50%;
   width: 15px;
   height: 15px;
@@ -316,8 +336,8 @@ lesshat-selector {
     width: 60px;
     height: 60px;
     border: 5px solid $gray-0;
-    border-top: 5px solid $blue-1;
-    border-bottom: 5px solid $blue-1;
+    border-top: 5px solid #3777bc;
+    border-bottom: 5px solid #3777bc;
     border-radius: 50%;
     animation: spin 0.5s linear infinite;
   }
@@ -373,7 +393,7 @@ lesshat-selector {
 .profileBox {
   padding: 30px;
   border-radius: 15px;
-  background: $white-0;
+  background: #fff;
 }
 
 .MuiAccordion-root.Mui-expanded {
@@ -387,7 +407,7 @@ lesshat-selector {
 
 .accordion-title {
   // background-color: #dfe8f6;
-  color: $blue-1;
+  color: #3777bc;
   font-weight: bold;
   font-size: 20px;
   cursor: pointer;
@@ -429,7 +449,7 @@ lesshat-selector {
   position: absolute;
   background-color: transparent;
   border-radius: 100%;
-  border: 2px solid $blue-1;
+  border: 2px solid #3777bc;
   -webkit-animation: phonering-alo-circle-anim 1.2s infinite ease-in-out;
   animation: phonering-alo-circle-anim 1.2s infinite ease-in-out;
   transition: all 0.5s;
@@ -444,7 +464,7 @@ lesshat-selector {
   top: 25px;
   left: 25px;
   position: absolute;
-  background-color: $blue-1;
+  background-color: #3777bc;
   border-radius: 100%;
   border: 2px solid transparent;
   -webkit-animation: phonering-alo-circle-fill-anim 2.3s infinite ease-in-out;
@@ -455,7 +475,7 @@ lesshat-selector {
   transform-origin: 50% 50%;
 }
 .hotline-phone-ring-img-circle {
-  background-color: $blue-1;
+  background-color: #3777bc;
   width: 33px;
   height: 33px;
   top: 37px;
@@ -489,9 +509,9 @@ lesshat-selector {
 }
 .hotline-bar {
   position: absolute;
-  background: $blue-1;
+  background: #3777bc;
   height: 40px;
-  width: 180px;
+  width: 200px;
   line-height: 40px;
   border-radius: 3px;
   padding: 0 10px;

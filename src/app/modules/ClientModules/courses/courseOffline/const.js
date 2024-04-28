@@ -36,8 +36,8 @@ export const ICTA = [
 export const combo_phoenix = [
   {
     id: 1,
-    name: "khóa PO",
-    title: "finding_porpose",
+    name: "khóa The First Step",
+    title: "the_first_step",
     bgCourse: khoa01,
     textColor: "#fff",
     link: "/chuong-trinh-huan-luyen/offline/tim-lai-le-song-va-khat-vong-thanh-cong/",

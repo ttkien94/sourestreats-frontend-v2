@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Modal from "./components/modal";
 
 import banner from "./assets/banner-icpc.jpg";
@@ -46,7 +46,9 @@ function IMCPC() {
     zIndex: 0,
     changeOpacity: "",
   });
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const showModal = (value) => {
     setShow(true);
     setContent(value);

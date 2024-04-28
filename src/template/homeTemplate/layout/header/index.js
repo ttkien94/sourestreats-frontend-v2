@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { Link, useHistory, useLocation } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { AppBar, Button, Container, Toolbar } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { useTranslation } from "react-i18next";
@@ -77,7 +77,7 @@ function LPEHeader() {
   let location = useLocation();
 
   const { userInfo } = useSelector((state) => state.auth);
-  const history = useHistory();
+  const history = useNavigate();
   const { t } = useTranslation("common");
   const dispatch = useDispatch();
   const classes = useStyles();
@@ -238,9 +238,8 @@ function LPEHeader() {
               <i className="fas fa-search"></i>
             </div> */}
 
-            {token?.length  ? (
+            {token?.length ? (
               <>
-              
                 {!isEmpty(userInfo?.name) ? (
                   <LPEAvatar
                     name={userInfo?.name}
@@ -252,7 +251,7 @@ function LPEHeader() {
                 ) : (
                   logOut()
                 )}
-              
+
                 <LPEPopover
                   ref={refLogin}
                   anchor={anchor}

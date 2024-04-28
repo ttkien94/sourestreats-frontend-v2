@@ -2,10 +2,13 @@ import React from "react";
 import useSiteTitle from "core/hooks/useSiteTitle";
 
 import "../styles.scss";
+import { useEffect } from "react";
 
 function Corporation() {
   useSiteTitle("corporation");
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="container corporate mt-3 ">
       <div className="row mb-5">
@@ -26,14 +29,12 @@ function Corporation() {
             Huấn luyện Doanh nghiệp
           </h1>
         </div>
-
         <div className="col-12">
           <h4 className="corporate__description">
             Bạn sẽ làm gì để dẫn dắt Doanh nghiệp vượt qua khủng hoảng đến từ
             bên trong và bên ngoài?
           </h4>
         </div>
-
         <div className="col-12">
           <ul>
             <li>
@@ -61,15 +62,16 @@ function Corporation() {
             </li>
           </ul>
         </div>
-
-        <a
-          className="corporate__btn corporate__btn--corporation"
-          href="https://www.facebook.com/lifeunivietnam"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Nhận tư vấn
-        </a>
+        <div className="d-flex justify-content-conter">
+          <a
+            className="corporate__btn corporate__btn--corporation"
+            href="https://www.facebook.com/lifeunivietnam"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Nhận tư vấn
+          </a>
+        </div>
       </div>
     </div>
   );

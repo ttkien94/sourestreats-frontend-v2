@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import useSiteTitle from "core/hooks/useSiteTitle";
 
 import TextInput from "app/components/textInput";
@@ -14,7 +14,7 @@ import "./styles/styles.scss";
 
 function ForgetPassword() {
   useSiteTitle("forgot_password");
-  const history = useHistory();
+  const history = useNavigate();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState({});
   const [counter, setCounter] = useState(60);
