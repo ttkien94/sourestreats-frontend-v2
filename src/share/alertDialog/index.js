@@ -9,8 +9,7 @@ import { Button } from "@mui/material";
 import React from "react";
 
 function AlertDialog(props) {
-  const { handleAction, dataModal, openAlertDialog, setOpenAlertDialog } =
-    props;
+  const { handleAction, openAlertDialog, setOpenAlertDialog } = props;
   const handleCloseAlertDialog = () => {
     setOpenAlertDialog(false);
   };

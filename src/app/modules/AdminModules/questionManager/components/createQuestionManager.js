@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Formik, Form, FastField } from "formik";
 import { useDispatch } from "react-redux";
 import * as Yup from "yup";
@@ -8,19 +8,19 @@ import InputField from "app/components/customField/inputField";
 import { styled } from "@mui/material/styles";
 import { Button } from "@mui/material";
 
-import { DEFALT_OPTIONS } from "app/components/customField/selectField/options";
+// import { DEFALT_OPTIONS } from "app/components/customField/selectField/options";
 import {
   createQuestionAction,
   editQuestionAction,
 } from "core/redux/actions/questionAction";
-import { useSelect } from "@mui/base";
+// import { useSelect } from "@mui/base";
 import { useSelector } from "react-redux";
-import {
-  FormControlLabel,
-  FormGroup,
-  Radio,
-  RadioGroup,
-} from "@material-ui/core";
+// import {
+//   FormControlLabel,
+//   FormGroup,
+//   Radio,
+//   RadioGroup,
+// } from "@material-ui/core";
 const ButtonSubmit = styled(Button)`
   color: #fff;
   background: #3777bc;
@@ -95,7 +95,7 @@ function CreateQuestionManager({ onToggleDrawer, onEdit }) {
         }}
       >
         {(formikProps) => {
-          const { values, errors, touched, setFieldValue } = formikProps;
+          const { values, setFieldValue } = formikProps;
 
           // console.log("values.option", values.option);
 

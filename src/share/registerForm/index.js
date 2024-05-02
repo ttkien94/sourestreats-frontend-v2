@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
-import { Redirect } from "react-router-dom";
-import useSiteTitle from "core/hooks/useSiteTitle";
+// import { Redirect } from "react-router-dom";
+// import useSiteTitle from "core/hooks/useSiteTitle";
 
 import * as Yup from "yup";
 import { TheFirstStepSchema } from "app/const/yup";
@@ -12,10 +12,10 @@ import { Button } from "@mui/material";
 import InputField from "app/components/customField/inputField";
 import SelectField from "app/components/customField/selectField";
 import DatePickerField from "app/components/customField/datePickerField";
-import { timeToUnix } from "core/utils/dateUtil";
+// import { timeToUnix } from "core/utils/dateUtil";
 import { DEFALT_OPTIONS } from "app/components/customField/selectField/options";
-import { API_ENDPOINT, CODE_SUCCESS, SIGN_UP } from "app/const/Api";
-import { KEY_TOKEN } from "app/const/App";
+// import { API_ENDPOINT, CODE_SUCCESS, SIGN_UP } from "app/const/Api";
+// import { KEY_TOKEN } from "app/const/App";
 
 import "./styles.scss";
 
@@ -31,9 +31,10 @@ const ButtonSubmit = styled(Button)`
 
 function RegisterForm(props) {
   //   const isLogined = Boolean(localStorage.getItem(KEY_TOKEN));
-  const [step, setStep] = useState(0);
+  // const [step, setStep] = useState(0);
+  const step = 0;
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  // const [error, setError] = useState("");
 
   const handleRegister = async (data) => {
     props?.handleOpen();
@@ -132,9 +133,9 @@ function RegisterForm(props) {
                         placeholder="Nhập email"
                         className="w-100 mb-4"
                       />
-                      {error && (
+                      {errors && (
                         <p className="text-danger mb-4 ml-2 MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-1wc848c-MuiFormHelperText-root mt-n3 ">
-                          {error}
+                          {errors}
                         </p>
                       )}
                     </div>
@@ -189,9 +190,9 @@ function RegisterForm(props) {
                         placeholder="Nhập địa chỉ"
                         className="w-100 mb-4"
                       />
-                      {error && (
+                      {errors && (
                         <p className="text-danger mb-4 ml-2 MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-1wc848c-MuiFormHelperText-root mt-n3 ">
-                          {error}
+                          {errors}
                         </p>
                       )}
                     </div>

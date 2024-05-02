@@ -62,29 +62,29 @@ function ForgetPassword() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("HandleSubmit Forgot Password");
-    // const email = refForm.current["email"].value;
+    const email = refForm.current["email"].value;
 
-    // if (!email) {
-    //   setError({
-    //     email: "Email không được bỏ trống",
-    //   });
-    //   refForm.current["email"].focus();
-    //   return;
-    // } else {
-    //   if (!ValidationEmail(email)) {
-    //     setError({
-    //       email: "Email không hợp lệ",
-    //     });
-    //     refForm.current["email"].focus();
-    //     return;
-    //   }
-    // }
+    if (!email) {
+      setError({
+        email: "Email không được bỏ trống",
+      });
+      refForm.current["email"].focus();
+      return;
+    } else {
+      if (!ValidationEmail(email)) {
+        setError({
+          email: "Email không hợp lệ",
+        });
+        refForm.current["email"].focus();
+        return;
+      }
+    }
 
     // Save localstorage and countdown 60s
-    // localStorage.setItem("isSubmitForget", true);
-    // setLoading(true);
-    // setCounter(60);
-    // forgetAction(email);
+    localStorage.setItem("isSubmitForget", true);
+    setLoading(true);
+    setCounter(60);
+    forgetAction(email);
   };
 
   const forgetAction = async (email) => {

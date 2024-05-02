@@ -1,9 +1,9 @@
 import React from "react";
 import TableCell from "@mui/material/TableCell";
-import LPEAvatar from "app/components/avatar";
+// import LPEAvatar from "app/components/avatar";
 import ModeEditOutlinedIcon from "@mui/icons-material/ModeEditOutlined";
 import DeleteIcon from "@mui/icons-material/Delete";
-import AddIcon from "@mui/icons-material/Add";
+// import AddIcon from "@mui/icons-material/Add";
 import { Button } from "@mui/material";
 import { TableRow } from "@material-ui/core";
 

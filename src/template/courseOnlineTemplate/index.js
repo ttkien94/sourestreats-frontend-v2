@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Route, Redirect, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { styled } from "@mui/material/styles";
 import { Box } from "@mui/material";
@@ -7,7 +7,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import useSiteTitle from "core/hooks/useSiteTitle";
 
 // Component
-import IsLoading from "app/components/loading";
+// import IsLoading from "app/components/loading";
 import Appbar from "./components/appBar";
 import AdminDrawer from "./components/drawer";
 
@@ -54,7 +54,7 @@ export const CourseOnlineTemplate = ({ Component, title, ...restProps }) => {
 
   const dispatch = useDispatch();
   const { userInfo } = useSelector((state) => state.auth);
-  const { loading } = useSelector((state) => state.app);
+  // const { loading } = useSelector((state) => state.app);
 
   const [isOpen, setIsOpen] = useState(false);
   const accessToken = localStorage.getItem(KEY_TOKEN);

@@ -25,7 +25,6 @@ import {
 import { useTranslation } from "react-i18next";
 import TitleCourse from "share/titleCourse";
 import { isEmpty } from "../../../../../core/utils/isEmpty";
-import { useEffect } from "react";
 
 const ButtonSubmit = styled(Button)`
   color: #fff;

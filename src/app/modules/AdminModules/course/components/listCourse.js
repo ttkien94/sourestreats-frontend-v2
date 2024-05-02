@@ -69,7 +69,7 @@ function ListCourse(props) {
     setOpenAlertDialog(true);
   };
   const handleClose = () => setOpenModal(false);
-  const handleCloseAlertDialog = () => setOpenAlertDialog(false);
+  // const handleCloseAlertDialog = () => setOpenAlertDialog(false);
 
   const handleDeletedItem = () => {
     try {

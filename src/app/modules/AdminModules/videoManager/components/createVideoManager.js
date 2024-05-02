@@ -9,7 +9,7 @@ import _ from "lodash";
 import { useSelector, useDispatch } from "react-redux";
 import {
   createVideoAction,
-  deleteVideoAction,
+  // deleteVideoAction,
   editVideoAction,
 } from "core/redux/actions/videoAction";
 import { getQuestionAction } from "core/redux/actions/questionAction";
@@ -41,13 +41,14 @@ function CreateVideoManager({ onToggleDrawer, onEdit }) {
   ];
   useEffect(() => {
     loadData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   useEffect(() => {
     // xu ly on_edit
     if (questionList && questionList.data && questionList.data.length > 0) {
       if (onEdit) {
         let newQuestionList = _.cloneDeep(questionList.data);
-        onEdit.questionList.map((question, index) => {
+        onEdit.questionList.forEach((question, index) => {
           let i = newQuestionList.findIndex((x) => x._id === question._id);
           if (i !== -1) {
             newQuestionList.splice(i, 1);
@@ -60,7 +61,7 @@ function CreateVideoManager({ onToggleDrawer, onEdit }) {
         setCurrentQuestionList(questionList.data);
       }
     }
-  }, [questionList]);
+  }, [questionList, onEdit]);
   const loadData = () => {
     dispatch(getQuestionAction());
   };
@@ -129,7 +130,7 @@ function CreateVideoManager({ onToggleDrawer, onEdit }) {
           }}
         >
           {(formikProps) => {
-            const { values, errors, touched, setFieldValue } = formikProps;
+            const { values, setFieldValue } = formikProps;
 
             // console.log("values.questionList ", values.questionList);
 

@@ -19,15 +19,15 @@ function ScheduleCourse(props) {
     { id: "answer", label: "Answer" },
     { id: "action", label: "Thao tác" },
   ];
-  const [isFiltered, setIsFiltered] = useState(false);
-  const [dataFilter, setDataFilter] = useState({});
+  // const [isFiltered, setIsFiltered] = useState(false);
+  // const [dataFilter, setDataFilter] = useState({});
   const [openDrawer, setOpenDrawer] = useState(false);
   const [question, setQuestion] = useState("");
   const { loading, questionList } = useSelector((state) => state.question);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    loadData();
+    loadData(); // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const loadData = (page = 1, dataFilter, isFiltered) => {

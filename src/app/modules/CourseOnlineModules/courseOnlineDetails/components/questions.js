@@ -1,7 +1,6 @@
 import React from "react";
 import { Modal, Box } from "@mui/material";
 import { useTranslation } from "react-i18next";
-import { useState } from "react";
 const style = {
   position: "absolute",
   top: "50%",
@@ -29,7 +28,7 @@ function Question(props) {
   } = props;
   console.log(video);
   const { t } = useTranslation("common");
-  const [selected, setSelected] = useState();
+  // const [selected, setSelected] = useState();
   const videoName = video.name;
   const length = video.question.length;
   const handlePreQuestion = (e) => {
@@ -38,9 +37,9 @@ function Question(props) {
   const handleNextQuestion = (e) => {
     onSubmit(e, "next");
   };
-  const handleSelected = (option) => {
-    // selectedOption === option;
-  };
+  // const handleSelected = (option) => {
+  //   // selectedOption === option;
+  // };
   const renderOption = () => {
     console.log("selectedOption", selectedOption);
 

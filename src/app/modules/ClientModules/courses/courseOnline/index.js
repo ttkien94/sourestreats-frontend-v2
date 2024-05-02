@@ -1,13 +1,13 @@
 import React from "react";
-import SoulRetreatsBanner from "app/components/banner";
-import CardItemOnline from "./components/cardItem";
+// import SoulRetreatsBanner from "app/components/banner";
+// import CardItemOnline from "./components/cardItem";
 import useSiteTitle from "core/hooks/useSiteTitle";
 
 // import media file
-import ccs from "assets/images/source/online/ccs.jpg";
-import bfw from "assets/images/source/online/bfw.jpg";
-import vl from "assets/images/source/online/vl.jpg";
-import banner from "assets/images/source/banner/khoa-hoc-online-banner.jpg";
+// import ccs from "assets/images/source/online/ccs.jpg";
+// import bfw from "assets/images/source/online/bfw.jpg";
+// import vl from "assets/images/source/online/vl.jpg";
+// import banner from "assets/images/source/banner/khoa-hoc-online-banner.jpg";
 import "./styles/styles.scss";
 
 // <div className="courseOnline-page">
@@ -46,26 +46,26 @@ import "./styles/styles.scss";
 function CourseOnline() {
   useSiteTitle("online_courses");
 
-  const right_course = [
-    {
-      id: 1,
-      name: "crisis conqueror",
-      link: "/chuong-trinh-huan-luyen/online/ccs",
-      img: ccs,
-    },
-    {
-      id: 2,
-      name: "beauty from within",
-      link: "/chuong-trinh-huan-luyen/online/beauty-from-within",
-      img: bfw,
-    },
-    {
-      id: 3,
-      name: "visionary leadership",
-      link: "/chuong-trinh-huan-luyen/online/visionary-leadership",
-      img: vl,
-    },
-  ];
+  // const right_course = [
+  //   {
+  //     id: 1,
+  //     name: "crisis conqueror",
+  //     link: "/chuong-trinh-huan-luyen/online/ccs",
+  //     img: ccs,
+  //   },
+  //   {
+  //     id: 2,
+  //     name: "beauty from within",
+  //     link: "/chuong-trinh-huan-luyen/online/beauty-from-within",
+  //     img: bfw,
+  //   },
+  //   {
+  //     id: 3,
+  //     name: "visionary leadership",
+  //     link: "/chuong-trinh-huan-luyen/online/visionary-leadership",
+  //     img: vl,
+  //   },
+  // ];
 
   return <div className="course-online"></div>;
 }

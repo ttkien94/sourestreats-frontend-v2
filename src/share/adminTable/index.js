@@ -9,8 +9,8 @@ import TableCourseOnlineList from "./components/tableCourseOnlineList";
 import TableScheduleCourseOnline from "./components/tableScheduleCourseOnline";
 
 function AdminTable({ tableHead, tableData, view, ...rest }) {
-  const onHandleClick = () => {};
-  const onHandleEdit = () => {};
+  // const onHandleClick = () => {};
+  // const onHandleEdit = () => {};
   const renderHeader = () => {
     return (
       <TableHead>

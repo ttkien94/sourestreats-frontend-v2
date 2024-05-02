@@ -1,7 +1,7 @@
 import Client from "app/modules/ClientModules";
 import Admin from "app/modules/AdminModules";
 import CourseOnline from "app/modules/CourseOnlineModules";
-import { MEDIA_PATH_CLIENT } from "./routes-coursemedia";
+// import { MEDIA_PATH_CLIENT } from "./routes-coursemedia";
 import { OFFLINE_PATH_CLIENT } from "./routes-coursesoffline";
 import { ONLINE_PATH_CLIENT } from "./routes-coursesonline";
 
@@ -59,6 +59,12 @@ export const publicRoutes = [
     exact: true,
     path: URL_PATH_CLIENT.HOME,
   },
+  // Life Uni Online
+  // {
+  //   component: Client.CourseOnlineSelfMastery,
+  //   exact: true,
+  //   path: URL_PATH_CLIENT.HOME,
+  // },
   {
     component: Client.Demo,
     exact: true,

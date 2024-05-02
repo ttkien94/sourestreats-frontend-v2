@@ -1,12 +1,10 @@
 import React, { useEffect } from "react";
-import { Outlet, Route, Routes } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import { appAction } from "core/redux/actions/appAction";
-import { publicRoutes } from "app/config/routes";
 import Header from "./layout/header";
 import Footer from "./layout/footer";
-import IsLoading from "app/components/loading";
 import Loading from "share/loading";
 
 import { KEY_TOKEN } from "app/const/App";

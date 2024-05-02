@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 
 import Select from "@mui/material/Select";
@@ -14,7 +14,7 @@ function SelectField(props) {
     className,
     options,
     form,
-    type,
+    // type,
   } = props;
 
   console.log("props.options", props.options);

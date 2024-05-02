@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import * as Yup from "yup";
-import { Formik, Form, FastField } from "formik";
+// import * as Yup from "yup";
+// import { Formik, Form, FastField } from "formik";
 import khanhvy from "assets/images/source/khanh-my.png";
 import nguyentuanvu from "assets/images/source/nguyen-tuan-vu.png";
 import hoanhai from "assets/images/source/hoan-hai.png";
@@ -8,7 +8,7 @@ import TitleHomeClient from "app/modules/ClientModules/home/components/title";
 import hoiTruong from "assets/images/course/course-offline/khoi-dau-thinh-vuong/hoi-truong-form-dang-ky.png";
 import qrZalo from "assets/images/course/course-offline/khoi-dau-thinh-vuong/qr-zalo.jpg";
 import qrACB from "assets/images/course/course-offline/khoi-dau-thinh-vuong/qr-acb.jpg";
-import InputField from "app/components/customField/inputField";
+// import InputField from "app/components/customField/inputField";
 
 import "./styles/styles.scss";
 import FormCountDownt from "./formCountDown";
@@ -17,9 +17,9 @@ import Button from "@mui/material/Button";
 import { useRef } from "react";
 import TestimonialCard from "app/modules/ClientModules/home/components/testimonialCart";
 import { useTranslation } from "react-i18next";
-import { Box, Modal, Typography } from "@mui/material";
+import { Box, Modal } from "@mui/material";
 import { useEffect } from "react";
-const phoneRegExp = /^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/;
+// const phoneRegExp = /^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/;
 
 const PP = () => {
   const { t } = useTranslation("common");
@@ -91,32 +91,32 @@ const PP = () => {
     "Tài liệu học tập",
     "Gift 50% khi mua áo phiên bản giới hạn (limited)",
   ];
-  const initialValues = {
-    name: "",
-    date: Number(new Date()),
-    email: "",
-    phone: "",
-    loaive: "",
-    songuoidicung: "",
-    form_item279: "",
-  };
-  const validationSchema = Yup.object().shape({
-    name: Yup.string()
-      .required("Vui lòng nhập trường này.")
-      .min(3, "Có ít nhất là 3 ký tự.")
-      .max(40, "Có nhiều nhất là 40 ký tự."),
-    email: Yup.string()
-      .required("Vui lòng nhập trường này")
-      .max(255)
-      .email("Email chưa đúng"),
-    phone: Yup.string()
-      .required("Vui lòng nhập trường này")
-      .matches(phoneRegExp, "Số điện thoại chưa đúng."),
-    date: Yup.number("Vui lòng nhập đúng định dạng")
-      .required("Vui lòng nhập trường này")
-      .min(new Date(1900, 0, 1), "Ngày thấp nhất không dưới năm 1900")
-      .max(new Date(), "Ngày lớn nhất không được quá hôm nay"),
-  });
+  // const initialValues = {
+  //   name: "",
+  //   date: Number(new Date()),
+  //   email: "",
+  //   phone: "",
+  //   loaive: "",
+  //   songuoidicung: "",
+  //   form_item279: "",
+  // };
+  // const validationSchema = Yup.object().shape({
+  //   name: Yup.string()
+  //     .required("Vui lòng nhập trường này.")
+  //     .min(3, "Có ít nhất là 3 ký tự.")
+  //     .max(40, "Có nhiều nhất là 40 ký tự."),
+  //   email: Yup.string()
+  //     .required("Vui lòng nhập trường này")
+  //     .max(255)
+  //     .email("Email chưa đúng"),
+  //   phone: Yup.string()
+  //     .required("Vui lòng nhập trường này")
+  //     .matches(phoneRegExp, "Số điện thoại chưa đúng."),
+  //   date: Yup.number("Vui lòng nhập đúng định dạng")
+  //     .required("Vui lòng nhập trường này")
+  //     .min(new Date(1900, 0, 1), "Ngày thấp nhất không dưới năm 1900")
+  //     .max(new Date(), "Ngày lớn nhất không được quá hôm nay"),
+  // });
   const formData = useRef(null);
   const executeScroll = () =>
     formData.current.scrollIntoView({
@@ -254,9 +254,6 @@ const PP = () => {
     );
   };
   const renderCallAction = () => {
-    const theme = {
-      spacing: 8,
-    };
     return (
       <div data-action="true">
         <Button
@@ -919,7 +916,7 @@ const PP = () => {
             <span style={{ fontWeight: "bold" }}>{data?.title}</span>
           </h3>
         </div>
-        {data?.title == "GENERAL" && <FormCountDownt date={"05/16/2024"} />}
+        {data?.title === "GENERAL" && <FormCountDownt date={"05/16/2024"} />}
         <div className="box-promotion py-2 mt-3 col-12">
           <h4 className="default-price">{data?.defaultPrice}</h4>
           <h3 className="promo-price">{data?.promoPrice}</h3>
@@ -978,6 +975,7 @@ const PP = () => {
                   <a
                     href="https://zalo.me/g/keaxjv229"
                     target="_blank"
+                    rel="noreferrer"
                     style={{
                       backgroundColor: "red",
                       paddingTop: 15,
@@ -1051,7 +1049,7 @@ const PP = () => {
                     Nội dung chuyển khoản: <br />
                     {data?.first_name + " " + data?.phone + " " + data?.loaive}
                   </p>
-                  <img src={qrACB} alt="image" />
+                  <img src={qrACB} alt="" />
                   <p className="mt-3">
                     Sau khi hoàn tất thanh toán <br />
                     Bạn vui lòng
@@ -1065,7 +1063,7 @@ const PP = () => {
                       GỬI BILL THANH TOÁN VÀO ZALO CSKH
                     </h4>
                   </p>
-                  <img src={qrZalo} alt="image" />
+                  <img src={qrZalo} alt="" />
                   <p className="mt-3">
                     Trong vòng 24h Soul Retreats sẽ liên hệ cho bạn để xác nhận
                     thông tin.
@@ -1256,7 +1254,7 @@ const PP = () => {
               <div className="col-md-8 col-lg-8  d-flex align-items-center justify-content-center">
                 <div className="row  d-flex align-items-center justify-content-center">
                   <div className="col-md-7 col-lg-7">
-                    <img src={hoiTruong} alt="image" />
+                    <img src={hoiTruong} alt="" />
                   </div>
                   <div className="col-md-5 col-lg-5 py-5">
                     <FormCountDownt date={"05/26/2024"} />

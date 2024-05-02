@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
 import FilterUser from "./components/filterUser/index.js";
 import LPEPopover from "app/components/popover/index.js";
@@ -31,19 +30,21 @@ function CourseOnlineManager() {
   const LIMIT = 10;
 
   const refFilter = useRef(null);
-  const [total, setTotal] = useState(0);
+  // const [total, setTotal] = useState(0);
+  const total = 0;
   const [isFiltered, setIsFiltered] = useState(false);
   const [dataFilter, setDataFilter] = useState({});
   const [openDrawer, setOpenDrawer] = useState(false);
   const [courseOnline, setCourseOnline] = useState("");
-  const { courseOnlineList, loading, records } = useSelector(
+  const { courseOnlineList, loading } = useSelector(
     (state) => state.courseOnline
   );
-  const history = useNavigate();
+  // const history = useNavigate();
   const dispatch = useDispatch();
 
   useEffect(() => {
     loadData(1);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Fetch Table Data

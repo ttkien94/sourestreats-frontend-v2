@@ -3,7 +3,7 @@ import useSiteTitle from "core/hooks/useSiteTitle";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useTranslation } from "react-i18next";
 import ModalVideo from "react-modal-video";
-import ServiceItem from "./components/serviceItem";
+// import ServiceItem from "./components/serviceItem";
 import Title from "./components/title";
 import TestimonialCard from "./components/testimonialCart";
 import BannerCarousel from "./components/bannerCarousel";
@@ -18,11 +18,11 @@ import hinh02 from "assets/images/source/hinh02.jpg";
 import hinh03 from "assets/images/source/hinh03.jpg";
 import hinh04 from "assets/images/source/hinh04.jpg";
 import Video from "assets/video-demo.mp4";
-import khanhvy from "assets/images/source/khanh-my.png";
+// import khanhvy from "assets/images/source/khanh-my.png";
 import nguyentuanvu from "assets/images/source/nguyen-tuan-vu.png";
 import hoanhai from "assets/images/source/hoan-hai.png";
 
-import vasVideo from "assets/images/source/banner-video.jpg";
+// import vasVideo from "assets/images/source/banner-video.jpg";
 import personalTest from "assets/images/source/personal-test.jpg";
 
 import catelogy01 from "assets/images/source/homepage/catelogy01.png";

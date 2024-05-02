@@ -19,13 +19,14 @@ function VideoManager(props) {
     { id: "action", label: "Thao tác" },
   ];
   const [video, setVideo] = useState([]);
-  const [isFiltered, setIsFiltered] = useState(false);
-  const [dataFilter, setDataFilter] = useState({});
+  // const [isFiltered, setIsFiltered] = useState(false);
+  // const [dataFilter, setDataFilter] = useState({});
   const { loading, videoList } = useSelector((state) => state.video);
   const [openDrawer, setOpenDrawer] = useState(false);
   const dispatch = useDispatch();
   useEffect(() => {
     loadData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const loadData = (page = 1, dataFilter, isFiltered) => {

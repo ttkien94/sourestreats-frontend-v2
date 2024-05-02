@@ -1,9 +1,7 @@
-import { LPELightBox } from "app/components/lightBox";
-import React, { useRef } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "./styles.scss";
 function WrapperImg(props) {
-  const categoryRef = useRef();
   const TitleHomeClient = (textAlign, title, description, description2) => {
     return (
       <div
@@ -18,10 +16,7 @@ function WrapperImg(props) {
       </div>
     );
   };
-  const handleOpenCategory = (catelogy) => {
-    // categoryRef.current.handleOpen(index);
-    // props.history.push(catelogy.link);
-  };
+
   return (
     <div className="container mt-5 ">
       {TitleHomeClient(
@@ -37,9 +32,6 @@ function WrapperImg(props) {
             <Link
               className={`gridItem${index + 1} `}
               key={index}
-              // onClick={() => {
-              //   handleOpenCategory(catelogy);
-              // }}
               to={catelogy.link}
             >
               <img src={catelogy.img} alt={"Error"} />
@@ -48,7 +40,6 @@ function WrapperImg(props) {
           );
         })}
       </div>
-      {/* <LPELightBox ref={categoryRef} listImage={props.catelogyImg.img} /> */}
     </div>
   );
 }

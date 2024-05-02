@@ -1,6 +1,6 @@
 import React from "react";
 import TableCell from "@mui/material/TableCell";
-import LPEAvatar from "app/components/avatar";
+// import LPEAvatar from "app/components/avatar";
 import ModeEditOutlinedIcon from "@mui/icons-material/ModeEditOutlined";
 import DeleteIcon from "@mui/icons-material/Delete";
 
@@ -9,7 +9,7 @@ import { TableRow } from "@material-ui/core";
 
 function TableCourseOnlineList({
   dataItem,
-  labelId,
+  // labelId,
   handleOpenDrawer,
   onHandleDelete,
 }) {

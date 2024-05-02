@@ -3,24 +3,23 @@ import { Formik, Form, FastField } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import * as Yup from "yup";
 
-import emptyAvatar from "assets/images/btnLogin.png";
+// import emptyAvatar from "assets/images/btnLogin.png";
 import InputField from "app/components/customField/inputField";
-import SelectField from "app/components/customField/selectField";
-import DatePickerField from "app/components/customField/datePickerField";
+// import SelectField from "app/components/customField/selectField";
+// import DatePickerField from "app/components/customField/datePickerField";
 import { styled } from "@mui/material/styles";
 import { Box, Button } from "@mui/material";
-import { DEFALT_OPTIONS } from "app/components/customField/selectField/options";
-import { adminUpdateUserAction } from "core/redux/actions/userAction";
-import LPEDrawer from "app/components/drawer/index.js";
+// import { DEFALT_OPTIONS } from "app/components/customField/selectField/options";
+// import { adminUpdateUserAction } from "core/redux/actions/userAction";
+// import LPEDrawer from "app/components/drawer/index.js";
 import "./styles/styles.scss";
-import SearchBar from "share/searchBar";
-import MUIRichTextEditor from "mui-rte";
+// import SearchBar from "share/searchBar";
+// import MUIRichTextEditor from "mui-rte";
 import _ from "lodash";
 import {
   createCourseOnlineAction,
   editCourseOnlineAction,
 } from "core/redux/actions/courseOnlineAction";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { getVideoAction } from "core/redux/actions/videoAction";
 import AdminTable from "share/adminTable";
 const ButtonSubmit = styled(Button)`
@@ -36,13 +35,12 @@ const ButtonSubmit = styled(Button)`
 const ButtonCancel = styled(Button)`
   color: #adb5bd;
 `;
-const floorList = ["Tầng 1", , "Tầng 2", , "Tầng 3"];
-
+const floorList = ["Tầng 1", "Tầng 2", "Tầng 3"];
 function CourseCourseOnline({ onToggleDrawer, onEdit }) {
   const dispatch = useDispatch();
-  const [isLoading, setIsLoading] = useState(false);
-  const [txtSearch, setTxtSearch] = useState("");
-  const [openDrawer, setOpenDrawer] = useState(false);
+  // const [isLoading, setIsLoading] = useState(false);
+  // const [txtSearch, setTxtSearch] = useState("");
+  // const [openDrawer, setOpenDrawer] = useState(false);
   const [currentVideoList, setCurrentVideoList] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState("");
   const [selectedFloor, setSelectedFloor] = useState(floorList[0]);
@@ -56,9 +54,7 @@ function CourseCourseOnline({ onToggleDrawer, onEdit }) {
     videoList: onEdit?.videoList || [],
     totalStudent: onEdit?.totalStudent || 0,
   };
-  const myTheme = createTheme({
-    // Set up your custom MUI theme here
-  });
+
   const headCells = [
     { id: "STT", label: "STT" },
     { id: "name", label: "Name" },
@@ -75,6 +71,7 @@ function CourseCourseOnline({ onToggleDrawer, onEdit }) {
 
   useEffect(() => {
     loadData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -82,7 +79,7 @@ function CourseCourseOnline({ onToggleDrawer, onEdit }) {
     if (videoList && videoList.data && videoList.data.length > 0) {
       if (onEdit) {
         let newVideoList = _.cloneDeep(videoList.data);
-        onEdit.videoList.map((video, index) => {
+        onEdit.videoList.forEach((video, index) => {
           let i = newVideoList.findIndex((x) => x._id === video._id);
           if (i !== -1) {
             newVideoList.splice(i, 1);
@@ -95,7 +92,7 @@ function CourseCourseOnline({ onToggleDrawer, onEdit }) {
         setCurrentVideoList(videoList.data);
       }
     }
-  }, [videoList]);
+  }, [videoList, onEdit]);
 
   const loadData = () => {
     dispatch(getVideoAction());
@@ -148,7 +145,7 @@ function CourseCourseOnline({ onToggleDrawer, onEdit }) {
         // onSubmit={handleSubmit}
       >
         {(formikProps) => {
-          const { values, errors, touched, setFieldValue } = formikProps;
+          const { values, setFieldValue } = formikProps;
           // console.log({ values, errors, touched });
 
           return (

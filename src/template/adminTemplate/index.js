@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Route, Navigate, Outlet } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { styled } from "@mui/material/styles";
 import { Box } from "@mui/material";

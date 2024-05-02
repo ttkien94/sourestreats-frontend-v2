@@ -7,7 +7,7 @@ import Course01 from "assets/images/source/homepage/allAccessSubscription.jpg";
 
 import HomeClientTitle from "./components/homeClientTitle";
 import HomeClientCourseItem from "./components/homeClientCourseItem";
-import HomeClientTestimonialCard from "./components/homeClientTestimonialCart";
+// import HomeClientTestimonialCard from "./components/homeClientTestimonialCart";
 function HomeClientV2() {
   useSiteTitle("Trang Chủ - Soul Retreats");
   const { t } = useTranslation("common");

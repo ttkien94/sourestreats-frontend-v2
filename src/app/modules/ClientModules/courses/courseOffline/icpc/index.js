@@ -1,27 +1,27 @@
 import React from "react";
 import useSiteTitle from "core/hooks/useSiteTitle";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 import coa01 from "../../assets/images/chuong-trinh-huan-luyen/offline/coa/tu-van-tri-lieu-coa-lpe-banner.jpg";
-import coa02 from "../../assets/images/chuong-trinh-huan-luyen/offline/coa/tu-van-tri-lieu-coa-lpe-can-phai-tham-gia.png";
 import coa03 from "../../assets/images/chuong-trinh-huan-luyen/offline/coa/tu-van-tri-lieu-coa-lpe-doan-1.jpg";
-import coa04 from "../../assets/images/chuong-trinh-huan-luyen/offline/coa/tu-van-tri-lieu-coa-lpe-ngay-1.png";
 import coa05 from "../../assets/images/chuong-trinh-huan-luyen/offline/coa/tu-van-tri-lieu-coa-lpe-ngay-11.png";
 import coa06 from "../../assets/images/chuong-trinh-huan-luyen/offline/coa/tu-van-tri-lieu-coa-lpe-ngay-12.png";
 import coa07 from "../../assets/images/chuong-trinh-huan-luyen/offline/coa/tu-van-tri-lieu-coa-lpe-ngay-13.png";
-import coa08 from "../../assets/images/chuong-trinh-huan-luyen/offline/coa/tu-van-tri-lieu-coa-lpe-ngay-2.png";
 import coa09 from "../../assets/images/chuong-trinh-huan-luyen/offline/coa/tu-van-tri-lieu-coa-lpe-ngay-21.png";
 import coa10 from "../../assets/images/chuong-trinh-huan-luyen/offline/coa/tu-van-tri-lieu-coa-lpe-ngay-22.png";
 import coa11 from "../../assets/images/chuong-trinh-huan-luyen/offline/coa/tu-van-tri-lieu-coa-lpe-ngay-23.png";
-import coa12 from "../../assets/images/chuong-trinh-huan-luyen/offline/coa/tu-van-tri-lieu-coa-lpe-ngay-3.png";
 import coa13 from "../../assets/images/chuong-trinh-huan-luyen/offline/coa/tu-van-tri-lieu-coa-lpe-ngay-31.png";
 import coa14 from "../../assets/images/chuong-trinh-huan-luyen/offline/coa/tu-van-tri-lieu-coa-lpe-ngay-32.png";
-import coa15 from "../../assets/images/chuong-trinh-huan-luyen/offline/coa/tu-van-tri-lieu-coa-lpe-ngay-4.png";
 import coa16 from "../../assets/images/chuong-trinh-huan-luyen/offline/coa/tu-van-tri-lieu-coa-lpe-ngay-41.png";
-import coa17 from "../../assets/images/chuong-trinh-huan-luyen/offline/coa/tu-van-tri-lieu-coa-lpe-ngay-5.png";
 import coa18 from "../../assets/images/chuong-trinh-huan-luyen/offline/coa/tu-van-tri-lieu-coa-lpe-ngay-51.png";
 import coa19 from "../../assets/images/chuong-trinh-huan-luyen/offline/coa/tu-van-tri-lieu-coa-lpe-doan-2.jpg";
 import coa20 from "../../assets/images/chuong-trinh-huan-luyen/offline/coa/tu-van-tri-lieu-coa-lpe-doan-3.jpg";
+// import coa02 from "../../assets/images/chuong-trinh-huan-luyen/offline/coa/tu-van-tri-lieu-coa-lpe-can-phai-tham-gia.png";
+// import coa04 from "../../assets/images/chuong-trinh-huan-luyen/offline/coa/tu-van-tri-lieu-coa-lpe-ngay-1.png";
+// import coa08 from "../../assets/images/chuong-trinh-huan-luyen/offline/coa/tu-van-tri-lieu-coa-lpe-ngay-2.png";
+// import coa12 from "../../assets/images/chuong-trinh-huan-luyen/offline/coa/tu-van-tri-lieu-coa-lpe-ngay-3.png";
+// import coa15 from "../../assets/images/chuong-trinh-huan-luyen/offline/coa/tu-van-tri-lieu-coa-lpe-ngay-4.png";
+// import coa17 from "../../assets/images/chuong-trinh-huan-luyen/offline/coa/tu-van-tri-lieu-coa-lpe-ngay-5.png";
 
 import "./styles/styles.scss";
 

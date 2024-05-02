@@ -38,11 +38,12 @@ function UserManager(props) {
 
   useEffect(() => {
     getList(1);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  useEffect(() => {
-    // Hoi lag nhe
-  }, [props.studentList]);
+  // useEffect(() => {
+  //   // Hoi lag nhe
+  // }, [props.studentList]);
 
   const handleRemoveStudentDuplicate = (data) => {
     console.log("handleRemoveStudentDuplicate", props.studentList);
@@ -74,9 +75,9 @@ function UserManager(props) {
     setOpenDrawer(!openDrawer);
   };
 
-  const handleOpenDrawer = (itemEditing) => {
-    setOpenDrawer(true);
-  };
+  // const handleOpenDrawer = (itemEditing) => {
+  //   setOpenDrawer(true);
+  // };
 
   const handleCloseDrawer = () => {
     setOpenDrawer(false);

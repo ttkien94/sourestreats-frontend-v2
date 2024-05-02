@@ -1,9 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import ScrollTopButton from "app/components/scrollToTop";
-import ContactForm from "share/contactForm";
-import { LEFT_MENU, RIGHT_MENU } from "app/const/Footer";
+// import ContactForm from "share/contactForm";
+// import { LEFT_MENU, RIGHT_MENU } from "app/const/Footer";
 
 import "./styles/styles.scss";
 
