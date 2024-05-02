@@ -9,7 +9,7 @@ import quote2 from "./assets/quote2-icpc.jpg";
 import identity03 from "assets/images/source/offline/imcpc/imcpc-1.jpg";
 import identity04 from "assets/images/source/offline/imcpc/imcpc-2.jpg";
 import "./styles/styles.scss";
-import { useTranslation } from "react-i18next";
+// import { useTranslation } from "react-i18next";
 import useSiteTitle from "core/hooks/useSiteTitle";
 import UiApplyCourse from "share/uiApplyCourse";
 
@@ -59,10 +59,11 @@ const SpiritualAndVision = {
 };
 
 function IMCPC() {
-  const { t } = useTranslation("common");
+  // const { t } = useTranslation("common");
   useSiteTitle("imcpc");
   const [show, setShow] = useState(false);
-  const [content, setContent] = useState(false);
+  // const [content, setContent] = useState(false);
+  const content = false;
   const [ICPC, setICPC] = useState({
     Opacity: 1,
     zIndex: 1,
@@ -183,10 +184,10 @@ function IMCPC() {
     "Hiểu rõ quy luật thu hút nguồn lực và sử dụng chúng để đạt đến thành công cực đại.",
   ];
 
-  const showModal = (value) => {
-    setShow(true);
-    setContent(value);
-  };
+  // const showModal = (value) => {
+  //   setShow(true);
+  //   setContent(value);
+  // };
 
   const hideModal = () => {
     setShow(false);

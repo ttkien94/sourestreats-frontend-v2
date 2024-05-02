@@ -2,8 +2,8 @@ import React from "react";
 import useSiteTitle from "core/hooks/useSiteTitle";
 
 import graduate01 from "../../assets/images/chuong-trinh-huan-luyen/offline/graduate/chinh-phuc-tam-tri-va-co-the-lpe-banner.png";
-import graduate02 from "../../assets/images/chuong-trinh-huan-luyen/offline/graduate/chinh-phuc-tam-tri-va-co-the-lpe-hinh-hoc-vien-01.png";
-import graduate03 from "../../assets/images/chuong-trinh-huan-luyen/offline/graduate/chinh-phuc-tam-tri-va-co-the-lpe-hinh-hoc-vien-02.png";
+// import graduate02 from "../../assets/images/chuong-trinh-huan-luyen/offline/graduate/chinh-phuc-tam-tri-va-co-the-lpe-hinh-hoc-vien-01.png";
+// import graduate03 from "../../assets/images/chuong-trinh-huan-luyen/offline/graduate/chinh-phuc-tam-tri-va-co-the-lpe-hinh-hoc-vien-02.png";
 import graduate04 from "../../assets/images/chuong-trinh-huan-luyen/offline/graduate/chinh-phuc-tam-tri-va-co-the-lpe-hinh-hoc-vien-03.png";
 
 import "./styles/styles.scss";

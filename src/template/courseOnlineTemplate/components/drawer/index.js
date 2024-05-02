@@ -8,8 +8,8 @@ import { List, ListItem } from "@mui/material";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 
-import SettingsIcon from "@mui/icons-material/Settings";
-import AutoStoriesIcon from "@mui/icons-material/AutoStories";
+// import SettingsIcon from "@mui/icons-material/Settings";
+// import AutoStoriesIcon from "@mui/icons-material/AutoStories";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import WebIcon from "@mui/icons-material/Web";

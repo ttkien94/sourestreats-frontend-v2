@@ -13,7 +13,7 @@ import AdminTable from "share/adminTable";
 
 function ScheduleCourseOnlineManager(props) {
   const limit = 10;
-  const [data, setData] = useState([]);
+  // const [data, setData] = useState([]);
   const [openDrawer, setOpenDrawer] = useState(false);
   const { loading, scheduleCourseOnlineList } = useSelector(
     (state) => state.scheduleCourseOnline
@@ -35,6 +35,7 @@ function ScheduleCourseOnlineManager(props) {
   ];
   useEffect(() => {
     loadData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const loadData = () => {
     dispatch(getScheduleCourseOnlineAction());

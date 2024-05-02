@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import SoulRetreatsBanner from "app/components/banner";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.min.css";
@@ -8,12 +8,12 @@ import SwiperCore, { Scrollbar, Navigation } from "swiper";
 import CourseItemOffline from "./components/courseItem";
 import useSiteTitle from "core/hooks/useSiteTitle";
 
-import { otherCourse, ICTA, combo_phoenix, combo_dragon } from "./const.js";
+import { otherCourse, combo_phoenix, combo_dragon } from "./const.js";
 
 import banner from "assets/images/source/banner/khoa-hoc-offline-banner.jpg";
 
 import "./styles/styles.scss";
-import Loading from "share/loading";
+// import Loading from "share/loading";
 
 // install Swiper modules
 SwiperCore.use([Scrollbar, Navigation]);

@@ -1,11 +1,11 @@
 import React from "react";
 import SliderVideo from "share/sliderVideo";
-import TitleCourseOnline from "../components/titleCourseOnline";
-import DetailCourseOnline from "../components/detailCourseOnline";
+// import TitleCourseOnline from "../components/titleCourseOnline";
+// import DetailCourseOnline from "../components/detailCourseOnline";
 import TabViewCourseOnline from "../components/tabViewCourseOnline";
-import SearchCourseOnline from "../components/searchCourseOnline";
+// import SearchCourseOnline from "../components/searchCourseOnline";
 import TeacherCourseOnline from "../components/teacherCourseOnline";
-import ContactForm from "share/contactForm";
+// import ContactForm from "share/contactForm";
 // import media file
 import lifeUni from "assets/images/source/lifeUni.jpg";
 import vas from "assets/images/vas.jpg";
@@ -65,16 +65,16 @@ function CourseMediaSelfMastery() {
     //   imgVideo: rossiThumbnail,
     // },
   ];
-  const tag = [
-    {
-      color: "blue",
-      name: "popular",
-    },
-    {
-      color: "purple",
-      name: "relationship",
-    },
-  ];
+  // const tag = [
+  //   {
+  //     color: "blue",
+  //     name: "popular",
+  //   },
+  //   {
+  //     color: "purple",
+  //     name: "relationship",
+  //   },
+  // ];
   return (
     <div className="self-mastery">
       <div className="box-banner">

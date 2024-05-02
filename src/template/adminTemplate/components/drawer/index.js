@@ -146,12 +146,7 @@ export default function AdminDrawer({ isOpen, onHandleDrawerClose }) {
       <div className="wrapper-menu-admin">
         <List>
           {menuMagager?.map((item, index) => (
-            <NavLink
-              to={item.link}
-              exact
-              activeClassName="menu-selected"
-              key={index}
-            >
+            <NavLink to={item.link} activeclassname="menu-selected" key={index}>
               <ListItem>
                 <ListItemIcon>{item.icon}</ListItemIcon>
                 <ListItemText primary={item.text} />
@@ -164,12 +159,7 @@ export default function AdminDrawer({ isOpen, onHandleDrawerClose }) {
 
         <List>
           {menuAction?.map((item, index) => (
-            <NavLink
-              to={item.link}
-              exact
-              activeClassName="menu-selected"
-              key={index}
-            >
+            <NavLink to={item.link} activeclassname="menu-selected" key={index}>
               <ListItem>
                 <ListItemIcon>{item.icon}</ListItemIcon>
                 <ListItemText primary={item.text} />
@@ -182,12 +172,7 @@ export default function AdminDrawer({ isOpen, onHandleDrawerClose }) {
 
         <List>
           {menuInvoice?.map((item, index) => (
-            <NavLink
-              to={item.link}
-              exact
-              activeClassName="menu-selected"
-              key={index}
-            >
+            <NavLink to={item.link} activeclassname="menu-selected" key={index}>
               <ListItem>
                 <ListItemIcon>{item.icon}</ListItemIcon>
                 <ListItemText primary={item.text} />

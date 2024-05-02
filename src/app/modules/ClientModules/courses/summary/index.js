@@ -5,7 +5,7 @@ import SoulRetreatsBanner from "app/components/banner";
 
 import OnlineCourse from "assets/images/onl-course.webp";
 import OfflineCourse from "assets/images/off-course.webp";
-import MediaCourse from "assets/images/media-course.webp";
+// import MediaCourse from "assets/images/media-course.webp";
 import banner from "assets/images/source/banner/chuong-trinh-dao-tao.jpg";
 
 import "./styles/styles.scss";

@@ -4,32 +4,32 @@ import { useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
 import * as Yup from "yup";
 
-import InputField from "app/components/customField/inputField";
+// import InputField from "app/components/customField/inputField";
 
 import { styled } from "@mui/material/styles";
 import { Box, Button } from "@mui/material";
 
-import { DEFALT_OPTIONS } from "app/components/customField/selectField/options";
+// import { DEFALT_OPTIONS } from "app/components/customField/selectField/options";
 
 import { useSelector } from "react-redux";
-import {
-  getCourseOnlineAction,
-  getDetailCourseOnlineAction,
-} from "core/redux/actions/courseOnlineAction";
+// import {
+//   getCourseOnlineAction,
+//   getDetailCourseOnlineAction,
+// } from "core/redux/actions/courseOnlineAction";
 import {
   editScheduleCourseOnlineAction,
   getDetailScheduleCourseOnlineAction,
   handleStudentToScheduleCourseOnline,
 } from "core/redux/actions/scheduleCourseOnlineAction";
-import SearchBar from "share/searchBar";
+// import SearchBar from "share/searchBar";
 import { useEffect } from "react";
-import SelectField from "app/components/customField/selectField";
+// import SelectField from "app/components/customField/selectField";
 import LPEDrawer from "app/components/drawer";
 import UserManager from "../../userManager";
 import AdminTable from "share/adminTable";
 import _ from "lodash";
 import DatePickerField from "app/components/customField/datePickerField";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import AlertDialog from "share/alertDialog";
 const ButtonSubmit = styled(Button)`
   color: #fff;
@@ -41,9 +41,9 @@ const ButtonSubmit = styled(Button)`
   }
 `;
 
-const ButtonCancel = styled(Button)`
-  color: #adb5bd;
-`;
+// const ButtonCancel = styled(Button)`
+//   color: #adb5bd;
+// `;
 const headCells = [
   { id: "id", label: "ID" },
   { id: "email", label: "Email" },
@@ -54,19 +54,18 @@ const headCells = [
 function EditScheduleCourseOnlineManager(props) {
   const [openDrawer, setOpenDrawer] = useState(false);
   const [openAlertDialog, setOpenAlertDialog] = useState(false);
-  const [txtSearch, setTxtSearch] = useState("");
+  // const [txtSearch, setTxtSearch] = useState("");
   // const [currentCourseList, setCurrentCourseList] = useState([]);
-  const [selectedCourse, setSelectedCourse] = useState("");
+  // const [selectedCourse, setSelectedCourse] = useState("");
   const [studentList, setStudentList] = useState([]);
   const { loading, detailScheduleCourseOnline } = useSelector(
     (state) => state.scheduleCourseOnline
   );
-  const { detailCourseOnline } = useSelector((state) => state.courseOnline);
+  // const { detailCourseOnline } = useSelector((state) => state.courseOnline);
   const dispatch = useDispatch();
   // const history = useNavigate();
   const location = useLocation();
-  const initialValues = location.state?.onEdit;
-  console.log("initialValues", initialValues);
+
   const validationSchema = Yup.object().shape({
     question: Yup.string().required("Vui lòng nhập trường này."),
     option: Yup.array().required("Vui lòng nhập trường này."),
@@ -74,7 +73,9 @@ function EditScheduleCourseOnlineManager(props) {
   });
 
   useEffect(() => {
+    console.log("loading first", loading);
     loadData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   useEffect(() => {
     if (
@@ -96,6 +97,7 @@ function EditScheduleCourseOnlineManager(props) {
 
   const loadData = () => {
     // get detail schedule _____
+    const initialValues = location.state?.onEdit;
     dispatch(getDetailScheduleCourseOnlineAction(initialValues._id));
   };
 
@@ -123,7 +125,10 @@ function EditScheduleCourseOnlineManager(props) {
   };
   const handleSaveAction = () => {
     dispatch(
-      handleStudentToScheduleCourseOnline(initialValues._id, studentList)
+      handleStudentToScheduleCourseOnline(
+        detailScheduleCourseOnline._id,
+        studentList
+      )
     );
     setOpenAlertDialog(false);
   };
@@ -230,6 +235,7 @@ function EditScheduleCourseOnlineManager(props) {
   };
 
   const renderBody = () => {
+    console.log("loading", loading);
     return (
       <div className="admin-question">
         <Formik
@@ -238,7 +244,7 @@ function EditScheduleCourseOnlineManager(props) {
           onSubmit={() => {}}
         >
           {(formikProps) => {
-            const { values, errors, touched, setFieldValue } = formikProps;
+            const { values, setFieldValue } = formikProps;
 
             // console.log("values.option", values.option);
             console.log("values", values);

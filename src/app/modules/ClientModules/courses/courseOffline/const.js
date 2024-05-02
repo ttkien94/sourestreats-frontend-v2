@@ -3,17 +3,18 @@ import khoa01 from "assets/images/source/offline/khoa01.jpg";
 import khoa02 from "assets/images/source/offline/khoa02.jpg";
 import khoa03 from "assets/images/source/offline/khoa03.jpg";
 import khoa04 from "assets/images/source/offline/khoa04.jpg";
-import khoa05 from "assets/images/source/offline/khoa05.jpg";
-import khoa06 from "assets/images/source/offline/khoa06.jpg";
 import khoa07 from "assets/images/source/offline/khoa07.jpg";
-import khoa08 from "assets/images/source/offline/khoa08.jpg";
-import khoa09 from "assets/images/source/offline/khoa09.jpg";
+
+// import khoa05 from "assets/images/source/offline/khoa05.jpg";
+// import khoa06 from "assets/images/source/offline/khoa06.jpg";
+// import khoa08 from "assets/images/source/offline/khoa08.jpg";
+// import khoa09 from "assets/images/source/offline/khoa09.jpg";
 import khoa10 from "assets/images/source/offline/khoa10.jpg";
 import Combo from "assets/images/source/offline/Combo.jpg";
 
 import LTC from "assets/images/source/offline/LTC.jpg";
 import OAC from "assets/images/source/offline/OAC.jpg";
-import PAR from "assets/images/source/offline/PAR.jpg";
+// import PAR from "assets/images/source/offline/PAR.jpg";
 export const ICTA = [
   {
     id: 1,

@@ -3,7 +3,7 @@ import { Formik, Form, FastField } from "formik";
 import { useDispatch } from "react-redux";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
-import emptyAvatar from "assets/images/btnLogin.png";
+// import emptyAvatar from "assets/images/btnLogin.png";
 import InputField from "app/components/customField/inputField";
 import SelectField from "app/components/customField/selectField";
 import DatePickerField from "app/components/customField/datePickerField";
@@ -33,7 +33,7 @@ const ButtonCancel = styled(Button)`
 function CourseOnlineDetail({ onToggleDrawer, courseOnline }) {
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
-  const [txtSearch, setTxtSearch] = useState("");
+  // const [txtSearch, setTxtSearch] = useState("");
   const [openDrawer, setOpenDrawer] = useState(false);
   const history = useNavigate();
   const data = history.location.state?.data;
@@ -67,10 +67,10 @@ function CourseOnlineDetail({ onToggleDrawer, courseOnline }) {
   const toggleDrawer = () => {
     setOpenDrawer(!openDrawer);
   };
-  const handleOpenDrawer = (itemEditing) => {
-    // setCourseOnline(itemEditing);
-    setOpenDrawer(true);
-  };
+  // const handleOpenDrawer = (itemEditing) => {
+  //   // setCourseOnline(itemEditing);
+  //   setOpenDrawer(true);
+  // };
 
   const handleCloseDrawer = () => {
     setOpenDrawer(false);
@@ -221,7 +221,8 @@ function CourseOnlineDetail({ onToggleDrawer, courseOnline }) {
                   <h3 className="mr-3">Danh sách học viên</h3>
                   <SearchBar
                     placeholder="Tìm Kiếm Học Viên"
-                    handleDebouceSearch={(txt) => setTxtSearch(txt)}
+                    // handleDebouceSearch={(txt) => setTxtSearch(txt)}
+                    handleDebouceSearch
                   />
                   <Button
                     variant="contained"

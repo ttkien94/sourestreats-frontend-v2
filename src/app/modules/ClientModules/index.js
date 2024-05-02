@@ -10,7 +10,7 @@ import VerifyForgotPassword from "./confirmForgotPassword";
 import Course from "./courses/summary";
 import CourseOnline from "./courses/courseOnline";
 import CourseOffline from "./courses/courseOffline";
-
+import CourseMedia from "./courses/courseMedia";
 // course offline combo 10
 import CourseOfflinePP from "./courses/courseOffline/pp";
 import CourseOfflineSM from "./courses/courseOffline/sm";
@@ -77,6 +77,7 @@ const Client = {
   Course,
   CourseOnline,
   CourseOffline,
+  CourseMedia,
   CourseOfflinePP,
   CourseOfflineSM,
   CourseOfflineUM,

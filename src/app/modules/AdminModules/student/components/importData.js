@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import ExcelRenderer from "./excelRenderer";
 import DataStudentForm from "./dataStudentForm";
-import { QRCodeCanvas } from "qrcode.react";
-import { Box, Button, DialogTitle, IconButton, Modal } from "@mui/material";
+// import { QRCodeCanvas } from "qrcode.react";
+import { Box, Button, IconButton, Modal } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import ClearIcon from "@mui/icons-material/Clear";
 import FormatNumberic from "share/formatNumber";
@@ -49,10 +49,10 @@ function ImportData(props) {
       } else {
         let res = [];
         // console.log("resp.rows", resp.rows);
-        Object.keys(resp.rows).map((propKey) => {
+        Object.keys(resp.rows).forEach((propKey) => {
           // let array = [];
           var obj = {};
-          Object.keys(resp.rows[propKey]).map((childPropKey) => {
+          Object.keys(resp.rows[propKey]).forEach((childPropKey) => {
             // let obj = {};
             let key = resp.rows[0][childPropKey];
             let value = resp.rows[propKey][childPropKey];

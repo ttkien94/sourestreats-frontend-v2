@@ -6,16 +6,16 @@ import * as Yup from "yup";
 import { styled } from "@mui/material/styles";
 import { Button } from "@mui/material";
 
-import {
-  createQuestionAction,
-  editQuestionAction,
-} from "core/redux/actions/questionAction";
+// import {
+//   createQuestionAction,
+//   editQuestionAction,
+// } from "core/redux/actions/questionAction";
 import { useSelector } from "react-redux";
 import { getCourseOnlineAction } from "core/redux/actions/courseOnlineAction";
 import { createScheduleCourseOnlineAction } from "core/redux/actions/scheduleCourseOnlineAction";
 import { useEffect } from "react";
 
-import _ from "lodash";
+// import _ from "lodash";
 import DatePickerField from "app/components/customField/datePickerField";
 const ButtonSubmit = styled(Button)`
   color: #fff;
@@ -45,6 +45,7 @@ function CreateScheduleCourseOnlineManager({ onToggleDrawer, onEdit }) {
       };
   useEffect(() => {
     loadData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   useEffect(() => {
     // set first course is default
@@ -144,7 +145,7 @@ function CreateScheduleCourseOnlineManager({ onToggleDrawer, onEdit }) {
           validationSchema={validationSchema}
         >
           {(formikProps) => {
-            const { values, errors, touched, setFieldValue } = formikProps;
+            const { values, setFieldValue } = formikProps;
 
             // console.log("values.option", values.option);
 

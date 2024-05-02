@@ -1,7 +1,7 @@
 import React, { forwardRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { NumericFormat } from "react-number-format";
+// import { NumericFormat } from "react-number-format";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
@@ -11,7 +11,7 @@ import { Button, TextField } from "@mui/material";
 
 // Formik
 import * as Yup from "yup";
-import { Field, FastField, Form, Formik } from "formik";
+import { FastField, Form, Formik } from "formik";
 import InputField from "app/components/customField/inputField";
 
 // Action
@@ -23,7 +23,6 @@ import {
 import { useTranslation } from "react-i18next";
 import TitleCourse from "share/titleCourse";
 import { isEmpty } from "../../../../../core/utils/isEmpty";
-import { useEffect } from "react";
 
 const ButtonSubmit = styled(Button)`
   color: #fff;
@@ -38,7 +37,7 @@ const ButtonSubmit = styled(Button)`
 function DataCourseForm(props) {
   const [errorForm, setErrorForm] = useState("");
   const { t } = useTranslation("common");
-  const { courseList, loading } = useSelector((state) => state.course);
+  const { loading } = useSelector((state) => state.course);
 
   const dispatch = useDispatch();
 

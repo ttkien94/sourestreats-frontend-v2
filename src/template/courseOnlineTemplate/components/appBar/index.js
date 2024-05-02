@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -68,7 +68,7 @@ function Appbar({ title, onHandleDrawerOpen, isOpen }) {
   const dispatch = useDispatch();
   const anchor = { vertical: "bottom", horizontal: "right" };
   const transfrom = { vertical: "top", horizontal: "right" };
-  const [txtSearch, setTxtSearch] = useState("");
+  // const [txtSearch, setTxtSearch] = useState("");
   const { userInfo } = useSelector((state) => state.auth);
   const refLogin = useRef();
 
@@ -139,7 +139,7 @@ function Appbar({ title, onHandleDrawerOpen, isOpen }) {
             },
             disableUnderline: true,
           }}
-          handleDebouceSearch={(txt) => setTxtSearch(txt)}
+          // handleDebouceSearch={(txt) => setTxtSearch(txt)}
         />
         {userInfo && (
           <LPEAvatar

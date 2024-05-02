@@ -1,8 +1,8 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, Redirect } from "react-router-dom";
-import useSiteTitle from "core/hooks/useSiteTitle";
-import emailjs from "@emailjs/browser";
+// import { Link, Redirect } from "react-router-dom";
+// import useSiteTitle from "core/hooks/useSiteTitle";
+// import emailjs from "@emailjs/browser";
 // MUI
 import { styled } from "@mui/material/styles";
 import { Button } from "@mui/material";
@@ -13,10 +13,10 @@ import { FastField, Form, Formik } from "formik";
 import InputField from "app/components/customField/inputField";
 
 // Action
-import { sendFormContact } from "core/redux/actions/userAction";
+// import { sendFormContact } from "core/redux/actions/userAction";
 
 // const
-import { KEY_TOKEN } from "app/const/App";
+// import { KEY_TOKEN } from "app/const/App";
 
 import { useTranslation } from "react-i18next";
 import TitleCourse from "share/titleCourse";

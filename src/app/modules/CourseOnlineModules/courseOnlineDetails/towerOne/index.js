@@ -6,7 +6,7 @@ import Vimeo from "@u-wave/react-vimeo";
 
 import { useState } from "react";
 import Question from "../components/questions";
-import { Button } from "@material-ui/core";
+// import { Button } from "@material-ui/core";
 import { useEffect } from "react";
 import DetailsDescription from "../components/detailsDescription";
 import { courseOnline } from "./const";
@@ -15,31 +15,32 @@ function TowerOne() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [isLearned, setIsLearned] = useState(false);
   const [selectedOption, setSelectedOption] = useState("");
-  const [listFloor, setListFloor] = useState(
-    courseOnline.listUser[0].inforCourse.listFloor
-  );
+  // const [listFloor, setListFloor] = useState(
+  //   courseOnline.listUser[0].inforCourse.listFloor
+  // );
+  const listFloor = courseOnline.listUser[0].inforCourse.listFloor;
   const [data, setData] = useState(listFloor[0]?.listVideo[0] || []);
 
   useEffect(() => {
-    handleCheckScore();
-
-    console.log("courseOnline", data);
-  }, []);
+    const { question } = data;
+    if (data?.score === question.length) {
+      setIsLearned(true);
+    }
+  }, [data]);
 
   const handleOptionChange = (e) => {
-    console.log("handleOptionChange");
     setSelectedOption(e);
   };
 
-  const handleCheckScore = () => {
-    const { question } = data;
-    if (data.score === question.length) {
-      setIsLearned(true);
-    }
-  };
+  // const handleCheckScore = () => {
+  //   const { question } = data;
+  //   if (data.score === question.length) {
+  //     setIsLearned(true);
+  //   }
+  // };
   const handleFormSubmit = (e, action) => {
     e.preventDefault();
-    console.log("action", action);
+    // console.log("action", action);
     // const { question } = data;
 
     // if (currentQuestion + 1 < question.length) {
@@ -155,28 +156,28 @@ function TowerOne() {
       </div>
     );
   };
-  const renderLeftContent1 = () => {
-    return (
-      <div className=" col-lg-8  col-md-7  ">
-        <div className="triaple">
-          <div className="box-floor4"></div>
-          <div className="box-floor3"></div>
-          <div className="box-floor2">
-            <div className="box-floor21"></div>
-            <div className="box-floor22"></div>
-            <div className="box-floor23"></div>
-          </div>
-          <div className="box-floor1">
-            <div className="box-floor11"></div>
-            <div className="box-floor12"></div>
-            <div className="box-floor13"></div>
-            <div className="box-floor14"></div>
-            <div className="box-floor15"></div>
-          </div>
-        </div>
-      </div>
-    );
-  };
+  // const renderLeftContent1 = () => {
+  //   return (
+  //     <div className=" col-lg-8  col-md-7  ">
+  //       <div className="triaple">
+  //         <div className="box-floor4"></div>
+  //         <div className="box-floor3"></div>
+  //         <div className="box-floor2">
+  //           <div className="box-floor21"></div>
+  //           <div className="box-floor22"></div>
+  //           <div className="box-floor23"></div>
+  //         </div>
+  //         <div className="box-floor1">
+  //           <div className="box-floor11"></div>
+  //           <div className="box-floor12"></div>
+  //           <div className="box-floor13"></div>
+  //           <div className="box-floor14"></div>
+  //           <div className="box-floor15"></div>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   );
+  // };
   return (
     <div className="tower-one container">
       <div className="row space-between">

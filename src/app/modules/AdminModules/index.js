@@ -13,7 +13,7 @@ import CourseOnlineManager from "./courseOnlineManager";
 import CourseOnlineManagerDetail from "./courseOnlineManager/components/courseOnlineDetail";
 import CreateCourseOnline from "./courseOnlineManager/components/createCourseOnline";
 import ScheduleCourseOnlineManager from "./scheduleCourseOnlineManager";
-import CreateScheduleCourseOnlineManager from "./scheduleCourseOnlineManager/components/createScheduleCourseOnlineManager";
+// import CreateScheduleCourseOnlineManager from "./scheduleCourseOnlineManager/components/createScheduleCourseOnlineManager";
 import EditScheduleCourseOnlineManager from "./scheduleCourseOnlineManager/components/editScheduleCourseOnlineManager";
 import QuestionManager from "./questionManager";
 import VideoManager from "./videoManager";

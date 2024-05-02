@@ -8,10 +8,10 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { useTranslation } from "react-i18next";
-import StarBorderOutlinedIcon from "@mui/icons-material/StarBorderOutlined";
+// import StarBorderOutlinedIcon from "@mui/icons-material/StarBorderOutlined";
 import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
 // import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
-import AssignmentIndOutlinedIcon from "@mui/icons-material/AssignmentIndOutlined";
+// import AssignmentIndOutlinedIcon from "@mui/icons-material/AssignmentIndOutlined";
 import CheckboxIconSvg from "share/iconSvg/checkboxIcon";
 import "./styles.scss";
 function TabPanel(props) {

@@ -12,9 +12,9 @@ import { Button } from "@mui/material";
 import InputField from "app/components/customField/inputField";
 import SelectField from "app/components/customField/selectField";
 import DatePickerField from "app/components/customField/datePickerField";
-import { timeToUnix } from "core/utils/dateUtil";
+// import { timeToUnix } from "core/utils/dateUtil";
 import { DEFALT_OPTIONS } from "app/components/customField/selectField/options";
-import { API_ENDPOINT, CODE_SUCCESS, SIGN_UP } from "app/const/Api";
+// import { API_ENDPOINT, CODE_SUCCESS, SIGN_UP } from "app/const/Api";
 import { KEY_TOKEN } from "app/const/App";
 
 import "./styles/styles.scss";
@@ -32,9 +32,10 @@ const ButtonSubmit = styled(Button)`
 function Register(props) {
   useSiteTitle("register");
   const isLogined = Boolean(localStorage.getItem(KEY_TOKEN));
-  const [step, setStep] = useState(0);
+  // const [step, setStep] = useState(0);
+  const step = 0;
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  // const [error, setError] = useState("");
   const title = props?.title ? props.title : "Đăng ký tài khoản";
   const handleRegister = async (data) => {
     setLoading(true);
@@ -131,9 +132,9 @@ function Register(props) {
                             placeholder="Nhập email"
                             className="w-100 mb-4"
                           />
-                          {error && (
+                          {errors && (
                             <p className="text-danger mb-4 ml-2 MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-1wc848c-MuiFormHelperText-root mt-n3 ">
-                              {error}
+                              {errors}
                             </p>
                           )}
                         </div>
@@ -174,7 +175,7 @@ function Register(props) {
                             </p>
                           )}
                         </div>
-                        {props?.type == "TheFirstStep" ? <></> : null}
+                        {props?.type === "TheFirstStep" ? <></> : null}
                         {/* {props?.type == "Register" ? (
                           <>
                             <div className="col-12">
