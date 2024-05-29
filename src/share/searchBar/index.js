@@ -1,4 +1,5 @@
-import { TextField } from "@mui/material";
+import { InputAdornment, TextField } from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
 import _ from "lodash";
 import React, { useRef } from "react";
 import { useTranslation } from "react-i18next";
@@ -17,7 +18,7 @@ function SearchBar(props) {
   return (
     <TextField
       placeholder={placeholder ? t(placeholder) : t("search")}
-      variant="outlined"
+      variant="standard"
       label={label ? t(label) : t("search")}
       type="text"
       // error={showError}
@@ -27,6 +28,13 @@ function SearchBar(props) {
       spellCheck={false}
       // field of Formik have 4 important props
       onChange={(e) => handleInputOnchange(e)}
+      InputProps={{
+        endAdornment: (
+          <InputAdornment position="end">
+            <SearchIcon />
+          </InputAdornment>
+        ),
+      }}
       {...rest}
     />
   );

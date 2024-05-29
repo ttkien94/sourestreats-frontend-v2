@@ -1,5 +1,5 @@
 import React from "react";
-import LoadingCube from "assets/images/loader-cube.gif";
+import Spinner from "assets/images/spinner-loader.gif";
 
 function Loading() {
   return (
@@ -9,9 +9,10 @@ function Loading() {
         justifyContent: "center",
         alignItems: "center",
         minHeight: "100vh",
+        backgroundColor: "#e4e4e0 ",
       }}
     >
-      <img src={LoadingCube} alt={LoadingCube} />
+      <img src={Spinner} alt={Spinner} />
     </div>
   );
 }

@@ -7,7 +7,7 @@ import {
   USER_UPDATE,
 } from "app/const/Api";
 import { KEY_TOKEN } from "app/const/App";
-
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { showToast } from "core/utils/toastUtil";
 import {
@@ -24,7 +24,8 @@ import {
  *  Đăng nhập
  * @param {*} data email, password
  */
-export const loginAction = (data) => {
+
+export const loginAction = (data, beforeLoginUrl, navigate) => {
   return async (dispatch) => {
     dispatch({
       type: LOGIN_REQUESTING,
@@ -45,7 +46,9 @@ export const loginAction = (data) => {
           });
           // Lưu accessToken xuống LocalStorage
           localStorage.setItem(KEY_TOKEN, token);
-          window.location.reload();
+
+          // window.location.reload();
+          navigate(beforeLoginUrl);
         }
       });
     } catch (error) {
@@ -70,6 +73,7 @@ export const loginAction = (data) => {
 export const registerAction = (data, setLoading, setError) => {
   return async () => {
     // This action dont use dispatch to redux
+    console.log("123");
     try {
       await axios({
         method: "POST",
@@ -78,6 +82,7 @@ export const registerAction = (data, setLoading, setError) => {
       }).then((response) => {
         if (response.status === CODE_SUCCESS) {
           setLoading(false);
+          setError("");
         }
       });
     } catch (error) {
@@ -165,6 +170,7 @@ export const logOutAction = (history) => {
     dispatch({
       type: LOGOUT_ACCOUNT,
     });
-    history.push("/dang-nhap");
+    // const navigate = useNavigate();
+    // navigate("/dang-nhap");
   };
 };

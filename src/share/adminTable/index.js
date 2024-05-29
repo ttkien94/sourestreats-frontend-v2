@@ -50,18 +50,7 @@ function AdminTable({ tableHead, tableData, view, ...rest }) {
               );
             })
           : null}
-        {view === "video"
-          ? tableData.map((item, index) => {
-              return (
-                <TableVideoList
-                  view={view}
-                  dataItem={item}
-                  index={index}
-                  {...rest}
-                />
-              );
-            })
-          : null}
+
         {view === "course_online"
           ? tableData.map((item, index) => {
               return (
@@ -100,20 +89,63 @@ function AdminTable({ tableHead, tableData, view, ...rest }) {
       </TableBody>
     );
   };
-
+  //   <TableContainer>
+  //   <Table
+  //     sx={{ minWidth: 750 }}
+  //     aria-labelledby="tableTitle"
+  //     size={"medium"}
+  //   >
+  //     {renderHeader()}
+  //     {renderBody()}
+  //   </Table>
+  // </TableContainer>
   return (
     <Box sx={{ width: "100%", ...rest.style }} className={rest.className}>
       <Paper sx={{ width: "100%", mb: 2 }}>
-        <TableContainer>
-          <Table
-            sx={{ minWidth: 750 }}
-            aria-labelledby="tableTitle"
-            size={"medium"}
-          >
-            {renderHeader()}
-            {renderBody()}
-          </Table>
-        </TableContainer>
+        {view === "video" ? (
+          tableData.map((pharse, index) => {
+            return (
+              <div key={index}>
+                <div className="title-h2 mt-5">{pharse.pharse}</div>
+                {pharse.videoList.length > 0 ? (
+                  <TableContainer>
+                    <Table
+                      sx={{ minWidth: 750 }}
+                      aria-labelledby="tableTitle"
+                      size={"medium"}
+                    >
+                      {renderHeader()}
+                      {pharse.videoList.map((video, idx) => {
+                        return (
+                          <TableVideoList
+                            pharse={pharse}
+                            view={view}
+                            dataItem={video}
+                            index={idx}
+                            {...rest}
+                          />
+                        );
+                      })}
+                    </Table>
+                  </TableContainer>
+                ) : (
+                  <div className="title-h3">Chưa có video</div>
+                )}
+              </div>
+            );
+          })
+        ) : (
+          <TableContainer>
+            <Table
+              sx={{ minWidth: 750 }}
+              aria-labelledby="tableTitle"
+              size={"medium"}
+            >
+              {renderHeader()}
+              {renderBody()}
+            </Table>
+          </TableContainer>
+        )}
       </Paper>
     </Box>
   );

@@ -1,0 +1,32 @@
+.rate-bar {
+  width: 100%;
+  height: 6px;
+  position: relative;
+  border-radius: 8px;
+  background-color: #cfcfcf;
+  margin-top: 5px;
+  .rate-bar-leaner {
+    width: 100%;
+    height: 6px;
+    border-radius: 8px;
+    height: 6px;
+    background-color: #0463c3;
+  }
+}
+.box {
+  border-radius: 20px;
+}
+.course-media-box {
+  background-color: white;
+  border-radius: 10px;
+  position: relative;
+  .bg-radius {
+    position: absolute;
+    width: 250px;
+    height: 60px;
+    top: 10px;
+    background-color: #3a9ef636;
+    border-radius: 20px;
+    filter: blur(8px);
+  }
+}

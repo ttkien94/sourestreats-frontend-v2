@@ -49,6 +49,10 @@ import VisionPage from "./lpe/visionAndMissionLPE";
 import Rules from "./lpe/rules";
 import Recruitment from "./lpe/recruitment";
 
+// course Media
+import ComboCourseMedia1 from "./courses/courseMedia/combo/comboCourseMedia1";
+import Tower1 from "./courses/courseMedia/tower1";
+import VideoStreaming from "./courses/courseMedia/videoStreaming";
 // Blog
 import BlogList from "./blogList";
 import BlogDetail from "./blogDetail";
@@ -77,7 +81,6 @@ const Client = {
   Course,
   CourseOnline,
   CourseOffline,
-  CourseMedia,
   CourseOfflinePP,
   CourseOfflineSM,
   CourseOfflineUM,
@@ -102,6 +105,10 @@ const Client = {
   CourseOnlineCCS,
   CourseOnlineVL,
   CourseOnlineTower,
+  CourseMedia,
+  ComboCourseMedia1,
+  Tower1,
+  VideoStreaming,
   Register,
   Recruitment,
   ConfirmRegister,

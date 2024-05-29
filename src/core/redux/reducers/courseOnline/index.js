@@ -37,6 +37,7 @@ export const courseOnlineReducer = (state = initialState, action) => {
       };
     }
     case FETCH_COURSE_ONLINE_FAILED: {
+      console.log("FETCH_COURSE_ONLINE_FAILED");
       return {
         ...state,
         loading: false,

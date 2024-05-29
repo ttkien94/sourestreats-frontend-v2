@@ -23,11 +23,18 @@ function TableCourseOnlineList({
       <TableCell align="left">{dataItem.title}</TableCell>
       <TableCell align="left">{dataItem.description}</TableCell>
       <TableCell align="left">{dataItem.content}</TableCell>
-      <TableCell align="left">
-        {dataItem.videoList.map((item, index) => {
-          return <div key={index}>{item.name + " - " + item.floor}</div>;
+      {/* <TableCell align="left">
+        {dataItem.lesson.map((item, index) => {
+          return (
+            <TableCell key={index}>
+              {item.pharse}
+              {item.videoList.map((v) => {
+                return <p>{v.name}</p>;
+              })}
+            </TableCell>
+          );
         })}
-      </TableCell>
+      </TableCell> */}
       <TableCell align="left">
         <Button
           variant="outlined"

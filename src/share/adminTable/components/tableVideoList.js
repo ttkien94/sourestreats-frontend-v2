@@ -14,15 +14,16 @@ function TableVideoList({
   onHandleDelete,
   index,
   type,
+  pharse,
 }) {
   const handleDelete = (id) => {
-    onHandleDelete && onHandleDelete(id);
+    onHandleDelete && onHandleDelete(id, pharse);
   };
   return (
-    <TableRow key={index}>
+    <TableRow key={dataItem._id}>
       <TableCell align="left">{index ? index + 1 : 1}</TableCell>
       <TableCell align="left">{dataItem.name}</TableCell>
-      {type !== "createCourseOnline" ? (
+      {type !== "createCourseOnline" && (
         <>
           <TableCell align="left" width="10%">
             {dataItem.url}
@@ -33,13 +34,9 @@ function TableVideoList({
             })}
           </TableCell>
         </>
-      ) : (
-        <TableCell align="left" width="10%">
-          {dataItem.floor}
-        </TableCell>
       )}
       <TableCell align="left">
-        <div>
+        <>
           {type !== "createCourseOnline" && (
             <Button
               variant="outlined"
@@ -63,7 +60,7 @@ function TableVideoList({
           >
             Xóa
           </Button>
-        </div>
+        </>
       </TableCell>
     </TableRow>
   );

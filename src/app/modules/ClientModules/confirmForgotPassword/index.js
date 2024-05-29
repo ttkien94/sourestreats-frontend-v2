@@ -4,7 +4,6 @@ import { useParams, useNavigate } from "react-router-dom";
 import useSiteTitle from "core/hooks/useSiteTitle";
 import * as Yup from "yup";
 import { FastField, Form, Formik } from "formik";
-
 // component
 import LoadingButtom from "app/components/loadingButtom";
 import InputField from "app/components/customField/inputField";
@@ -39,11 +38,10 @@ function VerifyForgotPassword() {
   useSiteTitle("confirm_forgot_password");
 
   const { token } = useParams();
-  const history = useNavigate();
   const [step, setStep] = useState(0);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState({});
-
+  const navigate = useNavigate();
   const handleSubmit = async (data) => {
     setError("");
     setLoading(true);
@@ -174,7 +172,7 @@ function VerifyForgotPassword() {
                 <LoadingButtom
                   value="Đăng nhập"
                   onClick={() => {
-                    history.push("/dang-nhap");
+                    navigate("/dang-nhap");
                   }}
                 />
               </div>

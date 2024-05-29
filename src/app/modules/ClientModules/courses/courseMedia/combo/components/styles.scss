@@ -1,0 +1,49 @@
+.bundles-combo {
+  .bundles-combo-content {
+    position: relative;
+    padding-left: 35px;
+    &:before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 0;
+      width: 25px;
+      height: 25px;
+      background-color: transparent;
+      border: 2px solid #c3c2be;
+      border-radius: 50%;
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      left: 12px;
+      width: 2px;
+      top: 34px;
+      height: calc(100% - 24px);
+      background-color: #c3c2be;
+    }
+    &:last-child {
+      &:after {
+        background-color: transparent;
+      }
+    }
+    .bunles-combo-description {
+      color: #5d5d5d;
+    }
+
+    .right-content {
+      width: 50%;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      background-color: white;
+      p {
+        color: #5d5d5d;
+        font-size: 14px;
+      }
+      .buy-course-single {
+        margin-top: auto;
+      }
+    }
+  }
+}

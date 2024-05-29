@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import useSiteTitle from "core/hooks/useSiteTitle";
 
 // MUI
@@ -20,6 +20,7 @@ import { KEY_TOKEN } from "app/const/App";
 
 import "./styles/styles.scss";
 import { useTranslation } from "react-i18next";
+import { useEffect } from "react";
 
 const ButtonSubmit = styled(Button)`
   color: #fff;
@@ -38,9 +39,15 @@ function Login() {
   const dispatch = useDispatch();
   const { loading, error } = useSelector((state) => state.auth);
   const isLogined = Boolean(localStorage.getItem(KEY_TOKEN));
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleLogin = (data) => {
-    dispatch(loginAction(data));
+    dispatch(loginAction(data, location.state?.from?.pathname, navigate));
   };
 
   const initialValues = {
@@ -126,7 +133,11 @@ function Login() {
             </Link>
 
             <div style={{ display: "flex", justifyContent: "center" }}>
-              <Link to="/dang-ky" className="createButton">
+              <Link
+                to="/dang-ky"
+                className="createButton"
+                state={{ type: "Register" }}
+              >
                 Tạo tài khoản mới
               </Link>
             </div>

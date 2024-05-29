@@ -8,14 +8,12 @@ import ModalVideo from "react-modal-video";
 import { getIdVideo } from "core/utils/videoLinkUtil";
 
 // import media file
-import lifeUni from "assets/images/source/lifeUni.jpg";
-import vas from "assets/images/vas.jpg";
-import lhgt from "assets/images/lhgt.jpg";
-import rossi from "assets/images/rossi.jpg";
+import lifeUni from "assets/images/source/banner/the-origins.png";
+import vas from "assets/images/source/banner/coach-vas.jpg";
+import lhgt from "assets/images/source/banner/coach-vas.png";
 import Video from "assets/video-demo.mp4";
 import vasThumbnail from "assets/images/source/thumbnail-vas.jpg";
 import gtThumbnail from "assets/images/source/thumbnail-gt.jpg";
-import rossiThumbnail from "assets/images/source/thumbnail-rossi.jpg";
 
 import "swiper/components/pagination/pagination.min.css";
 
@@ -47,14 +45,6 @@ const topUpSrc = [
     linkVideo: "https://www.youtube.com/watch?v=fAkvJPXMfjU",
     linkInfo: "/lpe/ms-la-ha-giang-thanh",
     imgVideo: gtThumbnail,
-  },
-  {
-    imgSrc: rossi,
-    bigText: "Về Mr.Rossi",
-    desc: "intro_rossi",
-    linkVideo: "https://www.youtube.com/watch?v=4N5WAMJuo6U",
-    linkInfo: "/",
-    imgVideo: rossiThumbnail,
   },
 ];
 
@@ -88,7 +78,12 @@ function BannerCarousel() {
           return (
             <SwiperSlide key={index}>
               <div className="row">
-                <div className=" col-md-5 col-lg-5 col-xs-12 col-sm-12 pr-0 left-content">
+                <img src={v.imgSrc} alt={v.imgSrc} className="img-fluid" />
+
+                {/* <div className="wrapper-innerText">
+                  <p>{t(v.desc)}</p>
+                </div> */}
+                {/* <div className=" col-md-5 col-lg-5 col-xs-12 col-sm-12 pr-0 left-content">
                   <div className="banner-item_innerText h-100">
                     <div className="overlay"></div>
                     {v.video && (
@@ -148,7 +143,7 @@ function BannerCarousel() {
                       Xem thêm
                     </Link>
                   </div>
-                </div>
+                </div> */}
               </div>
             </SwiperSlide>
           );

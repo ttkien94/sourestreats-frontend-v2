@@ -39,6 +39,7 @@ const fetchUserData = new Promise((resolve, reject) => {
 });
 
 export const appAction = () => {
+  console.log("appAction");
   return async (dispatch) => {
     dispatch({
       type: APP_LOADING,
@@ -46,6 +47,7 @@ export const appAction = () => {
 
     Promise.all([fetchUserData])
       .then((response) => {
+        console.log("fetchUserData");
         dispatch({
           type: LOGIN_SUCCESS,
           payload: response[0], // return info user

@@ -9,7 +9,7 @@ import {
   FETCH_VIDEO_REQUESTING,
   FETCH_VIDEO_SUCCESS,
   // FETCH_MORE_VIDEO_SUCCESS,
-  // FETCH_VIDEO_FAILED,
+  FETCH_VIDEO_FAILED,
 } from "core/redux/constant/videoConstant";
 
 const initialState = {
@@ -45,6 +45,13 @@ export const videoReducer = (state = initialState, action) => {
         videoList: action.payload,
         records: action.payload.total,
         hasMoreItems,
+      };
+    }
+    case FETCH_VIDEO_FAILED: {
+      console.log("FETCH_VIDEO_FAILED");
+      return {
+        ...state,
+        loading: false,
       };
     }
     case VIDEO_CREATE: {

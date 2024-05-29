@@ -133,9 +133,9 @@ function RegisterForm(props) {
                         placeholder="Nhập email"
                         className="w-100 mb-4"
                       />
-                      {errors && (
+                      {errors?.email && (
                         <p className="text-danger mb-4 ml-2 MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-1wc848c-MuiFormHelperText-root mt-n3 ">
-                          {errors}
+                          {errors.email}
                         </p>
                       )}
                     </div>
@@ -190,11 +190,11 @@ function RegisterForm(props) {
                         placeholder="Nhập địa chỉ"
                         className="w-100 mb-4"
                       />
-                      {errors && (
+                      {/* {errors && (
                         <p className="text-danger mb-4 ml-2 MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-1wc848c-MuiFormHelperText-root mt-n3 ">
                           {errors}
                         </p>
-                      )}
+                      )} */}
                     </div>
 
                     <div className="col-12 col-md-6">

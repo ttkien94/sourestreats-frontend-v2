@@ -19,7 +19,7 @@ const headCells = [
   { id: "title", label: "Tiêu đề" },
   { id: "description", label: "Mô tả" },
   { id: "content", label: "Nội Dung" },
-  { id: "videoList", label: "Danh sách video" },
+  // { id: "videoList", label: "Danh sách video" },
   { id: "action", label: "Thao tác" },
 ];
 

@@ -42,6 +42,8 @@ function CreateScheduleCourseOnlineManager({ onToggleDrawer, onEdit }) {
         course_id: "",
         startTime: "",
         endTime: "",
+        listUser: [],
+        ranking: [],
       };
   useEffect(() => {
     loadData();

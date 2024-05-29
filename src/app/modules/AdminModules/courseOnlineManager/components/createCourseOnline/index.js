@@ -22,6 +22,8 @@ import {
 } from "core/redux/actions/courseOnlineAction";
 import { getVideoAction } from "core/redux/actions/videoAction";
 import AdminTable from "share/adminTable";
+import { v4 as uuidv4, v6 as uuidv6 } from "uuid";
+
 const ButtonSubmit = styled(Button)`
   color: #fff;
   background: #3777bc;
@@ -35,7 +37,7 @@ const ButtonSubmit = styled(Button)`
 const ButtonCancel = styled(Button)`
   color: #adb5bd;
 `;
-const floorList = ["Tầng 1", "Tầng 2", "Tầng 3"];
+const pharseList = ["Phần 1", "Phần 2", "Phần 3"];
 function CourseCourseOnline({ onToggleDrawer, onEdit }) {
   const dispatch = useDispatch();
   // const [isLoading, setIsLoading] = useState(false);
@@ -43,29 +45,55 @@ function CourseCourseOnline({ onToggleDrawer, onEdit }) {
   // const [openDrawer, setOpenDrawer] = useState(false);
   const [currentVideoList, setCurrentVideoList] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState("");
-  const [selectedFloor, setSelectedFloor] = useState(floorList[0]);
+  const [selectedPharse, setSelectedPharse] = useState(pharseList[0]);
   const { loading, videoList } = useSelector((state) => state.video);
+
   const initialValues = {
     _id: onEdit?._id || "",
     name: onEdit?.name || "Tháp 2",
     title: onEdit?.title || "Tiêu Đề Tháp 2",
     description: onEdit?.description || "Mô tả Tháp 2",
     content: onEdit?.content || "Nội Dung Tháp 2",
-    videoList: onEdit?.videoList || [],
+    totalPrice: 0,
+    lesson: onEdit?.lesson || [
+      {
+        permission: true,
+        pharse: "Phần 1",
+        isView: true,
+        totalTime: 0,
+        videoList: [],
+        price: 0,
+      },
+      {
+        permission: false,
+        pharse: "Phần 2",
+        isView: false,
+        totalTime: 0,
+        price: 191000,
+        videoList: [],
+      },
+      {
+        permission: false,
+        pharse: "Phần 3",
+        isView: false,
+        totalTime: 0,
+        price: 121000,
+        videoList: [],
+      },
+    ],
     totalStudent: onEdit?.totalStudent || 0,
   };
 
   const headCells = [
     { id: "STT", label: "STT" },
     { id: "name", label: "Name" },
-    { id: "floor", label: "Tầng" },
     { id: "action", label: "Thao tác" },
   ];
   const validationSchema = Yup.object().shape({
     name: Yup.string()
       .required("Vui lòng nhập trường này.")
       .min(3, "Có ít nhất là 3 ký tự.")
-      .max(40, "Có nhiều nhất là 40 ký tự."),
+      .max(400, "Có nhiều nhất là 400 ký tự."),
     totalStudent: Yup.number().required("Vui lòng nhập thời lượng video"),
   });
 
@@ -75,16 +103,19 @@ function CourseCourseOnline({ onToggleDrawer, onEdit }) {
   }, []);
 
   useEffect(() => {
-    // xu ly on_edit
+    // handle on_edit
     if (videoList && videoList.data && videoList.data.length > 0) {
       if (onEdit) {
         let newVideoList = _.cloneDeep(videoList.data);
-        onEdit.videoList.forEach((video, index) => {
-          let i = newVideoList.findIndex((x) => x._id === video._id);
-          if (i !== -1) {
-            newVideoList.splice(i, 1);
-          }
+        onEdit.lesson.forEach((pharse) => {
+          pharse.videoList.forEach((video, index) => {
+            let i = newVideoList.findIndex((x) => x._id === video._id);
+            if (i !== -1) {
+              newVideoList.splice(i, 1);
+            }
+          });
         });
+
         setCurrentVideoList(newVideoList);
         setSelectedVideo(newVideoList[0]._id);
       } else {
@@ -109,34 +140,60 @@ function CourseCourseOnline({ onToggleDrawer, onEdit }) {
   };
 
   const handleCourseOnlineAddVideo = (e, values, setFieldValue) => {
-    let newList = values.videoList;
-    let i = currentVideoList.findIndex((x) => x._id === selectedVideo);
-    if (i !== -1) {
-      let newCurrentVideo = _.cloneDeep(currentVideoList);
-      newCurrentVideo[i].floor = selectedFloor;
-      newList.push(newCurrentVideo[i]);
-      console.log("newList", newList);
-      newCurrentVideo.splice(i, 1);
-      //chưa xử lý khi thêm hết video
-      setSelectedVideo(newCurrentVideo[0]._id);
-      setCurrentVideoList(newCurrentVideo);
-      setFieldValue("questionList", newList);
-    }
-  };
-  const handleCourseOnlineDeleteVideo = (_id, values, setFieldValue) => {
-    let newList = values.videoList;
-    let i = newList.findIndex((x) => x._id === _id);
-    if (i !== -1) {
-      const object = newList[i];
-      let newCurrentVideo = _.cloneDeep(currentVideoList);
-      newCurrentVideo.push(object);
-      newList.splice(i, 1);
-      setSelectedVideo(object._id);
-      setCurrentVideoList(newCurrentVideo);
-      setFieldValue("videoList", newList);
-    }
-  };
+    const pharseIndex = values.lesson.findIndex(
+      (e) => e.pharse === selectedPharse
+    );
+    let newPharse = _.cloneDeep(values.lesson[pharseIndex]);
+    let checkVideoExis = newPharse.videoList.findIndex(
+      (v) => v._id === selectedVideo
+    );
+    if (checkVideoExis === -1) {
+      let newCurrentVideoList = _.cloneDeep(currentVideoList);
+      let i = newCurrentVideoList.findIndex((x) => x._id === selectedVideo);
+      newPharse.videoList.push(newCurrentVideoList[i]);
+      newCurrentVideoList.splice(i, 1);
 
+      let newlesson = values.lesson;
+      newlesson[pharseIndex] = newPharse;
+      setFieldValue("lesson", newlesson);
+      // handle exis Video List
+      if (newCurrentVideoList.length > 0) {
+        setSelectedVideo(newCurrentVideoList[0]._id);
+        setCurrentVideoList(newCurrentVideoList);
+      } else {
+        setCurrentVideoList([]);
+        setSelectedVideo("");
+      }
+    } else {
+      console.log("video da ton tai");
+    }
+  };
+  const handleCourseOnlineDeleteVideo = (
+    _id,
+    pharse,
+    values,
+    setFieldValue
+  ) => {
+    // push video delete to currentVideoList
+    let object = videoList.data.find((v) => v._id === _id);
+    let newCurrentVideoList = _.cloneDeep(currentVideoList);
+    newCurrentVideoList.push(object);
+    setCurrentVideoList(newCurrentVideoList);
+
+    // delete video
+    let newLesson = values.lesson;
+    console.log("newLesson 1", newLesson, pharse);
+    newLesson.forEach((item) => {
+      if (item.pharse === pharse.pharse) {
+        let i = item.videoList.findIndex((v) => v._id === _id);
+        if (i !== -1) {
+          console.log("i", i);
+          item.videoList.splice(i, 1);
+        }
+      }
+    });
+    setFieldValue("lesion", newLesson);
+  };
   return (
     <div className="admin-course-online-screen">
       <Formik
@@ -147,7 +204,6 @@ function CourseCourseOnline({ onToggleDrawer, onEdit }) {
         {(formikProps) => {
           const { values, setFieldValue } = formikProps;
           // console.log({ values, errors, touched });
-
           return (
             <div className="container">
               <Box
@@ -226,56 +282,69 @@ function CourseCourseOnline({ onToggleDrawer, onEdit }) {
                     />
                   </div> */}
                   <div className="col-12 mb-3">
-                    <div className="row d-flex align-items-center justify-content-between ">
-                      <div className="col-6">
-                        <select
-                          className="input-select  px-3 py-3 "
-                          onChange={(e) => setSelectedVideo(e.target.value)}
-                        >
-                          {currentVideoList.map((item, index) => {
-                            return (
-                              <option key={index} value={item._id}>
-                                {item.name}
-                              </option>
-                            );
-                          })}
-                        </select>
+                    {currentVideoList.length > 0 ? (
+                      <div className="row d-flex align-items-center justify-content-between ">
+                        <div className="col-6">
+                          <select
+                            className="input-select  px-3 py-3 "
+                            onChange={(e) => setSelectedVideo(e.target.value)}
+                          >
+                            {currentVideoList.map((item, index) => {
+                              return (
+                                <option key={index} value={item._id}>
+                                  {item.name}
+                                </option>
+                              );
+                            })}
+                          </select>
+                        </div>
+                        <div className="col-3">
+                          <select
+                            className="input-select  px-3 py-3 "
+                            onChange={(e) => setSelectedPharse(e.target.value)}
+                          >
+                            {pharseList.map((item, index) => {
+                              return (
+                                <option key={index} value={item}>
+                                  {item}
+                                </option>
+                              );
+                            })}
+                          </select>
+                        </div>
+                        <div className="col-3 d-flex justify-content-center">
+                          <ButtonSubmit
+                            onClick={(e) =>
+                              handleCourseOnlineAddVideo(
+                                e,
+                                values,
+                                setFieldValue
+                              )
+                            }
+                            className="ml-3"
+                            style={{ minWidth: "150px" }}
+                          >
+                            Thêm Video
+                          </ButtonSubmit>
+                        </div>
                       </div>
-                      <div className="col-3">
-                        <select
-                          className="input-select  px-3 py-3 "
-                          onChange={(e) => setSelectedFloor(e.target.value)}
-                        >
-                          {floorList.map((item, index) => {
-                            return (
-                              <option key={index} value={item}>
-                                {item}
-                              </option>
-                            );
-                          })}
-                        </select>
-                      </div>
-                      <div className="col-3 d-flex justify-content-center">
-                        <ButtonSubmit
-                          onClick={(e) =>
-                            handleCourseOnlineAddVideo(e, values, setFieldValue)
-                          }
-                          className="ml-3"
-                          style={{ minWidth: "150px" }}
-                        >
-                          Thêm Video
-                        </ButtonSubmit>
-                      </div>
-                    </div>
+                    ) : (
+                      <div className="title-h2">Hết video</div>
+                    )}
                   </div>
 
                   <AdminTable
                     tableHead={headCells}
-                    tableData={values.videoList}
+                    tableData={values.lesson}
                     type="createCourseOnline"
                     view="video"
-                    onHandleDelete={(_id) =>
-                      handleCourseOnlineDeleteVideo(_id, values, setFieldValue)
+                    onHandleDelete={(_id, pharse) =>
+                      handleCourseOnlineDeleteVideo(
+                        _id,
+                        pharse,
+                        values,
+                        setFieldValue
+                      )
                     }
                     className="col-12"
                     style={{ minHeight: "300px" }}

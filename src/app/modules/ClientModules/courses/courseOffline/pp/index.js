@@ -966,7 +966,7 @@ const PP = () => {
             </div>
             <div className="row description mt-5">
               <h3>ƯU ĐÃI ĐẶC BIỆT KHI ĐĂNG KÝ THEO NHÓM!</h3>
-              <p>
+              <div>
                 - Gọi ngay Hotline/zalo: 0906880917; 0901883917 để được hỗ trợ
                 <br />- Ngoài ra, hãy tham gia ngay nhóm Zalo để cùng tham dự
                 Livestream hàng tuần miễn phí với Chuyên gia Quốc tế Coach Vas
@@ -989,7 +989,7 @@ const PP = () => {
                     THAM GIA
                   </a>
                 </div>
-              </p>
+              </div>
             </div>
           </div>
         </div>

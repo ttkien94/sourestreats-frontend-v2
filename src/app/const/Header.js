@@ -28,6 +28,7 @@ export const CONTENT_MENU = [
   },
   { title: "course_OfflineTitle", url: "/chuong-trinh-huan-luyen/offline" },
   // { title: "course_OnlineTitle", url: "/chuong-trinh-huan-luyen/online" },
+  { title: "course_OnlineTitle", url: "/chuong-trinh-huan-luyen/media/tower1" },
   // { title: "course", url: "/admin/quan-ly-khoa-hoc" },
   // { title: "student_info", url: "/admin/quan-ly-hoc-vien" },
 

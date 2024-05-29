@@ -1,6 +1,9 @@
 import React, { useRef, useState } from "react";
+import { useEffect } from "react";
+
 import useSiteTitle from "core/hooks/useSiteTitle";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination, Navigation } from "swiper";
 import { useTranslation } from "react-i18next";
 import ModalVideo from "react-modal-video";
 // import ServiceItem from "./components/serviceItem";
@@ -11,7 +14,6 @@ import { LPELightBox } from "app/components/lightBox";
 import { getIdVideo } from "core/utils/videoLinkUtil";
 import LazyLoad from "react-lazyload";
 import { Link } from "react-router-dom";
-
 // import media file
 import hinh01 from "assets/images/source/hinh01.jpg";
 import hinh02 from "assets/images/source/hinh02.jpg";
@@ -31,12 +33,13 @@ import catelogy03 from "assets/images/source/homepage/catelogy03.png";
 import catelogy04 from "assets/images/source/homepage/catelogy04.png";
 import catelogy05 from "assets/images/source/homepage/catelogy05.png";
 import catelogy06 from "assets/images/source/homepage/catelogy06.png";
-
+import "swiper/swiper.min.css";
+// import "swiper/modules/pagination/pagination.min.css";
 import "./styles/styles.scss";
 import WrapperImg from "share/wrapperImg";
-import { useEffect } from "react";
 
 export default function Home() {
+  // SwiperCore.use([Autoplay]);
   useSiteTitle("home_page");
   const { t } = useTranslation("common");
   useEffect(() => {
@@ -200,7 +203,7 @@ export default function Home() {
             textAlign="center"
           />
           <div
-            className="paralax-video"
+            className="paralax-video container"
             // style={{
             //   backgroundImage: `url(${vasVideo})`,
             // }}
@@ -278,26 +281,39 @@ export default function Home() {
 
         <Swiper
           loop={true}
-          breakpoints={{
-            320: {
-              slidesPerView: 1,
-            },
-            768: {
-              slidesPerView: 2,
-            },
-            // when window width is >= 480px
-            992: {
-              slidesPerView: 3,
-            },
-            // when window width is >= 640px
-            1200: {
-              slidesPerView: 4,
-            },
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
           }}
+          pagination={{
+            clickable: true,
+          }}
+          navigation={true}
+          modules={[Autoplay, Pagination, Navigation]}
+          slidesPerView={3}
+          breakpoints={
+            {
+              // 320: {
+              //   slidesPerView: 1,
+              // },
+              // 768: {
+              //   slidesPerView: 2,
+              // },
+              // // when window width is >= 480px
+              // 992: {
+              //   slidesPerView: 3,
+              // },
+              // // when window width is >= 640px
+              // 1200: {
+              //   slidesPerView: 4,
+              // },
+            }
+          }
+          className="container"
         >
           {swiperStudentPic.map((item, index) => {
             return (
-              <SwiperSlide className="item-swiper" key={index}>
+              <SwiperSlide className="item-swiper " key={index}>
                 <div
                   className="wrapper-slick"
                   onClick={() => {

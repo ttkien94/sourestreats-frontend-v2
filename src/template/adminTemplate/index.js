@@ -60,6 +60,7 @@ export const AdminTemplate = ({ Component, ...restProps }) => {
 
   useEffect(() => {
     if (accessToken !== null || isEmpty(userInfo)) {
+      console.log("accessToken", accessToken);
       dispatch(appAction());
     }
 

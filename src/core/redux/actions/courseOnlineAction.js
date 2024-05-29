@@ -38,9 +38,6 @@ export const getDetailCourseOnlineAction = (_id) => {
       await axios({
         url: API_ENDPOINT + API_GET_DETAIL_COURSE_ONLINE + _id,
         method: "GET",
-        headers: {
-          token: `${token}`,
-        },
       }).then((res) => {
         console.log("FETCH_DETAIL_COURSE_ONLINE_REQUESTING success", res);
         dispatch({
@@ -129,9 +126,13 @@ export const createCourseOnlineAction = (courseOnline) => {
             timeout: 5000,
           });
         })
-        .catch((err) => {
+        .catch((error) => {
           showToast("error", "Thêm khóa học thất bại", {
             timeout: 5000,
+          });
+          dispatch({
+            type: FETCH_COURSE_ONLINE_FAILED,
+            payload: error,
           });
         });
     } catch (error) {

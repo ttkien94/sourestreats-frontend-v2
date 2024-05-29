@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 import defaultPicAva from "assets/images/btnLogin.png";
@@ -7,9 +7,9 @@ import "./styles/styles.scss";
 
 function LoginButton({ sidebar, onClose }) {
   const { t } = useTranslation("common");
-
+  const location = useLocation();
   return (
-    <Link to="/dang-nhap" onClick={onClose}>
+    <Link to="/dang-nhap" onClick={onClose} state={{ from: location }}>
       <div className={sidebar ? "imgLinkSide" : "imgLink"}>
         <img src={defaultPicAva} alt={defaultPicAva} className="imgBorder" />
 

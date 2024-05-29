@@ -109,7 +109,6 @@ function LPEHeader() {
             {t("account_info")}
           </Button>
         </Link>
-
         {userInfo.role === "admin" && (
           <Link to="/admin">
             <Button
