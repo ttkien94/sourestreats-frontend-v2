@@ -761,7 +761,7 @@ function index3() {
                   wordWrap: "break-word",
                 }}
               >
-                Trang chủ{" "}
+                Trang chủ
               </span>
               <span
                 style={{
@@ -773,7 +773,7 @@ function index3() {
                   wordWrap: "break-word",
                 }}
               >
-                Life Uni Online
+                The Origin Online
               </span>
               <span
                 style={{

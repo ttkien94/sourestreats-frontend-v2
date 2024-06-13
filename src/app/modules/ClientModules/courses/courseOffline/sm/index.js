@@ -154,7 +154,7 @@ function SelfMastery() {
             </div>
             <h3 className=" mt-3 mb-5 col-10 offset-1 quote">
               Đầu tư cho những mối quan hệ chính là đầu tư “SINH LỜI” nhiều
-              nhất. Đừng chần chừ, hãy cho LIFE UNI cơ hội được giúp bạn sống
+              nhất. Đừng chần chừ, hãy cho THE ORIGINS cơ hội được giúp bạn sống
               hòa hợp và hạnh phúc hơn với cuộc đời !
             </h3>
           </div>

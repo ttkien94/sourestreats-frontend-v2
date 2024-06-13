@@ -1,0 +1,28 @@
+$pink: #f952a2;
+$purple: #8420be;
+$orange: #ffc771;
+
+.the-first-step {
+  .tfs-banner {
+    position: relative;
+    height: calc(100vh - 80px);
+  }
+  .coach-vas-2 {
+    background-size: 500px;
+    background-position-x: 30%;
+    background-blend-mode: lighten;
+  }
+  .coach-vas-3 {
+    background-size: 500px;
+    background-position-x: 60%;
+  }
+
+  .overlay {
+    bottom: 0;
+    top: unset;
+  }
+  .container-fluid {
+    position: absolute;
+    bottom: 0;
+  }
+}

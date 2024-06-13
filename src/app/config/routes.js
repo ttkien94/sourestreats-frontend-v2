@@ -59,7 +59,7 @@ export const publicRoutes = [
     exact: true,
     path: URL_PATH_CLIENT.HOME,
   },
-  // Life Uni Online
+  // The Origin Online
   // {
   //   component: Client.CourseOnlineSelfMastery,
   //   exact: true,
@@ -120,6 +120,11 @@ export const publicRoutes = [
     component: Client.CourseOfflinePP,
     exact: true,
     path: OFFLINE_PATH_CLIENT.khoa1,
+  },
+  {
+    component: Client.CourseOfffLineTheFirstStep,
+    exact: true,
+    path: OFFLINE_PATH_CLIENT.theFirstStep,
   },
   {
     component: Client.CourseOfflineSM,

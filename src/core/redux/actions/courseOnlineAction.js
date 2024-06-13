@@ -39,7 +39,6 @@ export const getDetailCourseOnlineAction = (_id) => {
         url: API_ENDPOINT + API_GET_DETAIL_COURSE_ONLINE + _id,
         method: "GET",
       }).then((res) => {
-        console.log("FETCH_DETAIL_COURSE_ONLINE_REQUESTING success", res);
         dispatch({
           type: COURSE_ONLINE_DETAIL,
           payload: res.data,

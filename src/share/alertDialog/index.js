@@ -9,7 +9,8 @@ import { Button } from "@mui/material";
 import React from "react";
 
 function AlertDialog(props) {
-  const { handleAction, openAlertDialog, setOpenAlertDialog } = props;
+  const { handleAction, openAlertDialog, setOpenAlertDialog, type } = props;
+
   const handleCloseAlertDialog = () => {
     setOpenAlertDialog(false);
   };
@@ -29,7 +30,7 @@ function AlertDialog(props) {
       </DialogContent>
       <DialogActions>
         <Button onClick={handleCloseAlertDialog}>Hủy Bỏ</Button>
-        <Button onClick={handleAction} color="error">
+        <Button onClick={() => handleAction(type)} color="error">
           Xác Nhận
         </Button>
       </DialogActions>

@@ -65,11 +65,10 @@ function CourseOnlineManager() {
   };
 
   const handleOpenDrawer = (data) => {
-    console.log("data", data);
     setCourseOnline(data);
     setOpenDrawer(true);
     // history.push("/admin/quan-ly-khoa-hoc-truc-tuyen/chi-tiet-khoa-hoc", {
-    //   data: itemEditing,
+    //   data: data,
     // });
   };
 

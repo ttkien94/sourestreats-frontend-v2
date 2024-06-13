@@ -9,6 +9,7 @@ import AdminTable from "share/adminTable";
 import { Button } from "@mui/material";
 import LPEDrawer from "app/components/drawer";
 import CreateVideoManager from "./components/createVideoManager";
+import AlertDialog from "share/alertDialog";
 function VideoManager(props) {
   const LIMIT = 10;
   const headCells = [
@@ -22,7 +23,10 @@ function VideoManager(props) {
   // const [isFiltered, setIsFiltered] = useState(false);
   // const [dataFilter, setDataFilter] = useState({});
   const { loading, videoList } = useSelector((state) => state.video);
+  const [videoDeleteId, setvideoDeleteId] = useState(0);
   const [openDrawer, setOpenDrawer] = useState(false);
+  const [openAlertDialog, setOpenAlertDialog] = useState(false);
+
   const dispatch = useDispatch();
   useEffect(() => {
     loadData();
@@ -54,8 +58,9 @@ function VideoManager(props) {
   //   setDataFilter(filter);
   // };
 
-  const handleDelete = (video_id) => {
-    dispatch(deleteVideoAction(video_id));
+  const handleDeleteVideo = (video_id) => {
+    setOpenAlertDialog(true);
+    setvideoDeleteId(video_id);
   };
   const renderNoData = () => {
     return <div>Khong co du lieu</div>;
@@ -67,7 +72,8 @@ function VideoManager(props) {
           tableHead={headCells}
           tableData={videoList.data}
           view="video"
-          onHandleDelete={(video_id) => handleDelete(video_id)}
+          type="video"
+          onHandleDelete={(video_id) => handleDeleteVideo(video_id)}
           handleOpenDrawer={(data) => {
             handleOpenDrawer(data);
           }}
@@ -102,6 +108,14 @@ function VideoManager(props) {
       >
         <CreateVideoManager onToggleDrawer={toggleDrawer} onEdit={video} />
       </LPEDrawer>
+      <AlertDialog
+        handleAction={() => {
+          dispatch(deleteVideoAction(videoDeleteId));
+          setOpenAlertDialog(false);
+        }}
+        openAlertDialog={openAlertDialog}
+        setOpenAlertDialog={setOpenAlertDialog}
+      />
     </>
   );
 }

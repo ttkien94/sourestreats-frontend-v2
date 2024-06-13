@@ -88,11 +88,10 @@ function Timeline() {
 
               {/* <h4 className="timeline-title">Our nice super title</h4> */}
               <p className="timeline-text">
-                Life University ngày một phát triển với nhiều hơn nữa những
-                chương trình đào tạo tuyệt vời. Phù hợp với nhiều nhu cầu, nhiều
-                đối tượng khác nhau. Chương trình Tìm Lại Lẽ Sống & Khát Vọng
-                Thành Công (Lần thứ 35) đón nhận hơn 3000 người Việt Nam tham
-                dự.
+                THE ORIGINS ngày một phát triển với nhiều hơn nữa những chương
+                trình đào tạo tuyệt vời. Phù hợp với nhiều nhu cầu, nhiều đối
+                tượng khác nhau. Chương trình Tìm Lại Lẽ Sống & Khát Vọng Thành
+                Công (Lần thứ 35) đón nhận hơn 3000 người Việt Nam tham dự.
               </p>
             </div>
           </SwiperSlide>
@@ -109,10 +108,10 @@ function Timeline() {
 
               {/* <h4 className="timeline-title">Our nice super title</h4> */}
               <p className="timeline-text">
-                LIFE UNI đã lần thứ 5 dẫn dắt một số lượng rất lớn học viên cùng
-                chinh phục Nóc nhà Đông Dương - Đỉnh Fansipan. Năm thứ 5 học
-                viên Đại học Cuộc Đời được chấp chứng nhận Tốt nghiệp Combo10
-                với nhiều chứng chỉ NLP chuyên ngành khác.
+                THE ORIGINS đã lần thứ 5 dẫn dắt một số lượng rất lớn học viên
+                cùng chinh phục Nóc nhà Đông Dương - Đỉnh Fansipan. Năm thứ 5
+                học viên Đại học Cuộc Đời được chấp chứng nhận Tốt nghiệp
+                Combo10 với nhiều chứng chỉ NLP chuyên ngành khác.
               </p>
             </div>
           </SwiperSlide>
@@ -129,10 +128,10 @@ function Timeline() {
 
               {/* <h4 className="timeline-title">Our nice super title</h4> */}
               <p className="timeline-text">
-                Bước vào giai đoạn Covid, LIFE UNI tiếp tục cho ra mắt chuỗi
+                Bước vào giai đoạn Covid, THE ORIGINS tiếp tục cho ra mắt chuỗi
                 chương trình online, nhằm giải quyết kịp thời các vấn đề của con
                 người ở giai đoạn hiện tại. Dù tình thế khó khăn như thế nào,
-                LIFE UNI vẫn không bao giờ trì hoãn các kế hoạch hoạt động và
+                THE ORIGINS vẫn không bao giờ trì hoãn các kế hoạch hoạt động và
                 phát triển.
               </p>
             </div>
@@ -150,9 +149,9 @@ function Timeline() {
 
               {/* <h4 className="timeline-title">Our nice super title</h4> */}
               <p className="timeline-text">
-                LIFE UNI cho ra đời một chuỗi chương trình hoàn toàn mới, phù
+                THE ORIGINS cho ra đời một chuỗi chương trình hoàn toàn mới, phù
                 hợp với những ai mong muốn trở thành Diễn Giả NLP và là đối tác
-                chính thức của LIFE UNI: ITTC.
+                chính thức của THE ORIGINS: ITTC.
               </p>
             </div>
           </SwiperSlide>

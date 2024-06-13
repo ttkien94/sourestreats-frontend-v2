@@ -37,7 +37,7 @@ const ButtonSubmit = styled(Button)`
 const ButtonCancel = styled(Button)`
   color: #adb5bd;
 `;
-const pharseList = ["Phần 1", "Phần 2", "Phần 3"];
+const pharseList = ["Phần 1", "Phần 2", "Phần 3", "Phần 4"];
 function CourseCourseOnline({ onToggleDrawer, onEdit }) {
   const dispatch = useDispatch();
   // const [isLoading, setIsLoading] = useState(false);
@@ -47,7 +47,6 @@ function CourseCourseOnline({ onToggleDrawer, onEdit }) {
   const [selectedVideo, setSelectedVideo] = useState("");
   const [selectedPharse, setSelectedPharse] = useState(pharseList[0]);
   const { loading, videoList } = useSelector((state) => state.video);
-
   const initialValues = {
     _id: onEdit?._id || "",
     name: onEdit?.name || "Tháp 2",
@@ -69,7 +68,7 @@ function CourseCourseOnline({ onToggleDrawer, onEdit }) {
         pharse: "Phần 2",
         isView: false,
         totalTime: 0,
-        price: 191000,
+        price: 300000,
         videoList: [],
       },
       {
@@ -77,7 +76,15 @@ function CourseCourseOnline({ onToggleDrawer, onEdit }) {
         pharse: "Phần 3",
         isView: false,
         totalTime: 0,
-        price: 121000,
+        price: 400000,
+        videoList: [],
+      },
+      {
+        permission: false,
+        pharse: "Phần 4",
+        isView: false,
+        totalTime: 0,
+        price: 400000,
         videoList: [],
       },
     ],
@@ -87,6 +94,7 @@ function CourseCourseOnline({ onToggleDrawer, onEdit }) {
   const headCells = [
     { id: "STT", label: "STT" },
     { id: "name", label: "Name" },
+    { id: "url", label: "Url" },
     { id: "action", label: "Thao tác" },
   ];
   const validationSchema = Yup.object().shape({
@@ -107,8 +115,8 @@ function CourseCourseOnline({ onToggleDrawer, onEdit }) {
     if (videoList && videoList.data && videoList.data.length > 0) {
       if (onEdit) {
         let newVideoList = _.cloneDeep(videoList.data);
-        onEdit.lesson.forEach((pharse) => {
-          pharse.videoList.forEach((video, index) => {
+        onEdit.lesson?.forEach((pharse) => {
+          pharse.videoList?.forEach((video, index) => {
             let i = newVideoList.findIndex((x) => x._id === video._id);
             if (i !== -1) {
               newVideoList.splice(i, 1);
@@ -117,7 +125,7 @@ function CourseCourseOnline({ onToggleDrawer, onEdit }) {
         });
 
         setCurrentVideoList(newVideoList);
-        setSelectedVideo(newVideoList[0]._id);
+        setSelectedVideo(newVideoList[0]?._id);
       } else {
         setSelectedVideo(videoList.data[0]._id);
         setCurrentVideoList(videoList.data);
@@ -182,12 +190,10 @@ function CourseCourseOnline({ onToggleDrawer, onEdit }) {
 
     // delete video
     let newLesson = values.lesson;
-    console.log("newLesson 1", newLesson, pharse);
     newLesson.forEach((item) => {
       if (item.pharse === pharse.pharse) {
         let i = item.videoList.findIndex((v) => v._id === _id);
         if (i !== -1) {
-          console.log("i", i);
           item.videoList.splice(i, 1);
         }
       }

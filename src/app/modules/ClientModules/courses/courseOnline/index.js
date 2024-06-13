@@ -14,13 +14,13 @@ import "./styles/styles.scss";
 // <SoulRetreatsBanner
 //   bannerImg={banner}
 //   headText="Khóa học Online"
-//   subText="LIFE UNI có các khóa học trực tuyến nhằm cung cấp kiến thức cho những học viên có nhu cầu học từ xa."
+//   subText="THE ORIGINS có các khóa học trực tuyến nhằm cung cấp kiến thức cho những học viên có nhu cầu học từ xa."
 // />
 
 // <div className="container pb-5">
 //   <div className="heading">
 //     <h1 className="heading-text">
-//       Các khóa Online hiện tại của LIFE UNI
+//       Các khóa Online hiện tại của THE ORIGINS
 //     </h1>
 //     <p className="heading-desc">
 //       Dành cho tất cả học viên có nhu cầu học Online

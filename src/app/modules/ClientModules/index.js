@@ -12,7 +12,8 @@ import CourseOnline from "./courses/courseOnline";
 import CourseOffline from "./courses/courseOffline";
 import CourseMedia from "./courses/courseMedia";
 // course offline combo 10
-import CourseOfflinePP from "./courses/courseOffline/pp";
+import CourseOfffLineTheFirstStep from "./courses/courseOffline/1st";
+import CourseOfflinePP from "./courses/courseOffline/pp/index2";
 import CourseOfflineSM from "./courses/courseOffline/sm";
 import CourseOfflineUM from "./courses/courseOffline/um";
 
@@ -81,6 +82,7 @@ const Client = {
   Course,
   CourseOnline,
   CourseOffline,
+  CourseOfffLineTheFirstStep,
   CourseOfflinePP,
   CourseOfflineSM,
   CourseOfflineUM,

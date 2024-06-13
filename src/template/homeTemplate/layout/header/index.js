@@ -23,7 +23,7 @@ import SidebarHeader from "./components/sidebar";
 import { logOutAction } from "core/redux/actions/authAction";
 
 // media file
-import logo from "assets/images/lifeuni-logo.png";
+import logo from "assets/images/origins-logo.png";
 
 import "./styles/styles.scss";
 
@@ -94,8 +94,8 @@ function LPEHeader() {
   const logOut = () => {
     dispatch(logOutAction(history));
   };
-  console.log("userInfo;", userInfo, isEmpty(userInfo));
-  console.log("token?.length:", token?.length);
+  // console.log("userInfo;", userInfo, isEmpty(userInfo));
+  // console.log("token?.length:", token?.length);
   const PopOverContent = () => {
     return (
       <div className="popOver">

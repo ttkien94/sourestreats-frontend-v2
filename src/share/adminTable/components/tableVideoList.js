@@ -19,17 +19,18 @@ function TableVideoList({
   const handleDelete = (id) => {
     onHandleDelete && onHandleDelete(id, pharse);
   };
+  console.log("dataItem", dataItem);
   return (
-    <TableRow key={dataItem._id}>
+    <TableRow key={dataItem?._id}>
       <TableCell align="left">{index ? index + 1 : 1}</TableCell>
-      <TableCell align="left">{dataItem.name}</TableCell>
+      <TableCell align="left">{dataItem?.name}</TableCell>
       {type !== "createCourseOnline" && (
         <>
           <TableCell align="left" width="10%">
-            {dataItem.url}
+            {dataItem?.url}
           </TableCell>
           <TableCell align="left">
-            {dataItem.questionList.map((question, index) => {
+            {dataItem?.questionList?.map((question, index) => {
               return <div key={index}>{question.question}</div>;
             })}
           </TableCell>
@@ -55,7 +56,7 @@ function TableVideoList({
             className="ml-3"
             color="error"
             onClick={() => {
-              handleDelete(dataItem._id);
+              handleDelete(dataItem?._id);
             }}
           >
             Xóa

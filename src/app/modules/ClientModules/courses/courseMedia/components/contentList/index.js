@@ -16,7 +16,7 @@ function ContentListCourseMedia(props) {
         <ul style={{ listStyleType: "none", paddingLeft: 0 }}>
           {array.map((item, idx) => {
             return (
-              <li className="mt-2" style={{ lineHeight: "28px" }}>
+              <li className="mt-2" style={{ lineHeight: "28px" }} key={idx}>
                 <IconUl sx={{ color: "#0463C3" }} className="mr-2" />
                 {type === "willLearn" ? (
                   <span>

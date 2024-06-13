@@ -8,9 +8,9 @@ import ModalVideo from "react-modal-video";
 import { getIdVideo } from "core/utils/videoLinkUtil";
 
 // import media file
-import lifeUni from "assets/images/source/banner/the-origins.png";
+import lifeUni from "assets/images/source/banner/the-origins.jpg";
 import vas from "assets/images/source/banner/coach-vas.jpg";
-import lhgt from "assets/images/source/banner/coach-vas.png";
+import lhgt from "assets/images/source/banner/coach-giang-thanh.jpg";
 import Video from "assets/video-demo.mp4";
 import vasThumbnail from "assets/images/source/thumbnail-vas.jpg";
 import gtThumbnail from "assets/images/source/thumbnail-gt.jpg";
@@ -24,7 +24,7 @@ SwiperCore.use([Autoplay, Pagination, Navigation]);
 const topUpSrc = [
   {
     imgSrc: lifeUni,
-    bigText: "Về LIFE UNI",
+    bigText: "Về THE ORIGINS",
     desc: "intro_sr",
     linkVideo: "https://www.youtube.com/watch?v=ed3F3lkJCyg",
     linkInfo: "/",

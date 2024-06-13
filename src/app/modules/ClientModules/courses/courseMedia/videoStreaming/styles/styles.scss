@@ -1,11 +1,35 @@
 .video-streaming {
-  background-color: #0f1c23;
+  background-color: white;
   .MuiPaper-root {
-    background-color: #282c38;
+    background-color: white;
   }
   .isLearning {
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: rgb(39, 37, 37) !important;
+    color: white;
   }
+  .isLearned {
+    background-color: rgb(0, 171, 85);
+    color: white;
+  }
+  .answer-question {
+  }
+  .quiz {
+    min-height: 100vh;
+    .btn {
+      &:hover,
+      &:visited,
+      &:focus {
+        border: 1px solid white;
+      }
+    }
+    .thanks-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 250px;
+    }
+  }
+
   // .MuiSvgIcon-root {
   //   color: white;
   // }
@@ -54,4 +78,30 @@
   //   background: #282c38;
   //   margin: 8px;
   // }
+}
+.container-login {
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff; /* White container */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  h1 {
+    color: #007bff; /* Blue heading color */
+  }
+
+  p {
+    color: #28a745; /* Green paragraph color */
+  }
+
+  .button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff; /* Blue button background */
+    color: #fff; /* Button text color */
+    text-decoration: none;
+    border-radius: 5px;
+  }
+
+  .button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
 }

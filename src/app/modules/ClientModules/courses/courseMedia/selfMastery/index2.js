@@ -61,7 +61,7 @@ function SelfMastery() {
   const topUpSrc = [
     {
       // imgSrc: lpe,
-      // bigText: "Về LIFE UNI",
+      // bigText: "Về The Origins",
       // desc: "intro_lpe",
       // linkVideo:
       //   "https://player.vimeo.com/video/876218561?badge=0&amp;autopause=0&amp;quality_selector=1&amp;progress_bar=1&amp;player_id=0&amp;app_id=58479",

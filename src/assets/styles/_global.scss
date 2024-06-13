@@ -10,8 +10,14 @@ body {
 }
 $color-text: #0f0a64;
 $color-text2: #0463c3;
-
+$color-text-primary: #454545;
+$color-text-secondary: #5d5d5d;
+$color-text-teriaty: #a4a4a4;
+$bg-color: #f6f4f1;
+$blue-500: #1081e7;
+$blue-600: #0463c3;
 $color-secondary: #9eacc7;
+
 $blue2: #3a9df6;
 iframe {
   width: 100%;
@@ -30,6 +36,48 @@ h4,
 h5 {
   font-family: "Gilroy-Bold", sans-serif;
 }
+@keyframes movingRegister {
+  0% {
+    top: 0%;
+  }
+  50% {
+    top: calc(0% + 10px);
+  }
+  100% {
+    top: 0%;
+  }
+}
+@mixin button {
+  font-family: "Gilroy", sans-serif;
+  line-height: 17px;
+  color: white;
+  padding: 12px 28px;
+  border-radius: 40px;
+  max-height: 44px;
+  font-weight: bold;
+}
+.button-primary {
+  @include button;
+  background-color: #0463c3;
+}
+.button-secondary {
+  @include button;
+  background-color: rgba(4, 99, 195, 0.1);
+  color: #0463c3;
+  &:hover {
+    color: white;
+  }
+}
+.button-critical {
+  @include button;
+  background-color: #c8513a 10%;
+  color: #c8513a;
+}
+.button-orange {
+  @include button;
+  color: black;
+  background-color: #ffc771;
+}
 .section-background {
   position: absolute;
   width: 100%;
@@ -38,6 +86,9 @@ h5 {
   left: 0;
   pointer-events: none;
   overflow: hidden;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 .overlay {
   position: absolute;
@@ -102,7 +153,7 @@ h5 {
 }
 .promo-price {
   color: #3a9df6;
-  font-size: 21px;
+  font-size: 22px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -170,6 +221,9 @@ h5 {
   position: -webkit-sticky; /* Safari */
   position: sticky;
   top: 80px;
+  z-index: 999;
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
 }
 .order2 {
   order: 2;
@@ -252,6 +306,7 @@ h5 {
 .text-white {
   color: white;
 }
+
 .video-source {
   position: relative;
   height: 500px;

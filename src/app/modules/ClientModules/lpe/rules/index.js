@@ -36,7 +36,7 @@ function Rules() {
       {/* Background Title */}
       <SoulRetreatsBanner
         bannerImg={banner}
-        headText="Hãy cùng với chúng tôi tìm hiểu thêm về LIFE UNI"
+        headText="Hãy cùng với chúng tôi tìm hiểu thêm về THE ORIGINS"
         subText="Nội quy và chính sách để phục vụ khách hàng tốt hơn"
       />
 

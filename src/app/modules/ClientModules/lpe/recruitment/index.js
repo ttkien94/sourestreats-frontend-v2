@@ -101,7 +101,7 @@ function Recruitment() {
 
       <section className="container py-5">
         <h2 className="spotLightMainTitle">
-          Điểm đáng chú ý ở công việc tại LIFE UNI
+          Điểm đáng chú ý ở công việc tại THE ORIGINS
         </h2>
         <div className="row">
           {spotLight.map((spotLight) => {

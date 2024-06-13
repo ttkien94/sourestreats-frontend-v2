@@ -29,7 +29,7 @@ function CourseMediaSelfMastery() {
   const topUpSrc = [
     {
       imgSrc: lifeUni,
-      bigText: "Về LIFE UNI",
+      bigText: "Về THE ORIGINS",
       desc: "intro_lifeuni",
       linkVideo:
         "https://player.vimeo.com/video/890973918?badge=0&amp;autopause=0&amp;quality_selector=1&amp;progress_bar=1&amp;player_id=0&amp;app_id=58479",

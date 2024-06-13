@@ -40,12 +40,14 @@ function CourseMediaTower() {
       <SoulRetreatsBanner
         bannerImg={banner}
         headText="Khóa học Media"
-        subText="LIFE UNI có các khóa học trực tuyến nhằm cung cấp kiến thức cho những học viên có nhu cầu học từ xa."
+        subText="THE ORIGINS có các khóa học trực tuyến nhằm cung cấp kiến thức cho những học viên có nhu cầu học từ xa."
       />
 
       <div className="container pb-5">
         <div className="heading">
-          <h1 className="heading-text">Các khóa Media hiện tại của LIFE UNI</h1>
+          <h1 className="heading-text">
+            Các khóa Media hiện tại của THE ORIGINS
+          </h1>
           <p className="heading-desc">
             Dành cho tất cả học viên có nhu cầu học Online
           </p>

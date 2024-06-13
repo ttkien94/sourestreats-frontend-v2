@@ -115,7 +115,9 @@ function CourseOffline() {
 
       <div className="container">
         <div className="heading">
-          <h3 className="heading-text">Các khóa Offline khác</h3>
+          <h3 className="heading-text">
+            THE ORIGINS - CHƯƠNG TRÌNH OFFLINE KHÁC
+          </h3>
           <p className="heading-desc">
             Bao gồm nhiều khóa lẻ, dành cho nhiều độ tuổi khác nhau và đạt được
             những thành tựu khác nhau.

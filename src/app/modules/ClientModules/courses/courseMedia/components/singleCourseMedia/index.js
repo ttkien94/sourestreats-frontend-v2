@@ -2,14 +2,14 @@ import React from "react";
 import OverviewCourseMedia from "../overviewCourseMedia";
 
 // import media file
-import bannerSingleCourseMedia from "assets/images/source/course-media/single-course-media.png";
+import bannerSingleCourseMedia from "assets/images/source/course-media/single-course-media.jpg";
+import timeLine from "assets/images/source/course-media/single-course-media-timeline.png";
 import starRate from "assets/images/source/course-media/starRate.png";
 import ContentListCourseMedia from "../contentList";
 import ContentLessonCourseMedia from "../contentLesson";
 import ContentReviewSkill from "../contentReviewSkill";
 import { useLocation } from "react-router-dom";
 function SingleCourseMedia(props) {
-  const overView = props?.overView || {};
   const { name, numberSudentRate, description } = props;
   return (
     <div>
@@ -38,7 +38,7 @@ function SingleCourseMedia(props) {
                   height={15}
                   style={{ marginRight: 10 }}
                 />
-                {/* {numberSudentRate} học viên */}
+                {numberSudentRate} học viên đã đăng ký
               </div>
               <div className="mt-3 description-gray">{description}</div>
             </div>
@@ -47,6 +47,9 @@ function SingleCourseMedia(props) {
             </div>
             <div className="row mt-5">
               <ContentLessonCourseMedia {...props} />
+            </div>
+            <div className="row mt-5">
+              <img src={timeLine} alt="img_singlecourse" width="100%" />
             </div>
             {/* <div className="row mt-5">
               <ContentReviewSkill {...props} />

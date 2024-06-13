@@ -8,7 +8,7 @@ import TableVideoList from "./components/tableVideoList";
 import TableCourseOnlineList from "./components/tableCourseOnlineList";
 import TableScheduleCourseOnline from "./components/tableScheduleCourseOnline";
 
-function AdminTable({ tableHead, tableData, view, ...rest }) {
+function AdminTable({ tableHead, tableData, view, type, ...rest }) {
   // const onHandleClick = () => {};
   // const onHandleEdit = () => {};
   const renderHeader = () => {
@@ -33,6 +33,7 @@ function AdminTable({ tableHead, tableData, view, ...rest }) {
                 view={view}
                 dataItem={item}
                 key={index}
+                type={type}
                 {...rest}
               />
             );
@@ -45,6 +46,7 @@ function AdminTable({ tableHead, tableData, view, ...rest }) {
                   view={view}
                   dataItem={item}
                   index={index}
+                  type={type}
                   {...rest}
                 />
               );
@@ -58,6 +60,7 @@ function AdminTable({ tableHead, tableData, view, ...rest }) {
                   view={view}
                   dataItem={item}
                   key={index}
+                  type={type}
                   {...rest}
                 />
               );
@@ -70,6 +73,20 @@ function AdminTable({ tableHead, tableData, view, ...rest }) {
                   view={view}
                   dataItem={item}
                   key={index}
+                  type={type}
+                  {...rest}
+                />
+              );
+            })
+          : null}
+        {view === "video"
+          ? tableData.map((item, index) => {
+              return (
+                <TableVideoList
+                  view={view}
+                  dataItem={item}
+                  key={index}
+                  type={type}
                   {...rest}
                 />
               );
@@ -102,12 +119,12 @@ function AdminTable({ tableHead, tableData, view, ...rest }) {
   return (
     <Box sx={{ width: "100%", ...rest.style }} className={rest.className}>
       <Paper sx={{ width: "100%", mb: 2 }}>
-        {view === "video" ? (
+        {view === "video" && type === "createCourseOnline" ? (
           tableData.map((pharse, index) => {
             return (
               <div key={index}>
                 <div className="title-h2 mt-5">{pharse.pharse}</div>
-                {pharse.videoList.length > 0 ? (
+                {pharse.videoList?.length > 0 ? (
                   <TableContainer>
                     <Table
                       sx={{ minWidth: 750 }}
@@ -115,10 +132,11 @@ function AdminTable({ tableHead, tableData, view, ...rest }) {
                       size={"medium"}
                     >
                       {renderHeader()}
-                      {pharse.videoList.map((video, idx) => {
+                      {pharse.videoList?.map((video, idx) => {
                         return (
                           <TableVideoList
                             pharse={pharse}
+                            type={type}
                             view={view}
                             dataItem={video}
                             index={idx}

@@ -20,7 +20,7 @@ import hinh02 from "assets/images/source/hinh02.jpg";
 import hinh03 from "assets/images/source/hinh03.jpg";
 import hinh04 from "assets/images/source/hinh04.jpg";
 import Video from "assets/video-demo.mp4";
-// import khanhvy from "assets/images/source/khanh-my.png";
+import khanhvy from "assets/images/source/khanh-my.png";
 import nguyentuanvu from "assets/images/source/nguyen-tuan-vu.png";
 import hoanhai from "assets/images/source/hoan-hai.png";
 
@@ -132,21 +132,13 @@ export default function Home() {
   ];
 
   const arrayTestimonials = [
-    // {
-    //   id: 1,
-    //   rating: 5,
-    //   hero: t("chair_man_talk"),
-    //   name: `${t("ms")} Nguyễn Khánh Vy`,
-    //   // job: `(${t("chair_man")}  Deloitte Việt Nam)`,
-    //   ava: khanhvy,
-    // },
     {
-      id: 2,
-      rating: 4,
-      hero: t("ceo_talk"),
-      name: `${t("mr")} Nguyễn Tuấn Vũ`,
-      // job: `(${t("ceo")} Vietphulabel)`,
-      ava: nguyentuanvu,
+      id: 1,
+      rating: 5,
+      hero: t("chair_man_talk"),
+      name: `${t("ms")} Nguyễn Khánh Vy`,
+      // job: `(${t("chair_man")}  Deloitte Việt Nam)`,
+      ava: khanhvy,
     },
     {
       id: 4,

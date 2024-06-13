@@ -180,7 +180,7 @@ function LTC() {
                   alt={ltc.ltc08c}
                   className="specialTitle"
                 />
-                <p>QUYỀN LỢI THAM GIA ĐỘI NGŨ HỖ TRỢ CỦA LIFE UNIVERSITY</p>
+                <p>QUYỀN LỢI THAM GIA ĐỘI NGŨ HỖ TRỢ CỦA THE ORIGINS</p>
                 <p>
                   Có cơ hội tham gia vào đội ngũ Hỗ Trợ theo cấp độ chương trình
                   thuộc Chuỗi Đại Học Cuộc Đời do Coach Vas đào tạo.
@@ -284,7 +284,7 @@ function LTC() {
                   themselves - break throuhg every limitation and obtacles.
                 </li>
               </ul>
-              <h3>**BENEFIT: Join Support Team in Life University.</h3>
+              <h3>**BENEFIT: Join Support Team in THE ORIGINS.</h3>
               <ul>
                 <li>
                   Have an opportunity to join Support Team at programs in Life

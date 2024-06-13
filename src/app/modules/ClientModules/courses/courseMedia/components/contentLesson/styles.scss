@@ -1,0 +1,62 @@
+.box-title {
+  text-transform: uppercase;
+  background-color: #23a7ab;
+  text-align: center;
+  border-radius: 20px;
+  width: fit-content;
+  padding: 10px 20px;
+  color: white;
+}
+
+@mixin text-transfer {
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+.icon-gradient {
+  &-0 {
+    color: #f57f13;
+  }
+  &-1 {
+    color: #31b8bb;
+  }
+  &-2 {
+    color: #e63a05;
+  }
+  &-3 {
+    color: #ff05ff;
+  }
+}
+.title-lesson {
+  &-0 {
+    @include text-transfer;
+    background: linear-gradient(#ed4602, #f57f13);
+  }
+  &-1 {
+    @include text-transfer;
+    background: linear-gradient(#23a7ab, #31b8bb);
+  }
+  &-2 {
+    @include text-transfer;
+    background: linear-gradient(#ffaa0f, red);
+  }
+  &-3 {
+    @include text-transfer;
+    background: linear-gradient(#ff05ff, #b304b3);
+  }
+}
+
+.background-lesson {
+  &-0 {
+    background-image: linear-gradient(#ed4602, #f57f13);
+  }
+  &-1 {
+    background-image: linear-gradient(#23a7ab, #31b8bb);
+  }
+  &-2 {
+    background-image: linear-gradient(#ffaa0f, red);
+  }
+  &-3 {
+    background-image: linear-gradient(#ff05ff, #b304b3);
+  }
+}

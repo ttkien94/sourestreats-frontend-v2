@@ -14,6 +14,7 @@ import {
 } from "core/redux/actions/videoAction";
 import { getQuestionAction } from "core/redux/actions/questionAction";
 import AdminTable from "share/adminTable";
+import SearchBar from "share/searchBar";
 
 const ButtonSubmit = styled(Button)`
   color: #fff;
@@ -33,12 +34,29 @@ function CreateVideoManager({ onToggleDrawer, onEdit }) {
   const { loading } = useSelector((state) => state.video);
   const { questionList } = useSelector((state) => state.question);
   const [currentQuestionList, setCurrentQuestionList] = useState([]);
+  const [searchQuestionList, setSearchQuestionList] = useState([]);
   const [selectedQuestion, setSelectedQuestion] = useState("");
+  const [txtSearch, setTxtSearch] = useState("");
   const headCells = [
     { id: "STT", label: "STT" },
     { id: "question", label: "Question" },
     { id: "action", label: "Thao tác" },
   ];
+
+  const validationSchema = Yup.object().shape({
+    name: Yup.string().required("Vui lòng nhập trường này."),
+    url: Yup.string().required("Vui lòng nhập trường này."),
+    questionList: Yup.array().required("Vui lòng nhập trường này."),
+    duration: Yup.number().required("Vui lòng nhập thời lượng video"),
+  });
+  const initialValues = onEdit
+    ? onEdit
+    : {
+        name: "NLP là gì?",
+        url: "https://player.vimeo.com/video/897490048?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
+        duration: "843",
+        questionList: [],
+      };
   useEffect(() => {
     loadData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -55,24 +73,37 @@ function CreateVideoManager({ onToggleDrawer, onEdit }) {
           }
         });
         setCurrentQuestionList(newQuestionList);
+        setSearchQuestionList(newQuestionList);
         setSelectedQuestion(newQuestionList[0]._id);
       } else {
         setSelectedQuestion(questionList.data[0]._id);
         setCurrentQuestionList(questionList.data);
+        setSearchQuestionList(questionList.data);
       }
     }
   }, [questionList, onEdit]);
+
+  useEffect(() => {
+    // Iterate through each object in the array
+    if (
+      currentQuestionList &&
+      currentQuestionList.length > 0 &&
+      txtSearch !== ""
+    ) {
+      let results = [];
+      currentQuestionList.forEach((obj) => {
+        // Iterate through each property of the object
+        if (obj.question.toString().includes(txtSearch)) {
+          results.push(obj);
+        }
+      });
+      setSearchQuestionList(results);
+    }
+  }, [txtSearch]);
+
   const loadData = () => {
     dispatch(getQuestionAction());
   };
-  const initialValues = onEdit
-    ? onEdit
-    : {
-        name: "NLP là gì?",
-        url: "https://player.vimeo.com/video/897490048?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
-        duration: "843",
-        questionList: [],
-      };
 
   const handleCreateVideo = (data) => {
     dispatch(createVideoAction(data));
@@ -81,12 +112,6 @@ function CreateVideoManager({ onToggleDrawer, onEdit }) {
     dispatch(editVideoAction(_id, data));
   };
 
-  const validationSchema = Yup.object().shape({
-    name: Yup.string().required("Vui lòng nhập trường này."),
-    url: Yup.string().required("Vui lòng nhập trường này."),
-    questionList: Yup.array().required("Vui lòng nhập trường này."),
-    duration: Yup.number().required("Vui lòng nhập thời lượng video"),
-  });
   const handleCloseDrawer = () => {
     onToggleDrawer && onToggleDrawer();
   };
@@ -100,7 +125,9 @@ function CreateVideoManager({ onToggleDrawer, onEdit }) {
       newCurrentQuestion.splice(i, 1);
       setSelectedQuestion(newCurrentQuestion[0]._id);
       setCurrentQuestionList(newCurrentQuestion);
+      setSearchQuestionList(newCurrentQuestion);
       setFieldValue("questionList", newList);
+      setTxtSearch("");
     }
   };
   const handleDeleteQuestion = (question_id, values, setFieldValue) => {
@@ -113,6 +140,7 @@ function CreateVideoManager({ onToggleDrawer, onEdit }) {
       newList.splice(i, 1);
       setSelectedQuestion(object._id);
       setCurrentQuestionList(newCurrentQuestion);
+      setSearchQuestionList(newCurrentQuestion);
       setFieldValue("questionList", newList);
     }
   };
@@ -170,25 +198,13 @@ function CreateVideoManager({ onToggleDrawer, onEdit }) {
                     className="w-100 mb-4"
                   />
                 </div>
-                <div className="col-12 d-flex align-items-center justify-content-between mb-3">
-                  <select
-                    className="input-select  px-3 py-3 "
-                    onChange={(e) => setSelectedQuestion(e.target.value)}
-                  >
-                    {currentQuestionList.map((item, index) => {
-                      return (
-                        <option
-                          key={index}
-                          value={item._id}
-                          selected={
-                            selectedQuestion === item._id ? true : false
-                          }
-                        >
-                          {item.question}
-                        </option>
-                      );
-                    })}
-                  </select>
+                <div className="col-12 d-flex align-items-center justify-content-center mb-3">
+                  <SearchBar
+                    txtSearch={txtSearch}
+                    handleDebouceSearch={(txt) => {
+                      setTxtSearch(txt);
+                    }}
+                  />
                   <ButtonSubmit
                     onClick={(e) => handleAddQuestion(e, values, setFieldValue)}
                     className="ml-3"
@@ -196,6 +212,29 @@ function CreateVideoManager({ onToggleDrawer, onEdit }) {
                   >
                     Thêm câu hỏi
                   </ButtonSubmit>
+                </div>
+                <div
+                  className="input-select  px-3 py-3  "
+                  style={{ height: "200px", overflow: "scroll" }}
+                  onChange={(e) => setSelectedQuestion(e.target.value)}
+                >
+                  {searchQuestionList.map((item, index) => {
+                    return (
+                      <button
+                        key={index}
+                        value={item._id}
+                        className={`display-block mb-2 p-1 ${
+                          selectedQuestion === item._id && "bg-success"
+                        }`}
+                        // selected={selectedQuestion === item._id ? true : false}
+                        onClick={(e) => {
+                          setSelectedQuestion(e.target.value);
+                        }}
+                      >
+                        {item.question}
+                      </button>
+                    );
+                  })}
                 </div>
 
                 <AdminTable

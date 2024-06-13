@@ -1,5 +1,4 @@
 export const CONTENT_MENU = [
-  // { title: "LIFE UNIVERSITY", url: "/" },
   {
     title: "THE ORIGINS",
     url: "/",

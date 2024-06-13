@@ -21,7 +21,6 @@ import {
   getDetailScheduleCourseOnlineAction,
   handleStudentToScheduleCourseOnline,
 } from "core/redux/actions/scheduleCourseOnlineAction";
-// import SearchBar from "share/searchBar";
 import { useEffect } from "react";
 // import SelectField from "app/components/customField/selectField";
 import LPEDrawer from "app/components/drawer";
@@ -31,6 +30,8 @@ import _ from "lodash";
 import DatePickerField from "app/components/customField/datePickerField";
 // import { useNavigate } from "react-router-dom";
 import AlertDialog from "share/alertDialog";
+import Loading from "share/loading";
+import SearchBar from "share/searchBar";
 const ButtonSubmit = styled(Button)`
   color: #fff;
   background: #3777bc;
@@ -54,9 +55,10 @@ const headCells = [
 function EditScheduleCourseOnlineManager(props) {
   const [openDrawer, setOpenDrawer] = useState(false);
   const [openAlertDialog, setOpenAlertDialog] = useState(false);
-  // const [txtSearch, setTxtSearch] = useState("");
+  const [txtSearch, setTxtSearch] = useState("");
   // const [currentCourseList, setCurrentCourseList] = useState([]);
   // const [selectedCourse, setSelectedCourse] = useState("");
+  const [selectedData, setSelectedData] = useState({});
   const [studentList, setStudentList] = useState([]);
   const { loading, detailScheduleCourseOnline } = useSelector(
     (state) => state.scheduleCourseOnline
@@ -73,11 +75,6 @@ function EditScheduleCourseOnlineManager(props) {
   });
 
   useEffect(() => {
-    console.log("loading first", loading);
-    loadData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-  useEffect(() => {
     if (
       detailScheduleCourseOnline &&
       detailScheduleCourseOnline.studentList &&
@@ -93,14 +90,20 @@ function EditScheduleCourseOnlineManager(props) {
       });
       setStudentList(list);
     }
+    // console.log("detailScheduleCourseOnline", detailScheduleCourseOnline);
   }, [detailScheduleCourseOnline]);
+
+  useEffect(() => {
+    // console.log("loading first");
+    loadData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const loadData = () => {
     // get detail schedule _____
-    const initialValues = location.state?.onEdit;
-    dispatch(getDetailScheduleCourseOnlineAction(initialValues._id));
+    const _id = location.state?.onEdit._id;
+    dispatch(getDetailScheduleCourseOnlineAction(_id));
   };
-
   const handleCloseDrawer = () => {
     setOpenDrawer(false);
   };
@@ -118,7 +121,10 @@ function EditScheduleCourseOnlineManager(props) {
     newList.splice(itemIndex, 1);
     setStudentList(newList);
   };
-  const handleAddUserToList = (user) => {
+  const handleAddUserToList = (user, courseOnline) => {
+    console.log("user", user);
+    user.lesson = courseOnline.lesson;
+    user.fullPermission = false;
     const newList = _.cloneDeep(studentList);
     newList.push(user);
     setStudentList(newList);
@@ -130,112 +136,131 @@ function EditScheduleCourseOnlineManager(props) {
         studentList
       )
     );
+  };
+  const handleChangePermission = () => {
+    const newList = _.cloneDeep(studentList);
+    const index = studentList.findIndex(
+      (ele) => ele._id === selectedData.data._id
+    );
+    if (index !== -1) {
+      newList[index].lesson[selectedData.pharseIndex].permission =
+        !newList[index].lesson[selectedData.pharseIndex].permission;
+    }
     setOpenAlertDialog(false);
+    setStudentList(newList);
+  };
+  const handleOpenDialog = (ele) => {
+    setOpenAlertDialog(true);
+    setSelectedData(ele);
   };
   const renderFormData = (values, setFieldValue) => {
     return (
-      <Form
-        className="row "
-        style={{
-          margin: "20px 0",
-        }}
-      >
-        <div className="col-12 d-flex align-items-center">
-          <h3>{values.courseOnline[0].name}</h3>
-
-          <div className="col-2">
-            <FastField
-              name="startTime"
-              component={DatePickerField}
-              label="Thời gian bắt đầu"
-              placeholder="Thời gian bắt đầu"
-              className="w-100 mb-0"
-            />
-          </div>
-          <div className="col-2">
-            <FastField
-              name="endTime"
-              component={DatePickerField}
-              label="Thời gian kết thúc"
-              placeholder="Thời gian kết thúc"
-              className="w-100 mb-0"
-            />
-          </div>
-          <div className="col-3">
-            {" "}
-            <ButtonSubmit
-              type="submit"
-              onClick={() => handleEditScheduleCourseOnline(values._id, values)}
-            >
-              Thay đổi thời gian
-              {loading && <div className="loader ml-1"></div>}
-            </ButtonSubmit>
+      <Form className="row">
+        <div className="title-h2">{values.courseOnline[0].name}</div>
+        <div className="col-12 mt-3">
+          <div className="d-flex align-items-center justify-content-between">
+            <div className="title-h3 ">Thời gian học</div>
+            <div className="d-flex ">
+              <FastField
+                name="startTime"
+                component={DatePickerField}
+                label="Thời gian bắt đầu"
+                placeholder="Thời gian bắt đầu"
+                className="w-100 mb-0 mr-3"
+              />
+              <FastField
+                name="endTime"
+                component={DatePickerField}
+                label="Thời gian kết thúc"
+                placeholder="Thời gian kết thúc"
+                className="w-100 mb-0"
+              />
+              <Button
+                type="submit"
+                onClick={() =>
+                  handleEditScheduleCourseOnline(values._id, values)
+                }
+                variant="contained"
+                className="ml-3 mr-3 button-primary"
+                style={{ minWidth: 180 }}
+              >
+                Lưu thay đổi
+                {loading && <div className="loader ml-1"></div>}
+              </Button>
+            </div>
           </div>
         </div>
       </Form>
     );
   };
-  const renderStudentList = (values, setFieldValue) => {
+  const renderStudentList = () => {
     return (
       <Box
         sx={{
           display: "flex",
-          border: "1px solid #e4e6eb",
+          // border: "1px solid #e4e6eb",
           width: "100%",
           borderRadius: "10px",
-          boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
+          // boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
         }}
-        className="my-3 mx-3 row"
+        className="row"
       >
-        <div className="col-12 mt-3 mr-3  flex-alignitem">
-          <h3 className="mr-3">Danh sách học viên</h3>
-          {/* <SearchBar
-            placeholder="Tìm Kiếm Học Viên"
-            handleDebouceSearch={(txt) => setTxtSearch(txt)}
-          /> */}
-          <Button
-            variant="contained"
-            className="ml-3 mr-3 py-3"
-            color="primary"
-            onClick={handleOpenDrawer}
-          >
-            Thêm học viên
-          </Button>
-          <i>
-            Thoi gian bao luu khoa hoc nằm bên user getUserHaveCourse getUserNo
-          </i>
-          <Button
-            variant="contained"
-            className="ml-3 mr-3 py-3"
-            color="primary"
-            onClick={() => {
-              setOpenAlertDialog(true);
-            }}
-          >
-            Lưu
-          </Button>
+        {/* <p>
+          Thoi gian bao luu khoa hoc nằm bên user getUserHaveCourse getUserNo
+          Tao ghi chu luu tru du lieu
+        </p> */}
+        <div className="col-12  mt-3 sticky">
+          <div className="d-flex  align-items-center justify-content-between bg-white p-3">
+            <div className="title-h3">Danh sách học viên</div>
+            <div className="d-flex justify-content-end ">
+              <div className="px-3">
+                <SearchBar
+                  placeholder="Tìm Kiếm Học Viên"
+                  handleDebouceSearch={(txt) => setTxtSearch(txt)}
+                />
+              </div>
+              <Button
+                variant="contained"
+                onClick={handleOpenDrawer}
+                className="button-secondary"
+              >
+                + Thêm học viên
+              </Button>
+
+              <Button
+                variant="contained"
+                className="ml-3 mr-3 button-primary"
+                onClick={() => {
+                  handleSaveAction();
+                }}
+              >
+                Lưu Thay Đổi
+              </Button>
+            </div>
+          </div>
         </div>
         <div className="col-12 my-3">
-          {studentList && studentList.length > 0 ? (
-            <div>
-              <AdminTable
-                tableHead={headCells}
-                tableData={studentList}
-                type="scheduleCourseOnline"
-                view="user"
-                onHandleDelete={handleDeleteUserToList}
-              />
-            </div>
-          ) : (
-            <h3>Không có học viên</h3>
+          {studentList && studentList.length > 0 && (
+            <AdminTable
+              tableHead={headCells}
+              tableData={studentList}
+              type="scheduleCourseOnline"
+              view="user"
+              onHandleDelete={handleDeleteUserToList}
+              handleOpenDialog={(ele) => handleOpenDialog(ele)}
+            />
           )}
+          <AlertDialog
+            openAlertDialog={openAlertDialog}
+            setOpenAlertDialog={setOpenAlertDialog}
+            handleAction={() => handleChangePermission()}
+          />
         </div>
       </Box>
     );
   };
 
   const renderBody = () => {
-    console.log("loading", loading);
     return (
       <div className="admin-question">
         <Formik
@@ -246,44 +271,43 @@ function EditScheduleCourseOnlineManager(props) {
           {(formikProps) => {
             const { values, setFieldValue } = formikProps;
 
-            // console.log("values.option", values.option);
-            console.log("values", values);
+            // console.log("values", values);
             return (
               <div>
                 {renderFormData(values, setFieldValue)}
+                <hr />
                 {renderStudentList()}
+
+                <LPEDrawer
+                  anchor="left"
+                  isOpen={openDrawer}
+                  onToggle={handleCloseDrawer}
+                  disableScrollLock
+                >
+                  {/* <AddUserToCourse
+            onToggleDrawer={toggleDrawer}
+            // onEdit={courseOnline}
+          /> */}
+                  <UserManager
+                    addUserToCourse="true"
+                    handleAddUserToList={(user) => {
+                      handleAddUserToList(user, values.courseOnline[0]);
+                    }}
+                    studentList={studentList}
+                  />
+                </LPEDrawer>
               </div>
             );
           }}
         </Formik>
-
-        <AlertDialog
-          openAlertDialog={openAlertDialog}
-          setOpenAlertDialog={setOpenAlertDialog}
-          handleAction={handleSaveAction}
-        />
-        <LPEDrawer
-          anchor="left"
-          isOpen={openDrawer}
-          onToggle={handleCloseDrawer}
-          disableScrollLock
-        >
-          {/* <AddUserToCourse
-            onToggleDrawer={toggleDrawer}
-            // onEdit={courseOnline}
-          /> */}
-          <UserManager
-            addUserToCourse="true"
-            handleAddUserToList={(user) => {
-              handleAddUserToList(user);
-            }}
-            studentList={studentList}
-          />
-        </LPEDrawer>
       </div>
     );
   };
-  return !loading ? renderBody() : <>Khong Co Du Lieu</>;
+  return !loading && !_.isEmpty(detailScheduleCourseOnline) ? (
+    renderBody()
+  ) : (
+    <Loading></Loading>
+  );
 }
 
 export default EditScheduleCourseOnlineManager;

@@ -74,6 +74,8 @@ export const API_SCHEDULE_COURSE_ONLINE_UPDATE =
   "/schedule-course-online/update/";
 export const API_SCHEDULE_COURSE_ONLINE_HANDLE_USER =
   "/schedule-course-online/handle-user/";
+export const API_SCHEDULE_COURSE_ONLINE_HANDLE_USER_ANSWER_QUESTION =
+  "/schedule-course-online/handle-user-answer-question/";
 export const API_SCHEDULE_COURSE_ONLINE_DELETE =
   "/schedule-course-online/delete/";
 

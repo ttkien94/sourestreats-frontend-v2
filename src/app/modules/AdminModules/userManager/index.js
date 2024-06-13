@@ -41,24 +41,18 @@ function UserManager(props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // useEffect(() => {
-  //   // Hoi lag nhe
-  // }, [props.studentList]);
-
   const handleRemoveStudentDuplicate = (data) => {
-    console.log("handleRemoveStudentDuplicate", props.studentList);
     let studentList = props.studentList;
     if (studentList && studentList.length > 0) {
-      console.log("studentList", studentList);
+      console.log("handleRemoveStudentDuplicate123", studentList);
+      // console.log("studentList", studentList);
       let newList = _.cloneDeep(data);
-      console.log("newList", newList);
-      let len = studentList.length;
-      for (var i = 0; i < len; i++) {
-        var ItemIndex = newList.findIndex((b) => b._id === studentList[i]._id);
+      studentList.forEach((element, index) => {
+        var ItemIndex = newList.findIndex((b) => b._id === element._id);
         if (ItemIndex !== -1) {
           newList.splice(ItemIndex, 1);
         }
-      }
+      });
       setList(newList);
     }
   };
@@ -146,7 +140,7 @@ function UserManager(props) {
 
   return (
     <div>
-      <div className="container-fluid">
+      <div className="container-fluid mt-3">
         <Button
           onClick={(e) => {
             refFilter.current.handleClick(e);

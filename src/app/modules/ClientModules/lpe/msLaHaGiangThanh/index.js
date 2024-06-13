@@ -48,7 +48,7 @@ function MsLaHaGiangThanh() {
     {
       id: "aboutMe",
       title: "Đôi nét về Ms. Giang Thanh",
-      desc: "Ms. Giang Thanh là nhà Đồng sáng lập & Giám đốc điều hành của Leading Performance Education (LPE). Hiện cô cũng là Nhà đào tạo chính trong chuỗi Life University và những chương trình riêng của mình.",
+      desc: "Ms. Giang Thanh là nhà Đồng sáng lập & Giám đốc điều hành của Leading Performance Education (LPE). Hiện cô cũng là Nhà đào tạo chính trong chuỗi THE ORIGINS và những chương trình riêng của mình.",
       desc2:
         "Cách đây gần 10 năm, cô là người đã tiên phong mang NLP về với Việt Nam. Cô luôn mang trong mình khao khát lớn lao trong việc nâng cấp, phát triển con người Việt Nam, cô đặt niềm tin vào người Việt Nam, hiểu rằng người Việt Nam cũng hoàn toàn có khả năng kiến tạo nên những giá trị tân tiến.",
       desc3:

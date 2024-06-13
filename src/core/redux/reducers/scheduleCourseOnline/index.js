@@ -2,6 +2,8 @@ import cloneDeep from "lodash/cloneDeep";
 import {
   SCHEDULE_COURSE_ONLINE_CREATE,
   SCHEDULE_COURSE_ONLINE_UPDATE_IN_LIST,
+  SCHEDULE_COURSE_ONLINE_HANDLE_USER,
+  SCHEDULE_COURSE_ONLINE_HANDLE_USER_ANSWER_QUESTION,
   // SCHEDULE_COURSE_ONLINE_LOADED,
   // SCHEDULE_COURSE_ONLINE_LOADING,
   SCHEDULE_COURSE_ONLINE_DELETE,
@@ -49,7 +51,10 @@ export const scheduleCourseOnlineReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        detailScheduleCourseOnline: action.payload.data[0],
+        detailScheduleCourseOnline:
+          action.payload.data?.length > 0
+            ? action.payload.data[0]
+            : action.payload.data,
       };
     }
     case FETCH_DETAILS_SCHEDULE_COURSE_ONLINE_FAILED: {
@@ -102,7 +107,24 @@ export const scheduleCourseOnlineReducer = (state = initialState, action) => {
         };
       }
     }
-
+    case SCHEDULE_COURSE_ONLINE_HANDLE_USER: {
+      const newData = cloneDeep(state.detailScheduleCourseOnline);
+      newData.studentList = action.payload.data;
+      return {
+        ...state,
+        loading: false,
+        detailScheduleCourseOnline: newData,
+      };
+    }
+    case SCHEDULE_COURSE_ONLINE_HANDLE_USER_ANSWER_QUESTION: {
+      const newData = cloneDeep(state.detailScheduleCourseOnline);
+      newData.studentList = action.payload.data.studentList;
+      return {
+        ...state,
+        loading: false,
+        detailScheduleCourseOnline: newData,
+      };
+    }
     default: {
       return { ...state };
     }
