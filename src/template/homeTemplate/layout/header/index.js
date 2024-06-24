@@ -109,7 +109,7 @@ function LPEHeader() {
             {t("account_info")}
           </Button>
         </Link>
-        {userInfo.role === "admin" && (
+        {userInfo?.role === "admin" && (
           <Link to="/admin">
             <Button
               className={classes.btnPopOver}
@@ -239,7 +239,7 @@ function LPEHeader() {
 
             {token?.length ? (
               <>
-                {!isEmpty(userInfo?.name) ? (
+                {!isEmpty(userInfo) ? (
                   <LPEAvatar
                     name={userInfo?.name}
                     avatar={userInfo?.avatar}

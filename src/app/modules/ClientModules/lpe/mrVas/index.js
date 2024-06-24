@@ -2,7 +2,6 @@ import React, { useRef, useState } from "react";
 import ModalVideo from "react-modal-video";
 import Title from "../../home/components/title";
 import { LPELightBox } from "app/components/lightBox";
-// import { Fade } from "react-reveal";
 
 // import VasVideo from "./components/video";
 import Timeline from "./components/timeline";

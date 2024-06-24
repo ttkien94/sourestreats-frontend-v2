@@ -32,15 +32,15 @@ import DatePickerField from "app/components/customField/datePickerField";
 import AlertDialog from "share/alertDialog";
 import Loading from "share/loading";
 import SearchBar from "share/searchBar";
-const ButtonSubmit = styled(Button)`
-  color: #fff;
-  background: #3777bc;
-  padding: 15px;
-  :hover {
-    color: #fff;
-    background: #3777bc;
-  }
-`;
+// const ButtonSubmit = styled(Button)`
+//   color: #fff;
+//   background: #3777bc;
+//   padding: 15px;
+//   :hover {
+//     color: #fff;
+//     background: #3777bc;
+//   }
+// `;
 
 // const ButtonCancel = styled(Button)`
 //   color: #adb5bd;

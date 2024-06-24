@@ -3,7 +3,8 @@ import bigIsLandPo from "./assets/img/bigIsLandPo.png";
 import bigIsLandIcpc from "./assets/img/bigIsLandIcpc.png";
 import bigIsLandImcpc from "./assets/img/bigIsLandImcpc.png";
 import bigIsLandGol from "./assets/img/bigIsLandGol.png";
-import signPo from "./assets/img/signPo.png";
+import signTFS from "./assets/img/signTFS.png";
+
 import signIcpc from "./assets/img/signIcpc.png";
 import signImcpc from "./assets/img/signImcpc.png";
 import signGol from "./assets/img/signGol.png";
@@ -40,14 +41,14 @@ export const big_island = [
     id: 1,
     island: bigIsLandPo,
     className: "startIsland",
-    sign: signPo,
+    sign: signTFS,
     position: {
       x: "2%",
       y: "5%",
     },
     detail: [
       {
-        text: "the_first_step",
+        text: "the_restart",
         type: "heading",
       },
 
@@ -367,13 +368,13 @@ export const big_island_mobile = [
     id: 1,
     island: bigIsLandPo,
     className: "startIsland",
-    sign: signPo,
+    sign: signTFS,
     position: {
       x: "2%",
     },
     detail: [
       {
-        text: "the_first_step",
+        text: "the_restart",
         type: "heading",
       },
 

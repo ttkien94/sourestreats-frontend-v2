@@ -10,10 +10,7 @@ $border-radius: 10px;
   .frame-bg {
     border-top-right-radius: 50px;
     padding: 0;
-    background-image: linear-gradient(
-      rgba(77, 124, 142, 0.8),
-      rgb(46, 142, 125)
-    );
+    background-image: linear-gradient(rgb(255, 0, 191), #8420be);
     .header-title {
       font-weight: bold;
       line-height: 1.4;

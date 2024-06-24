@@ -7,7 +7,6 @@ import {
   USER_UPDATE,
 } from "app/const/Api";
 import { KEY_TOKEN } from "app/const/App";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { showToast } from "core/utils/toastUtil";
 import {
@@ -46,7 +45,6 @@ export const loginAction = (data, beforeLoginUrl, navigate) => {
           });
           // Lưu accessToken xuống LocalStorage
           localStorage.setItem(KEY_TOKEN, token);
-
           // window.location.reload();
           navigate(beforeLoginUrl);
         }
@@ -73,7 +71,6 @@ export const loginAction = (data, beforeLoginUrl, navigate) => {
 export const registerAction = (data, setLoading, setError) => {
   return async () => {
     // This action dont use dispatch to redux
-    console.log("123");
     try {
       await axios({
         method: "POST",
@@ -165,6 +162,7 @@ export const changePasswordAction = (data, setIsLoading, setErrors) => {
 };
 
 export const logOutAction = (history) => {
+  console.log("logOutAction");
   return async (dispatch) => {
     // This action dont use dispatch to redux
     dispatch({

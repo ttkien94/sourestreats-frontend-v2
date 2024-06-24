@@ -3,7 +3,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import LazyLoad from "react-lazyload";
 
-import Course01 from "assets/images/source/homepage/allAccessSubscription.jpg";
+import Course01 from "assets/images/source/homepage/catelogy06.png";
 
 import HomeClientTitle from "./components/homeClientTitle";
 import HomeClientCourseItem from "./components/homeClientCourseItem";

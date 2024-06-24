@@ -35,7 +35,7 @@ function ConfirmRegister() {
         ) : (
           <div className="formContainerForget">
             <div className="formHeading">
-              <h5>Tạo tài khoản thành công</h5>
+              <h4>Welcome to your THE ORIGINS FAMILY</h4>
             </div>
 
             <p className="descText px-4">Tài khoản của bạn đã được xác thực</p>

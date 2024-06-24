@@ -22,7 +22,6 @@ import {
 } from "core/redux/actions/courseOnlineAction";
 import { getVideoAction } from "core/redux/actions/videoAction";
 import AdminTable from "share/adminTable";
-import { v4 as uuidv4, v6 as uuidv6 } from "uuid";
 
 const ButtonSubmit = styled(Button)`
   color: #fff;

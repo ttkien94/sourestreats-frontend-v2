@@ -6,9 +6,8 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import AddIcon from "@mui/icons-material/Add";
 import { Box, Button, Modal } from "@mui/material";
 import { TableRow } from "@material-ui/core";
-import AlertDialog from "share/alertDialog";
+// import AlertDialog from "share/alertDialog";
 import { useEffect } from "react";
-import { render } from "@testing-library/react";
 
 function TableUserList({
   dataItem,

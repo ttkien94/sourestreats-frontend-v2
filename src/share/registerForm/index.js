@@ -22,10 +22,10 @@ import "./styles.scss";
 const ButtonSubmit = styled(Button)`
   color: #fff;
   font-size: 17px;
-  background: rgb(46, 142, 125);
+  background-image: linear-gradient(rgb(255, 0, 191), #8420be);
   :hover {
     color: #fff;
-    background: rgb(46, 142, 105);
+    background-image: linear-gradient(#8420be, rgb(255, 0, 191));
   }
 `;
 
@@ -34,10 +34,11 @@ function RegisterForm(props) {
   // const [step, setStep] = useState(0);
   const step = 0;
   const [loading, setLoading] = useState(false);
+  const { title, ticket } = props;
   // const [error, setError] = useState("");
 
   const handleRegister = async (data) => {
-    props?.handleOpen();
+    props?.setStep(1);
     props?.setData(data);
     setLoading(true);
     // delete data["rePassword"];
@@ -66,8 +67,10 @@ function RegisterForm(props) {
     email: "",
     phone: "",
     dob: 33756000,
-    loaive: "",
+    loaive:
+      ticket === "VIP" ? "Vip" : ticket === "PLATINUM" ? "Platinum" : "General",
     address: "",
+    tunghoc: "",
     songuoidicung: "",
   };
 
@@ -76,7 +79,11 @@ function RegisterForm(props) {
   //   email: "ttkien94@gmail.com",
   //   gender: "Nam",
   //   first_name: "trinh trung kien",
+  //   loaive:
+  //     ticket === "VIP" ? "Vip" : ticket === "PLATINUM" ? "Platinum" : "General",
   //   phone: "0383204367",
+  //   songuoidicung: "",
+  //   address: "",
   // };
   const validationSchema = Yup.object().shape(TheFirstStepSchema);
 
@@ -94,9 +101,7 @@ function RegisterForm(props) {
             }}
           >
             <div className="frame-bg">
-              <h3 className=" pt-2  header-title">
-                Đừng bỏ lỡ cơ hội <br /> Đăng ký ngay!
-              </h3>
+              <h3 className=" pt-2  header-title">{title}</h3>
             </div>
             <Formik
               initialValues={initialValues}
@@ -115,7 +120,7 @@ function RegisterForm(props) {
                       maxWidth: "700px",
                     }}
                   >
-                    <div className="col-12">
+                    <div className="col-12 col-md-6">
                       <FastField
                         name="first_name"
                         component={InputField}
@@ -133,11 +138,11 @@ function RegisterForm(props) {
                         placeholder="Nhập email"
                         className="w-100 mb-4"
                       />
-                      {errors?.email && (
+                      {/* {errors?.email && (
                         <p className="text-danger mb-4 ml-2 MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-1wc848c-MuiFormHelperText-root mt-n3 ">
                           {errors.email}
                         </p>
-                      )}
+                      )} */}
                     </div>
 
                     <div className="col-12 col-md-6">
@@ -150,23 +155,6 @@ function RegisterForm(props) {
                         autocomplete
                       />
                     </div>
-
-                    <div className="col-12 col-md-6">
-                      <FastField
-                        name="loaive"
-                        component={SelectField}
-                        label="Loại vé"
-                        // placeholder="Nhập giới tính"
-                        className="w-100 mb-4"
-                        options={DEFALT_OPTIONS.loaive}
-                      />
-                      {errors?.loaive && (
-                        <p className="text-danger mb-4 ml-2 MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-1wc848c-MuiFormHelperText-root mt-n3 ">
-                          {errors.loaive}
-                        </p>
-                      )}
-                    </div>
-
                     <div className="col-12 col-md-6 mb-2">
                       <FastField
                         name="dob"
@@ -180,6 +168,26 @@ function RegisterForm(props) {
                           {errors.dob}
                         </p>
                       )}
+                    </div>
+                    <div className="col-12 col-md-6">
+                      <FastField
+                        name="loaive"
+                        component={SelectField}
+                        label="Loại vé"
+                        // placeholder="Nhập giới tính"
+                        className="w-100 mb-4"
+                        options={DEFALT_OPTIONS.loaive}
+                      />
+                    </div>
+                    <div className="col-12 col-md-6">
+                      <FastField
+                        name="tunghoc"
+                        component={SelectField}
+                        label="Đã từng học các khóa The Origins"
+                        // placeholder="Nhập giới tính"
+                        className="w-100 mb-4"
+                        options={DEFALT_OPTIONS.tunghoc}
+                      />
                     </div>
 
                     <div className="col-12 col-md-6">
@@ -208,7 +216,7 @@ function RegisterForm(props) {
                       />
                     </div>
                     <div className="col-12 justify-content-center d-flex">
-                      <ButtonSubmit type="submit">
+                      <ButtonSubmit type="submit" className="">
                         Đăng ký
                         {loading && <div className="loader ml-1"></div>}
                       </ButtonSubmit>

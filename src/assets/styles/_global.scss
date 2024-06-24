@@ -6,7 +6,7 @@
 // color: rgb(211 216 232/var(--tw-text-opacity));
 // }
 body {
-  background-color: #e4e4e0 !important;
+  background-color: #f6f4f1 !important;
 }
 $color-text: #0f0a64;
 $color-text2: #0463c3;
@@ -306,7 +306,13 @@ h5 {
 .text-white {
   color: white;
 }
-
+.centerXYPosition {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
 .video-source {
   position: relative;
   height: 500px;
@@ -632,6 +638,12 @@ lesshat-selector {
   left: 0;
   z-index: 999;
 }
+.logo-zalo-wrap {
+  position: fixed;
+  bottom: 40px;
+  left: 0;
+  z-index: 999;
+}
 .hotline-phone-ring {
   position: relative;
   visibility: visible;
@@ -796,6 +808,158 @@ lesshat-selector {
   }
   100% {
     -webkit-transform: rotate(0) scale(1) skew(1deg);
+  }
+}
+// css register
+.popup {
+  position: relative;
+  border-radius: 40px;
+  .popup-background {
+    border-radius: 40px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-origin: content-box;
+    background-position: 50% 0%;
+    background-repeat: repeat;
+    background-attachment: scroll;
+    background-image: url("https://w.ladicdn.com/s962x1857/648697fd80c97200121bfb81/167182069_2926028217674018_5985991768046285403_n-20230912103350-ycnao.jpg");
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+    background-color: rgb(0, 0, 0);
+    opacity: 0.69;
+    mix-blend-mode: multiply;
+    will-change: transform, opacity;
+    border-radius: 40px;
+  }
+  .general {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    margin-top: 50px !important;
+  }
+  .platinum {
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin-top: 50px !important;
+  }
+  .vip {
+    background-image: linear-gradient(rgb(13, 98, 242), rgb(5, 31, 77));
+    border-radius: 20px;
+  }
+  .price-box {
+    box-shadow: rgb(0, 0, 0) -15px 15px 20px -15px;
+    padding: 25px;
+    background-color: rgb(5, 31, 77);
+    .icon {
+      width: 30px;
+      height: 30px;
+    }
+    .headline {
+      color: white;
+      margin-bottom: 0;
+      width: unset !important;
+      font-family: "Yeseva One", cursive;
+      font-size: 25px;
+      line-height: 1.6;
+      color: rgb(255, 255, 255);
+      letter-spacing: 1px;
+    }
+    .box-promotion {
+      border-top-right-radius: 40px;
+      border-bottom-right-radius: 40px;
+      margin-left: -37px;
+      background-color: rgb(255, 255, 255);
+      h3,
+      h4 {
+        margin-bottom: 0;
+      }
+      .default-price {
+        font-family: Montserrat, sans-serif;
+        font-size: 20px;
+        font-weight: bold;
+        color: rgb(5, 31, 77);
+        text-decoration-line: line-through;
+        text-align: center;
+      }
+      .promo-price {
+        font-family: Montserrat, sans-serif;
+        font-size: 26px;
+        font-weight: bold;
+        color: rgb(242, 67, 13);
+        text-align: center;
+      }
+      .promo-text {
+        text-transform: uppercase;
+        font-family: Montserrat, sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+        color: rgb(242, 67, 13);
+        text-align: center;
+        margin-bottom: 0;
+      }
+    }
+    .list-paragraph {
+      font-family: Roboto, sans-serif;
+      font-size: 18px;
+      line-height: 1.4;
+      color: rgb(255, 255, 255);
+      ul {
+        list-style: none;
+        padding-left: 0px;
+        li {
+          padding-bottom: 10px;
+          padding-left: 25px;
+          color: #fff;
+          &:before {
+            width: 14px;
+            height: 14px;
+            top: 5px;
+            content: "";
+            background-image: url("data:image/svg+xml;utf8, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20xmlns%3Asketch%3D%22http%3A%2F%2Fwww.bohemiancoding.com%2Fsketch%2Fns%22%20viewBox%3D%220%200%2016%2016%22%20version%3D%221.1%22%20x%3D%220px%22%20y%3D%220px%22%20%20width%3D%22100%25%22%20height%3D%22100%25%22%20class%3D%22%22%20fill%3D%22rgba(255%2C%20255%2C%20255%2C%201.0)%22%3E%3Ctitle%3Etick%3C%2Ftitle%3E%3Cdesc%3ECreated%20with%20Sketch.%3C%2Fdesc%3E%3Cg%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill-rule%3D%22evenodd%22%20sketch%3Atype%3D%22MSPage%22%3E%3Cg%20sketch%3Atype%3D%22MSArtboardGroup%22%3E%3Cpath%20d%3D%22M6%2C10%20L2.5%2C6.5%20L0.5%2C8.5%20L6%2C14%20L15.5%2C4.5%20L13.5%2C2.5%20L6%2C10%20Z%22%20sketch%3Atype%3D%22MSShapeGroup%22%3E%3C%2Fpath%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+          }
+        }
+      }
+    }
+  }
+
+  h2 {
+    font-size: 64px;
+    font-family: Bungee, cursive;
+    color: rgb(255, 214, 0);
+    text-align: center;
+  }
+  h3 {
+    font-size: 48px;
+    // font-family: "Alfa Slab One", cursive;
+    color: rgb(253, 126, 48);
+    letter-spacing: 1px;
+    text-align: center;
+  }
+  h4 {
+    font-size: 26px;
+    color: white;
+    // font-family: "Alfa Slab One", cursive;
+    letter-spacing: 1px;
+    text-align: center;
+  }
+  p {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    font-family: "Roboto", sans-serif;
+    letter-spacing: 1px;
+    text-align: center;
+  }
+  img {
+    width: 50%;
   }
 }
 .relative {

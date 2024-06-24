@@ -13,6 +13,7 @@ function CourseItemOffline({ ...props }) {
         style={{
           background: `url(${props.bgCourse})`,
           backgroundPosition: "center center",
+          backgroundRepeat: " no-repeat",
           backgroundSize: "cover",
         }}
       >

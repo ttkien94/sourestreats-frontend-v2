@@ -23,6 +23,16 @@ export const DEFALT_OPTIONS = {
       name: "General",
     },
   ],
+  tunghoc: [
+    {
+      value: "Đã từng",
+      name: "datung",
+    },
+    {
+      value: "Chưa",
+      name: "chua",
+    },
+  ],
   role: [
     {
       value: "admin",

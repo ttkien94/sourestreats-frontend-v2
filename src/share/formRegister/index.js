@@ -50,7 +50,6 @@ function FormRegister() {
 
   const validationSchema = Yup.object().shape({
     password: Yup.string().required("Vui lòng không để trống"),
-
     email: Yup.string()
       .required("Vui lòng nhập trường này")
       .email("Email chưa đúng"),

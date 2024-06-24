@@ -1,6 +1,5 @@
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
-import _ from "lodash";
 import React, { useState } from "react";
 import { Select } from "@mui/material";
 // import { useTranslation } from "react-i18next";

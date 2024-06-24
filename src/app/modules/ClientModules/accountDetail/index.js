@@ -111,7 +111,12 @@ function AccountDetail() {
                   );
                 })}
 
-                <li onClick={handleLogOut} className="logout">
+                <li
+                  onClick={() => {
+                    handleLogOut();
+                  }}
+                  className="logout"
+                >
                   <i className="fas fa-sign-out-alt mr-3"></i>
                   Đăng xuất
                 </li>

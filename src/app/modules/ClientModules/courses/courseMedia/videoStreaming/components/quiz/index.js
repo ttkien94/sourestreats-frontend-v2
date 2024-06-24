@@ -4,23 +4,28 @@ import fireworksGIF from "assets/images/source/course-media/firework.gif"; // Im
 function Quiz(props) {
   const [step, setStep] = useState(0);
   const [quizs, setQuizs] = useState([]);
+  const [pharse, setPharse] = useState({});
   const [question, setQuestion] = useState([]);
   const [questionIndex, setQuestionIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState([]);
   const [error, setError] = useState("");
+  const [count, setCount] = useState(0);
   const showQuiz = true;
   useEffect(() => {
     handleReset();
   }, [props.video]);
 
   const handleReset = () => {
-    console.log("handleReset", props.video);
-    setStep(0);
+    console.log("handleReset", props.video, props.pharse);
+    setStep(1);
     setQuizs(props.video.questionList);
     setQuestion(props.video.questionList[0]);
     setQuestionIndex(0);
-    setSelectedAnswer([]);
+    // setSelectedAnswer([]);
     setError("");
+    setSelectedAnswer(props.video.answerList);
+    setPharse(props.pharse);
+    setCount(props.pharse?.videoList?.filter((item) => item.answerList).length); // 6
   };
   const handleQuestion = (type) => {
     if (type === "pre") {
@@ -117,27 +122,33 @@ function Quiz(props) {
   };
   const renderResult = () => {
     return (
-      quizs?.length > 0 &&
-      quizs.map((items, index) => {
-        return (
-          <div className="mb-5" key={items._id}>
-            <div className="d-flex justify-content-start gap-md-3">
-              <h5
-                style={{
-                  color: "#60d600",
-                  textAlign: "right",
-                }}
-                className="fs-normal lh-base"
-              >
-                {index + 1}
-              </h5>
-              <h5 className="fs-normal lh-base text-white">{items.question}</h5>
-            </div>
-            {items.options?.length > 0 &&
-              items.options.map((item2, index2) => {
-                return (
-                  <div
-                    className={`option w-100 text-start text-white py-2 px-3 mt-3 rounded btn btn-dark
+      <div>
+        <div className="title-h2">
+          Chúc mừng bạn đã hoàn thành {count + 1}/{quizs?.length}
+        </div>
+        {quizs?.length > 0 &&
+          quizs.map((items, index) => {
+            return (
+              <div className="mb-5" key={items._id}>
+                <div className="d-flex justify-content-start gap-md-3">
+                  <h5
+                    style={{
+                      color: "#60d600",
+                      textAlign: "right",
+                    }}
+                    className="fs-normal lh-base"
+                  >
+                    {index + 1} /
+                  </h5>
+                  <h5 className="fs-normal lh-base text-white">
+                    {items.question}
+                  </h5>
+                </div>
+                {items.options?.length > 0 &&
+                  items.options.map((item2, index2) => {
+                    return (
+                      <div
+                        className={`option w-100 text-start text-white py-2 px-3 mt-3 rounded btn btn-dark
                     ${
                       selectedAnswer[index]?.value === item2.value &&
                       item2.answer !== true &&
@@ -145,15 +156,16 @@ function Quiz(props) {
                     } 
                     ${item2.answer === true && "bg-success"} 
                     `}
-                    key={index2}
-                  >
-                    {item2.value}
-                  </div>
-                );
-              })}
-          </div>
-        );
-      })
+                        key={index2}
+                      >
+                        {item2.value}
+                      </div>
+                    );
+                  })}
+              </div>
+            );
+          })}
+      </div>
     );
   };
   return (

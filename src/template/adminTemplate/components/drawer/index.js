@@ -9,7 +9,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 
 import GroupIcon from "@mui/icons-material/Group";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+// import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import AutoStoriesIcon from "@mui/icons-material/AutoStories";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
@@ -27,27 +27,27 @@ const menuMagager = [
     icon: <GroupIcon />,
     link: "/admin/quan-ly-nguoi-dung",
   },
-  {
-    text: "Quản lý Sản Phẩm",
-    icon: <ShoppingCartIcon />,
-    link: "/admin/quan-ly-san-pham",
-  },
-  {
-    text: "Quản lý Blog",
-    icon: <AutoStoriesIcon />,
-    link: "/admin/quan-ly-bai-viet",
-  },
-  {
-    text: "Quản lý Học Viên",
-    icon: <AutoStoriesIcon />,
-    link: "/admin/quan-ly-hoc-vien",
-  },
+  // {
+  //   text: "Quản lý Sản Phẩm",
+  //   icon: <ShoppingCartIcon />,
+  //   link: "/admin/quan-ly-san-pham",
+  // },
+  // {
+  //   text: "Quản lý Blog",
+  //   icon: <AutoStoriesIcon />,
+  //   link: "/admin/quan-ly-bai-viet",
+  // },
+  // {
+  //   text: "Quản lý Học Viên",
+  //   icon: <AutoStoriesIcon />,
+  //   link: "/admin/quan-ly-hoc-vien",
+  // },
 
-  {
-    text: "Khóa học Offline",
-    icon: <AutoStoriesIcon />,
-    link: "/admin/quan-ly-khoa-hoc",
-  },
+  // {
+  //   text: "Khóa học Offline",
+  //   icon: <AutoStoriesIcon />,
+  //   link: "/admin/quan-ly-khoa-hoc",
+  // },
   {
     text: "Khóa học Online",
     icon: <AutoStoriesIcon />,

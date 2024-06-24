@@ -39,7 +39,7 @@ function LPEFooter() {
               <div className="col-12 col-md-6 col-lg-4">
                 <h4 className="heading">{t("connect_us")}</h4>
                 <a
-                  href="https://www.facebook.com/lifeunivietnam"
+                  href="https://www.facebook.com/theoriginsvietnam"
                   className="text-white"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -48,16 +48,7 @@ function LPEFooter() {
                 </a>
 
                 <a
-                  href="https://www.youtube.com/@LifeUniVN-lt1ik"
-                  className="text-white"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <i className="fab fa-youtube mr-3"></i>
-                </a>
-
-                <a
-                  href="https://zalo.me/0906880917"
+                  href="https://www.youtube.com/@CoachVasTheOriginsVN"
                   className="text-white"
                   target="_blank"
                   rel="noopener noreferrer"

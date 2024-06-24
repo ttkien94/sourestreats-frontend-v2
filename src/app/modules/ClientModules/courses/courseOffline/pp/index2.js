@@ -59,7 +59,7 @@ const PP = () => {
   const generalTicket = {
     title: "GENERAL",
     defaultPrice: "1.999.000Đ",
-    promoPrice: "99.000Đ",
+    promoPrice: "199.000Đ",
     promoText: "Mua 1 Tặng 1",
   };
   const vipTicket = {

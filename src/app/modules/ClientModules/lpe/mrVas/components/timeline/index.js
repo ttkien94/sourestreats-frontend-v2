@@ -4,11 +4,12 @@ import SwiperCore, { Pagination, Navigation } from "swiper";
 
 import "swiper/components/pagination/pagination.min.css";
 import "./styles/styles.scss";
+import { Fade } from "react-awesome-reveal";
 
 // install Swiper modules
 SwiperCore.use([Pagination, Navigation]);
 
-function Timeline() {
+function Timeline(props) {
   const refPagination = useRef();
 
   const pagination = {
@@ -25,12 +26,12 @@ function Timeline() {
   };
 
   return (
-    <div className="wrapper-timeline my-5">
-      <div className="timeline">
+    <div className="wrapper-timeline rounded ">
+      <div className="timeline rounded ">
         <Swiper
           spaceBetween={50}
           slidesPerView={1}
-          className="swiper-container"
+          className="swiper-container rounded"
           direction={"vertical"}
           pagination={pagination}
           navigation={true}
@@ -41,9 +42,55 @@ function Timeline() {
         >
           <SwiperSlide
             style={{
-              backgroundImage: "url(https://unsplash.it/1920/500?image=13)",
+              backgroundImage:
+                props?.view === "tfs"
+                  ? "unset"
+                  : "url(https://unsplash.it/1920/500?image=13)",
             }}
-            className="swiper-slide"
+            className="swiper-slide rounded"
+            data-year="Achievement"
+          >
+            <div className="swiper-slide-content">
+              <span className="timeline-year">Thành Tựu</span>
+
+              {/* <h4 className="timeline-title">Our nice super title</h4> */}
+              <Fade left cascade>
+                <p className="timeline-text">
+                  <ol>
+                    <li>Nhà sáng lập The Origins</li>
+                    <li>Một trong 4 bậc thầy về đào tạo NLP tại châu Á</li>
+                    <li>
+                      Chuyên Gia Quốc Tế Về Tư vấn & Đào tạo Lập trình Ngôn ngữ
+                      Tư duy – NLP ( được cấp bởi NLPU & ABNLP)
+                    </li>
+                    <li>Thành viên Hội đồng Giám khảo Thôi miên Hoa Kỳ</li>
+                    <li>
+                      Chuyên gia cao cấp về ứng dụng phương pháp Tâm lý – Trị
+                      liệu
+                    </li>
+                    <li>30 năm kinh nghiệm Lãnh Đạo và Quản Lý</li>
+                    <li>
+                      Huấn luyện viên được cấp phép dạy đi trên than hồng do
+                      Viện Nghiên cứu và Đào tạo FireWalking (FIRE), Texas USA
+                      cấp
+                    </li>
+                    <li>
+                      Chứng chỉ giảng dạy “Thôi miên trị liệu” (Hypnotherapy)
+                      được chứng nhận bởi Hội Đồng Thôi Miên Hoa Kỳ
+                    </li>
+                  </ol>
+                </p>
+              </Fade>
+            </div>
+          </SwiperSlide>
+          <SwiperSlide
+            style={{
+              backgroundImage:
+                props?.view === "tfs"
+                  ? "unset"
+                  : "url(https://unsplash.it/1920/500?image=13)",
+            }}
+            className="swiper-slide rounded"
             data-year="2003"
           >
             <div className="swiper-slide-content">
@@ -58,9 +105,12 @@ function Timeline() {
           </SwiperSlide>
 
           <SwiperSlide
-            className="swiper-slide"
+            className="swiper-slide rounded"
             style={{
-              backgroundImage: "url(https://unsplash.it/1920/500?image=14)",
+              backgroundImage:
+                props?.view === "tfs"
+                  ? "unset"
+                  : "url(https://unsplash.it/1920/500?image=14)",
             }}
             data-year="2004"
           >
@@ -79,7 +129,10 @@ function Timeline() {
           <SwiperSlide
             className="swiper-slide"
             style={{
-              backgroundImage: "url(https://unsplash.it/1920/500?image=15)",
+              backgroundImage:
+                props?.view === "tfs"
+                  ? "unset"
+                  : "url(https://unsplash.it/1920/500?image=15)",
             }}
             data-year="2019"
           >
@@ -97,9 +150,12 @@ function Timeline() {
           </SwiperSlide>
 
           <SwiperSlide
-            className="swiper-slide"
+            className="swiper-slide rounded"
             style={{
-              backgroundImage: "url(https://unsplash.it/1920/500?image=15)",
+              backgroundImage:
+                props?.view === "tfs"
+                  ? "unset"
+                  : "url(https://unsplash.it/1920/500?image=15)",
             }}
             data-year="2020"
           >
@@ -117,9 +173,12 @@ function Timeline() {
           </SwiperSlide>
 
           <SwiperSlide
-            className="swiper-slide"
+            className="swiper-slide rounded"
             style={{
-              backgroundImage: "url(https://unsplash.it/1920/500?image=15)",
+              backgroundImage:
+                props?.view === "tfs"
+                  ? "unset"
+                  : "url(https://unsplash.it/1920/500?image=15)",
             }}
             data-year="2021"
           >
@@ -138,9 +197,12 @@ function Timeline() {
           </SwiperSlide>
 
           <SwiperSlide
-            className="swiper-slide"
+            className="swiper-slide rounded"
             style={{
-              backgroundImage: "url(https://unsplash.it/1920/500?image=15)",
+              backgroundImage:
+                props?.view === "tfs"
+                  ? "unset"
+                  : "url(https://unsplash.it/1920/500?image=15)",
             }}
             data-year="2022"
           >

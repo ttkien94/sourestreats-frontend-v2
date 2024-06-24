@@ -16,6 +16,7 @@ export const appReducer = (state = initialState, action) => {
     }
 
     case APP_LOADING_SUCCESS: {
+      console.log("APP_LOADING_SUCCESS");
       return { ...state, loading: false };
     }
 

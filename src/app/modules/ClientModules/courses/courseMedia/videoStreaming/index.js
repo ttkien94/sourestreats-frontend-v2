@@ -1,71 +1,61 @@
 import React, { useEffect, useState } from "react";
-import { Navigate, Outlet, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { styled } from "@mui/material/styles";
+// import { styled } from "@mui/material/styles";
 import { Box, Button, Modal } from "@mui/material";
 import useSiteTitle from "core/hooks/useSiteTitle";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import Film from "assets/images/source/course-media/film.png";
 
 import FlightTakeoffIcon from "@mui/icons-material/FlightTakeoff";
 import FlightIcon from "@mui/icons-material/Flight";
 import _ from "lodash";
 import axios from "axios";
-// Component
-// import IsLoading from "app/components/loading";
-import Appbar from "./components/appBar";
-import AdminDrawer from "./components/drawer";
 
 // const and action
-import { KEY_TOKEN } from "app/const/App";
-import { appAction } from "core/redux/actions/appAction";
-import { isEmpty } from "core/utils/isEmpty";
+// import { appAction } from "core/redux/actions/appAction";
 import Vimeo from "@u-wave/react-vimeo";
 import "./styles/styles.scss";
-import { getDetailCourseOnlineAction } from "core/redux/actions/courseOnlineAction";
 import Loading from "share/loading";
 import {
   getDetailScheduleCourseOnlineAction,
   handleUserAnswerToQuestion,
 } from "core/redux/actions/scheduleCourseOnlineAction";
 import FormatNumberic from "share/formatNumber";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import ExpandLessIcon from "@mui/icons-material/ExpandLess";
-import playButton from "assets/images/source/course-media/playButton.png";
+
 import Quiz from "./components/quiz";
 const drawerWidth = 240;
 
-const DrawerHeader = styled("div")(({ theme }) => ({
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "flex-end",
-  padding: theme.spacing(0, 1),
+// const DrawerHeader = styled("div")(({ theme }) => ({
+//   display: "flex",
+//   alignItems: "center",
+//   justifyContent: "flex-end",
+//   padding: theme.spacing(0, 1),
 
-  // necessary for content to be below app bar
-  ...theme.mixins.toolbar,
-}));
+//   // necessary for content to be below app bar
+//   ...theme.mixins.toolbar,
+// }));
 
-const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
-  ({ theme, open }) => ({
-    flexGrow: 1,
-    padding: theme.spacing(3),
-    transition: theme.transitions.create("margin", {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-    marginLeft: `-${drawerWidth}px`,
-    ...(open && {
-      transition: theme.transitions.create("margin", {
-        easing: theme.transitions.easing.easeOut,
-        duration: theme.transitions.duration.enteringScreen,
-      }),
-      marginLeft: 0,
-    }),
-  })
-);
+// const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
+//   ({ theme, open }) => ({
+//     flexGrow: 1,
+//     padding: theme.spacing(3),
+//     transition: theme.transitions.create("margin", {
+//       easing: theme.transitions.easing.sharp,
+//       duration: theme.transitions.duration.leavingScreen,
+//     }),
+//     marginLeft: `-${drawerWidth}px`,
+//     ...(open && {
+//       transition: theme.transitions.create("margin", {
+//         easing: theme.transitions.easing.easeOut,
+//         duration: theme.transitions.duration.enteringScreen,
+//       }),
+//       marginLeft: 0,
+//     }),
+//   })
+// );
 
 const VideoStreaming = (props) => {
-  useSiteTitle("video_streaming");
+  // useSiteTitle("video_streaming");
   const location = useLocation();
   const loading = true;
   const dispatch = useDispatch();
@@ -75,19 +65,13 @@ const VideoStreaming = (props) => {
     (state) => state.scheduleCourseOnline
   );
   const { userInfo } = useSelector((state) => state.auth);
-  const [detailCourseOnline, setDetailCourseOnline] = useState({});
   const [data, setData] = useState({});
-  // const [lesson, setLesson] = useState({});
-  // const [userData, setUserData] = useState({});
+
   const [video, setVideo] = useState({});
   const [pharse, setPharse] = useState({});
-  const [isOpen, setIsOpen] = useState(false);
   const [openModal, setOpenModal] = useState(false);
-  const [answerQuestion, setAnswerQuestion] = useState(false);
+  const [answerQuestion, setAnswerQuestion] = useState(true);
   const token = localStorage.getItem("accessToken");
-
-  //   const accessToken = localStorage.getItem(KEY_TOKEN);
-  // const checkPermission = userInfo?.courseMedia?.find((e) => e === "tower1");
 
   useEffect(() => {
     loadData();
@@ -122,9 +106,10 @@ const VideoStreaming = (props) => {
   const handleDataInput = (data) => {
     setData(data);
     setPharse(data.lesson[0]);
-    if (!answerQuestion) {
-      setVideo(data.lesson[0].videoList[0]);
-    }
+    setVideo(data.lesson[0].videoList[0]);
+    // if (!answerQuestion) {
+    //   setVideo(data.lesson[0].videoList[0]);
+    // }
   };
   const loadData = () => {
     dispatch(getDetailScheduleCourseOnlineAction("6668158eff4b143bd4cc6a16"));
@@ -163,9 +148,9 @@ const VideoStreaming = (props) => {
   };
   const handleSendAnswer = (selectedAnswer) => {
     let newData = _.cloneDeep(data);
-    newData.lesson.map((les) => {
+    newData.lesson.forEach((les) => {
       if (les.pharse === pharse.pharse) {
-        les.videoList.map((vid) => {
+        les.videoList.forEach((vid) => {
           if (vid._id === video._id) {
             vid.answerList = selectedAnswer;
           }
@@ -390,6 +375,7 @@ const VideoStreaming = (props) => {
         {answerQuestion ? (
           <Quiz
             video={video}
+            pharse={pharse}
             handleSendAnswer={(selectedAnswer) =>
               handleSendAnswer(selectedAnswer)
             }

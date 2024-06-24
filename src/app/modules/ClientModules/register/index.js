@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { Navigate, useLocation, useNavigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 import useSiteTitle from "core/hooks/useSiteTitle";
 
 import * as Yup from "yup";
@@ -20,6 +20,7 @@ import { KEY_TOKEN } from "app/const/App";
 import "./styles/styles.scss";
 import { registerAction } from "core/redux/actions/authAction";
 import { useDispatch } from "react-redux";
+import { timeToUnix } from "core/utils/dateUtil";
 
 const ButtonSubmit = styled(Button)`
   color: #fff;
@@ -35,7 +36,6 @@ function Register(props) {
   useSiteTitle("register");
   const isLogined = Boolean(localStorage.getItem(KEY_TOKEN));
   const dispatch = useDispatch();
-  const natigate = useNavigate();
   const [step, setStep] = useState(0);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -47,6 +47,7 @@ function Register(props) {
       setLoading(true);
       // delete data["rePassword"];
       if (type === "Register") {
+        data.name = data.first_name;
         dispatch(registerAction(data, setLoading, setError));
         data["tags"] = ["user-register"];
         data["import_by_tag_name"] = true;
@@ -75,25 +76,25 @@ function Register(props) {
     } catch (err) {}
   };
 
-  // const initialValues = {
-  //   first_name: "",
-  //   gender: "nam",
-  //   email: "",
-  //   phone: "",
-  //   dob: timeToUnix(new Date()),
-  //   password: "",
-  //   rePassword: "",
-  // };
-
   const initialValues = {
-    dob: 763405200000,
-    email: "ttkien994@gmail.com",
+    first_name: "",
     gender: "Nam",
-    first_name: "trinh trung kien",
-    phone: "0383204367",
-    password: "Kien@@12",
-    rePassword: "Kien@@12",
+    email: "",
+    phone: "",
+    dob: timeToUnix(new Date()),
+    password: "",
+    rePassword: "",
   };
+
+  // const initialValues = {
+  //   dob: 763405200000,
+  //   email: "ttkien994@gmail.com",
+  //   gender: "Nam",
+  //   first_name: "trinh trung kien",
+  //   phone: "0383204367",
+  //   password: "Kien@@12",
+  //   rePassword: "Kien@@12",
+  // };
   const validationSchema = Yup.object().shape(
     type === "Register" ? YupSchema : TheFirstStepSchema
   );
@@ -120,7 +121,7 @@ function Register(props) {
                   onSubmit={handleRegister}
                 >
                   {(formikProps) => {
-                    const { values, errors, touched } = formikProps;
+                    const { errors } = formikProps;
 
                     // console.log({ values, errors, touched });
                     return (

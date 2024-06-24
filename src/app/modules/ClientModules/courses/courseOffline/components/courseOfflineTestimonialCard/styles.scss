@@ -1,0 +1,71 @@
+$color-primary: #e74c3c;
+$bg-color-name: #6bc63e;
+$bg-color-text: #e9e9e9;
+
+.course-offline-testimonial {
+  .img-ava {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+  }
+  .course-offline-tes-border {
+    transition: all 0.3s;
+    text-align: center;
+    position: relative;
+    &:hover {
+      cursor: grab;
+      // box-shadow: 0 15px 25px rgba(168, 96, 0, 0.1);
+    }
+
+    // .tes-rating {
+    //   padding-bottom: 20px;
+    //   color: $color-primary;
+    //   font-size: 18px;
+    // }
+
+    .course-offline-tes-name {
+      font-size: 22px;
+      font-weight: bold;
+      border-radius: 10px;
+      color: #fff !important;
+      margin-bottom: 0;
+
+      .tes-job {
+        padding: 5px;
+        margin: 0;
+        font-size: 14px;
+      }
+    }
+    .course-offline-tes-hero {
+      text-align: justify;
+      font-size: 18px;
+      color: #fff !important;
+    }
+  }
+
+  @media screen and (max-width: 1200px) {
+    .course-offline-tes-border {
+      margin-bottom: 50px !important;
+    }
+    .course-offline-tes-hero {
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .course-offline-tes-card {
+      margin-bottom: 20px;
+    }
+
+    .course-offline-tes-hero {
+      height: fit-content !important;
+      margin-bottom: 0 !important;
+    }
+
+    .img-ava {
+      position: unset !important;
+      transform: unset !important;
+      margin: 0 auto;
+      padding: 10px;
+    }
+  }
+}

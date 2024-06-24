@@ -1,5 +1,5 @@
 import React from "react";
-import { Fade } from "react-reveal";
+import { Fade } from "react-awesome-reveal";
 
 import "./styles/styles.scss";
 
@@ -15,9 +15,9 @@ function Footer() {
         <div className="f-line">
           <p className="mb-3">
             <span className="title-item">
-              <i className="fas fa-map-marker-alt"></i> Địa chỉ: 
+              <i className="fas fa-map-marker-alt"></i> Địa chỉ:
             </span>
-             490 Phạm Thái Bường, Khu Mỹ Toàn I, P. Tân Phong, Quận 7, TP. HCM.
+            490 Phạm Thái Bường, Khu Mỹ Toàn I, P. Tân Phong, Quận 7, TP. HCM.
           </p>
         </div>
       </Fade>
@@ -26,10 +26,9 @@ function Footer() {
         <div className="f-line">
           <p className="mb-3">
             <span className="title-item">
-              
               <i className="far fa-clock"></i> Giờ làm việc:
             </span>
-             Sáng: 7h00 - 11h30 | Chiều: 12h45 - 16h15
+            Sáng: 7h00 - 11h30 | Chiều: 12h45 - 16h15
           </p>
         </div>
       </Fade>
@@ -40,7 +39,7 @@ function Footer() {
             <span className="title-item">
               <i className="fas fa-phone-alt"></i>Thông tin liên lạc:
             </span>
-             028 7303 9996 - 1900 636 034
+            028 7303 9996 - 1900 636 034
           </p>
         </div>
       </Fade>

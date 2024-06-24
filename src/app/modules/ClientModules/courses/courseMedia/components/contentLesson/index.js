@@ -26,7 +26,6 @@ function ContentLessonCourseMedia(props) {
     newData.lesson[index].isView = type;
     setData(newData);
   };
-  console.log("token", token);
   const renderItem = (pharse, index) => {
     return (
       <div className="mt-5" key={index}>

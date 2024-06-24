@@ -15,29 +15,34 @@ import {
   APP_LOADING_SUCCESS,
 } from "core/redux/constant/appConstant";
 
-const fetchUserData = new Promise((resolve, reject) => {
-  const accessToken = localStorage.getItem(KEY_TOKEN);
-  const isLogin = Boolean(accessToken);
+const fetchUserData = () => {
+  return new Promise((resolve, reject) => {
+    const accessToken = localStorage.getItem(KEY_TOKEN);
+    const isLogin = Boolean(accessToken);
 
-  if (isLogin) {
-    axios({
-      url: API_ENDPOINT + GET_USER_WITH_TOKEN,
-      method: "POST",
-      data: {
-        token: accessToken,
-      },
-    })
-      .then((response) => {
-        if (response.status === CODE_SUCCESS) {
-          resolve(response.data.data);
-        }
+    if (isLogin) {
+      axios({
+        url: API_ENDPOINT + GET_USER_WITH_TOKEN,
+        method: "POST",
+        data: {
+          token: accessToken,
+        },
       })
-      .catch((error) => {
-        reject("error", error);
-      });
-  }
-});
-
+        .then((response) => {
+          if (response.status === CODE_SUCCESS) {
+            resolve(response.data.data);
+          } else {
+            reject(new Error("Failed to fetch user data"));
+          }
+        })
+        .catch((error) => {
+          reject(error);
+        });
+    } else {
+      reject(new Error("User not logged in"));
+    }
+  });
+};
 export const appAction = () => {
   console.log("appAction");
   return async (dispatch) => {
@@ -45,25 +50,42 @@ export const appAction = () => {
       type: APP_LOADING,
     });
 
-    Promise.all([fetchUserData])
-      .then((response) => {
-        console.log("fetchUserData");
-        dispatch({
-          type: LOGIN_SUCCESS,
-          payload: response[0], // return info user
-        });
-
-        dispatch({
-          type: APP_LOADING_SUCCESS,
-        });
-      })
-      .catch((error) => {
-        dispatch({
-          type: APP_LOADING_FAILED,
-          payload: error,
-        });
-
-        console.log("error", error);
+    try {
+      const userData = await fetchUserData(); // Corrected: call fetchUserData()
+      console.log("userData", userData);
+      dispatch({
+        type: LOGIN_SUCCESS,
+        payload: userData[0], // return info user
       });
+
+      dispatch({
+        type: APP_LOADING_SUCCESS,
+      });
+    } catch (error) {
+      dispatch({
+        type: APP_LOADING_FAILED,
+        payload: error,
+      });
+      console.log("error", error);
+    }
+    // Promise.all([fetchUserData()])
+    //   .then((response) => {
+    //     dispatch({
+    //       type: LOGIN_SUCCESS,
+    //       payload: response[0], // return info user
+    //     });
+
+    //     dispatch({
+    //       type: APP_LOADING_SUCCESS,
+    //     });
+    //   })
+    //   .catch((error) => {
+    //     dispatch({
+    //       type: APP_LOADING_FAILED,
+    //       payload: error,
+    //     });
+
+    //     console.log("error", error);
+    //   });
   };
 };

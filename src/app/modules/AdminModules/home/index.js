@@ -1,21 +1,18 @@
-import React, { useState, useEffect } from "react";
-import IsLoading from "app/components/loading";
+import React from "react";
 
 function Home() {
-  const [isLoading, setIsLoading] = useState(true);
-
   // Loading Data
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setIsLoading(false);
-    }, 1200);
+  // useEffect(() => {
+  //   const timeout = setTimeout(() => {
+  //     setIsLoading(false);
+  //   }, 1200);
 
-    return () => {
-      clearTimeout(timeout);
-    };
-  }, []);
+  //   return () => {
+  //     clearTimeout(timeout);
+  //   };
+  // }, []);
 
-  return <>{isLoading ? <IsLoading /> : <p>Home </p>}</>;
+  return <>{<p>Home </p>}</>;
 }
 
 export default Home;

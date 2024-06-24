@@ -30,6 +30,7 @@ export const URL_PATH_CLIENT = {
   EDUCATION: "/hop-tac/dao-tao-the-he-tre",
   COACH: "/hop-tac/tu-van-tri-lieu-ca-nhan",
   DEMO: "/demo",
+  THERESTART: "/the-restart",
 };
 
 // PATH FOR MODULES ADMIN
@@ -107,6 +108,11 @@ export const publicRoutes = [
     path: URL_PATH_CLIENT.RULES,
   },
   {
+    component: Client.CourseOfflineTheRestart,
+    exact: true,
+    path: URL_PATH_CLIENT.THERESTART,
+  },
+  {
     component: Client.Course,
     exact: true,
     path: URL_PATH_CLIENT.COURSE,
@@ -121,6 +127,7 @@ export const publicRoutes = [
     exact: true,
     path: OFFLINE_PATH_CLIENT.khoa1,
   },
+
   {
     component: Client.CourseOfffLineTheFirstStep,
     exact: true,
