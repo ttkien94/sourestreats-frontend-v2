@@ -59,11 +59,6 @@ export const HomeTemplate = ({ Component, ...restProps }) => {
             </a>
           </div>
         </div>
-        {/* <div className="hotline-bar">
-          <a href="https://zalo.me/0906880917" target="_blank">
-            <span className="text-hotline">028 3535 4859</span>
-          </a>
-        </div> */}
       </div>
     </div>
   );

@@ -17,7 +17,6 @@ import benefit from "assets/images/source/course-offline/1st/bg-benefit.png";
 import bgPrice from "assets/images/source/course-offline/1st/bg-price.jpg";
 import aoMockup from "assets/images/source/course-offline/1st/ao-mockup.png";
 
-import logo from "assets/images/source/course-offline/1st/logo.png";
 import qrZalo from "assets/images/course/course-offline/khoi-dau-thinh-vuong/qr-zalo.jpg";
 import qrVIB from "assets/images/qrVIB.jpg";
 // personal img
@@ -35,7 +34,6 @@ import RegisterForm from "share/registerForm";
 import FormCountDownt from "../pp/formCountDown";
 import { useRef } from "react";
 import useSiteTitle from "core/hooks/useSiteTitle";
-import { Helmet } from "react-helmet";
 import SEO from "share/seo/seo";
 const arrayFowWho = [
   {
@@ -81,7 +79,7 @@ const arrayPrice = [
     // defaultPrice: "2.999.000 Đ",
     promoPrice: "1.800.000 Đ",
     promoText: "3 NGƯỜI TRỞ LÊN",
-    promoText2: "CHỈ CÒN 1.566.000 VNĐ/ NGƯỜI",
+    promoText2: "CHỈ CÒN 1.599.000 VNĐ/ NGƯỜI",
     warningText: "SẮP TĂNG LÊN 2.999.000 Đ",
   },
   {
@@ -95,7 +93,7 @@ const arrayPrice = [
     // defaultPrice: "6.999.000 đ",
     promoPrice: "3.600.000 đ",
     promoText: "3 NGƯỜI TRỞ LÊN ",
-    promoText2: "CHỈ CÒN 3.166.000 VNĐ/ NGƯỜI",
+    promoText2: "CHỈ CÒN 3.199.000 VNĐ/ NGƯỜI",
     warningText: "SẮP TĂNG LÊN 6.999.000 Đ",
   },
 ];
@@ -166,7 +164,7 @@ function TheRestart() {
   const [videoId, setvideoId] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const [openModal, setOpenModal] = useState(false);
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(0);
   const [data, setData] = useState({});
   const [ticket, setTicket] = useState("");
 
@@ -183,7 +181,7 @@ function TheRestart() {
       id: 1,
       rating: 5,
       hero: t("chair_man_talk"),
-      name: `${t("ms")} Nguyễn Khánh Vy`,
+      name: `${t("ms")} Lê Huỳnh Khánh My`,
       // job: `(${t("chair_man")}  Deloitte Việt Nam)`,
       ava: khanhvy,
     },
@@ -199,7 +197,7 @@ function TheRestart() {
       id: 3,
       rating: 5,
       hero: t("project_consultant_talk"),
-      name: `${t("ms")} Phạm Thị Hoàn Hải`,
+      name: `${t("ms")} Phạm Thị Hoàng Hải`,
       // job: t("project_consultant"),
       ava: hoanhai,
     },
@@ -451,6 +449,21 @@ function TheRestart() {
             <div className="popup-background"></div>
             <div className="overlay" />
             <div className="col-12 px-5 py-5">
+              <Button
+                variant="contained"
+                color="error"
+                onClick={() => {
+                  setOpenModal(false);
+                }}
+                className="tfs-close-modal"
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  right: 0,
+                }}
+              >
+                X
+              </Button>
               <div className="row">
                 <h2>CÁM ƠN BẠN </h2>
                 <h4>ĐÃ ĐĂNG KÝ CHƯƠNG TRÌNH</h4>

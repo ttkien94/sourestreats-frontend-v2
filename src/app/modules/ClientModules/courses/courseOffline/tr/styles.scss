@@ -25,6 +25,11 @@ $orange: #ffc771;
     -webkit-text-fill-color: transparent;
     text-align: center;
   }
+  .tfs-close-modal {
+    position: absolute !important;
+    top: 0;
+    right: 0;
+  }
   .tfs-btn-register {
     margin-top: 20px;
     color: black;

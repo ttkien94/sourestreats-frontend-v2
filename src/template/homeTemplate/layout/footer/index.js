@@ -62,48 +62,6 @@ function LPEFooter() {
                   trả lời tất cả các câu hỏi trong vòng 2 ngày làm việc.
                 </p>
               </div>
-              {/**
-          <div className="col-12 col-md-6 col-lg-5 mt-3 mt-lg-0">
-              <div className="row">
-                <div className="col-12">
-                  <ul
-                    className="wrapperMenu"
-                    style={{
-                      listStyle: "none",
-                    }}
-                  >
-                    {LEFT_MENU.map((item, index) => {
-                      return (
-                        <li className="itemMenu" key={index}>
-                          <Link to={item.path}>{t(item.name)}</Link>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </div>
-
-                <div className="col-6">
-                  <ul
-                    className="wrapperMenu"
-                    style={{
-                      listStyle: "none",
-                    }}
-                  >
-                    {RIGHT_MENU.map((item, index) => {
-                      return (
-                        <li className="itemMenu" key={index}>
-                          <Link to={item.path}>{t(item.name)}</Link>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </div>
-              </div>
-            </div>
-              <div className="col-12 col-md-6 col-lg-4 mt-3 mt-lg-0">
-              <ContactForm />
-            </div>
-      */}
             </div>
           </div>
         </section>
