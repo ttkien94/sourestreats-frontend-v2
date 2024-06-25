@@ -11,8 +11,6 @@ import FlightIcon from "@mui/icons-material/Flight";
 import _ from "lodash";
 import axios from "axios";
 
-// const and action
-// import { appAction } from "core/redux/actions/appAction";
 import Vimeo from "@u-wave/react-vimeo";
 import "./styles/styles.scss";
 import Loading from "share/loading";
@@ -23,36 +21,6 @@ import {
 import FormatNumberic from "share/formatNumber";
 
 import Quiz from "./components/quiz";
-const drawerWidth = 240;
-
-// const DrawerHeader = styled("div")(({ theme }) => ({
-//   display: "flex",
-//   alignItems: "center",
-//   justifyContent: "flex-end",
-//   padding: theme.spacing(0, 1),
-
-//   // necessary for content to be below app bar
-//   ...theme.mixins.toolbar,
-// }));
-
-// const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
-//   ({ theme, open }) => ({
-//     flexGrow: 1,
-//     padding: theme.spacing(3),
-//     transition: theme.transitions.create("margin", {
-//       easing: theme.transitions.easing.sharp,
-//       duration: theme.transitions.duration.leavingScreen,
-//     }),
-//     marginLeft: `-${drawerWidth}px`,
-//     ...(open && {
-//       transition: theme.transitions.create("margin", {
-//         easing: theme.transitions.easing.easeOut,
-//         duration: theme.transitions.duration.enteringScreen,
-//       }),
-//       marginLeft: 0,
-//     }),
-//   })
-// );
 
 const VideoStreaming = (props) => {
   // useSiteTitle("video_streaming");

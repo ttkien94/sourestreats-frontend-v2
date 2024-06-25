@@ -1,9 +1,9 @@
 // import media file
 import khoa01 from "assets/images/source/course-offline/khoa01.jpg";
 import khoa02 from "assets/images/source/course-offline/khoa02.jpg";
-import khoa03 from "assets/images/source/course-offline/khoa03.jpg";
-import khoa04 from "assets/images/source/course-offline/khoa04.jpg";
-import khoa07 from "assets/images/source/course-offline/khoa07.jpg";
+// import khoa03 from "assets/images/source/course-offline/khoa03.jpg";
+// import khoa04 from "assets/images/source/course-offline/khoa04.jpg";
+// import khoa07 from "assets/images/source/course-offline/khoa07.jpg";
 import tr from "assets/images/source/course-offline/tr.jpg";
 import sm from "assets/images/source/course-offline/sm.jpg";
 import um from "assets/images/source/course-offline/um.jpg";
@@ -14,7 +14,7 @@ import gol from "assets/images/source/course-offline/gol.jpg";
 // import khoa06 from "assets/images/source/course-offline/khoa06.jpg";
 // import khoa08 from "assets/images/source/course-offline/khoa08.jpg";
 // import khoa09 from "assets/images/source/course-offline/khoa09.jpg";
-import khoa10 from "assets/images/source/course-offline/khoa10.jpg";
+// import khoa10 from "assets/images/source/course-offline/khoa10.jpg";
 import Combo from "assets/images/source/course-offline/Combo.jpg";
 
 import LTC from "assets/images/source/course-offline/LTC.jpg";

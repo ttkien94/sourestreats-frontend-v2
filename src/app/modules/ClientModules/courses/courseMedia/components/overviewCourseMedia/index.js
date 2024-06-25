@@ -1,24 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import "./styles.scss";
 import MovieFilterIcon from "@mui/icons-material/MovieFilter";
 import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
 import SimCardDownloadIcon from "@mui/icons-material/SimCardDownload";
 import HelpCenterIcon from "@mui/icons-material/HelpCenter";
-import CardMembershipIcon from "@mui/icons-material/CardMembership";
 import AccessAlarmIcon from "@mui/icons-material/AccessAlarm";
 import WatchLaterIcon from "@mui/icons-material/WatchLater";
-import { Box, Button, Modal } from "@mui/material";
-import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import FormatNumberic from "share/formatNumber";
+import { Button } from "@mui/material";
 
 function OverviewCourseMedia(props) {
-  const { userInfo } = useSelector((state) => state.auth);
-
   const { title, userData } = props;
   const navigate = useNavigate();
-
-  const checkPermission = userInfo?.courseMedia?.find((e) => e === "tower1");
   const { handleRegister } = props;
 
   return (

@@ -52,10 +52,9 @@ export const appAction = () => {
 
     try {
       const userData = await fetchUserData(); // Corrected: call fetchUserData()
-      console.log("userData", userData);
       dispatch({
         type: LOGIN_SUCCESS,
-        payload: userData[0], // return info user
+        payload: userData, // return info user
       });
 
       dispatch({
