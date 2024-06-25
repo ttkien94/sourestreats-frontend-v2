@@ -135,9 +135,6 @@ function SidebarHeader({ onToggle, menuContent }) {
             <Link to="/admin" className="logOut">
               <p className="titleUrl">Quản trị</p>
             </Link>
-            {/* <div className="logOut">
-              <p className="titleUrl">Quản trị</p>
-            </div> */}
           </>
         )}
 

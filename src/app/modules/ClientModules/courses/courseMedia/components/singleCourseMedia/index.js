@@ -7,8 +7,6 @@ import timeLine from "assets/images/source/course-media/single-course-media-time
 import starRate from "assets/images/source/course-media/starRate.png";
 import ContentListCourseMedia from "../contentList";
 import ContentLessonCourseMedia from "../contentLesson";
-import ContentReviewSkill from "../contentReviewSkill";
-import { useLocation } from "react-router-dom";
 function SingleCourseMedia(props) {
   const { name, numberSudentRate, description } = props;
   return (

@@ -1,9 +1,6 @@
 import axios from "axios";
 import _ from "lodash";
-import {
-  getCourseOnlineAction,
-  getDetailCourseOnlineAction,
-} from "core/redux/actions/courseOnlineAction";
+
 import { getDetailScheduleCourseOnlineAction } from "core/redux/actions/scheduleCourseOnlineAction";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -19,7 +16,6 @@ function Tower1() {
   const [userData, setUserData] = useState({});
   const { t } = useTranslation("common");
   useSiteTitle(t("course_media"));
-  // const { detailCourseOnline } = useSelector((state) => state.courseOnline);
   const [detailCourseOnline, setDetailCourseOnline] = useState({});
   const { detailScheduleCourseOnline } = useSelector(
     (state) => state.scheduleCourseOnline
@@ -37,7 +33,6 @@ function Tower1() {
   }, []);
   useEffect(() => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    console.log("detailScheduleCourseOnline", detailScheduleCourseOnline);
     if (userInfo) {
       if (detailScheduleCourseOnline?.studentList?.length > 0) {
         detailScheduleCourseOnline.studentList.forEach((ele) => {

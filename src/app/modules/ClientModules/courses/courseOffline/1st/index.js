@@ -17,7 +17,7 @@ import benefit from "assets/images/source/course-offline/1st/bg-benefit.png";
 import bgPrice from "assets/images/source/course-offline/1st/bg-price.jpg";
 import aoMockup from "assets/images/source/course-offline/1st/ao-mockup.png";
 
-import logo from "assets/images/source/course-offline/1st/logo.png";
+// import logo from "assets/images/source/course-offline/1st/logo.png";
 import qrZalo from "assets/images/course/course-offline/khoi-dau-thinh-vuong/qr-zalo.jpg";
 import qrACB from "assets/images/course/course-offline/khoi-dau-thinh-vuong/qr-acb.jpg";
 // personal img
@@ -517,7 +517,6 @@ function TheFirstStep() {
       left: "50%",
       transform: "translate(-50%, -50%)",
       borderRadius: "40px",
-      overflow: "auto",
       boxShadow: 24,
       position: "absolute",
       overflow: "auto",

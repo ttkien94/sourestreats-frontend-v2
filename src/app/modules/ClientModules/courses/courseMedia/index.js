@@ -91,7 +91,6 @@ function CourseMedia() {
       saveMoney: 12.99,
     },
   ];
-  const handleFilter = () => {};
   const handleSearch = (text) => {};
   const renderCourse = (item, type) => {
     return (
