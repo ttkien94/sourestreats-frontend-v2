@@ -10,6 +10,7 @@ import Loading from "share/loading";
 import { KEY_TOKEN } from "app/const/App";
 import CallIcon from "assets/images/icon-call-nh.png";
 import LogoZalo from "assets/images/logo-zalo.png";
+import LogoMessenger from "assets/images/logo-messenger.png";
 import "./styles/styles.scss";
 
 export const HomeTemplate = ({ Component, ...restProps }) => {
@@ -56,6 +57,22 @@ export const HomeTemplate = ({ Component, ...restProps }) => {
               rel="noreferrer"
             >
               <img src={LogoZalo} alt={LogoZalo} width="50" />
+            </a>
+          </div>
+        </div>
+      </div>
+      <div className="logo-messenger-wrap">
+        <div className="hotline-phone-ring">
+          <div className="hotline-phone-ring-circle"></div>
+          <div className="hotline-phone-ring-circle-fill"></div>
+          <div className="hotline-phone-ring-img-circle">
+            <a
+              href="https://www.messenger.com/t/122097122600017594"
+              className="pps-btn-img"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img src={LogoMessenger} alt={LogoMessenger} width="50" />
             </a>
           </div>
         </div>
