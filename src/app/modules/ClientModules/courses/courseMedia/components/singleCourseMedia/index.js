@@ -7,8 +7,12 @@ import timeLine from "assets/images/source/course-media/single-course-media-time
 import starRate from "assets/images/source/course-media/starRate.png";
 import ContentListCourseMedia from "../contentList";
 import ContentLessonCourseMedia from "../contentLesson";
+import { useTranslation } from "react-i18next";
+import useSiteTitle from "core/hooks/useSiteTitle";
 function SingleCourseMedia(props) {
-  const { name, numberSudentRate, description } = props;
+  const { name, numberSudentRate, description, titelePage } = props;
+  // const { t } = useTranslation("common");
+  // useSiteTitle(t("tower1"));
   return (
     <div>
       <div className="container mt-5 mb-5">
@@ -49,9 +53,6 @@ function SingleCourseMedia(props) {
             <div className="row mt-5">
               <img src={timeLine} alt="img_singlecourse" width="100%" />
             </div>
-            {/* <div className="row mt-5">
-              <ContentReviewSkill {...props} />
-            </div> */}
           </div>
         </div>
       </div>

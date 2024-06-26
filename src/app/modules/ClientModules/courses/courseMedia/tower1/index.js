@@ -14,8 +14,7 @@ import useSiteTitle from "core/hooks/useSiteTitle";
 
 function Tower1() {
   const [userData, setUserData] = useState({});
-  const { t } = useTranslation("common");
-  useSiteTitle(t("course_media"));
+
   const [detailCourseOnline, setDetailCourseOnline] = useState({});
   const { detailScheduleCourseOnline } = useSelector(
     (state) => state.scheduleCourseOnline
@@ -26,11 +25,16 @@ function Tower1() {
   const dispatch = useDispatch();
   const location = useLocation();
   const [openModal, setOpenModal] = useState(false);
+
+  const { t } = useTranslation("common");
+  useSiteTitle(t("tower1"));
+
   useEffect(() => {
     loadData();
     window.scrollTo(0, 0);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   useEffect(() => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     if (userInfo) {
@@ -87,6 +91,7 @@ function Tower1() {
         data: userInfo ? userData : detailCourseOnline,
         pharseIndex: pharseIndex,
         videoIndex: videoIndex,
+        siteTitle: "tower1",
       },
     });
   };

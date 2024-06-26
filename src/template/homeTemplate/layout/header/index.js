@@ -94,8 +94,7 @@ function LPEHeader() {
   const logOut = () => {
     dispatch(logOutAction(history));
   };
-  // console.log("userInfo;", userInfo, isEmpty(userInfo));
-  // console.log("token?.length:", token?.length);
+
   const PopOverContent = () => {
     return (
       <div className="popOver">

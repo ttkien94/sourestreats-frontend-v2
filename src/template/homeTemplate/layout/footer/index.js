@@ -12,7 +12,7 @@ function LPEFooter() {
 
   return (
     <div>
-      <footer className="wrapperFooter ">
+      <footer className="wrapperFooter pb-5">
         <section className="wrapperInfo">
           <div className="container mb-3">
             <div className="row mt-3">

@@ -1,6 +1,4 @@
-import { handleRenderGroupSeparator } from "flatlist-react/lib/___subComponents/uiFunctions";
 import React, { useEffect, useState } from "react";
-import fireworksGIF from "assets/images/source/course-media/firework.gif"; // Import the GIF file
 function Quiz(props) {
   const [step, setStep] = useState(0);
   const [quizs, setQuizs] = useState([]);
@@ -17,7 +15,7 @@ function Quiz(props) {
 
   const handleReset = () => {
     console.log("handleReset", props.video, props.pharse);
-    setStep(1);
+    setStep(0);
     setQuizs(props.video.questionList);
     setQuestion(props.video.questionList[0]);
     setQuestionIndex(0);
@@ -123,26 +121,28 @@ function Quiz(props) {
   const renderResult = () => {
     return (
       <div>
-        <div className="title-h2">
-          Chúc mừng bạn đã hoàn thành {count + 1}/{quizs?.length}
+        <div
+          className="title-h2 text-center mb-3"
+          style={{ color: "rgb(0, 171, 85)" }}
+        >
+          Chúc mừng bạn đã đúng {count + 1}/{quizs?.length} câu
         </div>
         {quizs?.length > 0 &&
           quizs.map((items, index) => {
             return (
               <div className="mb-5" key={items._id}>
-                <div className="d-flex justify-content-start gap-md-3">
-                  <h5
-                    style={{
-                      color: "#60d600",
-                      textAlign: "right",
-                    }}
-                    className="fs-normal lh-base"
-                  >
-                    {index + 1} /
-                  </h5>
-                  <h5 className="fs-normal lh-base text-white">
+                <div className=" d-flex align-items-start">
+                  <p className="text-white title-h2">
+                    <span
+                      style={{
+                        color: "#60d600",
+                      }}
+                      className="title-h2 mr-3"
+                    >
+                      {index + 1}/
+                    </span>
                     {items.question}
-                  </h5>
+                  </p>
                 </div>
                 {items.options?.length > 0 &&
                   items.options.map((item2, index2) => {

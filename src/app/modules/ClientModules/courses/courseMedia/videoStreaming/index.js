@@ -38,7 +38,7 @@ const VideoStreaming = (props) => {
   const [video, setVideo] = useState({});
   const [pharse, setPharse] = useState({});
   const [openModal, setOpenModal] = useState(false);
-  const [answerQuestion, setAnswerQuestion] = useState(true);
+  const [answerQuestion, setAnswerQuestion] = useState(false);
   const token = localStorage.getItem("accessToken");
 
   useEffect(() => {
@@ -73,8 +73,19 @@ const VideoStreaming = (props) => {
 
   const handleDataInput = (data) => {
     setData(data);
-    setPharse(data.lesson[0]);
-    setVideo(data.lesson[0].videoList[0]);
+
+    // handle set Video & pharse base on selecte at courseOnline
+    // if not, set video is first at array[0]
+    if (location?.state) {
+      let pharseIndex = location?.state.pharseIndex;
+      let videoIndex = location?.state.videoIndex;
+      setPharse(data.lesson[pharseIndex]);
+      setVideo(data.lesson[pharseIndex].videoList[videoIndex]);
+    } else {
+      setPharse(data.lesson[0]);
+      setVideo(data.lesson[0].videoList[0]);
+    }
+
     // if (!answerQuestion) {
     //   setVideo(data.lesson[0].videoList[0]);
     // }
@@ -193,7 +204,7 @@ const VideoStreaming = (props) => {
             (videoItem.answerList && " isLearned")
           }
           onClick={() => {
-            handleVideo(videoItem, videoItem);
+            handleVideo(videoItem);
           }}
         >
           <div className="d-flex " style={{}}>

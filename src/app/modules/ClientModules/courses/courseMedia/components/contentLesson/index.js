@@ -2,6 +2,7 @@ import React from "react";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import playButton from "assets/images/source/course-media/playButton.png";
+import PlayCircleIcon from "@mui/icons-material/PlayCircle";
 import Film from "assets/images/source/course-media/film.png";
 import FormatNumberic from "share/formatNumber";
 import FlightTakeoffIcon from "@mui/icons-material/FlightTakeoff";
@@ -134,12 +135,13 @@ function ContentLessonCourseMedia(props) {
                     <div className="d-flex  mr-4">
                       {!!hours && hours + "h "} {!!minutes && minutes + "m "}
                       {!!second && +second + "s"}
-                      <img
-                        src={playButton}
-                        alt={playButton}
+                      <PlayCircleIcon
                         width={20}
                         height={20}
-                        className="ml-3"
+                        className="ml-3 pointer"
+                        sx={{
+                          color: item2.answerList ? "rgb(0, 171, 85)" : "blue",
+                        }}
                         onClick={() => {
                           props?.handleRedirect(index, idx2);
                         }}
