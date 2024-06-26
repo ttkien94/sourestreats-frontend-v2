@@ -239,7 +239,7 @@ function TheRestart() {
               <div className="headline-h2">
                 Thời gian{" "}
                 <span className="headline-h2 d-none  d-sm-inline">:</span>{" "}
-                <span className="headline-h2 ">8:00 - 18:00</span>
+                <span className="headline-h2 ">8:00 - 19:00</span>
               </div>
             </div>
           </div>
@@ -759,16 +759,18 @@ function TheRestart() {
     return (
       <div className="tfs-fixed-bottom">
         <div className="container potision-relative">
-          <img src={coachVas01} alt="Coach Vas" />
-          <Button
-            className=" tfs-btn-register animate-bounce"
-            onClick={() => {
-              executeScroll();
-            }}
-          >
-            Đăng ký
-          </Button>
-          <div className="mt-4  tfs-fixed-bottom-content">
+          <div className="img-register">
+            <img src={coachVas01} alt="Coach Vas" />
+            <Button
+              className=" tfs-btn-register animate-bounce"
+              onClick={() => {
+                executeScroll();
+              }}
+            >
+              Đăng ký
+            </Button>
+          </div>
+          <div className="mt-3  tfs-fixed-bottom-content">
             <p className="title-h2"> GENERAL: 399.000đ </p>
             <span className="d-none d-sm-block"> &nbsp;-&nbsp;</span>
             <span className="title-h2"> Mua 1 Tặng 1</span>

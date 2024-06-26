@@ -36,11 +36,7 @@ function ScrollTop(props) {
 function ScrollTopButton(props) {
   return (
     <ScrollTop {...props}>
-      <Fab
-        size="medium"
-        aria-label="scroll back to top"
-        className="buttonColor"
-      >
+      <Fab size="small" aria-label="scroll back to top" className="buttonColor">
         <i className="fal fa-chevron-up"></i>
       </Fab>
     </ScrollTop>

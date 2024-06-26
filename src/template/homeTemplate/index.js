@@ -25,6 +25,7 @@ export const HomeTemplate = ({ Component, ...restProps }) => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   const renderBody = () => {
     return (
       <div>

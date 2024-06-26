@@ -8,9 +8,7 @@ function DependentField(props) {
   const { values } = useFormikContext();
   // const [field, meta] = useField(props);
   const [data, setData] = useState(values?.option || []);
-  // console.log("data", data);
-  // console.log("values.option", values.option);
-  // console.log("touched", touched, field);
+
   useEffect(() => {
     //   // set the value of textC, based on textA and textB
     //   // console.log("values.option DependentField", values.option);
